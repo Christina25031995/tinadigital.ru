@@ -1080,7 +1080,20 @@
       group.add(faceGroup);
 
       var faceTiles = TILES_BY_FACE[faceName];
-      var layout = resolveFaceLayout(BASE_LAYOUT[faceName], faceTiles);
+      /* resolveFaceLayout's adaptive nudging (narrow/wide driving their
+         neighbors) hardcodes the FRONT face's own topology — it assumes
+         narrow sits left of wide/accent and wide sits above accent+pair.
+         The other five faces intentionally reuse the same eight container
+         sizes in a DIFFERENT arrangement (see LAYOUT_C..G above), so those
+         assumptions point at the wrong neighbors there and corrupt the
+         geometry once real media with a real aspect ratio is assigned
+         (it was visibly turning tiles into near-squares). Only the front
+         face — the one this function was built for — gets adaptive
+         resizing; every other face renders its BASE_LAYOUT exactly as
+         authored, container-for-container. */
+      var layout = faceName === 'front'
+        ? resolveFaceLayout(BASE_LAYOUT[faceName], faceTiles)
+        : BASE_LAYOUT[faceName].map(function(c){ return { x: c.x, y: c.y, w: c.w, h: c.h, role: c.role }; });
 
       layout.forEach(function(slot, i){
         var tileData = faceTiles[i];
