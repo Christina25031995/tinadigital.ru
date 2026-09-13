@@ -674,10 +674,21 @@
   }
 
   /* ==========================================================
-     GEOMETRY — frozen. This is the sculptural layout from the
-     approved version: one 16:9 anchor, a wide panorama, a tall
-     narrow crop, a structural accent cut-in and four small detail
-     tiles per face, in two mirrored templates so faces differ.
+     GEOMETRY — the FRONT face (LAYOUT_A) is the approved master
+     reference: one 16:9 anchor, a wide panorama, a tall narrow
+     crop, a structural accent cut-in and four small detail tiles.
+     LAYOUT_A is frozen — do not touch its numbers.
+
+     Every other face (LAYOUT_C..G) reuses that exact same tile
+     vocabulary — one anchor, one narrow column, one wide panorama,
+     one accent, four details, at matching sizes/aspect families —
+     but each is its own independently-solved tiling of the square,
+     not a mirror or rotation of LAYOUT_A (verified: no two of the
+     six layouts below are related by a horizontal flip, vertical
+     flip, or 180° rotation). So every face reads as belonging to
+     the same architectural system while none repeats another's
+     composition when the cube turns.
+
      Changing media NEVER requires touching anything in this block.
   ========================================================== */
   var LAYOUT_A = [
@@ -690,17 +701,71 @@
     { x: 0.50, y: 0.6279, w: 0.50, h: 0.1861, role: 'detail'  },
     { x: 0.50, y: 0.8140, w: 0.50, h: 0.1860, role: 'detail'  }
   ];
-  var LAYOUT_B = [
-    { x: 0.24, y: 0,      w: 0.76, h: 0.4275, role: 'anchor'  },
-    { x: 0,    y: 0,      w: 0.24, h: 0.2138, role: 'detail'  },
-    { x: 0,    y: 0.2138, w: 0.24, h: 0.2138, role: 'detail'  },
-    { x: 0.78, y: 0.4275, w: 0.22, h: 0.5725, role: 'narrow'  },
-    { x: 0,    y: 0.4275, w: 0.78, h: 0.2004, role: 'wide'    },
-    { x: 0.50, y: 0.6279, w: 0.28, h: 0.3721, role: 'accent'  },
-    { x: 0,    y: 0.6279, w: 0.50, h: 0.1861, role: 'detail'  },
-    { x: 0,    y: 0.8140, w: 0.50, h: 0.1860, role: 'detail'  }
+  /* RIGHT — anchor top-right, narrow bottom-left, wide splitting the
+     middle band, accent+detail pair bottom-right. */
+  var LAYOUT_C = [
+    { x: 0.2350, y: 0.0000, w: 0.7650, h: 0.4000, role: 'anchor' },
+    { x: 0.0000, y: 0.0000, w: 0.2350, h: 0.4000, role: 'detail' },
+    { x: 0.0000, y: 0.4000, w: 0.2350, h: 0.2350, role: 'detail' },
+    { x: 0.0000, y: 0.6350, w: 0.2350, h: 0.3650, role: 'narrow' },
+    { x: 0.2350, y: 0.4000, w: 0.7650, h: 0.2350, role: 'wide' },
+    { x: 0.2350, y: 0.6350, w: 0.3000, h: 0.3650, role: 'accent' },
+    { x: 0.5350, y: 0.6350, w: 0.4650, h: 0.1825, role: 'detail' },
+    { x: 0.5350, y: 0.8175, w: 0.4650, h: 0.1825, role: 'detail' }
   ];
-  var BASE_LAYOUT = { front: LAYOUT_A, right: LAYOUT_B, back: LAYOUT_A, left: LAYOUT_B, top: LAYOUT_A, bottom: LAYOUT_B };
+  /* BACK — anchor top-right (small pair top-left), narrow a full
+     bottom-half column on the right, accent+pair right under the
+     anchor row, wide pushed all the way to the bottom edge. */
+  var LAYOUT_D = [
+    { x: 0.2350, y: 0.0000, w: 0.7650, h: 0.4000, role: 'anchor' },
+    { x: 0.0000, y: 0.0000, w: 0.2350, h: 0.2000, role: 'detail' },
+    { x: 0.0000, y: 0.2000, w: 0.2350, h: 0.2000, role: 'detail' },
+    { x: 0.7600, y: 0.4000, w: 0.2400, h: 0.6000, role: 'narrow' },
+    { x: 0.0000, y: 0.6350, w: 0.7600, h: 0.3650, role: 'wide' },
+    { x: 0.0000, y: 0.4000, w: 0.3000, h: 0.2350, role: 'accent' },
+    { x: 0.3000, y: 0.4000, w: 0.4600, h: 0.1175, role: 'detail' },
+    { x: 0.3000, y: 0.5175, w: 0.4600, h: 0.1175, role: 'detail' }
+  ];
+  /* LEFT — wide runs the full top edge, anchor sits low and centred,
+     narrow is a right-edge column, accent+pairs flank its base. */
+  var LAYOUT_E = [
+    { x: 0.0000, y: 0.2380, w: 0.7600, h: 0.4200, role: 'anchor' },
+    { x: 0.2800, y: 0.6580, w: 0.2400, h: 0.1710, role: 'detail' },
+    { x: 0.2800, y: 0.8290, w: 0.2400, h: 0.1710, role: 'detail' },
+    { x: 0.7600, y: 0.2380, w: 0.2400, h: 0.7620, role: 'narrow' },
+    { x: 0.0000, y: 0.0000, w: 1.0000, h: 0.2380, role: 'wide' },
+    { x: 0.0000, y: 0.6580, w: 0.2800, h: 0.3420, role: 'accent' },
+    { x: 0.5200, y: 0.6580, w: 0.2400, h: 0.1710, role: 'detail' },
+    { x: 0.5200, y: 0.8290, w: 0.2400, h: 0.1710, role: 'detail' }
+  ];
+  /* TOP — a calmer three-column plan: a full-height narrow column,
+     anchor centred in the middle column, wide as a top strip and
+     accent stacked with a detail pair on the right. Slots may stay
+     structural (no media) longer here than on the side faces. */
+  var LAYOUT_F = [
+    { x: 0.2400, y: 0.2000, w: 0.5200, h: 0.3600, role: 'anchor' },
+    { x: 0.2400, y: 0.5600, w: 0.5200, h: 0.2200, role: 'detail' },
+    { x: 0.2400, y: 0.7800, w: 0.5200, h: 0.2200, role: 'detail' },
+    { x: 0.0000, y: 0.0000, w: 0.2400, h: 1.0000, role: 'narrow' },
+    { x: 0.2400, y: 0.0000, w: 0.7600, h: 0.2000, role: 'wide' },
+    { x: 0.7600, y: 0.2000, w: 0.2400, h: 0.3600, role: 'accent' },
+    { x: 0.7600, y: 0.5600, w: 0.2400, h: 0.2200, role: 'detail' },
+    { x: 0.7600, y: 0.7800, w: 0.2400, h: 0.2200, role: 'detail' }
+  ];
+  /* BOTTOM — never faces the camera, but still a real, independent
+     composition: anchor bottom-left, wide along the top edge, narrow
+     top-right, accent+pair filling the middle band. */
+  var LAYOUT_G = [
+    { x: 0.0000, y: 0.6000, w: 0.7650, h: 0.4000, role: 'anchor' },
+    { x: 0.7650, y: 0.4000, w: 0.2350, h: 0.3650, role: 'detail' },
+    { x: 0.7650, y: 0.7650, w: 0.2350, h: 0.2350, role: 'detail' },
+    { x: 0.7650, y: 0.0000, w: 0.2350, h: 0.4000, role: 'narrow' },
+    { x: 0.0000, y: 0.0000, w: 0.7650, h: 0.2350, role: 'wide' },
+    { x: 0.0000, y: 0.2350, w: 0.3000, h: 0.3650, role: 'accent' },
+    { x: 0.3000, y: 0.2350, w: 0.4650, h: 0.1825, role: 'detail' },
+    { x: 0.3000, y: 0.4175, w: 0.4650, h: 0.1825, role: 'detail' }
+  ];
+  var BASE_LAYOUT = { front: LAYOUT_A, right: LAYOUT_C, back: LAYOUT_D, left: LAYOUT_E, top: LAYOUT_F, bottom: LAYOUT_G };
 
   /* ===================== IMAGE-FIRST ADAPTIVE TILES =====================
      A tile's container is not a fixed box the media gets cropped into.
