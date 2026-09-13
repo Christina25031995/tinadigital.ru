@@ -324,11 +324,11 @@
   }
 
   /* ============ MOBILE PROJECT FEED — continuation of the homepage below
-     the cube, NOT a replacement for the Projects sheet. Desktop-hidden. ============ */
+     the cube, NOT a replacement for the Projects sheet. Desktop-hidden.
+     Temporarily disabled on mobile too, per explicit request — it read
+     poorly there; leaving the markup in place (untouched) for later rework
+     rather than deleting it. Mobile home is just the cube hero for now. */
   .cx-feed{ display:none; background:var(--bg); position:relative; z-index:1; }
-  @media (max-width: 768px){
-    .cx-feed{ display:block; padding: 44px 16px calc(100px + env(safe-area-inset-bottom)); }
-  }
   .cx-feed-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:9px; }
   .cx-feed-item{
     display:block; grid-column:span 4; text-decoration:none; color:inherit;
