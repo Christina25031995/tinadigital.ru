@@ -243,32 +243,32 @@
      aligned to its left edge just above it, a deliberate pause between the
      functional UX thinking above and the emotional/visual scenes below. */
   .cap-moto-video{  grid-column: 2 / span 4; grid-row: 102 / span 4; }
-  .obj-moto-video{  grid-column: 2 / span 10; grid-row: 108 / span 38; }
+  .obj-moto-video{  grid-column: 2 / span 6; grid-row: 108 / span 23; }
 
   /* ============ SCENE C — atmosphere/emotion: THREE objects share one field
      (Card4 upper-right, Card5 large lower-left starting partway through
      Card4's own span, Mobile beside Card5 sharing most of its row range).
      Card5[2,7) vs Mobile[8,10): no overlap → free to coexist. Mobile[8,10)
      DOES share col9 with Atmosphere[9,13) → kept sequential in rows. */
-  .cap-atmosphere{  grid-column: 9 / span 4; grid-row: 151 / span 4; }
-  .obj-atmosphere{  grid-column: 9 / span 4; grid-row: 155 / span 30; }
-  .obj-emotions{    grid-column: 2 / span 5; grid-row: 170 / span 38; }
-  .cap-emotions{    grid-column: 2 / span 5; grid-row: 210 / span 4; }
-  .obj-mobile-placeholder{ grid-column: 8 / span 2; grid-row: 188 / span 25; aspect-ratio: 9 / 16; }
-  .cap-mobile{      grid-column: 8 / span 2; grid-row: 213 / span 4; }
+  .cap-atmosphere{  grid-column: 9 / span 4; grid-row: 136 / span 4; }
+  .obj-atmosphere{  grid-column: 9 / span 4; grid-row: 140 / span 30; }
+  .obj-emotions{    grid-column: 2 / span 5; grid-row: 155 / span 38; }
+  .cap-emotions{    grid-column: 2 / span 5; grid-row: 195 / span 4; }
+  .obj-mobile-placeholder{ grid-column: 8 / span 2; grid-row: 173 / span 25; aspect-ratio: 9 / 16; }
+  .cap-mobile{      grid-column: 8 / span 2; grid-row: 198 / span 4; }
 
   /* ============ SCENE D — the full desktop scroll: enters with only a small
      gap after Scene C (still feels nearby), one continuous real recording
      of the finished site (reviews/FAQ/calculator sections pass through it —
      not split out), one of the largest objects on the page */
-  .cap-desktop-scroll{      grid-column: 2 / span 2; grid-row: 223 / span 4; }
-  .cap-desktop-scroll-sub{  grid-column: 9 / span 3; grid-row: 223 / span 4; text-align:right; font-size:12px; color:var(--ink-dim); letter-spacing:.04em; margin:0; }
-  .obj-desktop-scroll{ grid-column: 2 / span 10; grid-row: 227 / span 44; }
+  .cap-desktop-scroll{      grid-column: 2 / span 2; grid-row: 208 / span 4; }
+  .cap-desktop-scroll-sub{  grid-column: 9 / span 3; grid-row: 208 / span 4; text-align:right; font-size:12px; color:var(--ink-dim); letter-spacing:.04em; margin:0; }
+  .obj-desktop-scroll{ grid-column: 2 / span 10; grid-row: 212 / span 44; }
 
   /* ============ CONCLUSION — numbers, not another card ============
      Real verified results only (5.0 / 500+, from the Result slide itself).
      No frames, no cards, no icons — the numbers ARE the visual objects. */
-  .result-conclusion{ grid-column: 1 / span 12; grid-row: 277 / span 22; display:grid; grid-template-columns: repeat(12, 1fr); column-gap: clamp(20px,2vw,24px); align-items:end; }
+  .result-conclusion{ grid-column: 1 / span 12; grid-row: 262 / span 22; display:grid; grid-template-columns: repeat(12, 1fr); column-gap: clamp(20px,2vw,24px); align-items:end; }
   .result-label{ grid-column: 1 / span 2; }
   .result-label .cap{ margin-bottom:14px; }
   .result-label h3{ margin:0; font-size:clamp(1.1rem,2vw,1.6rem); font-weight:700; letter-spacing:-.01em; color:var(--ink); }
@@ -284,7 +284,7 @@
   .result-rating .num{ font-size:clamp(3.5rem,9vw,8rem); }
   .result-trips{ grid-column: 8 / span 4; }
   .result-trips .num{ font-size:clamp(4.2rem,11vw,10rem); }
-  .canvas .live-link{ grid-column: 1 / span 5; grid-row: 305 / span 5; padding:0; align-self:start; }
+  .canvas .live-link{ grid-column: 1 / span 5; grid-row: 290 / span 5; padding:0; align-self:start; }
   @media (max-width: 860px){
     .result-conclusion{ display:flex; flex-direction:column; align-items:flex-start; gap:24px; }
   }
