@@ -752,13 +752,42 @@
     [0,    0],      [0.76, 0],      [0.76, 0.2138], [0.78, 0.4275],
     [0,    0.7996], [0.5,  0.4275], [0,    0.4275], [0,    0.6136]
   ];
+  /* On the approved front face, the two small-detail PAIRS (1+2 and 6+7)
+     both happen to already be merged into one rectangle each by real
+     content (Timofey Arapov's portrait fills 1+2 full-height via
+     fillPair; Liberman/investment-design fills 6+7 the same way) — see
+     resolveFaceLayout below. That merge is what makes front read as six
+     container shapes, never two small near-square tiles sitting side by
+     side unmerged. The other five faces don't run that content-driven
+     merge (resolveFaceLayout is front-only — see the comment at its call
+     site), so left alone their 1+2/6+7 pairs would show their raw
+     un-merged shape: two near-square placeholders that never actually
+     appear on the approved face. mergeStructuralPairs bakes the SAME
+     merge into the geometry itself for those faces, unconditionally —
+     whichever tile of a pair sits higher keeps the pair's full combined
+     height, the other collapses to zero area (skipped when building
+     meshes, exactly like resolveFaceLayout's own fillPair collapse). So
+     every face shows the same six container shapes regardless of
+     whether real content has been assigned yet — still just a
+     structural plate where there's no media, never two squares. */
+  function mergeStructuralPairs(layout){
+    [[1, 2], [6, 7]].forEach(function(pair){
+      var i = pair[0], j = pair[1];
+      var keep = layout[i].y <= layout[j].y ? i : j;
+      var drop = keep === i ? j : i;
+      layout[keep].y = Math.min(layout[i].y, layout[j].y);
+      layout[keep].h = layout[i].h + layout[j].h;
+      layout[drop].h = 0;
+    });
+    return layout;
+  }
   var BASE_LAYOUT = {
     front:  buildLayout(FRONT_POSITIONS),
-    right:  buildLayout(RIGHT_POSITIONS),
-    back:   buildLayout(BACK_POSITIONS),
-    left:   buildLayout(LEFT_POSITIONS),
-    top:    buildLayout(TOP_POSITIONS),
-    bottom: buildLayout(BOTTOM_POSITIONS)
+    right:  mergeStructuralPairs(buildLayout(RIGHT_POSITIONS)),
+    back:   mergeStructuralPairs(buildLayout(BACK_POSITIONS)),
+    left:   mergeStructuralPairs(buildLayout(LEFT_POSITIONS)),
+    top:    mergeStructuralPairs(buildLayout(TOP_POSITIONS)),
+    bottom: mergeStructuralPairs(buildLayout(BOTTOM_POSITIONS))
   };
 
   /* ===================== IMAGE-FIRST ADAPTIVE TILES =====================
