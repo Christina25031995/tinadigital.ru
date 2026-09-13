@@ -987,9 +987,9 @@
 
     var core = new THREE.Mesh(
       new THREE.BoxGeometry(CUBE * 0.94, CUBE * 0.94, CUBE * 0.94),
-      /* mid-gray, not near-black — a dark-on-dark seam reads as pure black
-         against the scene's own black background no matter its opacity */
-      new THREE.MeshStandardMaterial({ color: 0x3a3a3e, roughness: 0.95, transparent: true, opacity: 0.5 })
+      /* mid-gray so it isn't pure black, but genuinely transparent this
+         time — a faint suggestion of structure, not a solid gray block */
+      new THREE.MeshStandardMaterial({ color: 0x3a3a3e, roughness: 0.95, transparent: true, opacity: 0.16 })
     );
     group.add(core);
 
@@ -1068,12 +1068,12 @@
            pushed to `tiles`, so raycasting/hover/click on the front media
            plane above is completely unaffected. */
         var riserDepth = Math.max(0.12, (localZ - coreHalf) - 0.01);
-        /* mid-gray, clearly visible, not colored — matches the core above.
-           Higher opacity than before on purpose: near the black scene
-           background, low opacity just reads as more black, not "lighter". */
+        /* mid-gray, not colored — matches the core above. Per reference,
+           almost transparent: a faint hint of the plate's edge, not a
+           saturated solid block. */
         var riserMat = new THREE.MeshStandardMaterial({
           color: 0x3c3c40, roughness: 0.95, metalness: 0,
-          transparent: true, opacity: 0.55
+          transparent: true, opacity: 0.18
         });
         var riser = new THREE.Mesh(new THREE.BoxGeometry(tw, th, riserDepth), riserMat);
         riser.position.set(localX, localY, coreHalf + riserDepth / 2);
