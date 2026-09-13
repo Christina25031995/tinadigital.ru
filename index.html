@@ -207,23 +207,8 @@
   }
   #cxCanvas.is-hovering-tile{ cursor: pointer; }
 
-  /* plain editorial typography, no card — no background, no border, no
-     radius, no shadow. Category on top in parens, name below, the way a
-     caption reads next to a plate rather than a UI tooltip over it. */
-  .cx-tile-label{
-    position:absolute; z-index:5; top:0; left:0;
-    transform:translate(-50%, -130%);
-    text-align:center;
-    font-size:12px; font-weight:700; letter-spacing:.01em; color:var(--ink);
-    white-space:nowrap;
-    opacity:0; pointer-events:none;
-    transition:opacity .25s var(--ease);
-  }
-  .cx-tile-label.is-visible{ opacity:1; }
-  .cx-tile-label .cx-tile-label-cat{
-    display:block; margin-bottom:3px; font-size:10px; font-weight:600;
-    letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint);
-  }
+  /* on-tile hover label removed per direct request — project names now
+     live only in the side Projects index, not floating over the cube. */
 
   .cx-drag-hint{ display:none; } /* mobile-only — shown in the ≤768px block below */
 
@@ -473,7 +458,6 @@
       <div class="cx-bg-word" aria-hidden="true">Кристина</div>
       <div class="cx-cube-wrap" id="cxCubeWrap">
         <canvas id="cxCanvas" role="img" aria-label="Объёмный коллаж из фрагментов проектов — наведите курсор или кликните фрагмент, чтобы открыть проект"></canvas>
-        <div class="cx-tile-label" id="cxTileLabel" aria-hidden="true"></div>
         <p class="cx-drag-hint" id="cxDragHint" aria-hidden="true">Drag to explore</p>
       </div>
     </div>
