@@ -229,7 +229,7 @@
        showing dead space at the bottom instead of scrolling seamlessly */
     position:absolute; z-index:5; top:50%; right:72px;
     transform:translateY(-50%);
-    height:380px;
+    height:260px;
     width:280px; max-width:320px;
     overflow:hidden;
     -webkit-mask-image: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
@@ -246,11 +246,15 @@
     animation-play-state: paused;
   }
   @keyframes cx-pi-scroll{ from{ transform:translateY(0); } to{ transform:translateY(-50%); } }
+  /* plain, single-line, repeating name — no number and no subtitle, on
+     purpose: either one makes the 07-back-to-01 loop point obvious and
+     breaks the "endless" read the whole point of this scroll is going for */
   .cx-projects-index-row{
-    display:flex; align-items:baseline; gap:10px;
-    padding:14px 2px;
+    display:block;
+    padding:12px 2px;
     text-decoration:none; color:var(--ink);
     font-size:14px; font-weight:600; letter-spacing:-.005em;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     opacity:1;
     transition: opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1);
     outline:none;
@@ -258,12 +262,9 @@
   .cx-projects-index-row:focus-visible{
     outline:1px solid var(--accent); outline-offset:4px; border-radius:2px;
   }
-  .cx-pi-num{ font-size:11px; font-weight:700; color:var(--accent); flex-shrink:0; width:18px; }
-  .cx-pi-cat{ display:block; font-size:11px; font-weight:500; color:var(--ink-dim); margin-top:2px; letter-spacing:.01em; }
   .cx-projects-index-row.is-dimmed{ opacity:.32; }
   .cx-projects-index-row.is-active{ opacity:1; transform:translateX(-5px); }
   .cx-projects-index-row.is-soon{ cursor:default; }
-  .cx-projects-index-row.is-soon .cx-pi-num{ color:var(--ink-faint); }
 
   @media (max-width: 1180px){ .cx-projects-index{ display:none; } }
 
@@ -657,14 +658,18 @@
   var projectsIndexTrack = document.getElementById('cxProjectsIndexTrack');
   if (projectsIndexTrack){
     var indexHTML = PROJECTS_INDEX.map(function(p){
-      var num = String(PROJECTS_INDEX.indexOf(p) + 1).padStart(2, '0');
       var soon = !p.href;
+      /* no number, no category line, on purpose — a plain repeating name
+         per row is what actually reads as an endless list; numbering or a
+         subtitle makes the loop point (01 following 07) obvious. The
+         category still exists in PROJECTS_INDEX for anything else that
+         wants it (e.g. an aria-label), just not shown here. */
       return '<a class="cx-projects-index-row' + (soon ? ' is-soon' : '') + '"' +
         ' data-project-group="' + p.group + '"' +
         (soon ? ' data-soon="1"' : '') +
-        ' href="' + (p.href || '#') + '">' +
-        '<span class="cx-pi-num">' + num + '</span>' +
-        '<span>' + p.name + '<span class="cx-pi-cat">' + p.cat + '</span></span>' +
+        ' href="' + (p.href || '#') + '"' +
+        ' aria-label="' + p.name + (p.cat ? ' — ' + p.cat : '') + '">' +
+        p.name +
         '</a>';
     }).join('');
     /* duplicated once so translateY(-50%) loops with no visible seam */
