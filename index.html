@@ -224,11 +224,16 @@
      real project across every face. Scroll pauses on hover/focus so a
      visitor can actually engage with a row instead of chasing it. */
   .cx-projects-index{
-    position:absolute; z-index:5; top:0; bottom:0; right:72px;
+    /* height must stay <= one un-duplicated copy of the track (7 rows) or
+       the translateY(-50%) loop runs out of content before it resets,
+       showing dead space at the bottom instead of scrolling seamlessly */
+    position:absolute; z-index:5; top:50%; right:72px;
+    transform:translateY(-50%);
+    height:380px;
     width:280px; max-width:320px;
     overflow:hidden;
-    -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
-    mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
     pointer-events:auto;
   }
   .cx-projects-index-track{
@@ -965,15 +970,19 @@
 
     var CUBE = 14;
     var half = CUBE / 2;
-    /* wider than either earlier pass — the reference shows a visibly bigger
-       gap between plates than a thin seam. */
-    var GAP = 0.9;
+    /* a fixed GAP in units was cropping small "detail"/"narrow" tiles hard
+       (0.9 units off a ~3.1-unit-wide tile is ~29% of it gone, fitCover
+       zooming in to compensate) — thin hairline seam instead, ~1-5% of any
+       tile's width depending on role, matching the reference's grout-line
+       gap rather than a visible dark gap. Also: against the fully black
+       scene background, a "more transparent" dark seam still reads as pure
+       black regardless of opacity — the fix for that is a THINNER seam,
+       not a more transparent material. */
+    var GAP = 0.15;
     var coreHalf = (CUBE * 0.94) / 2;
 
     var core = new THREE.Mesh(
       new THREE.BoxGeometry(CUBE * 0.94, CUBE * 0.94, CUBE * 0.94),
-      /* more transparent structural frame — barely-there, not a solid dark
-         box, per reference */
       new THREE.MeshStandardMaterial({ color: 0x0e0e10, roughness: 0.95, transparent: true, opacity: 0.12 })
     );
     group.add(core);
