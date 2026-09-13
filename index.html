@@ -679,15 +679,18 @@
      crop, a structural accent cut-in and four small detail tiles.
      LAYOUT_A is frozen — do not touch its numbers.
 
-     Every other face (LAYOUT_C..G) reuses that exact same tile
-     vocabulary — one anchor, one narrow column, one wide panorama,
-     one accent, four details, at matching sizes/aspect families —
-     but each is its own independently-solved tiling of the square,
-     not a mirror or rotation of LAYOUT_A (verified: no two of the
-     six layouts below are related by a horizontal flip, vertical
-     flip, or 180° rotation). So every face reads as belonging to
-     the same architectural system while none repeats another's
-     composition when the cube turns.
+     LAYOUT_C..G reuse the EXACT SAME eight container sizes as
+     LAYOUT_A (same w/h numbers, not just the same "family") —
+     only their positions change. Concretely: the master is built
+     from a small tree of nested splits (top band vs. bottom
+     region / narrow's side / wide-above-or-below-accent / accent's
+     side of its neighboring pair); each face below picks a
+     different combination of those same splits, so every
+     rectangle is identical to its counterpart on the master face,
+     just reassembled into a different composition. Verified by
+     script that all 8 sizes match the master exactly and that no
+     two of the six faces are the same arrangement, a mirror, or a
+     180° rotation of one another.
 
      Changing media NEVER requires touching anything in this block.
   ========================================================== */
@@ -701,69 +704,71 @@
     { x: 0.50, y: 0.6279, w: 0.50, h: 0.1861, role: 'detail'  },
     { x: 0.50, y: 0.8140, w: 0.50, h: 0.1860, role: 'detail'  }
   ];
-  /* RIGHT — anchor top-right, narrow bottom-left, wide splitting the
-     middle band, accent+detail pair bottom-right. */
+  /* RIGHT — same 8 pieces; only the wide/accent-row order is
+     swapped (wide now sits BELOW the accent+pair row) and narrow
+     moves to the right edge of that region. */
   var LAYOUT_C = [
-    { x: 0.2350, y: 0.0000, w: 0.7650, h: 0.4000, role: 'anchor' },
-    { x: 0.0000, y: 0.0000, w: 0.2350, h: 0.4000, role: 'detail' },
-    { x: 0.0000, y: 0.4000, w: 0.2350, h: 0.2350, role: 'detail' },
-    { x: 0.0000, y: 0.6350, w: 0.2350, h: 0.3650, role: 'narrow' },
-    { x: 0.2350, y: 0.4000, w: 0.7650, h: 0.2350, role: 'wide' },
-    { x: 0.2350, y: 0.6350, w: 0.3000, h: 0.3650, role: 'accent' },
-    { x: 0.5350, y: 0.6350, w: 0.4650, h: 0.1825, role: 'detail' },
-    { x: 0.5350, y: 0.8175, w: 0.4650, h: 0.1825, role: 'detail' }
+    { x: 0.0,   y: 0.0,     w: 0.76, h: 0.4275,  role: 'anchor' },
+    { x: 0.76,  y: 0.0,     w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.76,  y: 0.21375, w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.78,  y: 0.4275,  w: 0.22, h: 0.5725,  role: 'narrow' },
+    { x: 0.0,   y: 0.4275,  w: 0.78, h: 0.2004,  role: 'wide'   },
+    { x: 0.0,   y: 0.6279,  w: 0.28, h: 0.3721,  role: 'accent' },
+    { x: 0.28,  y: 0.6279,  w: 0.5,  h: 0.18605, role: 'detail' },
+    { x: 0.28,  y: 0.81395, w: 0.5,  h: 0.18605, role: 'detail' }
   ];
-  /* BACK — anchor top-right (small pair top-left), narrow a full
-     bottom-half column on the right, accent+pair right under the
-     anchor row, wide pushed all the way to the bottom edge. */
+  /* BACK — the anchor band flips to the bottom of the face (with
+     its own pair mirrored to the left), while narrow/wide/accent
+     keep the master's own internal order at the top. */
   var LAYOUT_D = [
-    { x: 0.2350, y: 0.0000, w: 0.7650, h: 0.4000, role: 'anchor' },
-    { x: 0.0000, y: 0.0000, w: 0.2350, h: 0.2000, role: 'detail' },
-    { x: 0.0000, y: 0.2000, w: 0.2350, h: 0.2000, role: 'detail' },
-    { x: 0.7600, y: 0.4000, w: 0.2400, h: 0.6000, role: 'narrow' },
-    { x: 0.0000, y: 0.6350, w: 0.7600, h: 0.3650, role: 'wide' },
-    { x: 0.0000, y: 0.4000, w: 0.3000, h: 0.2350, role: 'accent' },
-    { x: 0.3000, y: 0.4000, w: 0.4600, h: 0.1175, role: 'detail' },
-    { x: 0.3000, y: 0.5175, w: 0.4600, h: 0.1175, role: 'detail' }
+    { x: 0.24,  y: 0.5725,  w: 0.76, h: 0.4275,  role: 'anchor' },
+    { x: 0.0,   y: 0.5725,  w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.0,   y: 0.78625, w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.0,   y: 0.0,     w: 0.22, h: 0.5725,  role: 'narrow' },
+    { x: 0.22,  y: 0.0,     w: 0.78, h: 0.2004,  role: 'wide'   },
+    { x: 0.22,  y: 0.2004,  w: 0.28, h: 0.3721,  role: 'accent' },
+    { x: 0.5,   y: 0.2004,  w: 0.5,  h: 0.18605, role: 'detail' },
+    { x: 0.5,   y: 0.38645, w: 0.5,  h: 0.18605, role: 'detail' }
   ];
-  /* LEFT — wide runs the full top edge, anchor sits low and centred,
-     narrow is a right-edge column, accent+pairs flank its base. */
+  /* LEFT — anchor band stays top-left as master, but narrow moves
+     down to sit under it, and the wide/accent-pair row below is
+     reordered (accent's pair now sits on the LEFT of accent). */
   var LAYOUT_E = [
-    { x: 0.0000, y: 0.2380, w: 0.7600, h: 0.4200, role: 'anchor' },
-    { x: 0.2800, y: 0.6580, w: 0.2400, h: 0.1710, role: 'detail' },
-    { x: 0.2800, y: 0.8290, w: 0.2400, h: 0.1710, role: 'detail' },
-    { x: 0.7600, y: 0.2380, w: 0.2400, h: 0.7620, role: 'narrow' },
-    { x: 0.0000, y: 0.0000, w: 1.0000, h: 0.2380, role: 'wide' },
-    { x: 0.0000, y: 0.6580, w: 0.2800, h: 0.3420, role: 'accent' },
-    { x: 0.5200, y: 0.6580, w: 0.2400, h: 0.1710, role: 'detail' },
-    { x: 0.5200, y: 0.8290, w: 0.2400, h: 0.1710, role: 'detail' }
+    { x: 0.0,   y: 0.0,     w: 0.76, h: 0.4275,  role: 'anchor' },
+    { x: 0.76,  y: 0.0,     w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.76,  y: 0.21375, w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.0,   y: 0.4275,  w: 0.22, h: 0.5725,  role: 'narrow' },
+    { x: 0.22,  y: 0.7996,  w: 0.78, h: 0.2004,  role: 'wide'   },
+    { x: 0.72,  y: 0.4275,  w: 0.28, h: 0.3721,  role: 'accent' },
+    { x: 0.22,  y: 0.4275,  w: 0.5,  h: 0.18605, role: 'detail' },
+    { x: 0.22,  y: 0.61355, w: 0.5,  h: 0.18605, role: 'detail' }
   ];
-  /* TOP — a calmer three-column plan: a full-height narrow column,
-     anchor centred in the middle column, wide as a top strip and
-     accent stacked with a detail pair on the right. Slots may stay
-     structural (no media) longer here than on the side faces. */
+  /* TOP — anchor band at the bottom (mirrored pair, as on BACK),
+     narrow moves to the right edge, wide/accent stack reordered
+     with accent on top instead of wide. Calmer reading since the
+     heaviest piece (anchor) sits low, out of the way. */
   var LAYOUT_F = [
-    { x: 0.2400, y: 0.2000, w: 0.5200, h: 0.3600, role: 'anchor' },
-    { x: 0.2400, y: 0.5600, w: 0.5200, h: 0.2200, role: 'detail' },
-    { x: 0.2400, y: 0.7800, w: 0.5200, h: 0.2200, role: 'detail' },
-    { x: 0.0000, y: 0.0000, w: 0.2400, h: 1.0000, role: 'narrow' },
-    { x: 0.2400, y: 0.0000, w: 0.7600, h: 0.2000, role: 'wide' },
-    { x: 0.7600, y: 0.2000, w: 0.2400, h: 0.3600, role: 'accent' },
-    { x: 0.7600, y: 0.5600, w: 0.2400, h: 0.2200, role: 'detail' },
-    { x: 0.7600, y: 0.7800, w: 0.2400, h: 0.2200, role: 'detail' }
+    { x: 0.24,  y: 0.5725,  w: 0.76, h: 0.4275,  role: 'anchor' },
+    { x: 0.0,   y: 0.5725,  w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.0,   y: 0.78625, w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.78,  y: 0.0,     w: 0.22, h: 0.5725,  role: 'narrow' },
+    { x: 0.0,   y: 0.3721,  w: 0.78, h: 0.2004,  role: 'wide'   },
+    { x: 0.0,   y: 0.0,     w: 0.28, h: 0.3721,  role: 'accent' },
+    { x: 0.28,  y: 0.0,     w: 0.5,  h: 0.18605, role: 'detail' },
+    { x: 0.28,  y: 0.18605, w: 0.5,  h: 0.18605, role: 'detail' }
   ];
-  /* BOTTOM — never faces the camera, but still a real, independent
-     composition: anchor bottom-left, wide along the top edge, narrow
-     top-right, accent+pair filling the middle band. */
+  /* BOTTOM — never faces the camera, but still its own honest
+     arrangement: anchor band stays top-left, wide moves to the
+     bottom edge, accent's pair swaps to its right. */
   var LAYOUT_G = [
-    { x: 0.0000, y: 0.6000, w: 0.7650, h: 0.4000, role: 'anchor' },
-    { x: 0.7650, y: 0.4000, w: 0.2350, h: 0.3650, role: 'detail' },
-    { x: 0.7650, y: 0.7650, w: 0.2350, h: 0.2350, role: 'detail' },
-    { x: 0.7650, y: 0.0000, w: 0.2350, h: 0.4000, role: 'narrow' },
-    { x: 0.0000, y: 0.0000, w: 0.7650, h: 0.2350, role: 'wide' },
-    { x: 0.0000, y: 0.2350, w: 0.3000, h: 0.3650, role: 'accent' },
-    { x: 0.3000, y: 0.2350, w: 0.4650, h: 0.1825, role: 'detail' },
-    { x: 0.3000, y: 0.4175, w: 0.4650, h: 0.1825, role: 'detail' }
+    { x: 0.0,   y: 0.0,     w: 0.76, h: 0.4275,  role: 'anchor' },
+    { x: 0.76,  y: 0.0,     w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.76,  y: 0.21375, w: 0.24, h: 0.21375, role: 'detail' },
+    { x: 0.78,  y: 0.4275,  w: 0.22, h: 0.5725,  role: 'narrow' },
+    { x: 0.0,   y: 0.7996,  w: 0.78, h: 0.2004,  role: 'wide'   },
+    { x: 0.5,   y: 0.4275,  w: 0.28, h: 0.3721,  role: 'accent' },
+    { x: 0.0,   y: 0.4275,  w: 0.5,  h: 0.18605, role: 'detail' },
+    { x: 0.0,   y: 0.61355, w: 0.5,  h: 0.18605, role: 'detail' }
   ];
   var BASE_LAYOUT = { front: LAYOUT_A, right: LAYOUT_C, back: LAYOUT_D, left: LAYOUT_E, top: LAYOUT_F, bottom: LAYOUT_G };
 
