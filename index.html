@@ -299,11 +299,18 @@
       width:100vw; height:100%; max-width:none; transform:none;
     }
 
-    /* real touch behaviour: vertical drags scroll the page natively
-       (touch-action:pan-y hands that axis to the browser), horizontal
-       drags still reach JS as pointer events and rotate the cube —
-       no custom gesture-threshold code needed for this split. */
-    #cxCanvas{ touch-action: pan-y; }
+    /* touch-action stays 'none' here (same as the base rule above) —
+       the mobile hero fills the full viewport height with nothing to
+       scroll to underneath it (.cx-feed is display:none), so there was
+       never really a vertical-scroll-through case to hand off to the
+       browser. The previous 'pan-y' override left the horizontal axis
+       under-specified, and on a canvas spanning the full screen width
+       that let a horizontal drag starting near either edge get
+       hijacked by the OS/browser's own edge-swipe-back(-forward)
+       gesture mid-rotation — reported as the cube being "unusable" on
+       phones and occasionally closing the page. touch-action:none plus
+       the explicit preventDefault() calls below give the drag handler
+       full, uncontested ownership of the gesture instead. */
 
     .cx-drag-hint{
       display:block; position:absolute; z-index:4; left:50%; bottom:calc(96px + env(safe-area-inset-bottom));
@@ -1363,6 +1370,14 @@
       if (isMobile){
         autoSpinActive = false;
         if (dragHintEl) dragHintEl.classList.add('is-hidden');
+        /* touch-action:none already tells the browser this element owns
+           its own gestures, but iOS Safari's edge-swipe-back/forward is
+           a system-level recognizer that isn't always deterred by CSS
+           alone — preventDefault() on the actual touch event is the
+           other half of reliably winning that race, so a horizontal
+           drag starting near the screen edge rotates the cube instead
+           of navigating away from the page. */
+        if (e.pointerType === 'touch' && e.cancelable) e.preventDefault();
       }
     });
     window.addEventListener('pointermove', function(e){
@@ -1372,11 +1387,22 @@
       if (Math.abs(dx) + Math.abs(dy) > 4) dragMoved = true;
       userSpin.y = dragStartUY + dx * 0.012;
       userSpin.x = Math.max(-0.6, Math.min(0.6, dragStartUX - dy * 0.008));
+      if (isMobile && e.pointerType === 'touch' && e.cancelable) e.preventDefault();
     });
     window.addEventListener('pointerup', function(){
       isDragging = false;
       canvas.style.cursor = 'grab';
     });
+    /* belt-and-suspenders: Pointer Events' own preventDefault() is what
+       actually suppresses touch scrolling/gestures in current engines,
+       but a plain non-passive touchmove listener is the older,
+       most-broadly-honoured mechanism for the same thing — cheap
+       insurance on a gesture this easy to get wrong on real phones. */
+    if (isMobile){
+      canvas.addEventListener('touchmove', function(e){
+        if (isDragging && e.cancelable) e.preventDefault();
+      }, { passive: false });
+    }
 
     canvas.addEventListener('click', function(){
       if (dragMoved){ dragMoved = false; return; } /* a drag ending on the canvas shouldn't also open a tile */
