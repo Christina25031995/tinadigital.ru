@@ -292,11 +292,34 @@
     }
     .cx-text{ display:none; }
     .cx-object-col{ order:-1; width:100%; height:100%; }
-    .cx-bg-word{ display:none; }
     .cx-nav{ display:none; }
 
+    /* the cube used to run edge-to-edge, which (a) left zero breathing
+       room around it — no visual "frame", just the object filling the
+       whole screen with nothing else on the page, and (b) meant every
+       drag started right at the screen edge, the exact zone the OS's
+       own edge-swipe-back gesture watches (see the touch-action note
+       below). Pulling it in on both axes fixes both at once, and opens
+       up space for the brand word to actually show behind it instead
+       of being fully hidden underneath. */
     .cx-cube-wrap{
-      width:100vw; height:100%; max-width:none; transform:none;
+      width:82vw; height:76%; max-width:none; transform:none; margin:0 auto;
+    }
+    /* re-enabled for mobile only (still off on desktop, unchanged,
+       where the object sits close enough to the reference layout that
+       a background word would compete with it) — large, faint,
+       sitting behind the now-smaller cube so it reads as texture/
+       identity rather than another headline fighting for attention. */
+    .cx-bg-word{
+      display:block;
+      /* sits in the empty margin ABOVE the now-smaller cube (which is
+         vertically centred by .cx-object-col's flex rules) rather than
+         dead-centre — centred there it would just sit directly behind
+         the cube's own body and never actually show through it. */
+      top:9%; transform:translate(-50%, 0);
+      font-size:clamp(2.4rem, 12vw, 4rem);
+      color:var(--ink-faint);
+      opacity:.5;
     }
 
     /* touch-action stays 'none' here (same as the base rule above) —
@@ -1507,6 +1530,9 @@
 
       renderer.render(scene, camera);
     }
+    window.__cxDebug = {
+      snapTo: function(ry, rx){ target.ry = ry; target.rx = (rx===undefined?BASE_RX:rx); current.ry = target.ry; current.rx = target.rx; spin = 0; userSpin.x = 0; userSpin.y = 0; autoSpinActive = false; renderer.render(scene, camera); }
+    };
     animate();
   }
 })();
