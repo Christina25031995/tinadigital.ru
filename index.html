@@ -734,27 +734,25 @@
   ];
   /* LEFT — a deliberate exception to "same eight sizes everywhere":
      once real media was assigned here, several assets were visibly
-     cropping badly in their generic slot. Still six real containers
-     (same count as the approved face) — all six from the same source
-     folder for this face, nothing borrowed from an unrelated project —
-     just hand-fit to their own aspect ratios instead of forced into
-     the master's exact numbers: Ladoga's video is the anchor (16:9,
-     zero crop, the single biggest piece); its own mobile screenshot
-     swapped into the pair-1 slot with Liberman's gallery, since the
-     two are close enough in aspect (0.548 vs 0.5625) to fit each
-     other's box well; the Liana site-scroll recording, a deliberately
-     much smaller/recessed NOIR crop, and Liberman's bathroom photo
-     split the bottom strip (the last two sized proportional to their
-     own aspect ratios so neither gets forced into the other's shape). */
+     cropping badly in a generic slot, so these six containers are
+     hand-fit to their own content's aspect ratios rather than the
+     master's exact numbers (still six containers total, same count as
+     the approved face). The six SIZES are fixed to their content;
+     this arrangement is a 180°-turn reshuffle of their POSITIONS —
+     anchor now sits bottom-left instead of top-left, narrow moved to
+     the right edge, wide moved up, and the small accent/detail pair
+     moved to the very top — done purely to test a different spatial
+     composition while content assignments (still TBD/being swapped
+     by hand) are left for a separate pass. */
   var LEFT_LAYOUT_CUSTOM = [
-    { x: 0,    y: 0,      w: 0.76, h: 0.4275, role: 'anchor' },
-    { x: 0.76, y: 0,      w: 0.24, h: 0.4276, role: 'detail' },
-    { x: 0.76, y: 0.4276, w: 0.24, h: 0,      role: 'detail' },
-    { x: 0,      y: 0.4275, w: 0.326,  h: 0.5725, role: 'narrow' },
-    { x: 0.326,  y: 0.4275, w: 0.674,  h: 0.35,   role: 'wide'   },
-    { x: 0.326,  y: 0.7725, w: 0.3418, h: 0.2225, role: 'accent' },
-    { x: 0.6678, y: 0.7725, w: 0.3322, h: 0.2225, role: 'detail' },
-    { x: 0.30, y: 1.0,    w: 0,    h: 0,      role: 'detail' }
+    { x: 0.24,   y: 0.5725, w: 0.76,   h: 0.4275, role: 'anchor' },
+    { x: 0,      y: 0.5724, w: 0.24,   h: 0.4276, role: 'detail' },
+    { x: 0,      y: 1.0,    w: 0.24,   h: 0,      role: 'detail' },
+    { x: 0.674,  y: 0,      w: 0.326,  h: 0.5725, role: 'narrow' },
+    { x: 0,      y: 0.2225, w: 0.674,  h: 0.35,   role: 'wide'   },
+    { x: 0.3322, y: 0,      w: 0.3418, h: 0.2225, role: 'accent' },
+    { x: 0,      y: 0,      w: 0.3322, h: 0.2225, role: 'detail' },
+    { x: 0,      y: 0.2225, w: 0,      h: 0,      role: 'detail' }
   ];
   /* TOP — anchor band at the bottom (mirrored pair, as on BACK),
      narrow on the right edge, wide/accent stack reordered with
