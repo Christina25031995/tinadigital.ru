@@ -305,22 +305,6 @@
     .cx-cube-wrap{
       width:82vw; height:76%; max-width:none; transform:none; margin:0 auto;
     }
-    /* re-enabled for mobile only (still off on desktop, unchanged,
-       where the object sits close enough to the reference layout that
-       a background word would compete with it) — large, faint,
-       sitting behind the now-smaller cube so it reads as texture/
-       identity rather than another headline fighting for attention. */
-    .cx-bg-word{
-      display:block;
-      /* sits in the empty margin ABOVE the now-smaller cube (which is
-         vertically centred by .cx-object-col's flex rules) rather than
-         dead-centre — centred there it would just sit directly behind
-         the cube's own body and never actually show through it. */
-      top:9%; transform:translate(-50%, 0);
-      font-size:clamp(2.4rem, 12vw, 4rem);
-      color:var(--ink-faint);
-      opacity:.5;
-    }
 
     /* touch-action stays 'none' here (same as the base rule above) —
        the mobile hero fills the full viewport height with nothing to
@@ -462,7 +446,9 @@
     </div>
     <nav class="cx-nav">
       <a href="#work">Проекты</a>
-      <a href="#about">Обо мне</a>
+      <a href="#turnkey">Сайты под ключ</a>
+      <a href="#seo-geo">SEO + GEO</a>
+      <a href="#yandex-direct">Яндекс Директ</a>
       <a href="#contact">Контакты</a>
     </nav>
   </header>
