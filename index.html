@@ -776,6 +776,22 @@
     { x: 0.4952, y: 0.7863, w: 0.5048, h: 0.2138, role: 'detail' },
     { x: 0,   y: 0,     w: 0,   h: 0,     role: 'detail' }
   ];
+  /* RIGHT — same six sizes as BACK_LAYOUT_CUSTOM (per Christina: "1 в 1"
+     containers), reshuffled to different positions so the two faces
+     don't read as a copy-pasted grid — anchor moves to the bottom row
+     and every pair flips left/right, same spirit as how FRONT/RIGHT/
+     BACK/TOP/BOTTOM already reuse MASTER_TILE_SIZES in different
+     arrangements. */
+  var RIGHT_LAYOUT_CUSTOM = [
+    { x: 0.2288, y: 0.5018, w: 0.7712, h: 0.4983, role: 'anchor' },
+    { x: 0,      y: 0.5018, w: 0.2288, h: 0.4983, role: 'narrow' },
+    { x: 0,      y: 0,      w: 0,      h: 0,      role: 'detail' },
+    { x: 0.4876, y: 0,      w: 0.5124, h: 0.288,  role: 'accent' },
+    { x: 0,      y: 0,      w: 0.4876, h: 0.288,  role: 'wide'   },
+    { x: 0.5048, y: 0.288,  w: 0.4952, h: 0.2138, role: 'detail' },
+    { x: 0,      y: 0.288,  w: 0.5048, h: 0.2138, role: 'detail' },
+    { x: 0,   y: 0,     w: 0,   h: 0,     role: 'detail' }
+  ];
   /* LEFT — a deliberate exception to "same eight sizes everywhere":
      once real media was assigned here, several assets were visibly
      cropping badly in a generic slot, so these six containers are
@@ -843,7 +859,7 @@
   }
   var BASE_LAYOUT = {
     front:  buildLayout(FRONT_POSITIONS),
-    right:  BACK_LAYOUT_CUSTOM,
+    right:  RIGHT_LAYOUT_CUSTOM,
     back:   BACK_LAYOUT_CUSTOM,
     left:   LEFT_LAYOUT_CUSTOM,
     top:    mergeStructuralPairs(buildLayout(TOP_POSITIONS)),
@@ -1078,6 +1094,8 @@
   setTile('front', 7, { src: 'assets/cube/front-7-invest-design.jpg', type: 'image', project: 'invest-design', label: 'Liberman Studio', category: 'Investment design', aspectRatio: 2.2727, fillPair: true, focalPointX: 50, focalPointY: 50 , projectGroup: 'liberman'});
   setTile('front', 4, { src: 'assets/cube/front-4-surgeon.mp4', type: 'video', project: 'liana', label: 'Liana', category: 'Team in China', aspectRatio: 2.394, focalPointX: 50, focalPointY: 50 , projectGroup: 'liana'});
   setTile('right', 0, { src: 'assets/cube/right-0-enduro.mp4', type: 'video', project: 'enduro',   label: 'Enduro Energy',    category: 'Enduro rental website',     link: 'case-enduro.html', focalPointX: 50, focalPointY: 50 , projectGroup: 'enduro'});
+  setTile('right', 1, { src: 'assets/cube/right-1-mobile-recording.mp4', type: 'video', project: 'liana-mobile', label: 'Liana', category: 'Mobile adaptation', focalPointX: 50, focalPointY: 40 , projectGroup: 'liana'});
+  setTile('right', 4, { src: 'assets/cube/right-2-abdomino.jpg', type: 'image', project: 'abdomino', label: 'Aesthetic Clinic', category: 'Landing page', aspectRatio: 1.547, focalPointX: 50, focalPointY: 50 , projectGroup: 'blepharo'});
   setTile('left',  0, { src: 'assets/cube/left-0-ladoga.mp4', type: 'video', project: 'ladoga',   label: 'Ladoga',           category: 'Boat rental website',      focalPointX: 55, focalPointY: 45 , projectGroup: 'ladoga'});
   setTile('left',  1, { src: 'assets/cube/left-3-ladoga-mobile.jpg', type: 'image', project: 'ladoga-mobile', label: 'Ladoga', category: 'Boat rental website', aspectRatio: 0.548, focalPointX: 50, focalPointY: 46 , projectGroup: 'ladoga'});
   setTile('left',  3, { src: 'assets/cube/left-3-liberman-projects.jpg', type: 'image', project: 'liberman-projects', label: 'Liberman Studio', category: 'Interior design', aspectRatio: 0.5696, focalPointX: 50, focalPointY: 48 , projectGroup: 'liberman'});
