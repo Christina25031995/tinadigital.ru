@@ -753,26 +753,25 @@
     [0,    0],      [0.76, 0],      [0.76, 0.2138], [0.78, 0.4275],
     [0,    0.4275], [0,    0.6279], [0.28, 0.6279], [0.28, 0.8140]
   ];
-  /* BACK — a deliberate exception, same reasoning as LEFT: the master's
-     eight sizes assume every slot either gets content shaped for it or
-     stays empty. Once the clinic screenshot (0.853) and Arapov's video
-     were the only two real pieces, forcing them into the master's
-     narrow/detail slots cropped both badly. So this face gets its own
-     two sizes — anchor and the clinic tile share the bottom row at
-     zero crop for each — and the top band is reduced to four modest
-     placeholders. Every real asset here is a landscape site screenshot
-     (~1.55 native ratio), so the whole face is a plain 2-column x
-     3-row grid of 0.5x0.333 cells — aspect 1.5, near-zero crop for
-     every screenshot, no square and no oversized vertical cell
-     anywhere. Six containers total, same count as every other face. */
+  /* BACK — a deliberate exception, same reasoning as LEFT: real content
+     here is six genuinely different pieces (a dominant clinic hero,
+     a real mobile screen recording, two more landscape screenshots,
+     and Arapov's video), so it gets its own hand-fit sizes instead of
+     the master's eight. The clinic "eyes" shot is the anchor — clearly
+     the largest single tile, matching the cube's one-dominant-tile
+     rule — the mobile recording gets its own narrow phone-shaped cell
+     at its real ~0.46 ratio (one such cell, not oversized), the two
+     other landscape screenshots sit near their own ~1.55 native ratio,
+     and Arapov's video plus one filler take the bottom row. Six
+     containers total, same count as every other face. */
   var BACK_LAYOUT_CUSTOM = [
-    { x: 0,   y: 0,     w: 0.5, h: 0.333, role: 'anchor' },
-    { x: 0,   y: 0.333, w: 0.5, h: 0.334, role: 'detail' },
-    { x: 0,   y: 0,     w: 0,   h: 0,     role: 'detail' },
-    { x: 0,   y: 0.667, w: 0.5, h: 0.333, role: 'narrow' },
-    { x: 0.5, y: 0,     w: 0.5, h: 0.333, role: 'wide'   },
-    { x: 0.5, y: 0.333, w: 0.5, h: 0.334, role: 'accent' },
-    { x: 0.5, y: 0.667, w: 0.5, h: 0.333, role: 'detail' },
+    { x: 0,    y: 0,    w: 0.78, h: 0.40, role: 'anchor' },
+    { x: 0.78, y: 0,    w: 0.22, h: 0.40, role: 'narrow' },
+    { x: 0,    y: 0,    w: 0,    h: 0,    role: 'detail' },
+    { x: 0,    y: 0.40, w: 0.5,  h: 0.30, role: 'wide'   },
+    { x: 0.5,  y: 0.40, w: 0.5,  h: 0.30, role: 'accent' },
+    { x: 0,    y: 0.70, w: 0.68, h: 0.30, role: 'detail' },
+    { x: 0.68, y: 0.70, w: 0.32, h: 0.30, role: 'detail' },
     { x: 0,   y: 0,     w: 0,   h: 0,     role: 'detail' }
   ];
   /* LEFT — a deliberate exception to "same eight sizes everywhere":
@@ -1082,9 +1081,11 @@
   setTile('left',  3, { src: 'assets/cube/left-3-liberman-projects.jpg', type: 'image', project: 'liberman-projects', label: 'Liberman Studio', category: 'Interior design', aspectRatio: 0.5696, focalPointX: 50, focalPointY: 48 , projectGroup: 'liberman'});
   setTile('left',  4, { src: 'assets/cube/left-4-liana-hero.mp4', type: 'video', project: 'liana-main', label: 'Liana', category: 'China production', aspectRatio: 1.888, focalPointX: 50, focalPointY: 45 , projectGroup: 'liana'});
   setTile('left',  5, { src: 'assets/cube/left-5-libe-bathroom.jpg', type: 'image', project: 'liberman-bathroom', label: 'Liberman Studio', category: 'Interior design', aspectRatio: 2.747, focalPointX: 50, focalPointY: 45 , projectGroup: 'liberman'});
-  setTile('back',  0, { src: 'assets/cube/back-0-host.mp4', type: 'video', project: 'host',     label: 'Timofey Arapov',   category: 'Host\'s personal brand',   focalPointX: 50, focalPointY: 40 , projectGroup: 'arapov'});
-  setTile('back',  1, { src: 'assets/cube/back-1-blepharoplasty-full.jpg', type: 'image', project: 'blepharo', label: 'Aesthetic Clinic', category: 'Landing page', aspectRatio: 1.547, focalPointX: 50, focalPointY: 50 , projectGroup: 'blepharo'});
+  setTile('back',  0, { src: 'assets/cube/back-1-blepharoplasty-full.jpg', type: 'image', project: 'blepharo', label: 'Aesthetic Clinic', category: 'Landing page', aspectRatio: 1.547, focalPointX: 50, focalPointY: 50 , projectGroup: 'blepharo'});
+  setTile('back',  1, { src: 'assets/cube/back-5-mobile-recording.mp4', type: 'video', project: 'blepharo-mobile', label: 'Aesthetic Clinic', category: 'Mobile adaptation', focalPointX: 50, focalPointY: 50 , projectGroup: 'blepharo'});
   setTile('back',  3, { src: 'assets/cube/back-2-abdomino-full.jpg', type: 'image', project: 'abdomino', label: 'Aesthetic Clinic', category: 'Landing page', aspectRatio: 1.547, focalPointX: 50, focalPointY: 50 , projectGroup: 'blepharo'});
+  setTile('back',  4, { src: 'assets/cube/back-3-noir.jpg', type: 'image', project: 'noir', label: 'NOIR', category: 'Fur atelier website', aspectRatio: 1.0625, focalPointX: 50, focalPointY: 35 , projectGroup: 'noir'});
+  setTile('back',  5, { src: 'assets/cube/back-0-host.mp4', type: 'video', project: 'host',     label: 'Timofey Arapov',   category: 'Host\'s personal brand',   focalPointX: 50, focalPointY: 40 , projectGroup: 'arapov'});
 
   var canvas = document.getElementById('cxCanvas');
   var cubeWrap = document.getElementById('cxCubeWrap');
