@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO + GEO: продвижение сайта в поиске и нейросетях | Tina Digital</title>
+<meta name="description" content="SEO и GEO-оптимизация сайтов под Яндекс, Google и AI-поиск. Структура, контент, техническое SEO, разработка и внедрение в одном проекте.">
+<link rel="canonical" href="https://tinadigital.ru/seo-geo/">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+<meta property="og:title" content="SEO + GEO: продвижение сайта в поиске и нейросетях | Tina Digital">
+<meta property="og:description" content="SEO и GEO-оптимизация сайтов под Яндекс, Google и AI-поиск. Структура, контент, техническое SEO, разработка и внедрение в одном проекте.">
+<meta property="og:url" content="https://tinadigital.ru/seo-geo/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://tinadigital.ru/assets/cube/back-1-blepharoplasty-full.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SEO + GEO: продвижение сайта в поиске и нейросетях | Tina Digital">
+<meta name="twitter:description" content="SEO и GEO-оптимизация сайтов под Яндекс, Google и AI-поиск. Структура, контент, техническое SEO, разработка и внедрение в одном проекте.">
+<meta name="twitter:image" content="https://tinadigital.ru/assets/cube/back-1-blepharoplasty-full.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "SEO and GEO optimization",
+      "name": "SEO + GEO",
+      "provider": { "@type": "Person", "name": "Tina", "url": "https://tinadigital.ru/" },
+      "areaServed": "RU",
+      "description": "SEO и GEO-оптимизация сайтов под Яндекс, Google и AI-поиск: структура, контент, техническое SEO, разработка и внедрение в одном проекте.",
+      "url": "https://tinadigital.ru/seo-geo/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Что такое GEO?", "acceptedAnswer": { "@type": "Answer", "text": "GEO, или Generative Engine Optimization, это оптимизация сайта и присутствия бренда под поиск, где ответ формируется нейросетью." } },
+        { "@type": "Question", "name": "Чем GEO отличается от SEO?", "acceptedAnswer": { "@type": "Answer", "text": "SEO в первую очередь работает с классической поисковой видимостью. GEO добавляет задачи, связанные с AI-поиском и тем, насколько легко система может найти, понять и использовать информацию о бизнесе." } },
+        { "@type": "Question", "name": "Можно гарантировать попадание в ChatGPT?", "acceptedAnswer": { "@type": "Answer", "text": "Нет. Конкретный ответ нейросети невозможно гарантировать. Можно повышать вероятность видимости и цитирования, работая с технической доступностью, структурой, контентом и внешними источниками." } },
+        { "@type": "Question", "name": "GEO делается один раз?", "acceptedAnswer": { "@type": "Answer", "text": "Базовую техническую и контентную подготовку можно сделать разово. В конкурентных тематиках дальнейший рост требует развития сайта и контента." } },
+        { "@type": "Question", "name": "Мне понадобится новый сайт?", "acceptedAnswer": { "@type": "Answer", "text": "Не обязательно. Сначала нужно посмотреть текущий сайт." } },
+        { "@type": "Question", "name": "Сколько ждать SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Зависит от состояния сайта, конкуренции и ниши. Первые изменения индексирования и видимости можно увидеть раньше, чем устойчивый рост органического трафика." } },
+        { "@type": "Question", "name": "Нужно постоянно писать статьи?", "acceptedAnswer": { "@type": "Answer", "text": "Нет. Для многих коммерческих сайтов важнее сначала правильно сделать страницы услуг, структуру, кейсы, FAQ и коммерческую информацию." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#0b0b0c;
+    --bg-soft:#131315;
+    --ink:#f3f1ec;
+    --ink-dim:#a4a29c;
+    --ink-faint:#65635e;
+    --line: rgba(243,241,236,.14);
+    --line-soft: rgba(243,241,236,.07);
+    --accent:#c1663f;
+    --accent-ink:#f4e3da;
+    --ease: cubic-bezier(.22,.8,.28,1);
+    --ease-2: cubic-bezier(.16,1,.3,1);
+  }
+  *{ box-sizing:border-box; }
+  html{ background:var(--bg); }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    overflow-x:hidden;
+  }
+  img, video{ max-width:100%; display:block; }
+  a{ color:inherit; }
+
+  .wrap{ max-width:1280px; margin:0 auto; padding:0 clamp(20px,4vw,56px); }
+
+  /* ============ HEADER — shared markup with homepage ============ */
+  .cx-top{ position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; padding: clamp(20px,3vw,40px) clamp(20px,4vw,56px) 0; }
+  .cx-brand{ display:flex; flex-direction:column; gap:2px; color:inherit; text-decoration:none; }
+  .cx-brand-name{ font-size:14px; font-weight:700; letter-spacing:.02em; }
+  .cx-brand-role{ font-size:12px; color:var(--ink-dim); letter-spacing:.03em; }
+  .cx-nav{ display:flex; align-items:center; gap:28px; position:absolute; left:50%; top: clamp(20px,3vw,40px); transform:translateX(-50%); }
+  @media (max-width: 980px){ .cx-nav{ display:none; } }
+  .cx-nav a{ font-size:13px; color:var(--ink-dim); text-decoration:none; letter-spacing:.01em; transition:color .3s var(--ease); }
+  .cx-nav a:hover, .cx-nav a[aria-current]{ color:var(--ink); }
+  .cx-back{ font-size:13px; color:var(--ink-dim); text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:color .3s var(--ease); }
+  .cx-back:hover{ color:var(--ink); }
+  .cx-back .arrow{ transition: transform .35s var(--ease); display:inline-block; }
+  .cx-back:hover .arrow{ transform: translateX(-4px); }
+
+  .cx-plus{ color:var(--ink-faint); font-size:14px; line-height:1; font-weight:600; user-select:none; }
+
+  /* ============ REVEAL ============ */
+  .reveal{ opacity:0; transform:translateY(40px); transition: opacity .9s var(--ease-2), transform .9s var(--ease-2); }
+  .reveal.is-in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ============ SECTION RHYTHM ============ */
+  main{ position:relative; z-index:1; }
+  section{ padding: clamp(72px,11vw,168px) 0; border-top:1px solid var(--line-soft); }
+  section:first-of-type{ border-top:none; }
+  .eyebrow{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); margin:0 0 clamp(18px,2.4vw,28px); display:flex; align-items:center; gap:10px; }
+  .eyebrow .num{ color:var(--accent); }
+
+  h1,h2,h3{ margin:0; font-weight:800; letter-spacing:-.03em; line-height:.98; }
+  h1{ font-size:clamp(2.6rem, 7.4vw, 6.6rem); }
+  h2{ font-size:clamp(2rem, 5.4vw, 4.6rem); }
+  h3{ font-size:clamp(1.2rem, 2.2vw, 1.7rem); font-weight:700; }
+  p{ margin:0; }
+  .lede{ font-size:clamp(1.05rem,1.6vw,1.35rem); color:var(--ink-dim); line-height:1.55; max-width:52ch; }
+  .body-text{ font-size:clamp(1rem,1.2vw,1.15rem); color:var(--ink-dim); line-height:1.65; max-width:58ch; }
+  .body-text + .body-text{ margin-top:1.1em; }
+
+  .mono-row{ display:flex; flex-wrap:wrap; gap: clamp(14px,2vw,28px); font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:14px; font-weight:700; letter-spacing:.02em; text-transform:uppercase;
+    color:var(--ink); text-decoration:none; padding:16px 26px; border:1px solid var(--line);
+    border-radius:999px; transition:border-color .3s var(--ease), background .3s var(--ease);
+  }
+  .btn:hover{ border-color:var(--ink-dim); background:var(--bg-soft); }
+  .btn .arrow{ transition:transform .3s var(--ease); }
+  .btn:hover .arrow{ transform:translateX(4px); }
+  .btn-note{ margin-top:14px; font-size:12px; color:var(--ink-faint); }
+
+  /* ============ 01 HERO ============ */
+  .hero{ min-height:88vh; display:flex; flex-direction:column; justify-content:center; padding-top: clamp(120px,16vw,200px); position:relative; overflow:hidden; }
+  .hero-grid{
+    position:absolute; inset:0; z-index:0; opacity:.5; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(70% 60% at 78% 30%, #000, transparent);
+            mask-image: radial-gradient(70% 60% at 78% 30%, #000, transparent);
+    animation: gridDrift 40s linear infinite;
+  }
+  @keyframes gridDrift{ from{ background-position:0 0; } to{ background-position:64px 128px; } }
+  @media (prefers-reduced-motion: reduce){ .hero-grid{ animation:none; } }
+  .hero-inner{ position:relative; z-index:1; }
+  .hero h1{ margin:0 0 clamp(20px,2.6vw,30px); }
+  .hero .lede{ max-width:44ch; }
+  .hero-cta{ margin-top: clamp(32px,4vw,48px); }
+  .hero .mono-row{ margin-top: clamp(40px,5vw,64px); padding-top: clamp(20px,2.6vw,28px); border-top:1px solid var(--line-soft); }
+
+  /* ============ 02 SEARCH-CHANGED — floating system words ============ */
+  .system-words{ position:relative; min-height: 1px; }
+  .system-word{ position:absolute; font-weight:800; letter-spacing:-.02em; color:var(--ink); white-space:nowrap; user-select:none; }
+  @media (max-width: 780px){ .system-words{ display:none; } }
+
+  /* ============ CHAIN (04) ============ */
+  .chain{ display:flex; flex-direction:column; gap:0; margin-top: clamp(40px,5vw,64px); max-width:420px; }
+  .chain-step{ display:flex; align-items:center; gap:18px; padding:14px 0; }
+  .chain-step .n{ font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size:12px; color:var(--ink-faint); width:22px; flex-shrink:0; }
+  .chain-step .t{ font-size:clamp(1.1rem,1.8vw,1.5rem); font-weight:700; letter-spacing:-.01em; }
+  .chain-arrow{ color:var(--ink-faint); font-size:13px; padding-left:40px; }
+
+  /* ============ 05 FOUR DIRECTIONS ============ */
+  .direction{ display:grid; grid-template-columns: 90px 1fr; gap: clamp(20px,3vw,40px); padding: clamp(36px,5vw,56px) 0; border-top:1px solid var(--line-soft); }
+  .direction:first-of-type{ border-top:1px solid var(--line-soft); }
+  .direction .n{ font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size:14px; color:var(--accent); padding-top:.3em; }
+  .direction h3{ margin-bottom:.5em; }
+  .direction .lede{ margin-bottom: .8em; max-width:56ch; }
+  .direction .tags{ display:flex; flex-wrap:wrap; gap:8px 14px; font-size:13px; color:var(--ink-dim); }
+  .direction .tags span:not(:last-child)::after{ content:'·'; margin-left:14px; color:var(--ink-faint); }
+  @media (max-width: 620px){ .direction{ grid-template-columns: 1fr; gap:10px; } }
+
+  /* ============ 06 GEO HONEST — inverted panel ============ */
+  .panel-light{ background:var(--ink); color:var(--bg); }
+  .panel-light .eyebrow{ color:#5f5d57; }
+  .panel-light .body-text{ color:#4a4844; }
+  .panel-light h2{ color:var(--bg); }
+
+  /* ============ 07/08 CASE STATS ============ */
+  .case-block{ padding: clamp(56px,7vw,96px) 0; border-top:1px solid var(--line-soft); }
+  .case-head{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px; margin-bottom: clamp(32px,4vw,52px); }
+  .case-name{ font-size:clamp(1.8rem,3.4vw,3rem); font-weight:800; letter-spacing:-.02em; }
+  .case-tags{ font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); }
+  .stat-hero{ font-size:clamp(2.6rem,6vw,5rem); font-weight:800; letter-spacing:-.03em; color:var(--accent); line-height:1; }
+  .stat-hero-label{ font-size:13px; color:var(--ink-dim); margin-top:8px; max-width:26ch; }
+  .stat-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap: clamp(24px,3vw,40px); margin-top: clamp(36px,4.5vw,56px); }
+  .stat{ border-top:1px solid var(--line-soft); padding-top:16px; }
+  .stat-num{ font-size:clamp(1.6rem,2.6vw,2.4rem); font-weight:800; letter-spacing:-.02em; }
+  .stat-label{ font-size:12px; color:var(--ink-faint); margin-top:6px; line-height:1.4; }
+  .case-open{ margin-top: clamp(32px,4vw,48px); }
+  .case-b .stat-row{ grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); }
+
+  /* ============ 09 DATA COMPOSITION ============ */
+  .data-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap: clamp(28px,4vw,48px) clamp(24px,4vw,56px); margin-top: clamp(40px,5vw,64px); }
+  .data-item{ border-top:1px solid var(--line-soft); padding-top:18px; }
+  .data-item .stat-num{ font-size:clamp(2.2rem,4.2vw,3.6rem); color:var(--ink-faint); }
+  .data-item .stat-label{ font-size:13px; }
+  @media (max-width: 720px){ .data-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width: 420px){ .data-grid{ grid-template-columns:1fr; } }
+
+  /* ============ 10 SCENARIOS / 11 NOT-YET ============ */
+  .scenario{ display:grid; grid-template-columns:100px 1fr; gap: clamp(20px,3vw,36px); padding: clamp(28px,3.6vw,44px) 0; border-top:1px solid var(--line-soft); }
+  .scenario .n{ font-size:clamp(2rem,3.4vw,2.8rem); font-weight:800; color:var(--ink-faint); }
+  .scenario p{ font-size:clamp(1.1rem,1.7vw,1.4rem); font-weight:600; letter-spacing:-.01em; max-width:44ch; padding-top:.15em; }
+  @media (max-width: 560px){ .scenario{ grid-template-columns:1fr; gap:8px; } }
+
+  /* ============ 12 FORMATS ============ */
+  .format{ display:grid; grid-template-columns:90px 1.2fr 1fr auto; align-items:center; gap: clamp(20px,3vw,36px); padding: clamp(32px,4vw,48px) 0; border-top:1px solid var(--line-soft); }
+  .format .n{ font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size:14px; color:var(--accent); }
+  .format-name{ font-size:clamp(1.4rem,2.4vw,2rem); font-weight:800; letter-spacing:-.02em; }
+  .format-sub{ font-size:13px; color:var(--ink-dim); margin-top:6px; }
+  .format-desc{ font-size:14px; color:var(--ink-dim); line-height:1.5; max-width:38ch; }
+  .format-price{ font-size:clamp(1.1rem,1.6vw,1.4rem); font-weight:700; white-space:nowrap; text-align:right; }
+  @media (max-width: 780px){
+    .format{ grid-template-columns:1fr; gap:10px; text-align:left; }
+    .format-price{ text-align:left; }
+  }
+
+  /* ============ 13 FAQ ============ */
+  .faq-item{ border-top:1px solid var(--line-soft); }
+  .faq-item:last-of-type{ border-bottom:1px solid var(--line-soft); }
+  .faq-item summary{
+    cursor:pointer; list-style:none; padding: clamp(22px,2.8vw,30px) 0;
+    display:flex; justify-content:space-between; align-items:center; gap:20px;
+    font-size:clamp(1.05rem,1.7vw,1.35rem); font-weight:700; letter-spacing:-.01em;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item .plus{ flex-shrink:0; font-size:20px; color:var(--ink-faint); transition:transform .3s var(--ease); font-weight:400; }
+  .faq-item[open] .plus{ transform:rotate(45deg); }
+  .faq-a{ padding: 0 0 clamp(22px,2.8vw,30px); font-size:15px; color:var(--ink-dim); line-height:1.6; max-width:60ch; }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta{ text-align:left; }
+  .final-cta h2{ max-width:14ch; }
+  .final-cta .body-text{ margin-top: clamp(20px,2.6vw,28px); }
+
+  footer{ padding: clamp(40px,5vw,56px) 0 clamp(60px,7vw,84px); }
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-size:12px; color:var(--ink-faint); }
+
+  /* ============ INFO SHEET (same contact scenario as homepage) ============ */
+  .cx-sheet-overlay{ position:fixed; inset:0; z-index:60; background:rgba(6,6,7,.6); opacity:0; pointer-events:none; transition:opacity .35s var(--ease); }
+  .cx-sheet-overlay.is-open{ opacity:1; pointer-events:auto; }
+  .cx-sheet{ position:fixed; left:0; right:0; bottom:0; z-index:61; max-height:70svh; display:flex; flex-direction:column; background:var(--bg-soft); border-top:1px solid var(--line); border-radius:22px 22px 0 0; transform:translateY(102%); transition:transform .45s var(--ease); padding-bottom:calc(env(safe-area-inset-bottom)); max-width:520px; margin:0 auto; }
+  .cx-sheet.is-open{ transform:translateY(0); }
+  .cx-sheet-handle{ width:36px; height:4px; border-radius:2px; background:var(--line); margin:10px auto 2px; flex-shrink:0; }
+  .cx-sheet-header{ padding:14px 24px 16px; flex-shrink:0; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); border-bottom:1px solid var(--line-soft); }
+  .cx-sheet-body{ padding:16px 24px 28px; }
+  .cx-info-block{ padding:16px 0; border-top:1px solid var(--line-soft); }
+  .cx-info-block:first-child{ border-top:none; }
+  .cx-info-label{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:6px; }
+  .cx-info-value{ font-size:16px; font-weight:600; }
+</style>
+</head>
+<body>
+
+<header class="cx-top">
+  <a class="cx-brand" href="../index.html">
+    <span class="cx-brand-name">TINA DIGITAL</span>
+    <span class="cx-brand-role">Web Designer</span>
+  </a>
+  <nav class="cx-nav">
+    <a href="../index.html#work">Проекты</a>
+    <a href="../index.html#turnkey">Сайты под ключ</a>
+    <a href="./" aria-current="page">SEO + GEO</a>
+    <a href="../index.html#yandex-direct">Яндекс Директ</a>
+    <a href="#" id="cxContactNav">Контакты</a>
+  </nav>
+  <a class="cx-back" href="../index.html"><span class="arrow" aria-hidden="true">←</span> На главную</a>
+</header>
+
+<main>
+
+  <!-- ============ 01 / HERO ============ -->
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow reveal">SEO + GEO / AI SEARCH</p>
+      <h1 class="reveal">Продвижение сайта<br>в поиске и нейросетях</h1>
+      <p class="lede reveal">Настраиваю сайт так, чтобы его находили в Яндексе и Google, а AI-поиск мог понять бизнес, использовать сайт как источник и приводить на него людей.</p>
+      <div class="hero-cta reveal">
+        <a class="btn" href="#" data-open-contact>Проверить сайт <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="mono-row reveal">
+        <span>SEO</span><span>GEO</span><span>AI SEARCH</span><span>TECHNICAL OPTIMIZATION</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 / ПОИСК ИЗМЕНИЛСЯ ============ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">02</span> Поиск изменился</p>
+      <h2 class="reveal">Клиент больше не всегда<br>переходит по первой ссылке.</h2>
+      <p class="body-text reveal" style="margin-top:28px;">Сегодня человек может сравнить компании, узнать цены и получить рекомендацию прямо внутри поисковой выдачи или нейросети.</p>
+      <p class="body-text reveal">Если сайт плохо структурирован, не индексируется, не отвечает на реальные вопросы и не дает системе понятных фактов о бизнесе, его могут просто не использовать как источник.</p>
+      <div class="system-words reveal" aria-hidden="true" style="height:180px;">
+        <span class="system-word" style="left:2%; top:10%; font-size:clamp(1.2rem,3vw,2.2rem); opacity:.9;">YANDEX</span>
+        <span class="system-word" style="left:30%; top:55%; font-size:clamp(1.4rem,4vw,3rem); opacity:.5;">GOOGLE</span>
+        <span class="system-word" style="left:58%; top:5%; font-size:clamp(1rem,2.4vw,1.7rem); opacity:.4; color:var(--accent);">ALICE AI</span>
+        <span class="system-word" style="left:60%; top:60%; font-size:clamp(1.3rem,3.6vw,2.6rem); opacity:.7;">CHATGPT</span>
+        <span class="system-word" style="left:8%; top:80%; font-size:clamp(1rem,2vw,1.4rem); opacity:.35;">AI SEARCH</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 / SEO + GEO ============ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">03</span> Как это устроено</p>
+      <h2 class="reveal">SEO приводит сайт<br>в поиск.</h2>
+      <h2 class="reveal" style="margin-top:.2em; color:var(--ink-dim);">GEO помогает ему<br>стать источником<br>для AI-поиска.</h2>
+      <p class="body-text reveal" style="margin-top:32px;">На практике это одна система.</p>
+      <p class="body-text reveal">Нельзя нормально оптимизировать сайт под нейросети, если он плохо индексируется, у него слабая структура, непонятные страницы и нет нормальной фактуры о бизнесе.</p>
+      <div class="mono-row reveal" style="margin-top:clamp(32px,4vw,48px); padding-top:24px; border-top:1px solid var(--line-soft);">
+        <span>Структура</span><span>Контент</span><span>Код</span><span>Индексация</span><span>Schema</span><span>Посадочные</span><span>Внутренние ссылки</span><span>AI Visibility</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 / ГЛАВНОЕ ОТЛИЧИЕ ============ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">04</span> Почему со мной иначе</p>
+      <h2 class="reveal">Я не отдаю вам<br>SEO-ТЗ на 40 страниц.</h2>
+      <p class="body-text reveal" style="margin-top:28px;">Если для продвижения нужно изменить структуру сайта, создать новую посадочную, переписать блок, поправить код, schema, мобильный интерфейс или скорость, я делаю это сама.</p>
+      <p class="body-text reveal">Дизайн, разработка, SEO и GEO находятся в одних руках.</p>
+      <div class="chain reveal">
+        <div class="chain-step"><span class="n">01</span><span class="t">Аналитика</span></div>
+        <div class="chain-arrow">↓</div>
+        <div class="chain-step"><span class="n">02</span><span class="t">Структура</span></div>
+        <div class="chain-arrow">↓</div>
+        <div class="chain-step"><span class="n">03</span><span class="t">UX / Content</span></div>
+        <div class="chain-arrow">↓</div>
+        <div class="chain-step"><span class="n">04</span><span class="t">Code</span></div>
+        <div class="chain-arrow">↓</div>
+        <div class="chain-step"><span class="n">05</span><span class="t">SEO</span></div>
+        <div class="chain-arrow">↓</div>
+        <div class="chain-step"><span class="n">06</span><span class="t">GEO</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 / ЧТО Я МЕНЯЮ В САЙТЕ ============ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">05</span> Что я меняю в сайте</p>
+      <h2 class="reveal">Четыре направления работы.</h2>
+
+      <div class="direction reveal">
+        <div class="n">01</div>
+        <div>
+          <h3>Technical</h3>
+          <p class="lede">Чтобы сайт вообще могли нормально прочитать.</p>
+          <div class="tags"><span>Индексация</span><span>robots / sitemap</span><span>canonical</span><span>мета-данные</span><span>скорость</span><span>структура HTML</span><span>structured data</span><span>доступность для поисковых и AI-ботов</span><span>технические ошибки</span></div>
+        </div>
+      </div>
+
+      <div class="direction reveal">
+        <div class="n">02</div>
+        <div>
+          <h3>Search structure</h3>
+          <p class="lede">Чтобы под реальный спрос существовали реальные страницы.</p>
+          <div class="tags"><span>Семантика</span><span>структура услуг</span><span>посадочные</span><span>региональные страницы</span><span>внутренняя перелинковка</span><span>коммерческие запросы</span><span>информационный спрос</span></div>
+        </div>
+      </div>
+
+      <div class="direction reveal">
+        <div class="n">03</div>
+        <div>
+          <h3>Content</h3>
+          <p class="lede">Чтобы поиску было что понять, а пользователю было что выбрать.</p>
+          <div class="tags"><span>Услуги</span><span>цены</span><span>условия</span><span>кейсы</span><span>FAQ</span><span>экспертность</span><span>сравнения</span><span>прямые ответы на реальные вопросы</span></div>
+        </div>
+      </div>
+
+      <div class="direction reveal">
+        <div class="n">04</div>
+        <div>
+          <h3>AI visibility</h3>
+          <p class="lede">Чтобы бизнес был понятен системам, которые формируют ответы.</p>
+          <div class="tags"><span>Сущности бренда</span><span>консистентность информации</span><span>structured data</span><span>доступ AI crawlers</span><span>страницы-источники</span><span>упоминания</span><span>мониторинг AI Search</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 / ЧЕСТНЫЙ GEO-БЛОК ============ -->
+  <section class="panel-light">
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">06</span> Честно про GEO</p>
+      <h2 class="reveal">Нет кнопки<br>«добавить мой сайт<br>в ChatGPT».</h2>
+      <p class="body-text reveal" style="margin-top:28px;">Никто не может гарантировать конкретное место в ответе нейросети.</p>
+      <p class="body-text reveal">Можно сделать другое: убрать технические препятствия, правильно описать бизнес, выстроить структуру, создать сильные страницы и дать поисковым и AI-системам понятные источники, которым есть за что доверять.</p>
+      <p class="body-text reveal" style="font-weight:700; color:var(--bg);">Этим я и занимаюсь.</p>
+    </div>
+  </section>
+
+  <!-- ============ 07 / КЕЙС ENDURO ENERGY ============ -->
+  <section class="case-block">
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">07</span> Кейс</p>
+      <div class="case-head reveal">
+        <div class="case-name">Enduro Energy</div>
+        <div class="case-tags">SEO / GEO / Organic Search</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-hero" data-stat="enduro.paidAds">—</div>
+        <div class="stat-hero-label">на платную рекламу</div>
+      </div>
+      <div class="stat-row reveal">
+        <div class="stat"><div class="stat-num" data-stat="enduro.organicVisits">____</div><div class="stat-label">переходов из органического поиска</div></div>
+        <div class="stat"><div class="stat-num" data-stat="enduro.trafficGrowth">____</div><div class="stat-label">рост органического трафика</div></div>
+        <div class="stat"><div class="stat-num" data-stat="enduro.top10Queries">____</div><div class="stat-label">коммерческих запросов в ТОП-10</div></div>
+        <div class="stat"><div class="stat-num" data-stat="enduro.organicActions">____</div><div class="stat-label">целевых действий из organic</div></div>
+        <div class="stat"><div class="stat-num" data-stat="enduro.aiMentions">____</div><div class="stat-label">запросов / упоминаний в AI Search</div></div>
+      </div>
+      <p class="body-text reveal" style="margin-top: clamp(32px,4vw,48px);">Сайт проектировался сразу с учетом поисковой структуры и дальнейшего органического продвижения.</p>
+      <div class="case-open reveal">
+        <a class="btn" href="https://enduro-energy.ru" target="_blank" rel="noopener">Открыть проект <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 / КЕЙС БАНЯ НА ЛАДОГЕ — different layout on purpose ============ -->
+  <section class="case-block case-b">
+    <div class="wrap" style="display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(32px,5vw,64px); align-items:start;">
+      <div>
+        <p class="eyebrow reveal"><span class="num">08</span> Кейс</p>
+        <div class="case-name reveal">Баня на Ладоге</div>
+        <p class="body-text reveal" style="margin-top:20px;">Для локального бизнеса поисковая структура особенно важна: пользователь ищет не бренд, а конкретную услугу, локацию, цену и сценарий отдыха.</p>
+        <div class="case-open reveal">
+          <a class="btn" href="https://banyanaladoge.ru" target="_blank" rel="noopener">Открыть проект <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="stat-hero" data-stat="banya.organicVisits" style="font-size:clamp(2.4rem,5vw,4.2rem);">____</div>
+        <div class="stat-hero-label">органических переходов</div>
+        <div class="stat-row" style="grid-template-columns:1fr 1fr; margin-top:32px;">
+          <div class="stat"><div class="stat-num" data-stat="banya.visibilityGrowth">____</div><div class="stat-label">рост поисковой видимости</div></div>
+          <div class="stat"><div class="stat-num" data-stat="banya.top10Queries">____</div><div class="stat-label">запросов в ТОП-10</div></div>
+          <div class="stat"><div class="stat-num" data-stat="banya.yandexVisits">____</div><div class="stat-label">переходов из Яндекса</div></div>
+          <div class="stat"><div class="stat-num" data-stat="banya.googleVisits">____</div><div class="stat-label">переходов из Google</div></div>
+          <div class="stat"><div class="stat-num" data-stat="banya.conversions">____</div><div class="stat-label">конверсий из поиска</div></div>
+          <div class="stat"><div class="stat-num" data-stat="banya.aiVisibility">____</div><div class="stat-label">AI visibility</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 / ЧТО Я ИЗМЕРЯЮ ============ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">09</span> Что я измеряю</p>
+      <h2 class="reveal">Не считаю<br>«количество текстов».</h2>
+      <div class="data-grid reveal">
+        <div class="data-item"><div class="stat-num" data-stat="metrics.impressions">____</div><div class="stat-label">Показы</div></div>
+        <div class="data-item"><div class="stat-num" data-stat="metrics.searchClicks">____</div><div class="stat-label">Клики из поиска</div></div>
+        <div class="data-item"><div class="stat-num" data-stat="metrics.organicTraffic">____</div><div class="stat-label">Органический трафик</div></div>
+        <div class="data-item"><div class="stat-num" data-stat="metrics.rankings">____</div><div class="stat-label">Позиции / запросы</div></div>
+        <div class="data-item"><div class="stat-num" data-stat="metrics.organicConversions">____</div><div class="stat-label">Конверсии из organic</div></div>
+        <div class="data-item"><div class="stat-num" data-stat="metrics.aiVisibility">____</div><div class="stat-label">AI visibility</div></div>
+        <div class="data-item"><div class="stat-num" data-stat="metrics.aiReferrals">____</div><div class="stat-label">AI referrals</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10 / КОМУ НУЖНО ============ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">10</span> Кому нужно</p>
+      <h2 class="reveal">Сайт уже есть,<br>но его не находят?</h2>
+      <div style="margin-top: clamp(32px,4vw,48px);">
+        <div class="scenario reveal"><div class="n">01</div><p>Сайт сделали, органического трафика почти нет.</p></div>
+        <div class="scenario reveal"><div class="n">02</div><p>Большая часть заявок зависит от рекламы.</p></div>
+        <div class="scenario reveal"><div class="n">03</div><p>Конкуренты появляются в поиске и AI-ответах чаще вас.</p></div>
+        <div class="scenario reveal"><div class="n">04</div><p>Делаете новый сайт и хотите сразу заложить нормальную поисковую основу.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11 / КОМУ ПОКА НЕ НУЖНО ============ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">11</span> Честно</p>
+      <h2 class="reveal">GEO нужно<br>не каждому.</h2>
+      <p class="body-text reveal" style="margin-top:28px;">Если ваш продукт практически не ищут, бизнес еще не сформировал предложение или сайт пока вообще не выполняет коммерческую функцию, я не буду продавать вам GEO ради слова GEO.</p>
+      <p class="body-text reveal">Сначала нужно решить базовую задачу бизнеса.</p>
+    </div>
+  </section>
+
+  <!-- ============ 12 / ФОРМАТЫ РАБОТЫ ============ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="num">12</span> Форматы работы</p>
+
+      <div class="format reveal">
+        <div class="n">01</div>
+        <div>
+          <div class="format-name">Настроить</div>
+          <div class="format-sub">SEO + GEO оптимизация существующего сайта</div>
+        </div>
+        <div class="format-desc">Разовая работа. Анализ, структура, техника, контент, schema, AI visibility, внедрение.</div>
+        <div class="format-price" data-stat="pricing.setup">от ____ ₽</div>
+      </div>
+
+      <div class="format reveal">
+        <div class="n">02</div>
+        <div>
+          <div class="format-name">Развивать</div>
+          <div class="format-sub">SEO-продвижение</div>
+        </div>
+        <div class="format-desc">Регулярная работа. Новые страницы, контент, семантика, рост видимости, анализ запросов, доработки.</div>
+        <div class="format-price" data-stat="pricing.grow">от ____ ₽ / месяц</div>
+      </div>
+
+      <div class="format reveal">
+        <div class="n">03</div>
+        <div>
+          <div class="format-name">Сделать с нуля</div>
+          <div class="format-sub">Сайт + SEO + GEO</div>
+        </div>
+        <div class="format-desc">Поисковая архитектура проектируется одновременно с самим сайтом.</div>
+        <div class="format-price" data-stat="pricing.fromScratch">от ____ ₽</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13 / FAQ ============ -->
+  <section>
+    <div class="wrap" style="max-width:900px;">
+      <p class="eyebrow reveal"><span class="num">13</span> FAQ</p>
+      <h2 class="reveal" style="margin-bottom:clamp(28px,3.6vw,44px);">Вопросы, которые<br>задают чаще всего.</h2>
+
+      <details class="faq-item reveal">
+        <summary>Что такое GEO?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="faq-a">GEO, или Generative Engine Optimization, это оптимизация сайта и присутствия бренда под поиск, где ответ формируется нейросетью.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Чем GEO отличается от SEO?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="faq-a">SEO в первую очередь работает с классической поисковой видимостью. GEO добавляет задачи, связанные с AI-поиском и тем, насколько легко система может найти, понять и использовать информацию о бизнесе.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Можно гарантировать попадание в ChatGPT?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="faq-a">Нет. Конкретный ответ нейросети невозможно гарантировать. Можно повышать вероятность видимости и цитирования, работая с технической доступностью, структурой, контентом и внешними источниками.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>GEO делается один раз?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="faq-a">Базовую техническую и контентную подготовку можно сделать разово. В конкурентных тематиках дальнейший рост требует развития сайта и контента.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Мне понадобится новый сайт?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="faq-a">Не обязательно. Сначала нужно посмотреть текущий сайт.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Сколько ждать SEO?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="faq-a">Зависит от состояния сайта, конкуренции и ниши. Первые изменения индексирования и видимости можно увидеть раньше, чем устойчивый рост органического трафика.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Нужно постоянно писать статьи?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="faq-a">Нет. Для многих коммерческих сайтов важнее сначала правильно сделать страницы услуг, структуру, кейсы, FAQ и коммерческую информацию.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ 14 / FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="wrap">
+      <h2 class="reveal">Посмотрю, как поиск<br>видит ваш сайт сейчас.</h2>
+      <p class="body-text reveal">Сначала проверю базовую видимость, структуру и очевидные проблемы. Если потенциала для SEO/GEO нет, так и скажу.</p>
+      <div class="hero-cta reveal">
+        <a class="btn" href="#" data-open-contact>Проверить сайт <span class="arrow" aria-hidden="true">→</span></a>
+        <div class="btn-note">Предварительный анализ, без обязательств</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© Tina Digital</span>
+    <span class="cx-plus" aria-hidden="true">+</span>
+  </div>
+</footer>
+
+<!-- same contact scenario as the homepage: Telegram / Email placeholders -->
+<div class="cx-sheet-overlay" id="cxInfoOverlay"></div>
+<div class="cx-sheet" id="cxInfoSheet" role="dialog" aria-modal="true" aria-label="Контакты">
+  <div class="cx-sheet-handle"></div>
+  <div class="cx-sheet-header">TINA DIGITAL</div>
+  <div class="cx-sheet-body">
+    <div class="cx-info-block">
+      <div class="cx-info-label">Telegram</div>
+      <div class="cx-info-value">[TELEGRAM]</div>
+    </div>
+    <div class="cx-info-block">
+      <div class="cx-info-label">Email</div>
+      <div class="cx-info-value">[EMAIL]</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- editable data — replace values here, layout updates itself ---- */
+  var STATS = {
+    enduro: { paidAds: '0 ₽', organicVisits: null, trafficGrowth: null, top10Queries: null, organicActions: null, aiMentions: null },
+    banya:  { organicVisits: null, visibilityGrowth: null, top10Queries: null, yandexVisits: null, googleVisits: null, conversions: null, aiVisibility: null },
+    metrics:{ impressions: null, searchClicks: null, organicTraffic: null, rankings: null, organicConversions: null, aiVisibility: null, aiReferrals: null },
+    pricing:{ setup: null, grow: null, fromScratch: null }
+  };
+
+  document.querySelectorAll('[data-stat]').forEach(function(el){
+    var path = el.getAttribute('data-stat').split('.');
+    var val = STATS[path[0]] && STATS[path[0]][path[1]];
+    if (val){
+      el.textContent = el.textContent.replace(/____|—/, val);
+    }
+  });
+
+  /* ---- reveal on scroll ---- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)){
+    targets.forEach(function(t){ t.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry, i){
+        if (entry.isIntersecting){
+          entry.target.style.transitionDelay = (i % 6) * 0.06 + 's';
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach(function(t){ io.observe(t); });
+  }
+
+  /* ---- contact sheet (same scenario as homepage) ---- */
+  var infoSheet = document.getElementById('cxInfoSheet');
+  var infoOverlay = document.getElementById('cxInfoOverlay');
+  function openContact(){
+    infoSheet.classList.add('is-open');
+    infoOverlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeContact(){
+    infoSheet.classList.remove('is-open');
+    infoOverlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-open-contact], #cxContactNav').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); openContact(); });
+  });
+  infoOverlay.addEventListener('click', closeContact);
+})();
+</script>
+
+</body>
+</html>
