@@ -212,6 +212,9 @@
   .sg-browser-tag{ white-space:nowrap; }
   .sg-browser-screen{ position:relative; aspect-ratio:16/9; max-height:760px; width:100%; }
   .sg-mobile-float{ position:absolute; right:clamp(16px,4vw,64px); bottom:clamp(-60px,-5vw,-30px); width:clamp(130px,18vw,260px); height:clamp(240px,34vw,500px); border:1px solid rgba(238,234,226,0.3); background:#090909; padding:6px; }
+  @media (max-width: 680px){
+    .sg-mobile-float{ position:static; right:auto; bottom:auto; width:min(200px,56%); height:auto; aspect-ratio:9/17.4; margin:20px auto 0; }
+  }
   .sg-mobile-float-inner{ display:flex; flex-direction:column; width:100%; height:100%; }
   .sg-mobile-notch{ flex:none; display:flex; justify-content:center; padding:6px 0 7px; }
   .sg-mobile-notch span{ width:34px; height:3px; background:rgba(238,234,226,0.25); }
@@ -487,7 +490,7 @@
     <div class="sg-space-caption">
       <span class="side">ЧЕЛОВЕК</span>
       <span class="bar"></span>
-      <span class="bubble"><span class="dot"></span><span class="q">баня с купелью на ладоге для компании цена</span></span>
+      <span class="bubble"><span class="dot"></span><span class="q">аренда лодки на ладоге с эхолотом цена</span></span>
       <span class="bar"></span>
       <span class="side">БИЗНЕС</span>
     </div>
@@ -755,16 +758,16 @@
 
 <section class="sg-case" data-screen-label="08 Case Ladoga">
   <div class="sg-case-pad" data-reveal="1" style="display:flex;flex-direction:column;gap:24px;padding-bottom:clamp(40px,5vw,80px);max-width:1100px;">
-    <div class="sg-case-eyebrow"><span class="rule"></span><span class="label">08 — CASE 02 / БАНЯ НА ЛАДОГЕ</span></div>
+    <div class="sg-case-eyebrow"><span class="rule"></span><span class="label">08 — CASE 02 / ЛОДКИ НА ЛАДОГЕ</span></div>
     <h2 class="sg-case-h2">Локальный бизнес ищут не только по&nbsp;названию.</h2>
   </div>
 
-  <div class="sg-case-pad" style="display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,72px);align-items:stretch;margin-bottom:clamp(60px,8vw,120px);">
+  <div class="sg-case-pad" style="display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,72px);align-items:flex-start;margin-bottom:clamp(60px,8vw,120px);">
     <div class="sg-browser" data-reveal="1" style="flex:1.3 1 520px;min-width:0;">
       <div class="sg-browser-inner">
         <div class="sg-browser-bar">
           <span class="sg-browser-dots"><span></span><span></span><span></span></span>
-          <span class="sg-browser-url">banya-ladoga.ru</span>
+          <span class="sg-browser-url">lodki-ladoga.ru</span>
           <span class="sg-browser-tag">DESKTOP</span>
         </div>
         <div class="sg-browser-screen">
@@ -775,32 +778,32 @@
         <div class="sg-mobile-float-inner">
           <div class="sg-mobile-notch"><span></span></div>
           <div class="sg-mobile-screen">
-            <img class="sg-shot-media" src="../assets/seo-geo/ladoga-mobile.webp" alt="Мобильная версия сайта banya-ladoga.ru — выбор лодки">
+            <img class="sg-shot-media" src="../assets/seo-geo/ladoga-mobile.webp" alt="Мобильная версия сайта lodki-ladoga.ru — выбор лодки">
           </div>
         </div>
       </div>
     </div>
 
     <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:36px;">
-      <p class="sg-lede" style="max-width:none;" data-reveal="1">Пользователь ищет конкретно: где находится баня, сколько стоит, есть ли купель, подойдет ли для компании и как добраться. Поэтому сайт строился вокруг реальных сценариев выбора, а не только брендового запроса.</p>
+      <p class="sg-lede" style="max-width:none;" data-reveal="1">Пользователь ищет конкретно: сколько стоит аренда, есть ли эхолот, нужен ли залог, можно ли выйти на воду сегодня и как добраться до пирса. Поэтому сайт строился вокруг реальных сценариев выбора, а не только брендового запроса.</p>
 
       <div data-reveal="1">
-        <div class="sg-qp-head"><span>QUERY</span><span>→ PAGE</span></div>
-        <div class="sg-qp-row"><span class="q">баня на ладоге где находится</span><span class="p">/kontakty</span></div>
-        <div class="sg-qp-row"><span class="q">баня на ладоге цена</span><span class="p">/ceny</span></div>
-        <div class="sg-qp-row"><span class="q">баня с купелью</span><span class="p">/kupel</span></div>
-        <div class="sg-qp-row"><span class="q">баня для компании</span><span class="p">/dlya-kompanii</span></div>
-        <div class="sg-qp-row is-hl"><span class="q">как добраться до бани</span><span class="p">/kak-dobratsya</span></div>
+        <div class="sg-qp-head"><span>QUERY</span><span>→ SECTION</span></div>
+        <div class="sg-qp-row"><span class="q">аренда лодки на ладоге цена</span><span class="p">#fleet</span></div>
+        <div class="sg-qp-row"><span class="q">лодка с эхолотом на ладоге</span><span class="p">#included</span></div>
+        <div class="sg-qp-row"><span class="q">рыбалка на ладоге на лодке</span><span class="p">#scenarios</span></div>
+        <div class="sg-qp-row"><span class="q">аренда лодки без залога</span><span class="p">#faq</span></div>
+        <div class="sg-qp-row is-hl"><span class="q">как забронировать лодку на ладоге</span><span class="p">#process</span></div>
       </div>
 
       <div class="sg-crops">
         <div class="sg-crop">
-          <div class="sg-crop-frame"><div class="sg-shot-slot"><span>Фрагмент: блок цен<br>[ материал не предоставлен ]</span></div></div>
-          <span class="sg-crop-link">→ /ceny</span>
+          <div class="sg-crop-frame"><div class="sg-shot-slot"><span>Фрагмент: карточка лодки с ценой<br>[ материал не предоставлен ]</span></div></div>
+          <span class="sg-crop-link">→ #fleet</span>
         </div>
         <div class="sg-crop">
-          <div class="sg-crop-frame"><div class="sg-shot-slot"><span>Фрагмент: купель<br>[ материал не предоставлен ]</span></div></div>
-          <span class="sg-crop-link">→ /kupel</span>
+          <div class="sg-crop-frame"><div class="sg-shot-slot"><span>Фрагмент: что включено (эхолот, бензин, спасжилеты)<br>[ материал не предоставлен ]</span></div></div>
+          <span class="sg-crop-link">→ #included</span>
         </div>
       </div>
     </div>
