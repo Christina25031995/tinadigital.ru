@@ -212,6 +212,8 @@
   .sg-browser-tag{ white-space:nowrap; }
   .sg-browser-screen{ position:relative; aspect-ratio:16/9; max-height:760px; width:100%; }
   .sg-mobile-float{ position:absolute; right:clamp(16px,4vw,64px); bottom:clamp(-60px,-5vw,-30px); width:clamp(130px,18vw,260px); height:clamp(240px,34vw,500px); border:1px solid rgba(238,234,226,0.3); background:#090909; padding:6px; }
+  .sg-mobile-float.is-left{ right:auto; left:clamp(16px,4vw,64px); }
+  .sg-shot-media.is-bottom-anchor{ object-position:center bottom; }
   @media (max-width: 680px){
     .sg-mobile-float{ position:static; right:auto; bottom:auto; width:min(200px,56%); height:auto; aspect-ratio:9/17.4; margin:20px auto 0; }
   }
@@ -607,7 +609,7 @@
         <span class="sg-browser-tag">DESKTOP · 1440</span>
       </div>
       <div class="sg-browser-screen">
-        <video class="sg-shot-media" src="../assets/seo-geo/enduro-main.mp4" autoplay muted loop playsinline></video>
+        <video class="sg-shot-media is-bottom-anchor" src="../assets/seo-geo/enduro-main.mp4" autoplay muted loop playsinline></video>
       </div>
     </div>
     <div class="sg-mobile-float">
@@ -774,7 +776,7 @@
           <video class="sg-shot-media" src="../assets/seo-geo/ladoga-main.mp4" autoplay muted loop playsinline></video>
         </div>
       </div>
-      <div class="sg-mobile-float">
+      <div class="sg-mobile-float is-left">
         <div class="sg-mobile-float-inner">
           <div class="sg-mobile-notch"><span></span></div>
           <div class="sg-mobile-screen">
