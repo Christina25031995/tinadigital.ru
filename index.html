@@ -12,9 +12,8 @@
 <meta name="twitter:title" content="TINA DIGITAL">
 <meta name="twitter:description" content="Сайты · Digital-продукты · Разработка">
 <meta name="twitter:image" content="https://tinadigital.ru/assets/cube/back-1-blepharoplasty-full.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/manrope.css">
+<link rel="stylesheet" href="assets/legal/legal.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 
@@ -221,6 +220,10 @@
   /* on-tile hover label removed per direct request — project names now
      live only in the side Projects index, not floating over the cube. */
 
+  .cx-dock, .cx-sheet{ font-family:'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  .cx-info-value{ color:var(--ink); }
+  .cx-hero-legal{ position:absolute; z-index:5; left:clamp(20px,3vw,40px); bottom:22px; }
+  @media (max-width: 768px){ .cx-hero-legal{ display:none; } }
   .cx-drag-hint{ display:none; } /* mobile-only — shown in the ≤768px block below */
 
   /* ============ CAPTION / CONTROLS ============ */
@@ -462,6 +465,12 @@
     </nav>
   </header>
 
+  <div class="tl-legal cx-hero-legal">
+    <span>© 2026 TINA DIGITAL</span>
+    <a href="privacy/">Политика конфиденциальности</a>
+    <a href="cookies/">Cookie</a>
+  </div>
+
   <div class="cx-main">
     <div class="cx-text">
       <p class="cx-eyebrow">Кристина — веб&#8209;дизайнер</p>
@@ -686,11 +695,18 @@
     <p class="cx-info-lede">Web design, UX/UI и разработка. Портфолио выше — то, что уже сделано для реальных проектов.</p>
     <div class="cx-info-block">
       <div class="cx-info-label">Telegram</div>
-      <div class="cx-info-value">[TELEGRAM]</div>
+      <div class="cx-info-value"><a href="https://t.me/belovachristina" rel="noopener">@belovachristina</a></div>
     </div>
     <div class="cx-info-block">
       <div class="cx-info-label">Email</div>
-      <div class="cx-info-value">[EMAIL]</div>
+      <div class="cx-info-value"><a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></div>
+    </div>
+    <div class="cx-info-block">
+      <div class="tl-legal">
+        <a href="privacy/">Политика конфиденциальности</a>
+        <a href="cookies/">Политика cookie</a>
+        <a href="#" data-cookie-settings>Настройки cookie</a>
+      </div>
     </div>
   </div>
 </div>
@@ -1705,3 +1721,5 @@
   }
 })();
 </script>
+
+<script src="assets/legal/legal.js"></script>
