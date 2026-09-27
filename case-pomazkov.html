@@ -49,11 +49,11 @@
   .paper .label b, .cream .label b{ color:var(--gold); }
   .h-xl{ font-family:var(--serif); font-weight:600; text-transform:uppercase; letter-spacing:-.02em; line-height:.92; margin:0; font-size:clamp(46px,8.6vw,150px); text-wrap:balance; }
   .h-l{ font-family:var(--serif); font-weight:600; text-transform:uppercase; letter-spacing:-.015em; line-height:.98; margin:0; font-size:clamp(34px,5.2vw,86px); text-wrap:balance; }
-  .h-l em, .h-xl em{ font-family:'Shlapak Script', var(--serif); font-style:normal; font-weight:400; text-transform:none; letter-spacing:0; color:var(--gold-2); font-size:1.08em; line-height:.9; }
+  .h-l em, .h-xl em{ font-family:'Shlapak Script', var(--serif); font-style:normal; font-weight:400; text-transform:none; letter-spacing:0; color:var(--gold-2); font-size:1.08em; line-height:.9; white-space:nowrap; }
   .paper .h-l em, .cream .h-l em{ color:var(--gold); }
   .lede{ font-size:clamp(19px,1.7vw,26px); line-height:1.45; margin:0; text-wrap:pretty; }
   .body{ font-size:17px; line-height:1.65; margin:0 0 14px; text-wrap:pretty; }
-  .dark .body, .dark .lede{ color:var(--l-dim); }
+  .dark .body, .dark .lede{ color:rgba(244,244,243,.8); }
   .paper .body, .cream .body{ color:var(--t-dim); }
   .grid-2{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(20px,3vw,48px); align-items:start; }
   .c-5{ grid-column:span 5; } .c-6{ grid-column:span 6; } .c-7{ grid-column:span 7; } .c-4{ grid-column:span 4; } .c-8{ grid-column:span 8; }
@@ -67,9 +67,10 @@
   .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3a3e; }
   .browser .bar span{ margin:0 auto; font-family:var(--sans); font-size:12px; color:#8d8d93; background:#29292d; padding:4px 22px; border-radius:7px; transform:translateX(-24px); }
   .browser video, .browser img{ width:100%; }
-  .browser.tall{ max-height:none; }
-  .browser.tall .scroller{ max-height:none; overflow:hidden; position:relative; }
-  .browser.tall .scroller::after{ display:none; }
+  .browser.tall{ max-height:none; max-width:1180px; margin-left:auto; margin-right:auto; }
+  .browser.tall .scroller{ max-height:min(980px, 95vh); overflow:hidden; position:relative; }
+  .browser.tall .scroller::after{ display:block; height:240px; background:linear-gradient(rgba(239,235,228,0), var(--paper) 88%); }
+  .evidence-cap{ max-width:1180px; margin:14px auto 0; font-family:var(--mono); font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--t-faint); }
   .browser.tall .scroller::after{ content:''; position:absolute; inset:auto 0 0 0; height:180px; background:linear-gradient(transparent, var(--fade, #efebe4)); }
 
   .phone{ width:clamp(200px,19vw,300px); aspect-ratio:390/844; border-radius:calc(clamp(200px,19vw,300px) * .15); background:#0a0a0b; padding:clamp(7px,.7vw,10px);
@@ -107,11 +108,11 @@
   .papers{ position:relative; height:clamp(420px,52vw,760px); margin-top:clamp(50px,7vw,110px); }
   .papers .pp{ position:absolute; margin:0; width:clamp(200px,24vw,380px); box-shadow:0 40px 80px -20px rgba(0,0,0,.7); border-radius:3px; overflow:hidden; transition:transform .8s var(--ease); }
   .papers .pp img{ width:100%; }
-  .papers .p1{ left:2%; top:6%; transform:rotate(-6deg); }
-  .papers .p2{ left:26%; top:0; transform:rotate(3deg); z-index:2; }
-  .papers .p3{ left:50%; top:10%; transform:rotate(-2deg); z-index:3; }
-  .papers .p4{ left:73%; top:2%; transform:rotate(5deg); }
-  .papers .pp:hover{ transform:rotate(0) translateY(-14px) scale(1.03); z-index:5; }
+  .papers .p1{ --r:-6deg; left:2%; top:6%; transform:rotate(var(--r)) translateY(calc(var(--py,0) * 1px)); }
+  .papers .p2{ --r:3deg; left:26%; top:0; transform:rotate(var(--r)) translateY(calc(var(--py,0) * 1px)); z-index:2; }
+  .papers .p3{ --r:-2deg; left:50%; top:10%; transform:rotate(var(--r)) translateY(calc(var(--py,0) * 1px)); z-index:3; }
+  .papers .p4{ --r:5deg; left:73%; top:2%; transform:rotate(var(--r)) translateY(calc(var(--py,0) * 1px)); }
+  .papers .pp{ will-change:transform; transition:none; }
   @media (max-width: 760px){ .papers{ height:auto; display:grid; grid-template-columns:1fr 1fr; gap:12px; } .papers .pp{ position:static; width:auto; transform:none; } }
   .insight{ margin-top:clamp(60px,8vw,120px); }
   .big-quote{ font-family:var(--serif); font-size:clamp(28px,3.6vw,58px); line-height:1.12; margin:0; max-width:1250px; text-wrap:balance; letter-spacing:-.01em; }
@@ -124,10 +125,10 @@
   .decisions{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,44px); }
   .decisions div{ border-top:1px solid rgba(244,244,243,.18); padding-top:18px; }
   .decisions b{ display:block; font-family:var(--serif); font-weight:600; font-size:clamp(20px,1.8vw,26px); line-height:1.2; margin-bottom:10px; }
-  .decisions span{ font-size:15.5px; line-height:1.55; color:var(--l-dim); }
+  .decisions span{ font-size:16px; line-height:1.55; color:rgba(244,244,243,.8); }
   @media (max-width: 900px){ .decisions{ grid-template-columns:1fr; } }
   /* ---------- позиционирование ---------- */
-  .position{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); min-height:100vh; padding:0 !important; }
+  .position{ display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); min-height:110vh; padding:0 !important; }
   .position .txt{ padding:clamp(90px,12vw,180px) var(--pad); display:flex; flex-direction:column; justify-content:center; }
   .position .ph{ position:relative; overflow:hidden; }
   .position .ph .ai-tag.abs{ top:auto; bottom:20px; left:20px; }
@@ -156,7 +157,7 @@
   /* ---------- подход ---------- */
   .approach-shot{ max-width:1500px; margin:clamp(40px,6vw,80px) auto 0; }
   .ann{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:34px; }
-  .ann div{ border-top:1px solid rgba(244,244,243,.18); padding-top:16px; font-size:16px; line-height:1.5; color:var(--l-dim); }
+  .ann div{ border-top:1px solid rgba(244,244,243,.24); padding-top:16px; font-size:17px; line-height:1.55; color:rgba(244,244,243,.84); }
   .ann b{ display:block; font-family:var(--mono); font-weight:500; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); margin-bottom:8px; }
   @media (max-width: 760px){ .ann{ grid-template-columns:1fr; } }
 
@@ -168,6 +169,10 @@
   .steps b{ display:block; font-family:var(--mono); font-weight:500; font-size:11px; letter-spacing:.12em; color:var(--t-faint); margin-bottom:6px; }
   .steps span{ font-size:clamp(15px,1.25vw,19px); line-height:1.25; }
   @media (max-width: 900px){ .steps{ grid-template-columns:1fr 1fr; row-gap:26px; } }
+
+  .statement{ font-family:var(--serif); font-weight:600; text-transform:uppercase; letter-spacing:-.015em; line-height:1; font-size:clamp(30px,3.8vw,60px); margin:0 0 clamp(40px,5vw,70px); }
+  .statement em{ font-family:'Shlapak Script', var(--serif); font-weight:400; text-transform:none; letter-spacing:0; color:var(--gold); font-size:1.45em; line-height:1.1; }
+  .dark .statement em{ color:var(--gold-2); }
 
   /* ---------- мобайл ---------- */
   .phones{ display:flex; justify-content:center; align-items:flex-start; gap:clamp(14px,2vw,34px); margin-top:clamp(50px,7vw,110px); }
@@ -207,8 +212,9 @@
   .photos figure{ position:relative; }
   .ai-points{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,44px); margin-top:clamp(50px,6vw,90px); }
   .ai-points div{ border-top:1px solid rgba(244,244,243,.18); padding-top:18px; }
+  .ai-points b small{ display:block; font-family:var(--mono); font-weight:500; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); margin-bottom:10px; }
   .ai-points b{ display:block; font-family:var(--serif); font-weight:600; font-size:clamp(20px,1.8vw,26px); line-height:1.2; margin-bottom:10px; }
-  .ai-points span{ font-size:15.5px; line-height:1.55; color:var(--l-dim); }
+  .ai-points span{ font-size:16px; line-height:1.55; color:rgba(244,244,243,.8); }
   @media (max-width: 900px){ .ai-points{ grid-template-columns:1fr; } }
   /* ---------- результат ---------- */
   .result{ text-align:left; }
@@ -227,6 +233,12 @@
   .wave i{ width:3px; border-radius:2px; background:rgba(184,150,96,.5); }
   @media (max-width: 600px){ .voice{ grid-template-columns:1fr; } }
 
+  .pause{ padding-top:clamp(140px,18vw,280px); padding-bottom:clamp(140px,18vw,280px); }
+  .statement.big{ font-size:clamp(44px,7vw,120px); line-height:.95; }
+  .live{ display:inline-flex; gap:14px; align-items:baseline; margin-top:22px; font-family:var(--sans); font-size:15px; font-weight:600; text-decoration:none; color:var(--t-dark); border-bottom:1px solid var(--gold); padding-bottom:3px; }
+  .live span{ font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+  .breath{ height:clamp(120px,16vw,240px); background:var(--ink); }
+
   /* ---------- следующий кейс ---------- */
   .next{ display:block; position:relative; min-height:70vh; overflow:hidden; text-decoration:none; color:#fff; }
   .next video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55; transition:opacity .6s, transform 1.4s var(--ease); }
@@ -235,6 +247,14 @@
   .next small{ font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.7; }
   .next b{ font-family:var(--serif); font-weight:600; text-transform:uppercase; font-size:clamp(46px,9vw,150px); line-height:.9; letter-spacing:-.03em; }
   .foot{ background:var(--ink); padding:30px var(--pad) 40px; }
+
+  /* ---------- hero: micro labels → POMAZKOV → подпись → метаданные ---------- */
+  .hs{ opacity:0; transform:translateY(14px); animation:hsIn 1.3s var(--ease) forwards; }
+  .hs1{ animation-delay:.15s; } .hs2{ animation-delay:.45s; } .hs3{ animation-delay:1.05s; } .hs4{ animation-delay:1.45s; }
+  .cover h1.hs{ transform:translateY(22px); letter-spacing:-.03em; animation-name:hsInTitle; animation-duration:1.6s; }
+  @keyframes hsIn{ to{ opacity:1; transform:none; } }
+  @keyframes hsInTitle{ to{ opacity:1; transform:none; letter-spacing:-.045em; } }
+  @media (prefers-reduced-motion: reduce){ .hs{ animation:none; opacity:1; transform:none; } }
 
   /* ---------- появление ---------- */
   .rv{ opacity:0; transform:translateY(40px); transition:opacity 1.1s var(--ease), transform 1.1s var(--ease); }
@@ -253,10 +273,10 @@
 
 <!-- 00 обложка -->
 <section class="cover">
-  <div class="kicker"><span>Case 02 — 2026</span><span>Medical website</span></div>
-  <h1 class="rv">Pomazkov</h1>
-  <p class="tag rv">естественный результат</p>
-  <div class="meta rv">
+  <div class="kicker hs hs1"><span>Case 02 — 2026</span><span>Medical website</span></div>
+  <h1 class="hs hs2">Pomazkov</h1>
+  <p class="tag hs hs3">естественный результат</p>
+  <div class="meta hs hs4">
     <div><small>Клиент</small>Филипп Помазков, пластический хирург. Санкт-Петербург</div>
     <div><small>Роль</small>Стратегия, UX/UI, дизайн, разработка</div>
     <div><small>Год</small>2026</div>
@@ -278,11 +298,11 @@
       <h2 class="h-l rv">Хирурга выбирают <em>не&nbsp;по&nbsp;прайсу</em></h2>
     </div>
     <div class="c-6 off-7">
-      <p class="lede rv">Человек ищет того, кому можно доверить своё тело. Сайт должен был снять страхи, которые пациенты называют сами, и&nbsp;довести до&nbsp;консультации без&nbsp;давления.</p>
+      <p class="lede rv">Сайт должен был снять страхи, которые пациенты называют сами, и&nbsp;довести до&nbsp;консультации без&nbsp;давления.</p>
       <ol class="fears rv">
-        <li><div>«Результат не&nbsp;совпадёт с&nbsp;тем, что у&nbsp;меня в&nbsp;голове»<span>Главный страх: получить не&nbsp;себя, а&nbsp;«оперированный» вид.</span></div></li>
-        <li><div>«Наркоз и&nbsp;долгая реабилитация»<span>Неизвестность после операции пугает сильнее самой операции.</span></div></li>
-        <li><div>«Он&nbsp;слишком молодой»<span>Барьер выбора, который нельзя прятать, но&nbsp;и&nbsp;нельзя выносить в&nbsp;центр.</span></div></li>
+        <li><div>«Результат не&nbsp;совпадёт с&nbsp;тем, что в&nbsp;голове»<span>Досье бренда · страхи пациентов</span></div></li>
+        <li><div>«Долгая реабилитация. Наркоз»<span>Досье бренда · страхи пациентов</span></div></li>
+        <li><div>«Молодой возраст»<span>Досье бренда · почему не&nbsp;выбирают</span></div></li>
       </ol>
     </div>
   </div>
@@ -299,7 +319,7 @@
       <p class="lede rv">До&nbsp;первого макета: досье бренда по&nbsp;открытым источникам, исследование воронки медицинских сайтов и&nbsp;структура из&nbsp;12&nbsp;блоков.</p>
       <div class="art-stats rv">
         <div><b>10</b><span>страниц досье: Instagram, сторис, Telegram, ПроДокторов</span></div>
-        <div><b>85&nbsp;000</b><span>знаков исследования воронки и&nbsp;архитектуры</span></div>
+        <div><b>85&nbsp;000+</b><span>знаков исследования воронки и&nbsp;архитектуры</span></div>
         <div><b>12</b><span>блоков структуры: каждый отвечает на&nbsp;вопрос пациента</span></div>
       </div>
     </div>
@@ -343,7 +363,7 @@
     <h2 class="h-xl rv">Чувство<br><em>меры.</em></h2>
     <p class="quote rv">«Моя задача — не&nbsp;выполнить пожелание буквально, а&nbsp;сделать так, чтобы результат жил с&nbsp;человеком годами».</p>
     <p class="quote-by">Филипп Помазков</p>
-    <p class="body rv" style="margin-top:34px;max-width:560px">Вместо «сделаем больше и&nbsp;ярче» — «естественный результат». Хирург, который может отговорить от&nbsp;лишнего, вызывает больше доверия, чем обещания.</p>
+    <p class="body rv" style="margin-top:34px;max-width:560px">Вместо «сделаем больше и&nbsp;ярче» — «естественный результат». В&nbsp;досье зафиксировано: Филипп открыто допускает менее инвазивный вариант вместо максимального вмешательства. Это и&nbsp;стало основой позиционирования.</p>
   </div>
   <div class="ph"><span class="ai-tag abs" style="z-index:2">AI</span><img src="assets/pomazkov/p-portrait.jpg" alt="AI-кадр для сайта: хирург в операционной" loading="lazy"></div>
 </section>
@@ -368,7 +388,9 @@
     </div>
   </div>
   <div class="wrap" style="margin-top:clamp(50px,7vw,110px)">
-    <div class="browser rv" style="--fade:#fffdf9"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · ваш запрос</span></div>
+    <!-- VISUAL TO REPLACE: кадр «01 / Блефаропластика · Хочу более открытый взгляд» слишком похож на beauty-рекламу.
+         Нужен natural / sculptural / restrained визуал без макияжа. Заменить на сайте клиента → переснять v-directions-d.mp4 (_tools/casegen clips.js, type through, target directions). -->
+    <div class="browser rv" data-replace-visual="directions-01" style="--fade:#fffdf9"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · ваш запрос</span></div>
       <video src="assets/pomazkov/v-directions-d.mp4" muted loop playsinline preload="none" data-auto></video>
     </div>
   </div>
@@ -394,6 +416,7 @@
     <div class="browser tall rv" style="margin-top:clamp(40px,5vw,70px)"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · кейсы</span></div>
       <div class="scroller"><img src="assets/pomazkov/d-cases-full.jpg" alt="Блок кейса на сайте: история решения" loading="lazy"></div>
     </div>
+    <p class="evidence-cap">фрагмент блока кейса на сайте · результат через 8&nbsp;месяцев</p>
   </div>
 </section>
 
@@ -418,13 +441,14 @@
   <div class="wrap grid-2">
     <div class="c-6">
       <p class="label"><b>07</b> (journey) путь пациента</p>
-      <h2 class="h-l rv">Операция — только <em>одна из&nbsp;семи</em> точек</h2>
+      <h2 class="h-l rv">Операция — только одна из&nbsp;<em>семи точек</em></h2>
     </div>
     <div class="c-5 off-7">
-      <p class="body rv">Страх рождается из&nbsp;неизвестности. Поэтому на&nbsp;сайте показан весь путь: от&nbsp;консультации до&nbsp;контроля результата, с&nbsp;живыми деталями — например, что список анализов действует 10&nbsp;дней.</p>
+      <p class="body rv">На&nbsp;сайте показан весь путь: от&nbsp;консультации до&nbsp;контроля результата, с&nbsp;живыми деталями — например, что список анализов действует 10&nbsp;дней.</p>
     </div>
   </div>
   <div class="wrap" style="margin-top:clamp(50px,6vw,90px)">
+    <p class="statement rv">Не&nbsp;скрывать процесс —<br><em>объяснить его.</em></p>
     <ol class="steps rv">
       <li><b>01</b><span>Консультация</span></li>
       <li><b>02</b><span>Решение</span></li>
@@ -467,10 +491,10 @@
   <div class="wrap grid-2">
     <div class="c-6">
       <p class="label"><b>10</b> (responsive) мобильная версия</p>
-      <h2 class="h-l rv">Не&nbsp;сжатый сайт, а&nbsp;<em>приложение</em></h2>
+      <h2 class="h-l rv">Не&nbsp;сжатый desktop. <em>Мобильный интерфейс</em></h2>
     </div>
     <div class="c-5 off-7">
-      <p class="body rv">На&nbsp;телефоне сайт работает как приложение: нижнее меню из&nbsp;пяти разделов — Главная, Результаты, Работы, Подход, Запись. Длинные блоки превращены в&nbsp;экраны с&nbsp;листанием, а&nbsp;запись открывается шторкой с&nbsp;выбором даты.</p>
+      <p class="body rv">Навигация, иерархия контента, путь пациента и&nbsp;запись собраны заново под&nbsp;телефон: нижнее меню из&nbsp;пяти разделов, длинные блоки разбиты на&nbsp;экраны, запись открывается шторкой с&nbsp;выбором даты.</p>
     </div>
   </div>
   <div class="phones five">
@@ -487,21 +511,21 @@
   <div class="wrap grid-2">
     <div class="c-6">
       <p class="label"><b>11</b> (visual · ai) визуальный язык</p>
-      <h2 class="h-xl rv">Взрослее <em>и&nbsp;серьёзнее</em></h2>
+      <h2 class="h-l rv">AI — для&nbsp;атмосферы.<br><em>Не&nbsp;для&nbsp;доказательств.</em></h2>
     </div>
     <div class="c-5 off-7">
-      <p class="lede rv">Возраст — одно из&nbsp;возражений пациентов, и&nbsp;Филипп хотел выглядеть на&nbsp;сайте солиднее. Снять настоящую операцию нельзя: стерильность и&nbsp;согласие пациентов. Поэтому весь визуал сайта — AI-генерация.</p>
+      <p class="lede rv">Филипп хотел, чтобы сайт выглядел взрослее и&nbsp;серьёзнее. Визуальная среда проекта собрана из&nbsp;AI-визуалов: строгая монохромная атмосфера без&nbsp;чужих фотографий. Всё, что относится к&nbsp;результату лечения, — только реальные материалы.</p>
     </div>
   </div>
   <figure class="ai-film rv">
     <video src="assets/pomazkov/ai-hero.mp4" poster="assets/pomazkov/ai-hero.jpg" muted loop playsinline preload="none" data-auto></video>
-    <figcaption><span class="ai-tag">AI</span> видео первого экрана: операционная, руки хирурга, свет</figcaption>
+    <figcaption><span class="ai-tag">AI</span> атмосферный кадр первого экрана · не&nbsp;документальная съёмка</figcaption>
   </figure>
   <div class="wrap">
     <div class="ai-points">
-      <div class="rv"><b>Видео из&nbsp;операционной</b><span>Сгенерировано: создаёт ощущение опыта и&nbsp;серьёзности с&nbsp;первой секунды, без&nbsp;съёмки реальных людей.</span></div>
-      <div class="rv"><b>Портреты и&nbsp;атмосфера</b><span>Эстетика уровня Pinterest-съёмки, но&nbsp;без&nbsp;стоков и&nbsp;чужих фото: никаких прав третьих лиц и&nbsp;рисков для&nbsp;клиента.</span></div>
-      <div class="rv"><b>Результаты — только настоящие</b><span>Фото «до/после» не&nbsp;генерируются. А&nbsp;на&nbsp;сайте честно указано, какие материалы созданы с&nbsp;помощью AI.</span></div>
+      <div class="rv"><b><small>01 / atmosphere</small>Атмосфера</b><span>AI-визуалы помогают создать нужную визуальную среду без&nbsp;использования чужих фотографий.</span></div>
+      <div class="rv"><b><small>02 / art direction</small>Арт-дирекшн</b><span>Портретные и&nbsp;пластические образы — часть художественной системы проекта, а&nbsp;не&nbsp;изображения пациентов.</span></div>
+      <div class="rv"><b><small>03 / real results</small>Реальные результаты</b><span>Результаты пациентов, фото «до/после» и&nbsp;клинические доказательства — только реальные материалы.</span></div>
     </div>
     <div class="photos" style="margin-top:clamp(50px,6vw,90px)">
       <figure class="big rv"><img src="assets/pomazkov/p-gaze.jpg" alt="AI-портрет" loading="lazy"><span class="ai-tag abs">AI</span></figure>
@@ -525,21 +549,11 @@
   </div>
 </section>
 
-<!-- 11 сайт целиком -->
-<section class="sec cream">
-  <div class="wrap">
-    <p class="label"><b>12</b> (website) сайт целиком</p>
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
-      <video src="assets/pomazkov/v-scroll-d.mp4" poster="assets/pomazkov/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video>
-    </div>
-  </div>
-</section>
-
 <!-- 12 результат -->
 <section class="sec dark result">
   <div class="wrap">
-    <p class="label"><b>13</b> (result) результат</p>
-    <h2 class="h-xl rv">Сайт, которому <em>доверяют</em></h2>
+    <p class="label"><b>12</b> (trust) результат</p>
+    <h2 class="h-xl rv">Сайт, которому <em>можно доверять</em></h2>
     <div class="facts">
       <div class="rv"><b>5</b><span>направлений через язык пациента, а&nbsp;не&nbsp;медицинские термины</span></div>
       <div class="rv"><b>7</b><span>точек пути пациента: от&nbsp;консультации до&nbsp;контроля</span></div>
@@ -561,6 +575,28 @@
     </div>
   </div>
 </section>
+
+<!-- 13 смысловая пауза -->
+<section class="sec dark pause">
+  <div class="wrap">
+    <p class="label"><b>13</b></p>
+    <p class="statement big rv">От&nbsp;страха —<br><em>к&nbsp;пониманию.</em></p>
+    <p class="body rv" style="max-width:560px">Сайт ведёт человека от&nbsp;собственного запроса к&nbsp;решению, объясняет процесс и&nbsp;только после этого предлагает запись.</p>
+  </div>
+</section>
+
+<!-- 11 сайт целиком -->
+<section class="sec cream">
+  <div class="wrap">
+    <p class="label"><b>14</b> (live product) сайт целиком</p>
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
+      <video src="assets/pomazkov/v-scroll-d.mp4" poster="assets/pomazkov/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video>
+    </div>
+    <a class="live" href="https://drpomazkov.ru" target="_blank" rel="noopener"><span>view live ↗</span>drpomazkov.ru</a>
+  </div>
+</section>
+
+<div class="breath" aria-hidden="true"></div>
 
 <a class="next" href="case-enduro.html">
   <video src="assets/cube/right-0-enduro.mp4" muted loop playsinline preload="none" data-auto></video>
@@ -597,6 +633,15 @@
       else v.pause();
     }); }, { threshold:.2 });
     vids.forEach(function(v){ vo.observe(v); });
+  }
+
+  /* research: медленный параллакс листов */
+  var papers = document.querySelector('.papers');
+  if (papers && !matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth > 760){
+    var pps = papers.querySelectorAll('.pp'), k = [-26, 14, -8, 22], tick = false;
+    var upd = function(){ tick = false; var r = papers.getBoundingClientRect(); var c = (r.top + r.height/2 - innerHeight/2) / innerHeight;
+      if (c < -1.2 || c > 1.2) return; pps.forEach(function(el, i){ el.style.setProperty('--py', (c * k[i]).toFixed(1)); }); };
+    addEventListener('scroll', function(){ if (!tick){ tick = true; requestAnimationFrame(upd); } }, { passive:true }); upd();
   }
 
   /* голосовой отзыв */
