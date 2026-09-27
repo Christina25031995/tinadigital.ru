@@ -257,6 +257,13 @@
   .cx-contact-legal{ max-width:1400px; margin:80px auto 0; }
   @media (max-width: 900px){ .cx-contact-in{ grid-template-columns:1fr; gap:48px; } }
   @media (max-width: 768px){ .cx-contact{ padding:64px 18px calc(110px + env(safe-area-inset-bottom)); } .cx-contact-btn{ flex:1; justify-content:center; } }
+
+  @media (min-width: 769px){
+    #cxInfoSheet{ left:50%; right:auto; top:50%; bottom:auto; width:min(460px, calc(100vw - 48px)); border-radius:22px; border:1px solid var(--line);
+      transform:translate(-50%,-46%); opacity:0; pointer-events:none; transition:transform .45s var(--ease), opacity .3s ease; }
+    #cxInfoSheet.is-open{ transform:translate(-50%,-50%); opacity:1; pointer-events:auto; }
+    #cxInfoSheet .cx-sheet-handle{ display:none; }
+  }
   .cx-hero-legal{ position:absolute; z-index:5; left:clamp(20px,3vw,40px); bottom:22px; }
   @media (max-width: 768px){ .cx-hero-legal{ display:none; } }
   .cx-drag-hint{ display:none; } /* mobile-only — shown in the ≤768px block below */
@@ -440,6 +447,7 @@
     opacity:0; pointer-events:none; transition:opacity .35s var(--ease);
   }
   .cx-sheet-overlay.is-open{ opacity:1; pointer-events:auto; }
+  @media (min-width: 769px){ .cx-sheet-overlay{ z-index:60; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); } }
   .cx-sheet{
     position:fixed; left:0; right:0; bottom:0; z-index:61;
     max-height:86svh; display:flex; flex-direction:column;
@@ -474,6 +482,8 @@
   .cx-info-label{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:6px; }
   .cx-info-value{ font-size:16px; font-weight:600; }
   .cx-info-value a{ color:inherit; text-decoration:none; }
+  .cx-info-cta{ display:flex; justify-content:center; gap:10px; margin:0 0 18px; padding:15px 20px; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:15px; text-decoration:none; }
+  .cx-info-cta:hover{ background:#cf7449; }
   .cx-info-lede{ font-size:14px; line-height:1.6; color:var(--ink-dim); padding:4px 0 20px; }
 </style>
 
@@ -493,10 +503,10 @@
     </div>
     <nav class="cx-nav">
       <a href="#cxHero">Проекты</a>
-      <a href="#turnkey">Сайты под ключ</a>
+      <a href="#contact" data-open-info>Сайты под ключ</a>
       <a href="seo-geo/">SEO + GEO</a>
-      <a href="#yandex-direct">Яндекс Директ</a>
-      <a href="#contact">Контакты</a>
+      <a href="https://t.me/belovachristina" target="_blank" rel="noopener">Яндекс Директ</a>
+      <a href="#contact" data-open-info>Контакты</a>
     </nav>
   </header>
 
@@ -519,7 +529,7 @@
       </p>
       <div class="cx-cta-row">
         <a class="cx-btn cx-btn-primary" href="#work">Смотреть проекты</a>
-        <a class="cx-btn cx-btn-ghost" href="#contact">Обсудить проект <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="cx-btn cx-btn-ghost" href="#contact" data-open-info>Обсудить проект <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -600,33 +610,7 @@
   </div>
 </section>
 
-<!-- ============ УСЛУГИ И КОНТАКТЫ ============ -->
-<section class="cx-contact" id="contact">
-  <div class="cx-contact-in">
-    <div>
-      <h2 class="cx-sec-title">Обсудим ваш проект</h2>
-      <p class="cx-contact-lede">Напишите, чем занимаетесь и какая задача. Отвечу, как её решить, сколько это займёт и во&nbsp;что обойдётся.</p>
-      <div class="cx-contact-actions">
-        <a class="cx-contact-btn primary" href="https://t.me/belovachristina" target="_blank" rel="noopener">Написать в&nbsp;Telegram <span aria-hidden="true">→</span></a>
-        <a class="cx-contact-btn ghost" href="mailto:belovachristina@mail.ru">Написать на&nbsp;почту</a>
-      </div>
-      <p class="cx-contact-mail">Telegram <a href="https://t.me/belovachristina" target="_blank" rel="noopener">@belovachristina</a> · почта <a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></p>
-    </div>
-    <ul class="cx-services">
-      <li id="turnkey"><a href="https://t.me/belovachristina" target="_blank" rel="noopener"><b>Сайты под&nbsp;ключ</b><span>Структура, дизайн, разработка и&nbsp;запуск. Мобильная версия, заявки, аналитика.</span><em>одностраничный от&nbsp;50&nbsp;000&nbsp;₽ · многостраничный от&nbsp;80&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a></li>
-      <li><a href="seo-geo/"><b>SEO + GEO</b><span>Продвижение в&nbsp;поиске Яндекса и&nbsp;в&nbsp;ответах нейросетей.</span><em>от&nbsp;40&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a></li>
-      <li id="yandex-direct"><a href="https://t.me/belovachristina" target="_blank" rel="noopener"><b>Яндекс Директ</b><span>Настройка и&nbsp;ведение рекламы с&nbsp;целями и&nbsp;отчётами по&nbsp;заявкам.</span><em>настройка 35&nbsp;000&nbsp;₽ · ведение 25&nbsp;000&nbsp;₽/мес</em><i aria-hidden="true">→</i></a></li>
-      <li><a href="https://t.me/belovachristina" target="_blank" rel="noopener"><b>Юридический блок</b><span>Политики, cookie и&nbsp;согласия по&nbsp;152-ФЗ, чтобы сайт работал по&nbsp;закону.</span><em>5&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a></li>
-      <li><a href="https://t.me/belovachristina" target="_blank" rel="noopener"><b>Хостинг и&nbsp;поддержка</b><span>Размещение на&nbsp;российском хостинге, замочек https, обновления сайта.</span><em>170&nbsp;₽/мес</em><i aria-hidden="true">→</i></a></li>
-    </ul>
-  </div>
-  <div class="tl-legal cx-contact-legal">
-    <span>© 2026 TINA DIGITAL</span>
-    <a href="privacy/">Политика конфиденциальности</a>
-    <a href="cookies/">Политика cookie</a>
-    <a href="#" data-cookie-settings>Настройки cookie</a>
-  </div>
-</section>
+
 
 <!-- ============ MOBILE BOTTOM DOCK ============ -->
 <nav class="cx-dock" id="cxDock" aria-label="Мобильная навигация">
@@ -757,7 +741,8 @@
   <div class="cx-sheet-handle"></div>
   <div class="cx-sheet-header">TINA DIGITAL</div>
   <div class="cx-sheet-body">
-    <p class="cx-info-lede">Web design, UX/UI и разработка. Портфолио выше — то, что уже сделано для реальных проектов.</p>
+    <p class="cx-info-lede">Расскажите, что нужно продать. Посмотрю задачу и&nbsp;предложу структуру и&nbsp;формат работы.</p>
+    <a class="cx-info-cta" href="https://t.me/belovachristina" target="_blank" rel="noopener">Написать в&nbsp;Telegram <span aria-hidden="true">→</span></a>
     <div class="cx-info-block">
       <div class="cx-info-label">Telegram</div>
       <div class="cx-info-value"><a href="https://t.me/belovachristina" rel="noopener">@belovachristina</a></div>
@@ -1746,6 +1731,10 @@
   dockProjects.addEventListener('click', function(){
     openSheet === 'projects' ? closeAll() : openOne('projects');
   });
+  document.querySelectorAll('[data-open-info]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); openOne('info'); });
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && openSheet) closeAll(); });
   dockInfo.addEventListener('click', function(){
     openSheet === 'info' ? closeAll() : openOne('info');
   });
