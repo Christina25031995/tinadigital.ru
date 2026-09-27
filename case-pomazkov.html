@@ -264,88 +264,6 @@
   .browser.rv, .phone.rv, .ai-film.rv, .photos .rv, .papers.rv{ transform:none; transition:opacity .45s ease; }
   .rv.in{ opacity:1; transform:none; }
   @media (prefers-reduced-motion: reduce){ .rv{ opacity:1; transform:none; transition:none; } }
-
-  /* ---------- экраны: каждый смысловой блок целиком в одном экране — чтобы его можно было снять скриншотом.
-     Шрифты не уменьшаем: длинное делим на экраны, а кадры подгоняем под оставшуюся высоту ---------- */
-  .sec{ min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding:clamp(72px,11vh,120px) var(--pad) clamp(48px,8vh,96px); }
-  .sec > .wrap{ width:100%; }
-  .browser.fit{ --rest:calc(19svh + 24px); width:min(100%, 1500px, calc((100svh - var(--rest) - 38px) * var(--ar))); margin-inline:auto; }
-  .browser.fit > video{ aspect-ratio:var(--ar); object-fit:cover; }
-  .sec.position{ display:grid; }
-  .sec.dark.shot{ background:var(--ink); }
-  .browser.tall .scroller{ max-height:calc(81svh - 110px); }
-  .insight{ margin-top:0; }
-
-  .papers{ --pw:clamp(150px, min(22vw, calc((100svh - 540px) * .68)), 310px); height:calc(var(--pw) * 1.4); width:calc(var(--pw) * 3.9); max-width:100%; margin:clamp(28px,5vh,60px) auto 0; }
-  .papers .pp{ width:var(--pw); }
-  .papers .p1{ left:0; top:6%; } .papers .p2{ left:24%; top:0; } .papers .p3{ left:48%; top:9%; } .papers .p4{ left:72%; top:2%; }
-
-  .position{ min-height:100svh; }
-  .position .txt{ padding:clamp(72px,11vh,120px) var(--pad) clamp(48px,8vh,96px); }
-
-  .approach{ align-items:center; }
-  .position .h-xl{ font-size:clamp(46px,6.4vw,112px); }
-  .position .quote{ margin-top:clamp(20px,3.5vh,36px); }
-  .approach .h-xl{ font-size:clamp(46px,6.4vw,112px); }
-  .approach .ann{ grid-template-columns:1fr; gap:18px; margin-top:clamp(24px,4vh,44px); }
-  .approach .ann div{ font-size:16px; padding-top:12px; }
-  .approach-shot{ margin:0; max-width:none; }
-
-  .duo{ align-items:center; }
-  .duo > .browser{ grid-column:6 / span 7; }
-
-  .phones.five{ --phw:clamp(130px, min(15.5vw, calc((100svh - 420px - 10.4vw) / 2.45)), 260px); margin-top:clamp(36px,6vh,80px); }
-  .phones.five .phone{ width:var(--phw); border-radius:calc(var(--phw) * .15); }
-  .phones.five .phone .scr{ border-radius:calc(var(--phw) * .125); }
-  .phones.five .phone:nth-child(2){ margin-top:calc(var(--phw) * .22); }
-  .phones.five .phone:nth-child(3){ margin-top:0; }
-  .phones.five .phone:nth-child(4){ margin-top:calc(var(--phw) * .3); }
-  .phones.five .phone:nth-child(5){ margin-top:calc(var(--phw) * .1); }
-
-  .ai-film{ margin:0; height:100vh; height:100svh; }
-  .ai-film video{ height:100%; max-height:none; }
-  .ai-points{ margin-top:0; }
-  .photos{ --ph:clamp(200px, min(calc(100svh - 520px), calc((100vw - 2 * var(--pad)) / 4.3)), 520px); display:flex; justify-content:center; gap:clamp(10px,1.2vw,18px); margin-top:clamp(36px,6vh,70px); height:var(--ph); }
-  .photos figure{ height:100%; flex:none; }
-  .photos .big, .photos .sm{ aspect-ratio:4/5; grid-row:auto; }
-  .photos .wide{ aspect-ratio:16/9; grid-column:auto; }
-  .system{ margin-top:0; }
-  .result .h-xl{ margin-bottom:0; }
-
-  @media (max-width: 900px){
-    .duo > .browser{ grid-column:1 / -1; }
-    .approach-shot{ margin-top:8px; }
-  }
-  @media (max-width: 760px){
-    .sec{ padding:66px var(--pad) 36px; }
-    .sec.shot{ min-height:0; padding-top:36px; padding-bottom:36px; }
-    .browser.tall .scroller{ max-height:68svh; }
-    .papers{ --pw:37vw; width:100%; height:calc(var(--pw) * 1.36); display:block; }
-    .papers .pp{ position:absolute; width:var(--pw); rotate:var(--r); }
-    .papers .p1{ left:0; } .papers .p2{ left:18%; } .papers .p3{ left:36%; } .papers .p4{ left:54%; }
-    .q12{ columns:2; column-gap:18px; }
-    .q12 li{ font-size:15px; padding:8px 0; }
-    .asks li{ font-size:19px; padding:10px 0; }
-    .position .ph{ height:28svh; }
-    .position .txt{ padding:32px var(--pad) 36px; }
-    .position .quote{ margin-top:24px; }
-    .position .body{ margin-top:22px !important; }
-    .phones.five{ --phw:40vw; }
-    .abc div{ padding:16px 18px 18px; }
-    .abc b{ margin-bottom:6px; }
-    .steps{ row-gap:18px; }
-    .statement{ margin-bottom:22px; }
-    .sec.m-split{ min-height:0; padding-top:0; padding-bottom:0; }
-    .m-split .m-screen{ min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding:72px 0 44px; }
-    .m-split .m-screen > .photos{ margin-top:0; }
-    .ai-film{ height:auto; aspect-ratio:4/5; }
-    .photos{ display:grid; grid-template-columns:repeat(3,1fr); height:auto; }
-    .photos figure{ height:auto; }
-    .photos .wide{ grid-column:1 / -1; }
-    .photos .big{ grid-column:auto; }
-    .position .ph{ order:-1; }
-    .position .txt{ padding-top:28px !important; }
-  }
 </style>
 </head>
 <body>
@@ -370,8 +288,8 @@
   </div>
 </section>
 
-<section class="sec dark shot">
-  <div class="browser fit rv" style="--ar:1.773"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
+<section class="hero-shot">
+  <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
     <video src="assets/pomazkov/v-hero-d.mp4" poster="assets/pomazkov/v-hero-d.jpg" muted loop playsinline preload="none" data-auto></video>
   </div>
 </section>
@@ -416,19 +334,13 @@
     <figure class="pp p3"><img src="assets/pomazkov/doc-dossier-3-03.jpg" alt="Досье бренда: путь врача" loading="lazy"></figure>
     <figure class="pp p4"><img src="assets/pomazkov/doc-structure-2.jpg" alt="Структура сайта, стр. 2" loading="lazy"></figure>
   </div>
-</section>
-
-<section class="sec dark">
   <div class="wrap insight rv">
-    <p class="label"><b>02</b> вывод исследования</p>
+    <p class="label"><b>вывод</b></p>
     <p class="big-quote">Сайт хирурга продаёт не&nbsp;операцию и&nbsp;даже не&nbsp;врача, а&nbsp;<em>снижение неопределённости</em> перед&nbsp;высокорисковым личным решением.</p>
   </div>
-</section>
-
-<section class="sec dark">
-  <div class="wrap grid-2">
+  <div class="wrap grid-2" style="margin-top:clamp(60px,8vw,120px)">
     <div class="c-5">
-      <p class="label"><b>02</b> воронка</p>
+      <p class="label"><b>воронка</b></p>
       <p class="funnel-old rv">Hero → услуги → о&nbsp;враче → отзывы → форма</p>
       <p class="body rv" style="margin-top:22px">Классическая схема медицинского сайта отвечает на&nbsp;вопросы клиники. Мы&nbsp;построили сайт на&nbsp;вопросах, которые пациент задаёт себе сам, по&nbsp;порядку:</p>
     </div>
@@ -438,12 +350,8 @@
       <li>Сколько это стоит?</li><li>Что говорят другие пациенты?</li><li>Хочу понять ещё больше</li><li>Хорошо. Что делать дальше?</li>
     </ol>
   </div>
-</section>
-
-<section class="sec dark">
-  <div class="wrap">
-    <p class="label"><b>02</b> решения</p>
-    <h2 class="h-l rv" style="margin-bottom:clamp(36px,6vh,70px)">Три решения <em>до&nbsp;макета</em></h2>
+  <div class="wrap" style="margin-top:clamp(60px,8vw,120px)">
+    <p class="label"><b>решения</b></p>
     <div class="decisions">
       <div class="rv"><b>Не&nbsp;соревноваться стажем</b><span>Не&nbsp;играть в&nbsp;«30 лет и&nbsp;100&nbsp;000 операций». Сильнее маршрут: вижу работу → понимаю решение → вижу честные границы → понимаю процесс.</span></div>
       <div class="rv"><b>Возраст не&nbsp;в&nbsp;центре</b><span>Не&nbsp;оправдываться и&nbsp;не&nbsp;выносить в&nbsp;заголовок: закрыть кейсами, образованием, путём врача и&nbsp;сопровождением после операции.</span></div>
@@ -452,7 +360,7 @@
   </div>
 </section>
 
-<!-- 03 позиционирование -->
+<!-- 02 позиционирование -->
 <section class="sec dark position">
   <div class="txt">
     <p class="label"><b>03</b> (strategy) позиционирование</p>
@@ -464,7 +372,7 @@
   <div class="ph"><span class="ai-tag abs" style="z-index:2">AI</span><img src="assets/pomazkov/p-portrait.jpg" alt="AI-кадр для сайта: хирург в операционной" loading="lazy"></div>
 </section>
 
-<!-- 04 вход через запрос -->
+<!-- 03 вход через запрос -->
 <section class="sec cream">
   <div class="wrap grid-2">
     <div class="c-5">
@@ -483,17 +391,16 @@
       </ul>
     </div>
   </div>
-</section>
-
-<section class="sec cream shot">
-  <!-- VISUAL TO REPLACE: кадр «01 / Блефаропластика · Хочу более открытый взгляд» слишком похож на beauty-рекламу.
-       Нужен natural / sculptural / restrained визуал без макияжа. Заменить на сайте клиента → переснять v-directions-d.mp4 (_tools/casegen clips.js, type through, target directions). -->
-  <div class="browser fit rv" data-replace-visual="directions-01" style="--ar:1.6;--fade:#fffdf9"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · ваш запрос</span></div>
-    <video src="assets/pomazkov/v-directions-d.mp4" poster="assets/pomazkov/v-directions-d.jpg" muted loop playsinline preload="none" data-auto></video>
+  <div class="wrap" style="margin-top:clamp(50px,7vw,110px)">
+    <!-- VISUAL TO REPLACE: кадр «01 / Блефаропластика · Хочу более открытый взгляд» слишком похож на beauty-рекламу.
+         Нужен natural / sculptural / restrained визуал без макияжа. Заменить на сайте клиента → переснять v-directions-d.mp4 (_tools/casegen clips.js, type through, target directions). -->
+    <div class="browser rv" data-replace-visual="directions-01" style="--fade:#fffdf9"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · ваш запрос</span></div>
+      <video src="assets/pomazkov/v-directions-d.mp4" poster="assets/pomazkov/v-directions-d.jpg" muted loop playsinline preload="none" data-auto></video>
+    </div>
   </div>
 </section>
 
-<!-- 05 кейс как история решения -->
+<!-- 04 кейс как история решения -->
 <section class="sec paper">
   <div class="wrap grid-2">
     <div class="c-6">
@@ -510,37 +417,30 @@
       <div class="on"><b>B · выбрали</b><p>Умеренный анатомический имплант и&nbsp;коррекция асимметрии</p></div>
       <div><b>C</b><p>Два этапа с&nbsp;перерывом: дольше и&nbsp;дороже</p></div>
     </div>
-  </div>
-</section>
-
-<section class="sec paper shot">
-  <div class="wrap">
-    <div class="browser tall rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · кейсы</span></div>
+    <div class="browser tall rv" style="margin-top:clamp(40px,5vw,70px)"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · кейсы</span></div>
       <div class="scroller"><img src="assets/pomazkov/d-cases-full.jpg" alt="Блок кейса на сайте: история решения" loading="lazy"></div>
     </div>
     <p class="evidence-cap">фрагмент блока кейса на сайте · результат через 8&nbsp;месяцев</p>
   </div>
 </section>
 
-<!-- 06 подход -->
+<!-- 05 подход -->
 <section class="sec dark">
-  <div class="wrap grid-2 approach">
-    <div class="c-4">
-      <p class="label"><b>06</b> (visual) подход</p>
-      <h2 class="h-xl rv">Форма <em>из света</em></h2>
-      <div class="ann">
-        <div class="rv"><b>анимация</b>Частицы собираются в&nbsp;силуэт при прокрутке — метафора формы, которую создают, а&nbsp;не&nbsp;исправляют.</div>
-        <div class="rv"><b>голос хирурга</b>Принципы сформулированы его словами: «Я&nbsp;не&nbsp;удаляю жир „под&nbsp;ноль“».</div>
-        <div class="rv"><b>доверие</b>Безопасность прежде эффекта: если вмешательство избыточно, работу делят на&nbsp;этапы.</div>
-      </div>
-    </div>
-    <div class="c-8 approach-shot browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · подход</span></div>
+  <div class="wrap">
+    <p class="label"><b>06</b> (visual) подход</p>
+    <h2 class="h-xl rv">Форма <em>из света</em></h2>
+    <div class="approach-shot browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · подход</span></div>
       <video src="assets/pomazkov/v-approach-d-2.mp4" poster="assets/pomazkov/v-approach-d-2.jpg" muted loop playsinline preload="none" data-auto></video>
+    </div>
+    <div class="ann">
+      <div class="rv"><b>анимация</b>Частицы собираются в&nbsp;силуэт при прокрутке — метафора формы, которую создают, а&nbsp;не&nbsp;исправляют.</div>
+      <div class="rv"><b>голос хирурга</b>Принципы сформулированы его словами: «Я&nbsp;не&nbsp;удаляю жир „под&nbsp;ноль“».</div>
+      <div class="rv"><b>доверие</b>Безопасность прежде эффекта: если вмешательство избыточно, работу делят на&nbsp;этапы.</div>
     </div>
   </div>
 </section>
 
-<!-- 07 путь пациента -->
+<!-- 06 путь пациента -->
 <section class="sec cream">
   <div class="wrap grid-2">
     <div class="c-6">
@@ -551,7 +451,7 @@
       <p class="body rv">На&nbsp;сайте показан весь путь: от&nbsp;консультации до&nbsp;контроля результата, с&nbsp;живыми деталями — например, что список анализов действует 10&nbsp;дней.</p>
     </div>
   </div>
-  <div class="wrap" style="margin-top:clamp(40px,7vh,90px)">
+  <div class="wrap" style="margin-top:clamp(50px,6vw,90px)">
     <p class="statement rv">Не&nbsp;скрывать процесс —<br><em>объяснить его.</em></p>
     <ol class="steps rv">
       <li><b>01</b><span>Консультация</span></li>
@@ -562,39 +462,30 @@
       <li><b>06</b><span>Восстановление</span></li>
       <li><b>07</b><span>Контроль результата</span></li>
     </ol>
+    <div class="browser rv" style="margin-top:clamp(50px,6vw,90px)"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · путь пациента</span></div>
+      <video src="assets/pomazkov/v-journey-d.mp4" poster="assets/pomazkov/v-journey-d.jpg" muted loop playsinline preload="none" data-auto></video>
+    </div>
   </div>
 </section>
 
-<section class="sec cream shot">
-  <div class="browser fit rv" style="--ar:1.6"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · путь пациента</span></div>
-    <video src="assets/pomazkov/v-journey-d.mp4" poster="assets/pomazkov/v-journey-d.jpg" muted loop playsinline preload="none" data-auto></video>
-  </div>
-</section>
-
-<!-- 08 честная цена -->
+<!-- 07 честная цена и запись -->
 <section class="sec paper">
-  <div class="wrap grid-2 duo">
+  <div class="wrap grid-2">
     <div class="c-5">
       <p class="label"><b>08</b> (trust) цена</p>
       <h2 class="h-l rv">Честно: <em>«по&nbsp;консультации»</em></h2>
       <p class="body rv" style="margin-top:28px">Цены на&nbsp;операции нельзя назвать заранее, и&nbsp;сайт этого не&nbsp;скрывает. Зато объясняет, из&nbsp;чего складывается стоимость, и&nbsp;обещает главное: итоговая смета обсуждается до&nbsp;операции и&nbsp;не&nbsp;меняется задним числом.</p>
+      <div class="browser rv" style="margin-top:40px"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · стоимость</span></div>
+        <img src="assets/pomazkov/d-price.jpg" alt="Блок стоимости" loading="lazy">
+      </div>
     </div>
-    <div class="c-7 browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · стоимость</span></div>
-      <img src="assets/pomazkov/d-price.jpg" alt="Блок стоимости" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<!-- 09 запись -->
-<section class="sec paper">
-  <div class="wrap grid-2 duo">
-    <div class="c-5">
+    <div class="c-6 off-7">
       <p class="label"><b>09</b> (conversion) запись</p>
       <h2 class="h-l rv">Запись <em>без&nbsp;форм</em></h2>
       <p class="body rv" style="margin-top:28px">Пациент выбирает дату, время и&nbsp;тему разговора, и&nbsp;сайт открывает Telegram с&nbsp;готовым сообщением. Не&nbsp;нужно звонить и&nbsp;объяснять вслух интимный вопрос. Сайт при&nbsp;этом не&nbsp;собирает персональных и&nbsp;медицинских данных: всё остаётся в&nbsp;личной переписке.</p>
-    </div>
-    <div class="c-7 browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · консультация</span></div>
-      <img src="assets/pomazkov/d-consultation.jpg" alt="Блок записи на консультацию" loading="lazy">
+      <div class="browser rv" style="margin-top:40px"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · консультация</span></div>
+        <img src="assets/pomazkov/d-consultation.jpg" alt="Блок записи на консультацию" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -630,32 +521,22 @@
       <p class="lede rv">Филипп хотел, чтобы сайт выглядел взрослее и&nbsp;серьёзнее. Визуальная среда проекта собрана из&nbsp;AI-визуалов: строгая монохромная атмосфера без&nbsp;чужих фотографий. Всё, что относится к&nbsp;результату лечения, — только реальные материалы.</p>
     </div>
   </div>
-</section>
-
-<figure class="ai-film rv">
-  <video src="assets/pomazkov/ai-hero.mp4" poster="assets/pomazkov/ai-hero.jpg" muted loop playsinline preload="none" data-auto></video>
-  <figcaption><span class="ai-tag">AI</span> атмосферный кадр первого экрана · не&nbsp;документальная съёмка</figcaption>
-</figure>
-
-<section class="sec dark m-split">
+  <figure class="ai-film rv">
+    <video src="assets/pomazkov/ai-hero.mp4" poster="assets/pomazkov/ai-hero.jpg" muted loop playsinline preload="none" data-auto></video>
+    <figcaption><span class="ai-tag">AI</span> атмосферный кадр первого экрана · не&nbsp;документальная съёмка</figcaption>
+  </figure>
   <div class="wrap">
-    <div class="m-screen"><div class="ai-points">
+    <div class="ai-points">
       <div class="rv"><b><small>01 / atmosphere</small>Атмосфера</b><span>AI-визуалы помогают создать нужную визуальную среду без&nbsp;использования чужих фотографий.</span></div>
       <div class="rv"><b><small>02 / art direction</small>Арт-дирекшн</b><span>Портретные и&nbsp;пластические образы — часть художественной системы проекта, а&nbsp;не&nbsp;изображения пациентов.</span></div>
       <div class="rv"><b><small>03 / real results</small>Реальные результаты</b><span>Результаты пациентов, фото «до/после» и&nbsp;клинические доказательства — только реальные материалы.</span></div>
-    </div></div>
-    <div class="m-screen"><div class="photos">
+    </div>
+    <div class="photos" style="margin-top:clamp(50px,6vw,90px)">
       <figure class="big rv"><img src="assets/pomazkov/p-gaze.jpg" alt="AI-портрет" loading="lazy"><span class="ai-tag abs">AI</span></figure>
       <figure class="sm rv"><img src="assets/pomazkov/p-jaw.jpg" alt="AI-портрет" loading="lazy"><span class="ai-tag abs">AI</span></figure>
       <figure class="sm rv"><img src="assets/pomazkov/p-waist.jpg" alt="AI-кадр" loading="lazy"><span class="ai-tag abs">AI</span></figure>
       <figure class="wide rv"><img src="assets/pomazkov/p-hands.jpg" alt="AI-кадр: руки хирурга" loading="lazy"><span class="ai-tag abs">AI</span></figure>
-    </div></div>
-  </div>
-</section>
-
-<section class="sec dark">
-  <div class="wrap">
-    <p class="label"><b>11</b> палитра и&nbsp;шрифты</p>
+    </div>
     <div class="system">
       <div class="swatches rv">
         <div style="background:#0c0c0d;color:#f4f4f3;box-shadow:inset 0 0 0 1px rgba(244,244,243,.25)">#0C0C0D<br>графит</div>
@@ -683,13 +564,7 @@
       <div class="rv"><b>0</b><span>форм и&nbsp;хранимых данных: запись через Telegram</span></div>
       <div class="rv"><b>152-ФЗ</b><span>юридический блок: политики, cookie, лицензия клиники</span></div>
     </div>
-  </div>
-</section>
-
-<section class="sec dark">
-  <div class="wrap">
-    <p class="label"><b>12</b> отзыв клиента</p>
-    <p class="quote rv" style="max-width:900px;margin-top:0">«Когда увидел сайт Насти, я&nbsp;понял, что да, вот этот человек должен и&nbsp;мне делать сайт однозначно. И&nbsp;не&nbsp;прогадал».</p>
+    <p class="quote rv" style="max-width:900px;margin-top:clamp(50px,7vw,100px)">«Когда увидел сайт Насти, я&nbsp;понял, что да, вот этот человек должен и&nbsp;мне делать сайт однозначно. И&nbsp;не&nbsp;прогадал».</p>
     <div class="voice rv" id="voice">
       <button class="play" type="button" aria-label="Слушать отзыв">
         <svg class="p1" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
@@ -714,11 +589,11 @@
   </div>
 </section>
 
-<!-- 14 сайт целиком -->
-<section class="sec cream shot">
+<!-- 11 сайт целиком -->
+<section class="sec cream">
   <div class="wrap">
     <p class="label"><b>14</b> (live product) сайт целиком</p>
-    <div class="browser fit rv" style="--ar:1.6;--rest:calc(19svh + 110px)"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
       <video src="assets/pomazkov/v-scroll-d.mp4" poster="assets/pomazkov/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video>
     </div>
     <a class="live" href="https://drpomazkov.ru" target="_blank" rel="noopener"><span>view live ↗</span>drpomazkov.ru</a>
