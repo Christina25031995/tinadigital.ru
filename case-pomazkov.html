@@ -628,14 +628,18 @@
   /* видео играют только когда видны */
   var vids = document.querySelectorAll('video[data-auto]');
   if ('IntersectionObserver' in window){
+    /* load() обрывает начатый play(), поэтому видимый ролик запускаем ещё раз, когда он готов */
     var pre = new IntersectionObserver(function(es){ es.forEach(function(e){
       if (e.isIntersecting){ var v = e.target; if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } pre.unobserve(v); }
     }); }, { rootMargin:'100% 0px 100% 0px' });
     var vo = new IntersectionObserver(function(es){ es.forEach(function(e){
-      var v = e.target;
+      var v = e.target; v._vis = e.isIntersecting;
       if (e.isIntersecting) v.play().catch(function(){}); else v.pause();
     }); }, { threshold:.05 });
-    vids.forEach(function(v){ pre.observe(v); vo.observe(v); });
+    vids.forEach(function(v){
+      v.addEventListener('canplay', function(){ if (v._vis && v.paused) v.play().catch(function(){}); });
+      pre.observe(v); vo.observe(v);
+    });
   }
 
   /* research: медленный параллакс листов */
