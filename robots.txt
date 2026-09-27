@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /hero-with-your-5-videos-backup.html
+
+Sitemap: https://tinadigital.ru/sitemap.xml

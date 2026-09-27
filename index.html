@@ -1,8 +1,10 @@
+<html lang="ru">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TINA DIGITAL</title>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<meta name="description" content="Сайты · Digital-продукты · Разработка">
+<link rel="canonical" href="https://tinadigital.ru/">
+<meta name="description" content="TINA DIGITAL: сайты под ключ, SEO и GEO-продвижение, Яндекс Директ. Портфолио реальных проектов и контакты.">
 <meta property="og:title" content="TINA DIGITAL">
 <meta property="og:description" content="Сайты · Digital-продукты · Разработка">
 <meta property="og:image" content="https://tinadigital.ru/assets/cube/back-1-blepharoplasty-full.jpg">
@@ -222,6 +224,52 @@
 
   .cx-dock, .cx-sheet{ font-family:'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif; }
   .cx-info-value{ color:var(--ink); }
+
+  /* ============ ПРОЕКТЫ + КОНТАКТЫ на компьютере ============ */
+  .cx-anchor{ position:relative; top:-24px; display:block; }
+  .cx-sec-head{ display:none; }
+  section.cx-feed{ font-family:'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif; color:var(--ink); }
+  section.cx-feed .cx-feed-title{ color:var(--ink); }
+  section.cx-feed .cx-feed-meta{ color:var(--ink-dim); }
+  @media (min-width: 769px){
+    section.cx-feed{ display:block; padding:110px clamp(24px,4vw,64px) 40px; }
+    .cx-sec-head{ display:flex; align-items:baseline; justify-content:space-between; gap:24px; max-width:1400px; margin:0 auto 36px; }
+    section.cx-feed .cx-feed-grid{ grid-template-columns:repeat(3, 1fr); gap:34px 26px; max-width:1400px; margin:0 auto; }
+    .cx-feed-item, .cx-feed-item.span-3, .cx-feed-item.span-4{ grid-column:auto !important; }
+    section.cx-feed .cx-feed-media{ aspect-ratio:16/10 !important; overflow:hidden; border-radius:10px; }
+    .cx-feed-media video, .cx-feed-media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s var(--ease); }
+    .cx-feed-item:not(.is-soon):hover .cx-feed-media video, .cx-feed-item:not(.is-soon):hover .cx-feed-media img{ transform:scale(1.03); }
+    .cx-feed-cap{ margin-top:12px; }
+    .cx-feed-title{ font-size:16px; }
+    .cx-feed-meta{ font-size:12px; }
+    .cx-feed-item.is-soon{ cursor:default; }
+  }
+  .cx-sec-title{ margin:0; font-size:clamp(32px,4vw,56px); line-height:1.02; font-weight:800; letter-spacing:-.03em; color:var(--ink); }
+  .cx-sec-note{ margin:0; font-size:14px; color:var(--ink-dim); max-width:420px; }
+
+  .cx-contact{ background:var(--bg); color:var(--ink); padding:90px clamp(20px,4vw,64px) 120px; font-family:'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif; border-top:1px solid var(--line-soft); }
+  .cx-contact-in{ max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:start; }
+  .cx-contact .cx-sec-title{ margin-bottom:22px; }
+  .cx-contact-lede{ margin:0 0 30px; font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:520px; }
+  .cx-contact-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:26px; }
+  .cx-contact-btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 26px; border-radius:999px; font-size:16px; font-weight:700; text-decoration:none; transition:background .2s, border-color .2s, color .2s; }
+  .cx-contact-btn.primary{ background:var(--accent); color:#fff; }
+  .cx-contact-btn.primary:hover{ background:#cf7449; }
+  .cx-contact-btn.ghost{ border:1px solid var(--line); color:var(--ink); }
+  .cx-contact-btn.ghost:hover{ border-color:var(--ink-dim); }
+  .cx-contact-mail{ font-size:15px; color:var(--ink-dim); }
+  .cx-contact-mail a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); }
+  .cx-services{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+  .cx-services li{ border-bottom:1px solid var(--line); }
+  .cx-services a, .cx-services div{ display:grid; grid-template-columns:1fr auto; gap:6px 18px; padding:22px 0; color:inherit; text-decoration:none; }
+  .cx-services b{ font-size:19px; font-weight:700; letter-spacing:-.01em; }
+  .cx-services span{ grid-column:1 / 2; font-size:14px; line-height:1.5; color:var(--ink-dim); }
+  .cx-services em{ grid-column:1 / 2; font-style:normal; font-size:15px; font-weight:700; color:var(--accent); margin-top:2px; }
+  .cx-services i{ grid-column:2; grid-row:1 / 4; align-self:center; font-style:normal; color:var(--ink-faint); font-size:18px; transition:color .2s, transform .2s; }
+  .cx-services a:hover i{ color:var(--accent); transform:translateX(3px); }
+  .cx-contact-legal{ max-width:1400px; margin:80px auto 0; }
+  @media (max-width: 900px){ .cx-contact-in{ grid-template-columns:1fr; gap:48px; } }
+  @media (max-width: 768px){ .cx-contact{ padding:64px 18px calc(110px + env(safe-area-inset-bottom)); } .cx-contact-btn{ flex:1; justify-content:center; } }
   .cx-hero-legal{ position:absolute; z-index:5; left:clamp(20px,3vw,40px); bottom:22px; }
   @media (max-width: 768px){ .cx-hero-legal{ display:none; } }
   .cx-drag-hint{ display:none; } /* mobile-only — shown in the ≤768px block below */
@@ -502,6 +550,8 @@
 <!-- ============ MOBILE PROJECT FEED — desktop-hidden, real assets reused
      from the cube's own tiles (same setTile sources) ============ -->
 <section class="cx-feed" id="cxFeed">
+  <span id="work" class="cx-anchor"></span>
+  <div class="cx-sec-head"><h2 class="cx-sec-title">Проекты</h2><p class="cx-sec-note">Живые сайты открываются в новой вкладке. Подробные кейсы появляются по мере готовности.</p></div>
   <div class="cx-feed-grid">
 
     <a class="cx-feed-item span-4" href="case-enduro.html">
@@ -511,14 +561,14 @@
       <p class="cx-feed-cap"><span class="cx-feed-num">01</span> <span class="cx-feed-title">Enduro Energy</span><span class="cx-feed-meta">Website · UX/UI · Development</span></p>
     </a>
 
-    <a class="cx-feed-item span-3 col-start-2 is-soon" href="#" data-soon="1">
+    <a class="cx-feed-item span-3 col-start-2" href="https://lodki-ladoga.ru" target="_blank" rel="noopener">
       <div class="cx-feed-media" style="aspect-ratio:3/4">
         <video autoplay muted loop playsinline src="assets/cube/left-0-ladoga.mp4"></video>
       </div>
       <p class="cx-feed-cap"><span class="cx-feed-num">02</span> <span class="cx-feed-title">Ladoga</span><span class="cx-feed-meta">Boat rental website</span></p>
     </a>
 
-    <a class="cx-feed-item span-4 is-soon" href="#" data-soon="1">
+    <a class="cx-feed-item span-4" href="https://drpomazkov.ru" target="_blank" rel="noopener">
       <div class="cx-feed-media" style="aspect-ratio:16/9">
         <video autoplay muted loop playsinline src="assets/cube/front-0-surgeon.mp4"></video>
       </div>
@@ -527,12 +577,12 @@
 
     <a class="cx-feed-item span-3 is-soon" href="#" data-soon="1">
       <div class="cx-feed-media" style="aspect-ratio:4/5">
-        <video autoplay muted loop playsinline src="assets/cube/back-0-host.mp4"></video>
+        <img src="assets/cube/right-6-arapov-bio.jpg" alt="Timofey Arapov" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
       <p class="cx-feed-cap"><span class="cx-feed-num">04</span> <span class="cx-feed-title">Timofey Arapov</span><span class="cx-feed-meta">Host&rsquo;s personal brand</span></p>
     </a>
 
-    <a class="cx-feed-item span-4 is-soon" href="#" data-soon="1">
+    <a class="cx-feed-item span-4" href="https://lianagini.ru" target="_blank" rel="noopener">
       <div class="cx-feed-media" style="aspect-ratio:16/9">
         <video autoplay muted loop playsinline src="assets/cube/top-0-liana.mp4"></video>
       </div>
@@ -546,20 +596,48 @@
       <p class="cx-feed-cap"><span class="cx-feed-num">06</span> <span class="cx-feed-title">UniKate</span><span class="cx-feed-meta">International marketing agency</span></p>
     </a>
 
-    <a class="cx-feed-item span-4 is-soon" href="#" data-soon="1">
+    <a class="cx-feed-item span-4" href="https://libermanstudio.ru" target="_blank" rel="noopener">
       <div class="cx-feed-media" style="aspect-ratio:16/9">
         <video autoplay muted loop playsinline src="assets/cube/top-4-liberman.mp4"></video>
       </div>
       <p class="cx-feed-cap"><span class="cx-feed-num">07</span> <span class="cx-feed-title">Liberman Studio</span><span class="cx-feed-meta">Interior design</span></p>
     </a>
 
-    <a class="cx-feed-item span-3 is-soon" href="#" data-soon="1">
+    <a class="cx-feed-item span-3" href="https://libermanstudio.ru" target="_blank" rel="noopener">
       <div class="cx-feed-media" style="aspect-ratio:4/5">
         <img src="assets/cube/front-7-invest-design.jpg" alt="Инвестиционный дизайн">
       </div>
       <p class="cx-feed-cap"><span class="cx-feed-num">08</span> <span class="cx-feed-title">Liberman Studio</span><span class="cx-feed-meta">Investment design</span></p>
     </a>
 
+  </div>
+</section>
+
+<!-- ============ УСЛУГИ И КОНТАКТЫ ============ -->
+<section class="cx-contact" id="contact">
+  <div class="cx-contact-in">
+    <div>
+      <h2 class="cx-sec-title">Обсудим ваш проект</h2>
+      <p class="cx-contact-lede">Напишите, чем занимаетесь и какая задача. Отвечу, как её решить, сколько это займёт и во&nbsp;что обойдётся.</p>
+      <div class="cx-contact-actions">
+        <a class="cx-contact-btn primary" href="https://t.me/belovachristina" target="_blank" rel="noopener">Написать в&nbsp;Telegram <span aria-hidden="true">→</span></a>
+        <a class="cx-contact-btn ghost" href="mailto:belovachristina@mail.ru">Написать на&nbsp;почту</a>
+      </div>
+      <p class="cx-contact-mail">Telegram <a href="https://t.me/belovachristina" target="_blank" rel="noopener">@belovachristina</a> · почта <a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></p>
+    </div>
+    <ul class="cx-services">
+      <li id="turnkey"><a href="https://t.me/belovachristina" target="_blank" rel="noopener"><b>Сайты под&nbsp;ключ</b><span>Структура, дизайн, разработка и&nbsp;запуск. Мобильная версия, заявки, аналитика.</span><em>одностраничный от&nbsp;50&nbsp;000&nbsp;₽ · многостраничный от&nbsp;80&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a></li>
+      <li><a href="seo-geo/"><b>SEO + GEO</b><span>Продвижение в&nbsp;поиске Яндекса и&nbsp;в&nbsp;ответах нейросетей.</span><em>от&nbsp;40&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a></li>
+      <li id="yandex-direct"><a href="https://t.me/belovachristina" target="_blank" rel="noopener"><b>Яндекс Директ</b><span>Настройка и&nbsp;ведение рекламы с&nbsp;целями и&nbsp;отчётами по&nbsp;заявкам.</span><em>настройка 35&nbsp;000&nbsp;₽ · ведение 25&nbsp;000&nbsp;₽/мес</em><i aria-hidden="true">→</i></a></li>
+      <li><a href="https://t.me/belovachristina" target="_blank" rel="noopener"><b>Юридический блок</b><span>Политики, cookie и&nbsp;согласия по&nbsp;152-ФЗ, чтобы сайт работал по&nbsp;закону.</span><em>5&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a></li>
+      <li><a href="https://t.me/belovachristina" target="_blank" rel="noopener"><b>Хостинг и&nbsp;поддержка</b><span>Размещение на&nbsp;российском хостинге, замочек https, обновления сайта.</span><em>170&nbsp;₽/мес</em><i aria-hidden="true">→</i></a></li>
+    </ul>
+  </div>
+  <div class="tl-legal cx-contact-legal">
+    <span>© 2026 TINA DIGITAL</span>
+    <a href="privacy/">Политика конфиденциальности</a>
+    <a href="cookies/">Политика cookie</a>
+    <a href="#" data-cookie-settings>Настройки cookie</a>
   </div>
 </section>
 
@@ -592,7 +670,7 @@
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
-    <a class="cx-project-row" href="#" data-soon="1">
+    <a class="cx-project-row" href="https://lodki-ladoga.ru" target="_blank" rel="noopener">
       <span class="cx-project-num">02</span>
       <span class="cx-project-main">
         <span class="cx-project-name">Ladoga</span>
@@ -602,7 +680,7 @@
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
-    <a class="cx-project-row" href="#" data-soon="1">
+    <a class="cx-project-row" href="https://drpomazkov.ru" target="_blank" rel="noopener">
       <span class="cx-project-num">03</span>
       <span class="cx-project-main">
         <span class="cx-project-name">Philipp Pomazkov</span>
@@ -622,7 +700,7 @@
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
-    <a class="cx-project-row" href="#" data-soon="1">
+    <a class="cx-project-row" href="https://lianagini.ru" target="_blank" rel="noopener">
       <span class="cx-project-num">05</span>
       <span class="cx-project-main">
         <span class="cx-project-name">Liana</span>
@@ -642,7 +720,7 @@
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
-    <a class="cx-project-row" href="#" data-soon="1">
+    <a class="cx-project-row" href="https://libermanstudio.ru" target="_blank" rel="noopener">
       <span class="cx-project-num">07</span>
       <span class="cx-project-main">
         <span class="cx-project-name">Liberman Studio</span>
@@ -725,12 +803,12 @@
      scroll (same technique as the old ticker it replaces). */
   var PROJECTS_INDEX = [
     { group: 'enduro',   name: 'Enduro Energy',      cat: 'Enduro rental website',              href: 'case-enduro.html' },
-    { group: 'ladoga',   name: 'Ladoga',              cat: 'Boat rental website' },
-    { group: 'pomazkov', name: 'Philipp Pomazkov',    cat: 'Medical website' },
+    { group: 'ladoga',   name: 'Ladoga',              cat: 'Boat rental website', href: 'https://lodki-ladoga.ru' },
+    { group: 'pomazkov', name: 'Philipp Pomazkov',    cat: 'Medical website', href: 'https://drpomazkov.ru' },
     { group: 'arapov',   name: 'Timofey Arapov',      cat: "Host's personal brand" },
-    { group: 'liana',    name: 'Liana',                cat: 'China production' },
+    { group: 'liana',    name: 'Liana',                cat: 'China production', href: 'https://lianagini.ru' },
     { group: 'unikate',  name: 'UniKate',              cat: 'International marketing agency' },
-    { group: 'liberman', name: 'Liberman Studio',      cat: 'Interior design' },
+    { group: 'liberman', name: 'Liberman Studio',      cat: 'Interior design', href: 'https://libermanstudio.ru' },
     { group: 'noir',     name: 'NOIR',                  cat: 'Fur atelier website' },
     { group: 'tyaga',    name: 'Tyaga',                 cat: 'Offroad rental website' },
     { group: 'jewelry',  name: 'Custom Jewelry',        cat: 'Landing page' }
@@ -747,7 +825,7 @@
       return '<a class="cx-projects-index-row' + (soon ? ' is-soon' : '') + '"' +
         ' data-project-group="' + p.group + '"' +
         (soon ? ' data-soon="1"' : '') +
-        ' href="' + (p.href || '#') + '"' +
+        ' href="' + (p.href || '#') + '"' + (/^https?:/.test(p.href || '') ? ' target="_blank" rel="noopener"' : '') +
         ' aria-label="' + p.name + (p.cat ? ' — ' + p.cat : '') + '">' +
         p.name +
         '</a>';
@@ -1121,6 +1199,7 @@
      approved. Liberman shares the visible 'top' face on its wide slot
      alongside Liana's anchor, since 'bottom' never faces the camera.
      Every other slot stays empty for now — secondary photos come later. */
+  var LIVE_LINKS = { ladoga: 'https://lodki-ladoga.ru', pomazkov: 'https://drpomazkov.ru', liana: 'https://lianagini.ru', liberman: 'https://libermanstudio.ru' };
   function setTile(face, roleIndex, data){
     var tile = TILES_BY_FACE[face][roleIndex];
     tile.src = data.src;
@@ -1128,7 +1207,7 @@
     tile.project = data.project || null;
     tile.label = data.label || null;
     tile.category = data.category || null;
-    tile.link = data.link || null;
+    tile.link = data.link || LIVE_LINKS[data.projectGroup] || null;
     /* canonical real-project key shared by every tile/fragment that belongs
        to the same actual project — several internal `project` ids above
        (e.g. 'atv' and 'enduro', or 'arapov' and 'host') are fragments of the
@@ -1523,7 +1602,7 @@
     canvas.addEventListener('click', function(){
       if (dragMoved){ dragMoved = false; return; } /* a drag ending on the canvas shouldn't also open a tile */
       if (!hovered || !hovered.userData.label) return;
-      if (hovered.userData.link){ window.location.href = hovered.userData.link; }
+      if (hovered.userData.link){ if (/^https?:/.test(hovered.userData.link)) window.open(hovered.userData.link, '_blank', 'noopener'); else window.location.href = hovered.userData.link; }
       else { console.info('[hero] open case:', hovered.userData.label, '(no case URL set yet)'); }
     });
 
