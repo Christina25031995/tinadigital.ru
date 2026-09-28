@@ -1,1144 +1,874 @@
+<!DOCTYPE html>
 <html lang="ru">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SEO + GEO — TINA DIGITAL</title>
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="canonical" href="https://tinadigital.ru/seo-geo/">
+<meta name="description" content="Продвижение сайта в поиске и нейросетях — SEO + GEO от TINA DIGITAL. Разовая настройка от 40 000 ₽, продвижение от 20 000 ₽/мес.">
 <meta property="og:title" content="SEO + GEO — TINA DIGITAL">
 <meta property="og:description" content="Продвижение сайта в поиске и нейросетях.">
 <meta property="og:image" content="https://tinadigital.ru/assets/seo-geo/hero-figure.jpg">
 <meta property="og:url" content="https://tinadigital.ru/seo-geo/">
-<meta name="description" content="Продвижение сайта в поиске и нейросетях — SEO + GEO от TINA DIGITAL">
 <link rel="stylesheet" href="../assets/fonts/manrope.css">
 <link rel="stylesheet" href="../assets/fonts/seo-extra.css">
 <link rel="stylesheet" href="../assets/legal/legal.css">
-
 <style>
+  @font-face{ font-family:'Manrope'; font-style:normal; font-weight:300; font-display:swap; src:url(../assets/fonts/Manrope-cyrillic.woff2) format('woff2'); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+  @font-face{ font-family:'Manrope'; font-style:normal; font-weight:300; font-display:swap; src:url(../assets/fonts/Manrope-latin.woff2) format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
   :root{
-    --sage:#A6B394;
-    --bronze:#B39A73;
+    --ink:#090909; --ink-2:#141413; --ink-3:#1A1A18; --paper:#EEEAE2; --t:#EEEAE2;
+    --t-dim:rgba(238,234,226,.64); --t-faint:rgba(238,234,226,.36);
+    --d-ink:#090909; --d-dim:rgba(9,9,9,.64); --d-faint:rgba(9,9,9,.4);
+    --wine:#9E4F61; --wine-2:#8E4556; --bronze:#B29A78;
+    --ease:cubic-bezier(.22,.8,.28,1);
+    --pad:clamp(20px,4.45vw,88px);
+    --line:rgba(238,234,226,.16); --d-line:rgba(9,9,9,.16);
   }
   *{ box-sizing:border-box; }
-  html{ background:#090909; }
-  body{
-    margin:0; background:#090909; color:#EEEAE2; font-family:'Manrope',system-ui,sans-serif;
-    overflow-x:hidden; -webkit-font-smoothing:antialiased;
-  }
-  img,video,canvas{ max-width:100%; display:block; }
-  a{ color:#EEEAE2; text-decoration:none; }
-  ::selection{ background:var(--sage); color:#090909; }
-  input::placeholder{ color:#7A7A74; }
-  input:focus{ outline:none; }
-  .mono{ font-family:'JetBrains Mono',monospace; }
-  .serif{ font-family:'Cormorant Garamond',serif; font-style:italic; }
-  @keyframes sgBlink{ 0%,48%{opacity:1} 49%,100%{opacity:0} }
-  @keyframes sgPulse{ 0%,100%{opacity:.35} 50%{opacity:1} }
+  html{ background:var(--ink); -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--ink); color:var(--t); font-family:Manrope,system-ui,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  img,video{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,p,figure,ol,ul{ margin:0; }
+  button,input{ font:inherit; }
 
-  [data-reveal]{ opacity:0; transform:translateY(24px); transition:opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1); }
-  [data-reveal].is-in{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){
-    [data-reveal]{ opacity:1 !important; transform:none !important; transition:none !important; }
-  }
+  /* ---------- шапка (как на «Сайтах под ключ» и в кейсах) ---------- */
+  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px var(--pad); font-size:13px; font-weight:700; letter-spacing:.12em; mix-blend-mode:difference; color:#fff; }
+  .top nav{ display:flex; gap:clamp(16px,2.2vw,32px); }
+  .top nav a{ color:#fff; font-weight:500; letter-spacing:.02em; font-size:13px; opacity:.72; transition:opacity .3s; }
+  .top nav .on, .top nav a:hover{ opacity:1; }
+  @media (max-width:760px){ .top nav > :not(.m){ display:none; } .top nav .m{ opacity:1; } }
 
-  /* ============ HEADER ============ */
-  .sg-top{
-    position:sticky; top:0; z-index:60; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
-    gap:20px; padding:16px clamp(20px,4vw,64px); background:rgba(9,9,9,0.86); backdrop-filter:blur(14px);
-    border-bottom:1px solid rgba(238,234,226,0.1);
-  }
-  .sg-brand{ display:flex; flex-direction:column; gap:4px; color:inherit; }
-  .sg-brand-name{ font-weight:700; font-size:15px; letter-spacing:.02em; }
-  .sg-brand-role{ font-size:12px; color:#999993; }
-  .sg-nav{ display:flex; flex-wrap:wrap; align-items:center; gap:clamp(16px,2.4vw,34px); font-size:14px; white-space:nowrap; }
-  .sg-nav a{ color:#B5B2AB; transition:color .3s ease; }
-  .sg-nav a:hover{ color:#EEEAE2; }
-  .sg-nav a.is-active{ color:#EEEAE2; border-bottom:1px solid var(--sage); padding-bottom:3px; }
-  @media (max-width: 760px){ .sg-nav{ display:none; } }
+  /* ---------- общие ---------- */
+  .sec{ position:relative; padding:clamp(90px,12vw,180px) var(--pad); }
+  .paper{ background:var(--paper); color:var(--d-ink); }
+  .ink2{ background:var(--ink-2); }
+  .wrap{ max-width:1500px; margin:0 auto; }
+  .label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); display:flex; flex-wrap:wrap; gap:8px 14px; margin:0 0 28px; }
+  .label b{ font-weight:400; color:var(--bronze); }
+  .paper .label{ color:var(--d-faint); }
+  .mono{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+  .br{ color:var(--bronze); }
+  .h-xl{ font-weight:600; text-transform:uppercase; letter-spacing:-.045em; line-height:.88; font-size:clamp(52px,10.5vw,190px); }
+  .h-l{ font-weight:600; text-transform:uppercase; letter-spacing:-.035em; line-height:.95; font-size:clamp(34px,5vw,84px); text-wrap:balance; }
+  .h-xl em, .h-l em{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; text-transform:none; letter-spacing:-.01em; color:var(--bronze); }
+  .paper .h-l em{ color:var(--wine); }
+  .lt{ font-weight:300; color:var(--t-faint); }
+  .paper .lt{ color:rgba(9,9,9,.34); }
+  .lede{ font-size:clamp(19px,1.6vw,24px); line-height:1.45; color:var(--t-dim); text-wrap:pretty; }
+  .body{ font-size:17px; line-height:1.62; color:var(--t-dim); text-wrap:pretty; }
+  .body + .body{ margin-top:14px; }
+  .paper .body, .paper .lede{ color:var(--d-dim); }
+  .serif{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:clamp(26px,2.5vw,40px); line-height:1.2; color:var(--t-dim); }
+  .paper .serif{ color:rgba(9,9,9,.72); }
+  .grid{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(20px,3vw,48px); align-items:end; }
+  .c5{ grid-column:span 5; } .c6{ grid-column:span 6; } .c7{ grid-column:span 7; } .c8{ grid-column:span 8; }
+  .o8{ grid-column:8 / span 5; }
+  @media (max-width:900px){ .grid > *{ grid-column:1 / -1 !important; } }
+  .link{ display:inline-flex; gap:12px; align-items:baseline; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-dim); border-bottom:1px solid var(--wine); padding-bottom:3px; transition:color .3s; }
+  .link:hover{ color:var(--t); }
+  .cta{ display:inline-flex; align-items:center; justify-content:space-between; gap:20px; padding:24px 34px; background:var(--wine); color:var(--t); font-size:14px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; border:0; cursor:pointer; transition:background .3s; }
+  .cta:hover{ background:var(--wine-2); }
+  .cta span{ font-size:20px; line-height:1; }
+  .chips{ list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; }
+  .chips li{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 12px; border:1px solid rgba(238,234,226,.18); border-radius:999px; color:var(--t-dim); }
+  .chips li.on{ border-color:var(--wine); color:var(--t); }
+  .paper .chips li{ border-color:rgba(9,9,9,.18); color:var(--d-dim); }
 
-  section{ position:relative; }
+  /* ---------- устройства ---------- */
+  .browser{ border-radius:14px; overflow:hidden; background:#111113; box-shadow:0 60px 120px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06); }
+  .paper .browser{ box-shadow:0 60px 120px -40px rgba(40,30,20,.45), 0 0 0 1px rgba(0,0,0,.06); }
+  .browser .bar{ height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; background:#1c1c1f; }
+  .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3a3e; flex:none; }
+  .browser .bar span{ margin:0 auto; font-size:12px; color:#8d8d93; background:#29292d; padding:4px 22px; border-radius:7px; transform:translateX(-24px); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:70%; }
+  .browser video, .browser img{ width:100%; }
+  .browser.white{ background:#fff; }
+  @media (max-width:600px){ .browser{ border-radius:9px; } .browser .bar{ height:26px; padding:0 10px; gap:5px; } .browser .bar i{ width:7px; height:7px; } .browser .bar span{ font-size:10px; padding:2px 12px; transform:none; } }
+  .phone{ --pw:clamp(150px,17vw,280px); width:var(--pw); aspect-ratio:390/844; border-radius:calc(var(--pw) * .15); background:#0a0a0b; padding:calc(var(--pw) * .035); box-shadow:0 50px 100px -30px rgba(0,0,0,.65), inset 0 0 0 1.5px #2a2a2e; position:relative; flex:none; }
+  .phone .scr{ width:100%; height:100%; border-radius:calc(var(--pw) * .125); overflow:hidden; background:#000; }
+  .phone .scr img{ width:100%; height:100%; object-fit:cover; object-position:top; }
+  .phone::before{ content:''; position:absolute; top:calc(var(--pw) * .07); left:50%; transform:translateX(-50%); width:30%; height:calc(var(--pw) * .085); background:#000; border-radius:20px; z-index:2; }
+  .case-head{ display:flex; flex-wrap:wrap; gap:10px 34px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); margin-bottom:34px; }
+  .case-head b{ font-weight:400; color:var(--bronze); }
+  .full{ margin:clamp(50px,7vw,110px) calc(var(--pad) * -1) 0; }
+  .full .browser{ border-radius:0; box-shadow:none; }
 
-  /* ============ 01 HERO ============ */
-  .sg-hero{ padding:clamp(28px,4vw,56px) clamp(20px,4vw,64px) clamp(56px,7vw,110px); }
-  .sg-hero-tech{ display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.18em; color:#7A7A74; padding-bottom:clamp(24px,3.4vw,48px); }
-  .sg-hero-tech .geo{ color:var(--bronze); white-space:nowrap; }
-  .sg-hero-grid{ display:flex; flex-wrap:wrap; gap:clamp(32px,4vw,72px); align-items:stretch; }
-  .sg-hero-copy{ flex:1 1 520px; min-width:0; display:flex; flex-direction:column; justify-content:center; gap:clamp(22px,2.8vw,34px); padding:clamp(0px,2vw,24px) 0; }
-  .sg-kicker{ display:flex; align-items:center; gap:14px; }
-  .sg-kicker span.rule{ width:clamp(28px,4vw,56px); height:1px; background:var(--sage); }
-  .sg-kicker span.label{ font:500 12px/1.4 'JetBrains Mono',monospace; letter-spacing:.2em; color:var(--sage); }
-  .sg-h1{ margin:0; font-weight:800; font-size:clamp(38px,5.3vw,78px); line-height:.98; letter-spacing:-.03em; text-transform:uppercase; text-wrap:balance; }
-  .sg-lede{ margin:0; max-width:42ch; font-size:clamp(18px,1.45vw,21px); line-height:1.55; color:#CFCBC3; text-wrap:pretty; }
-  .sg-cta-block{ display:flex; flex-direction:column; gap:14px; padding-top:6px; }
-  .sg-cta{ align-self:flex-start; display:inline-flex; align-items:center; gap:16px; padding:20px 30px; background:var(--sage); color:#090909; font:500 12px/1 'JetBrains Mono',monospace; letter-spacing:.18em; text-transform:uppercase; transition:background .5s ease; }
-  .sg-cta:hover{ background:#EEEAE2; color:#090909; }
-  .sg-cta-note{ font:400 11px/1.5 'JetBrains Mono',monospace; letter-spacing:.14em; color:#7A7A74; }
-  .sg-figure-frame{ flex:1 1 420px; min-width:0; border:1px solid rgba(238,234,226,0.14); padding:8px; }
-  .sg-figure-inner{ position:relative; border:1px solid rgba(238,234,226,0.08); height:clamp(380px,40vw,560px); }
-  .sg-figure-inner canvas{ position:absolute; inset:0; width:100%; height:100%; }
-  .sg-tech-tag{ position:absolute; white-space:nowrap; font:500 10px/1.4 'JetBrains Mono',monospace; letter-spacing:.16em; color:#7A7A74; }
+  /* ---------- 01 обложка ---------- */
+  .cover{ overflow:hidden; min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; padding:130px var(--pad) 56px; background:radial-gradient(110% 80% at 75% 0%, #1b1b1a 0%, var(--ink) 62%); }
+  .cover-grid{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:clamp(24px,4vw,80px); align-items:end; }
+  .cover .kicker{ display:flex; justify-content:space-between; gap:20px; color:var(--t-dim); margin-bottom:clamp(24px,3vw,44px); }
+  .cover h1 .sub{ display:block; margin-top:.35em; font-size:.32em; line-height:1; letter-spacing:-.03em; }
+  .cover .tag{ margin-top:clamp(18px,2vw,30px); color:var(--bronze); font-size:clamp(26px,3vw,50px); }
+  .cover .lede{ max-width:560px; margin-top:clamp(18px,2vw,28px); }
+  .fig{ position:relative; }
+  .fig img{ width:100%; object-fit:cover; filter:grayscale(1) contrast(1.05); }
+  .fig figcaption{ display:flex; justify-content:space-between; gap:12px; margin-top:12px; color:var(--t-faint); }
+  .ai-tag{ position:absolute; top:14px; left:14px; padding:4px 9px; border-radius:6px; background:rgba(9,9,9,.5); color:var(--bronze); border:1px solid rgba(178,154,120,.5); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; }
+  .meta{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:clamp(40px,5vw,80px); padding-top:22px; border-top:1px solid var(--line); }
+  .meta div{ font-size:15px; line-height:1.45; }
+  .meta small{ display:block; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); margin-bottom:8px; }
+  .meta .wine{ border-bottom:1px solid var(--wine); }
+  @media (max-width:900px){ .cover-grid{ grid-template-columns:1fr; } .fig{ order:-1; max-width:420px; } }
+  @media (max-width:760px){ .meta{ grid-template-columns:1fr 1fr; } .cover .kicker span:last-child{ display:none; } }
 
-  .sg-strip{ margin-top:clamp(28px,3.4vw,48px); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr)); border-top:1px solid rgba(238,234,226,0.18); }
-  .sg-strip > div{ min-width:0; padding:18px clamp(12px,1.6vw,24px) 6px; border-left:1px solid rgba(238,234,226,0.08); display:flex; flex-direction:column; gap:12px; }
-  .sg-strip > div:first-child{ border-left:0; padding-right:clamp(12px,1.6vw,24px); padding-left:0; }
-  .sg-strip-head{ display:flex; justify-content:space-between; font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:#999993; }
-  .sg-query-row{ display:flex; align-items:center; gap:10px; border:1px solid rgba(238,234,226,0.2); padding:13px 14px; }
-  .sg-query-row .dot{ width:6px; height:6px; background:var(--sage); flex:none; }
-  .sg-query-text{ font:400 13px/1.2 'JetBrains Mono',monospace; color:#EEEAE2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; flex:1; }
-  .sg-query-cursor{ width:7px; height:14px; background:var(--sage); flex:none; animation:sgBlink 1.1s steps(1) infinite; }
-  .sg-index-row{ display:flex; align-items:center; gap:10px; font:400 12px/1.3 'JetBrains Mono',monospace; }
-  .sg-index-row .n{ color:#7A7A74; }
-  .sg-index-row .p{ color:#999993; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
-  .sg-index-row .bar{ flex:1; min-width:20px; height:1px; background:rgba(238,234,226,0.2); }
-  .sg-index-row.is-active .n{ color:var(--sage); }
-  .sg-index-row.is-active .p{ color:#EEEAE2; }
-  .sg-index-row.is-active .bar{ background:var(--sage); }
-  .sg-facts{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:5px 14px; font:400 12px/1.3 'JetBrains Mono',monospace; }
-  .sg-facts .k{ color:#7A7A74; }
-  .sg-facts .v{ color:#CFCBC3; }
-  .sg-ai-head{ display:flex; justify-content:space-between; font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:var(--sage); }
-  .sg-ai-head .pulse{ animation:sgPulse 3.4s ease-in-out infinite; }
-  .sg-ai-answer{ margin:0; font-size:15px; line-height:1.5; color:#EEEAE2; text-wrap:pretty; }
-  .sg-ai-answer sup{ font:500 10px/1 'JetBrains Mono',monospace; color:var(--sage); margin-left:3px; }
-  .sg-ai-source{ font:400 11px/1.3 'JetBrains Mono',monospace; color:#999993; }
+  /* ---------- 02 проблема ---------- */
+  .query{ display:flex; align-items:center; gap:14px; margin-top:clamp(50px,7vw,100px); padding:16px 22px; border:1px solid rgba(9,9,9,.2); border-radius:999px; max-width:620px; font-family:'JetBrains Mono',monospace; font-size:clamp(13px,1.1vw,15px); }
+  .query i{ width:9px; height:9px; border-radius:50%; background:var(--wine); flex:none; }
+  .query small{ margin-left:auto; color:var(--d-faint); font-size:10px; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap; }
+  .versus{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,3vw,48px); margin-top:clamp(24px,3vw,40px); }
+  .panel{ padding:clamp(22px,2.6vw,40px); min-height:100%; display:flex; flex-direction:column; }
+  .panel-a{ border:1px solid rgba(9,9,9,.18); }
+  .panel-b{ background:var(--ink); color:var(--t); }
+  .panel .head{ display:flex; justify-content:space-between; gap:14px; margin-bottom:clamp(24px,3vw,40px); color:var(--d-faint); }
+  .panel-b .head{ color:var(--t-faint); }
+  .panel .head b{ font-weight:400; color:var(--d-ink); }
+  .panel-b .head b{ color:var(--t); }
+  .results{ list-style:none; padding:0; display:grid; gap:14px; }
+  .results li{ display:grid; grid-template-columns:28px 1fr auto; gap:14px; align-items:center; }
+  .results li span.n{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--d-faint); }
+  .results li i{ height:12px; border-radius:2px; background:rgba(9,9,9,.75); }
+  .results li:nth-child(2) i{ background:rgba(9,9,9,.5); width:88%; }
+  .results li:nth-child(3) i{ background:var(--wine); width:78%; }
+  .results li:nth-child(4) i{ background:rgba(9,9,9,.16); width:66%; }
+  .results li b{ font-family:'JetBrains Mono',monospace; font-weight:400; font-size:10px; letter-spacing:.14em; color:var(--wine); }
+  .answer{ font-size:clamp(18px,1.6vw,23px); line-height:1.45; }
+  .answer sup{ color:var(--bronze); font-size:.6em; }
+  .refs{ margin-top:auto; padding-top:28px; display:grid; gap:10px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--t-dim); }
+  .refs .no{ color:var(--t-faint); display:flex; flex-wrap:wrap; gap:6px 14px; }
+  .refs .no b{ font-weight:400; color:var(--wine); letter-spacing:.14em; font-size:10px; }
+  .panel .out{ margin-top:clamp(24px,3vw,36px); padding-top:18px; border-top:1px solid rgba(9,9,9,.14); font-size:16px; line-height:1.5; color:var(--d-dim); }
+  .panel-b .out{ border-color:var(--line); color:var(--t); }
+  @media (max-width:760px){ .versus{ grid-template-columns:1fr; } .query small{ display:none; } }
 
-  /* ============ shared light-section tokens ============ */
-  .sg-light{ background:#EEEAE2; color:#090909; }
-  .sg-eyebrow-lt{ font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.18em; color:#5F5E58; }
+  /* ---------- 03 одна система — как «Одна рука» ---------- */
+  .system{ display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); min-height:clamp(760px,70vw,1080px); }
+  .sys-l{ display:flex; flex-direction:column; padding:clamp(90px,9.7vw,150px) var(--pad) clamp(70px,7vw,110px); }
+  .sys-l .body{ margin-top:clamp(36px,4vw,64px); max-width:520px; }
+  .sys-l .serif{ margin-top:auto; padding-top:60px; }
+  .sys-r{ position:relative; padding:clamp(90px,10vw,150px) var(--pad) clamp(70px,7vw,110px) clamp(24px,2.8vw,48px); }
+  .sys-r::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,transparent,rgba(238,234,226,.4) 12%,rgba(238,234,226,.4) 88%,transparent); }
+  .io{ list-style:none; padding:0; display:grid; gap:clamp(18px,2.6vw,40px); }
+  .io li{ display:grid; grid-template-columns:auto 1fr; gap:6px clamp(14px,1.6vw,24px); align-items:baseline; }
+  .io li small{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:var(--bronze); }
+  .io li b{ font-size:clamp(22px,2.4vw,40px); font-weight:600; letter-spacing:-.02em; line-height:1; text-transform:uppercase; }
+  .io li span{ grid-column:2; font-size:14px; line-height:1.45; color:var(--t-dim); }
+  .io li.geo b{ color:var(--wine); }
+  .io .src{ display:block; grid-template-columns:none; margin:6px 0; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); color:var(--t-faint); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+  @media (max-width:760px){ .system{ grid-template-columns:1fr; min-height:0; } .sys-l{ padding-bottom:30px; } .sys-l .serif{ padding-top:30px; } .sys-r{ margin:0 var(--pad) 80px; padding:6px 0 6px 20px; } }
 
-  /* ============ 02 SEARCH CHANGED ============ */
-  .sg-changed{ padding:clamp(72px,10vw,150px) clamp(20px,4vw,64px) clamp(64px,8vw,120px); }
-  .sg-changed-head{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:16px; padding-bottom:clamp(28px,3.6vw,52px); }
-  .sg-changed-head .serif{ font-size:clamp(22px,2vw,28px); line-height:1; color:#5F5E58; }
-  .sg-changed-lead{ display:flex; flex-wrap:wrap; gap:clamp(28px,4vw,72px); align-items:end; }
-  .sg-h2{ margin:0; font-weight:800; font-size:clamp(34px,4.5vw,66px); line-height:1; letter-spacing:-.028em; text-transform:uppercase; text-wrap:balance; }
-  .sg-changed-lead h2{ flex:1 1 640px; }
-  .sg-changed-lead p{ flex:1 1 340px; max-width:44ch; margin:0; font-size:clamp(17px,1.25vw,19px); line-height:1.6; color:#3C3B37; text-wrap:pretty; }
+  /* ---------- 04 почему ---------- */
+  .why .h-xl{ font-size:clamp(46px,8.4vw,150px); }
+  .why .h-xl .lt{ display:block; }
+  .flows{ display:grid; grid-template-columns:1fr 1.4fr; gap:clamp(24px,4vw,70px); margin-top:clamp(60px,8vw,120px); }
+  .flow .head{ display:flex; justify-content:space-between; gap:14px; padding-bottom:16px; border-bottom:1px solid var(--line); color:var(--t-faint); }
+  .flow .head b{ font-weight:400; color:var(--t); }
+  .flow.new .head b{ color:var(--wine); }
+  .old{ list-style:none; padding:0; margin-top:22px; display:grid; gap:14px; }
+  .old li{ display:flex; justify-content:space-between; gap:14px; font-size:clamp(17px,1.5vw,22px); color:var(--t-faint); text-decoration:line-through; text-decoration-color:var(--wine); }
+  .old li small{ text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; }
+  .flow.new .chips{ margin-top:22px; }
+  @media (max-width:760px){ .flows{ grid-template-columns:1fr; } }
 
-  .sg-space-frame{ position:relative; margin:clamp(48px,6vw,96px) 0; height:clamp(420px,40vw,580px); border-top:1px solid rgba(9,9,9,0.16); border-bottom:1px solid rgba(9,9,9,0.16); overflow:hidden; }
-  .sg-space-frame canvas{ position:absolute; inset:0; width:100%; height:100%; }
-  .sg-space-caption{ position:absolute; left:0; right:0; bottom:clamp(40px,5vw,64px); display:flex; align-items:center; gap:clamp(10px,1.6vw,22px); padding:0 clamp(0px,1vw,12px); }
-  .sg-space-caption .side{ font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:#090909; flex:none; }
-  .sg-space-caption .bar{ flex:1; min-width:12px; height:1px; background:#090909; }
-  .sg-space-caption .bubble{ display:flex; align-items:center; gap:10px; background:#090909; color:#EEEAE2; padding:14px 18px; font:400 clamp(12px,1.1vw,15px)/1.2 'JetBrains Mono',monospace; min-width:0; max-width:62%; }
-  .sg-space-caption .bubble .dot{ width:6px; height:6px; background:var(--sage); flex:none; }
-  .sg-space-caption .bubble span.q{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
+  /* ---------- 05 Enduro ---------- */
+  .proof{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,48px); margin-top:clamp(70px,9vw,140px); padding-top:30px; border-top:1px solid var(--line); }
+  .proof b{ display:block; font-size:clamp(64px,10vw,180px); line-height:.82; font-weight:600; letter-spacing:-.06em; }
+  .proof .on b{ color:var(--wine); }
+  .proof small{ display:block; margin-top:16px; color:var(--bronze); }
+  .proof span{ display:block; margin-top:8px; font-size:15px; line-height:1.45; color:var(--t-dim); }
+  .period{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 24px; margin-top:26px; color:var(--t-faint); }
+  .detail{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,80px); margin-top:clamp(60px,8vw,110px); align-items:start; }
+  .rows{ border-top:1px solid var(--line); }
+  .rows > div{ display:grid; grid-template-columns:minmax(64px,auto) 1fr; gap:18px; align-items:baseline; padding:16px 0; border-bottom:1px solid var(--line); }
+  .rows > div b{ font-size:clamp(28px,2.6vw,40px); font-weight:600; letter-spacing:-.03em; }
+  .rows > div span{ font-size:15px; line-height:1.4; color:var(--t-dim); }
+  .fine{ margin-top:12px; font-size:13px; line-height:1.5; color:var(--t-faint); }
+  .sub-h{ display:flex; justify-content:space-between; gap:14px; margin-bottom:14px; color:var(--t-faint); }
+  .metrica{ margin-top:clamp(60px,8vw,110px); }
+  .metrica .browser img{ background:#fff; }
+  .metrica figcaption{ display:flex; flex-wrap:wrap; gap:8px 24px; margin-top:14px; color:var(--t-faint); }
+  .metrica figcaption b{ font-weight:400; color:var(--bronze); }
+  @media (max-width:760px){ .proof{ grid-template-columns:1fr; gap:34px; } .detail{ grid-template-columns:1fr; } }
 
-  .sg-compare{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:clamp(28px,4vw,64px); }
-  .sg-compare-head{ display:flex; justify-content:space-between; font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:#5F5E58; padding-bottom:18px; }
-  .sg-compare-head.dark{ color:#090909; }
-  .sg-bars{ display:flex; flex-direction:column; border-bottom:1px solid rgba(9,9,9,0.14); }
-  .sg-bar-row{ display:flex; gap:14px; align-items:center; padding:13px 0; border-top:1px solid rgba(9,9,9,0.14); }
-  .sg-bar-row .n{ font:500 11px/1 'JetBrains Mono',monospace; color:#5F5E58; }
-  .sg-bar-row .track{ flex:1; height:6px; background:#090909; }
-  .sg-bar-row .tag{ font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.12em; border:1px solid #090909; padding:4px 7px; }
-  .sg-caption-lt{ margin:18px 0 0; max-width:40ch; font-size:17px; line-height:1.55; color:#3C3B37; }
-  .sg-ai-card{ background:#090909; color:#EEEAE2; padding:clamp(22px,2.6vw,32px); }
-  .sg-ai-card p{ margin:0; font-size:clamp(17px,1.3vw,19px); line-height:1.6; text-wrap:pretty; }
-  .sg-ai-card sup{ font:500 10px/1 'JetBrains Mono',monospace; color:var(--sage); margin:0 2px; }
-  .sg-ai-refs{ display:flex; flex-direction:column; gap:12px; margin-top:22px; padding-top:18px; border-top:1px solid rgba(238,234,226,0.14); font:400 12px/1.3 'JetBrains Mono',monospace; }
-  .sg-ai-refs .ref{ display:flex; gap:12px; }
-  .sg-ai-refs .ref .n{ color:var(--sage); }
-  .sg-ai-refs .ref .u{ color:#CFCBC3; }
-  .sg-ai-refs .not-source{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding-top:12px; border-top:1px dashed rgba(238,234,226,0.2); }
-  .sg-ai-refs .not-source .n{ color:#7A7A74; }
-  .sg-ai-refs .not-source .u{ color:#999993; }
-  .sg-ai-refs .not-source .bar{ flex:1; min-width:20px; height:1px; background:rgba(238,234,226,0.1); }
-  .sg-ai-refs .not-source .flag{ color:var(--bronze); letter-spacing:.12em; }
+  /* ---------- 06 что меняется ---------- */
+  .layers{ margin-top:clamp(50px,7vw,100px); border-top:1px solid rgba(9,9,9,.2); }
+  .layer{ display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) minmax(0,1.1fr); gap:clamp(16px,3vw,48px); align-items:baseline; padding:clamp(24px,3.4vw,48px) 0; border-bottom:1px solid rgba(9,9,9,.2); }
+  .layer .num{ font-size:clamp(44px,6vw,96px); line-height:.8; font-weight:300; letter-spacing:-.05em; color:rgba(9,9,9,.25); }
+  .layer.on .num{ color:var(--wine); }
+  .layer b{ display:block; font-size:clamp(20px,2vw,30px); font-weight:600; letter-spacing:-.02em; text-transform:uppercase; }
+  .layer p{ margin-top:8px; font-size:clamp(16px,1.3vw,19px); line-height:1.45; color:var(--d-ink); }
+  .layer .tags{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.06em; line-height:1.8; color:var(--d-dim); }
+  @media (max-width:760px){ .layer{ grid-template-columns:auto 1fr; } .layer .num{ grid-row:span 2; } .layer .tags{ grid-column:2; } }
 
-  /* ============ 03 ONE SYSTEM ============ */
-  .sg-system{ padding:clamp(72px,10vw,150px) clamp(20px,4vw,64px); }
-  .sg-system-head{ display:flex; flex-wrap:wrap; gap:clamp(28px,4vw,72px); align-items:end; padding-bottom:clamp(44px,5vw,80px); }
-  .sg-system-head .col{ flex:1 1 620px; min-width:0; display:flex; flex-direction:column; gap:22px; }
-  .sg-eyebrow{ font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.18em; color:var(--sage); }
-  .sg-h2-mid{ margin:0; font-weight:600; font-size:clamp(30px,3.3vw,48px); line-height:1.12; letter-spacing:-.022em; max-width:22ch; text-wrap:balance; }
-  .sg-system-head p{ flex:1 1 340px; max-width:46ch; margin:0; font-size:clamp(17px,1.25vw,19px); line-height:1.6; color:#B5B2AB; text-wrap:pretty; }
-  .sg-frame{ border:1px solid rgba(238,234,226,0.16); padding:clamp(6px,0.8vw,10px); }
-  .sg-frame-inner{ border:1px solid rgba(238,234,226,0.08); }
-  .sg-inputs{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr)); }
-  .sg-inputs > div{ min-width:0; padding:clamp(20px,2.4vw,34px); border-right:1px solid rgba(238,234,226,0.08); }
-  .sg-inputs > div:last-child{ border-right:0; }
-  .sg-io-label{ font:500 11px/1 'JetBrains Mono',monospace; color:#7A7A74; letter-spacing:.14em; }
-  .sg-input-title{ font-weight:700; font-size:clamp(18px,1.5vw,22px); letter-spacing:.02em; text-transform:uppercase; margin:26px 0 10px; }
-  .sg-inputs p{ margin:0; font-size:16px; line-height:1.5; color:#B5B2AB; }
-  .sg-source-bar{ display:flex; align-items:center; gap:16px; padding:18px clamp(20px,2.4vw,34px); border-top:1px solid rgba(238,234,226,0.14); border-bottom:1px solid rgba(238,234,226,0.14); background:rgba(238,234,226,0.025); }
-  .sg-source-bar .rule{ flex:1; height:1px; background:rgba(238,234,226,0.22); }
-  .sg-source-bar .label{ font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.2em; color:#EEEAE2; text-align:center; }
-  .sg-source-bar .dot{ width:5px; height:5px; background:var(--bronze); flex:none; }
-  .sg-outputs{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); }
-  .sg-outputs > div{ min-width:0; padding:clamp(24px,3vw,44px) clamp(20px,2.4vw,34px); border-right:1px solid rgba(238,234,226,0.08); display:flex; justify-content:space-between; align-items:end; gap:20px; flex-wrap:wrap; }
-  .sg-outputs > div:last-child{ border-right:0; }
-  .sg-output-title{ font-weight:800; font-size:clamp(34px,4vw,60px); letter-spacing:-.03em; text-transform:uppercase; margin-top:18px; line-height:1; }
-  .sg-outputs span.note{ font-size:16px; color:#B5B2AB; max-width:22ch; }
-  .sg-outputs .geo .sg-io-label{ color:var(--sage); }
-  .sg-outputs .geo .sg-output-title{ color:var(--sage); }
+  /* ---------- 07 честно ---------- */
+  .honest{ background:var(--wine); color:var(--t); }
+  .honest .label{ color:rgba(238,234,226,.6); }
+  .honest .label b{ color:var(--t); }
+  .honest .h-xl{ font-size:clamp(44px,7.6vw,138px); }
+  .honest .cols{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,48px); margin-top:clamp(50px,7vw,100px); padding-top:24px; border-top:1px solid rgba(238,234,226,.3); }
+  .honest .cols p{ font-size:clamp(17px,1.4vw,20px); line-height:1.5; color:rgba(238,234,226,.86); }
+  .honest .cols p:first-child{ color:var(--t); font-weight:600; }
+  @media (max-width:760px){ .honest .cols{ grid-template-columns:1fr; } }
 
-  /* ============ 04 WHY TINA DIGITAL ============ */
-  .sg-why{ background:#000; padding:clamp(80px,11vw,170px) clamp(20px,4vw,64px); border-top:1px solid rgba(238,234,226,0.08); }
-  .sg-why-h2{ margin:clamp(28px,3.6vw,52px) 0 0; font-weight:800; font-size:clamp(38px,4.6vw,68px); line-height:.98; letter-spacing:-.03em; text-transform:uppercase; max-width:16ch; }
-  .sg-why-h2 .outline{ -webkit-text-stroke:1px rgba(238,234,226,0.6); color:transparent; }
-  .sg-why-lead{ display:flex; flex-wrap:wrap; gap:clamp(24px,4vw,64px); margin-top:clamp(28px,3.6vw,48px); }
-  .sg-why-lead p{ flex:1 1 380px; max-width:46ch; margin:0; font-size:clamp(18px,1.4vw,21px); line-height:1.55; color:#EEEAE2; text-wrap:pretty; }
-  .sg-why-lead .serif{ flex:1 1 300px; max-width:30ch; margin:0; font-size:clamp(24px,2.2vw,32px); line-height:1.25; color:#B5B2AB; }
+  /* ---------- 08 Ладога ---------- */
+  .duo{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:clamp(20px,4vw,70px); align-items:end; margin-top:clamp(50px,7vw,110px); }
+  .duo .phone{ --pw:clamp(140px,18vw,290px); margin-bottom:clamp(-60px,-4vw,-20px); }
+  .qmap{ margin-top:clamp(70px,9vw,140px); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:clamp(24px,4vw,80px); align-items:start; }
+  .qrows{ border-top:1px solid var(--line); }
+  .qrows > div{ display:flex; justify-content:space-between; gap:18px; align-items:baseline; padding:16px 0; border-bottom:1px solid var(--line); }
+  .qrows .q{ font-size:clamp(16px,1.5vw,21px); }
+  .qrows .p{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--bronze); white-space:nowrap; }
+  .qrows > div:last-child .q{ color:var(--wine); }
+  @media (max-width:760px){ .duo{ grid-template-columns:1fr; } .duo .phone{ margin:-30% auto 0; } .qmap{ grid-template-columns:1fr; } }
 
-  .sg-flows{ margin-top:clamp(56px,7vw,110px); display:flex; flex-direction:column; gap:clamp(30px,3.4vw,48px); }
-  .sg-flow-head{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.16em; color:#7A7A74; }
-  .sg-flow-head.sage{ color:var(--sage); }
-  .sg-flow-old-track{ display:grid; grid-template-columns:2fr 12px 2fr 12px 3fr; align-items:center; margin-top:14px; }
-  .sg-flow-old-track .rule{ height:1px; background:rgba(238,234,226,0.35); }
-  .sg-flow-old-track .gap{ height:9px; border-left:1px dashed rgba(238,234,226,0.35); justify-self:center; }
-  .sg-flow-old-labels{ display:grid; grid-template-columns:2fr 12px 2fr 12px 3fr; font:400 12px/1.4 'JetBrains Mono',monospace; color:#999993; margin-top:10px; }
+  /* ---------- 09 измерения ---------- */
+  .strike{ margin-top:18px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--d-faint); text-decoration:line-through; text-decoration-color:var(--wine); }
+  .measure{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(24px,4vw,80px); margin-top:clamp(50px,7vw,100px); align-items:start; }
+  .primary{ background:var(--ink); color:var(--t); padding:clamp(26px,3vw,48px); }
+  .primary small{ display:block; color:var(--bronze); }
+  .primary b{ display:block; margin-top:clamp(40px,6vw,90px); font-size:clamp(40px,5vw,84px); font-weight:600; letter-spacing:-.04em; line-height:.9; text-transform:uppercase; }
+  .primary p{ margin-top:16px; font-size:16px; line-height:1.5; color:var(--t-dim); max-width:420px; }
+  .mlist{ border-top:1px solid rgba(9,9,9,.2); }
+  .mlist > div{ display:grid; grid-template-columns:40px 1fr auto; gap:14px; align-items:baseline; padding:18px 0; border-bottom:1px solid rgba(9,9,9,.2); }
+  .mlist .n{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--wine); }
+  .mlist b{ font-size:clamp(18px,1.7vw,24px); font-weight:600; letter-spacing:-.01em; }
+  .mlist small{ font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--d-faint); }
+  @media (max-width:760px){ .measure{ grid-template-columns:1fr; } }
 
-  .sg-flow-new-track{ position:relative; height:2px; background:rgba(166,179,148,0.25); margin-top:16px; }
-  .sg-flow-new-fill{ position:absolute; left:0; top:0; height:2px; width:100%; background:var(--sage); transform-origin:left; transform:scaleX(0); transition:transform 2.4s cubic-bezier(.2,.7,.1,1); }
-  .sg-flow-new-fill.is-in{ transform:scaleX(1); }
-  .sg-steps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr)); margin-top:16px; }
-  .sg-steps > div{ padding:16px 12px 0 0; border-left:1px solid rgba(238,234,226,0.14); padding-left:12px; }
-  .sg-steps .n{ font:500 11px/1 'JetBrains Mono',monospace; color:#7A7A74; }
-  .sg-steps .name{ font-weight:700; font-size:clamp(18px,1.7vw,26px); letter-spacing:-.01em; margin-top:12px; }
-  .sg-steps > div.is-geo{ border-left-color:var(--sage); }
-  .sg-steps > div.is-geo .n, .sg-steps > div.is-geo .name{ color:var(--sage); }
+  /* ---------- 10 форматы ---------- */
+  .prices{ margin-top:clamp(40px,7vw,100px); border-top:1px solid rgba(9,9,9,.2); }
+  .price-row{ display:grid; grid-template-columns:minmax(0,200px) minmax(0,1fr) auto; gap:24px; align-items:end; padding:clamp(28px,4.4vw,64px) 0; border-bottom:1px solid rgba(9,9,9,.2); color:inherit; transition:background .4s; }
+  .price-row:hover .sum{ color:var(--wine); }
+  .price-row .num{ font-size:clamp(54px,9.7vw,140px); line-height:.8; font-weight:300; letter-spacing:-.05em; color:rgba(9,9,9,.25); }
+  .price-row .num.on{ color:var(--wine); }
+  .price-row small{ display:block; margin-bottom:10px; color:var(--d-faint); }
+  .price-row b{ display:block; font-size:clamp(21px,2.8vw,40px); font-weight:600; letter-spacing:-.02em; text-transform:uppercase; }
+  .price-row p{ margin-top:10px; font-size:clamp(15px,1.2vw,17px); color:var(--d-dim); max-width:560px; }
+  .price-row .sum{ font-size:clamp(22px,2.8vw,40px); font-weight:600; letter-spacing:-.02em; text-align:right; white-space:nowrap; text-transform:uppercase; transition:color .3s; }
+  .price-row .sum em{ display:block; font-style:normal; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:400; letter-spacing:.14em; color:var(--d-faint); margin-top:8px; }
+  @media (max-width:760px){ .price-row{ grid-template-columns:auto 1fr; gap:6px 16px; } .price-row .num{ grid-row:span 2; } .price-row .sum{ grid-column:2; text-align:left; } }
 
-  /* ============ 05 / 08 CASE SECTIONS ============ */
-  .sg-case{ padding:clamp(80px,10vw,150px) 0 clamp(72px,9vw,140px); }
-  .sg-case-pad{ padding-left:clamp(20px,4vw,64px); padding-right:clamp(20px,4vw,64px); }
-  .sg-case-head{ display:flex; flex-wrap:wrap; gap:clamp(24px,4vw,64px); align-items:end; padding-bottom:clamp(36px,5vw,72px); }
-  .sg-case-head .col{ flex:1 1 620px; min-width:0; display:flex; flex-direction:column; gap:24px; }
-  .sg-case-head p{ flex:1 1 340px; max-width:44ch; margin:0; font-size:clamp(17px,1.25vw,19px); line-height:1.6; color:#B5B2AB; text-wrap:pretty; }
-  .sg-case-eyebrow{ display:flex; align-items:center; gap:14px; }
-  .sg-case-eyebrow .rule{ width:40px; height:1px; background:var(--bronze); }
-  .sg-case-eyebrow span.label{ font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.18em; color:#EEEAE2; }
-  .sg-case-h2{ margin:0; font-weight:800; font-size:clamp(36px,4.3vw,62px); line-height:.98; letter-spacing:-.03em; text-transform:uppercase; text-wrap:balance; }
+  /* ---------- 11 диагностика ---------- */
+  .final .grid{ align-items:start; margin-top:clamp(40px,5vw,70px); }
+  .check{ border:1px solid var(--line); padding:clamp(22px,2.6vw,40px); }
+  .check .head{ display:flex; justify-content:space-between; gap:14px; color:var(--t-faint); }
+  .check .field{ display:flex; align-items:baseline; gap:8px; margin-top:22px; padding-bottom:12px; border-bottom:1px solid rgba(238,234,226,.3); }
+  .check .field span{ font-family:'JetBrains Mono',monospace; font-size:15px; color:var(--t-faint); }
+  .check input{ flex:1; min-width:0; background:transparent; border:0; outline:0; color:var(--t); font-family:'JetBrains Mono',monospace; font-size:clamp(16px,1.4vw,20px); }
+  .check input::placeholder{ color:var(--t-faint); }
+  .check ol{ list-style:none; padding:0; margin-top:22px; }
+  .check ol li{ display:grid; grid-template-columns:34px 1fr; padding:11px 0; border-top:1px solid rgba(238,234,226,.1); font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--t-dim); }
+  .check ol li small{ color:var(--bronze); font-size:11px; }
+  .check .cta{ width:100%; margin-top:26px; }
+  .check .note{ display:block; margin-top:12px; color:var(--t-faint); }
+  .foot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px 30px; padding:30px var(--pad) 40px; font-size:13px; color:var(--t-faint); border-top:1px solid var(--line); }
+  .foot .links{ display:flex; flex-wrap:wrap; gap:10px 28px; }
+  .foot a:hover{ color:var(--t); }
 
-  .sg-browser{ position:relative; border:1px solid rgba(238,234,226,0.16); padding:clamp(6px,0.8vw,10px); }
-  .sg-browser-inner{ border:1px solid rgba(238,234,226,0.08); background:#0d0d0d; }
-  .sg-browser-bar{ display:flex; align-items:center; gap:14px; height:30px; padding:0 12px; border-bottom:1px solid rgba(238,234,226,0.1); font:500 10px/1 'JetBrains Mono',monospace; letter-spacing:.14em; color:#7A7A74; }
-  .sg-browser-dots{ display:flex; gap:5px; }
-  .sg-browser-dots span{ width:6px; height:6px; border:1px solid rgba(238,234,226,0.3); }
-  .sg-browser-url{ flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#B5B2AB; }
-  .sg-browser-tag{ white-space:nowrap; }
-  .sg-browser-screen{ position:relative; aspect-ratio:16/9; max-height:760px; width:100%; }
-  .sg-mobile-float{ position:absolute; right:clamp(16px,4vw,64px); bottom:clamp(-60px,-5vw,-30px); width:clamp(130px,18vw,260px); height:clamp(240px,34vw,500px); border:1px solid rgba(238,234,226,0.3); background:#090909; padding:6px; }
-  .sg-mobile-float.is-left{ right:auto; left:clamp(16px,4vw,64px); }
-  .sg-shot-media.is-bottom-anchor{ object-position:center bottom; }
-  @media (max-width: 680px){
-    .sg-mobile-float{ position:static; right:auto; bottom:auto; width:min(200px,56%); height:auto; aspect-ratio:9/17.4; margin:20px auto 0; }
-  }
-  .sg-mobile-float-inner{ display:flex; flex-direction:column; width:100%; height:100%; }
-  .sg-mobile-notch{ flex:none; display:flex; justify-content:center; padding:6px 0 7px; }
-  .sg-mobile-notch span{ width:34px; height:3px; background:rgba(238,234,226,0.25); }
-  .sg-mobile-screen{ position:relative; flex:1; min-height:0; }
 
-  .sg-shot-slot{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; background:repeating-linear-gradient(135deg,rgba(238,234,226,0.035) 0 2px,transparent 2px 14px); border:1px dashed rgba(238,234,226,0.22); padding:16px; }
-  .sg-shot-slot span{ font:500 11px/1.5 'JetBrains Mono',monospace; letter-spacing:.08em; color:#7A7A74; max-width:26ch; }
-  .sg-shot-slot.is-tall span{ font-size:10px; }
-  .sg-shot-media{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  /* ---------- живые AI-фигуры из частиц ---------- */
+  .field-box{ position:relative; aspect-ratio:736/1033; }
+  .fig{ width:min(100%, calc(74vh * .712)); justify-self:end; }
+  .field-box img{ position:absolute; inset:0; width:100%; height:100%; }
+  .field-box canvas{ position:absolute; inset:-6% -10%; width:120%; height:112%; touch-action:pan-y; }
+  .field-box.live img{ visibility:hidden; }
+  .fig .field-box img{ aspect-ratio:auto; }
+  .machine{ position:relative; margin-top:clamp(50px,7vw,100px); }
+  .machine canvas{ display:block; width:100%; aspect-ratio:16/7; touch-action:pan-y; }
+  .machine figcaption{ display:flex; justify-content:space-between; gap:12px; margin-top:12px; padding-top:12px; border-top:1px solid var(--d-line); color:var(--d-faint); }
+  .machine #machineState{ color:var(--wine); }
+  @media (max-width:760px){ .machine canvas{ aspect-ratio:4/3.4; } }
 
-  .sg-meta-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.14em; color:#999993; padding-bottom:16px; }
-  .sg-meta-row span{ white-space:nowrap; }
-  .sg-meta-row .hl{ color:#EEEAE2; }
 
-  .sg-kpis{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); border-top:1px solid #EEEAE2; border-bottom:1px solid rgba(238,234,226,0.16); }
-  .sg-kpis > div{ min-width:0; padding:clamp(22px,2.6vw,36px) clamp(16px,2vw,32px) clamp(26px,3vw,42px); border-left:1px solid rgba(238,234,226,0.12); }
-  .sg-kpis > div:first-child{ border-left:0; padding-left:0; }
-  .sg-kpi-num{ font-weight:800; font-size:clamp(76px,7.6vw,110px); line-height:.88; letter-spacing:-.045em; }
-  .sg-kpi-label{ font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.14em; color:#EEEAE2; margin-top:18px; }
-  .sg-kpi-note{ font-size:16px; line-height:1.45; color:#B5B2AB; margin-top:6px; }
-  .sg-kpis .accent{ border-left-color:var(--sage); }
-  .sg-kpis .accent .sg-kpi-num, .sg-kpis .accent .sg-kpi-label{ color:var(--sage); }
-  .sg-kpi-foot{ display:flex; flex-wrap:wrap; gap:8px 28px; padding-top:14px; font:400 12px/1.4 'JetBrains Mono',monospace; color:#999993; }
+  .space{ margin-top:clamp(50px,7vw,100px); }
+  .space canvas{ display:block; width:100%; aspect-ratio:16/8; background:radial-gradient(80% 90% at 50% 45%, #e4e0d8, #d6d2ca 70%, #cfcbc3); touch-action:pan-y; }
+  .space figcaption{ display:flex; justify-content:space-between; gap:12px; margin-top:12px; color:var(--d-faint); }
+  @media (max-width:760px){ .space canvas{ aspect-ratio:4/5; } }
 
-  .sg-detail{ display:flex; flex-wrap:wrap; gap:clamp(36px,5vw,88px); align-items:start; padding-top:clamp(56px,7vw,100px); }
-  .sg-detail-left{ flex:1 1 440px; min-width:0; display:flex; flex-direction:column; gap:clamp(40px,5vw,64px); }
-  .sg-detail-lead{ margin:0; font-weight:500; font-size:clamp(21px,1.8vw,26px); line-height:1.4; letter-spacing:-.01em; max-width:30ch; text-wrap:pretty; }
-  .sg-mini-stats{ display:flex; flex-wrap:wrap; gap:clamp(28px,4vw,64px); }
-  .sg-mini-stat{ border-top:1px solid rgba(238,234,226,0.2); padding-top:16px; min-width:140px; }
-  .sg-mini-stat .v{ font-weight:700; font-size:clamp(40px,3.6vw,52px); line-height:1; letter-spacing:-.03em; }
-  .sg-mini-stat .l{ font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.14em; color:#B5B2AB; margin-top:12px; }
-  .sg-actions-head{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.14em; color:#999993; padding-bottom:12px; }
-  .sg-action-row{ display:grid; grid-template-columns:64px minmax(0,1fr); gap:16px; align-items:baseline; padding:14px 0; border-top:1px solid rgba(238,234,226,0.14); }
-  .sg-action-row:last-of-type{ border-bottom:1px solid rgba(238,234,226,0.14); }
-  .sg-action-row .num{ font-weight:700; font-size:28px; letter-spacing:-.02em; }
-  .sg-action-row .txt{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:4px 16px; }
-  .sg-action-row .txt .ru{ font-size:16px; color:#CFCBC3; }
-  .sg-action-row .txt .en{ font:400 11px/1.3 'JetBrains Mono',monospace; color:#7A7A74; letter-spacing:.1em; white-space:nowrap; }
-  .sg-fine{ margin:12px 0 0; font:400 11px/1.5 'JetBrains Mono',monospace; color:#7A7A74; letter-spacing:.06em; }
-
-  .sg-detail-right{ flex:0 1 440px; min-width:0; display:flex; flex-direction:column; gap:14px; }
-  .sg-quarter{ border-top:1px solid rgba(238,234,226,0.14); padding-top:16px; display:flex; flex-direction:column; gap:12px; }
-  .sg-quarter-label{ font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.14em; color:var(--bronze); }
-  .sg-quarter-grid{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px 18px; font:400 13px/1.4 'JetBrains Mono',monospace; }
-  .sg-quarter-grid .v{ color:#EEEAE2; }
-  .sg-quarter-grid .l{ color:#999993; }
-
-  .sg-proof{ margin-top:clamp(56px,7vw,100px); display:flex; flex-wrap:wrap; gap:clamp(20px,3vw,48px); align-items:end; }
-  .sg-proof-frame{ flex:0 1 560px; min-width:0; border:1px solid rgba(238,234,226,0.16); padding:6px; }
-  .sg-proof-frame-inner{ border:1px solid rgba(238,234,226,0.08); background:#fff; padding:clamp(8px,1vw,14px); }
-  .sg-proof-caption{ flex:0 1 240px; display:flex; flex-direction:column; gap:8px; font:500 11px/1.5 'JetBrains Mono',monospace; letter-spacing:.14em; color:#999993; }
-  .sg-proof-caption .hl{ white-space:nowrap; color:#EEEAE2; }
-  .sg-proof-caption .dim{ letter-spacing:.06em; color:#7A7A74; }
-
-  .sg-stats-strip{ margin-top:clamp(56px,7vw,100px); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr)); border-top:1px solid rgba(238,234,226,0.2); }
-  .sg-stats-strip > div{ padding:20px 16px 0; border-left:1px solid rgba(238,234,226,0.08); }
-  .sg-stats-strip > div:first-child{ border-left:0; padding-left:0; }
-  .sg-stats-strip .v{ font-weight:700; font-size:clamp(28px,2.6vw,40px); letter-spacing:-.03em; color:#7A7A74; }
-  .sg-stats-strip .l{ font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.1em; color:#B5B2AB; margin-top:8px; }
-  .sg-stats-strip > div.accent{ border-left-color:var(--sage); }
-  .sg-stats-strip > div.accent .l{ color:var(--sage); }
-
-  /* case 08 query->page list */
-  .sg-qp-head{ display:flex; justify-content:space-between; font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:#7A7A74; padding-bottom:12px; }
-  .sg-qp-row{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px; align-items:baseline; padding:14px 0; border-top:1px solid rgba(238,234,226,0.14); font:400 13px/1.35 'JetBrains Mono',monospace; }
-  .sg-qp-row:last-child{ border-bottom:1px solid rgba(238,234,226,0.14); }
-  .sg-qp-row .q{ color:#EEEAE2; }
-  .sg-qp-row .p{ color:#999993; }
-  .sg-qp-row.is-hl .p{ color:var(--sage); }
-  .sg-crops{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
-  .sg-crop{ display:flex; flex-direction:column; gap:8px; }
-  .sg-crop-frame{ position:relative; aspect-ratio:4/3; border:1px solid rgba(238,234,226,0.16); }
-  .sg-crop-link{ font:400 11px/1.3 'JetBrains Mono',monospace; letter-spacing:.1em; color:#999993; }
-
-  /* ============ 06 WHAT CHANGES ============ */
-  .sg-impl{ position:relative; overflow:hidden; padding:clamp(72px,10vw,150px) clamp(20px,4vw,64px); }
-  .sg-impl-bg{ position:absolute; inset:0; pointer-events:none; background-image:repeating-linear-gradient(0deg,rgba(9,9,9,0.035) 0 1px,transparent 1px 6px),linear-gradient(90deg,rgba(9,9,9,0.05) 1px,transparent 1px); background-size:auto,96px 100%; -webkit-mask-image:linear-gradient(100deg,transparent 30%,#000 75%); mask-image:linear-gradient(100deg,transparent 30%,#000 75%); }
-  .sg-impl-grid{ position:relative; display:flex; flex-wrap:wrap; gap:clamp(36px,5vw,88px); align-items:start; }
-  .sg-impl-left{ flex:1 1 360px; min-width:0; max-width:520px; display:flex; flex-direction:column; gap:clamp(28px,3vw,40px); }
-  .sg-impl-h2{ margin:0; font-weight:800; font-size:clamp(34px,3.4vw,50px); line-height:1; letter-spacing:-.028em; text-transform:uppercase; }
-  .sg-impl-left p{ margin:0; font-size:clamp(17px,1.25vw,19px); line-height:1.6; color:#3C3B37; max-width:40ch; }
-  .sg-mesh-frame{ border:1px solid rgba(9,9,9,0.2); padding:8px; }
-  .sg-mesh-inner{ position:relative; border:1px solid rgba(9,9,9,0.1); height:clamp(320px,34vw,480px); }
-  .sg-mesh-inner canvas{ position:absolute; inset:0; width:100%; height:100%; }
-  .sg-mesh-inner .sg-tech-tag{ left:12px; bottom:10px; color:#5F5E58; }
-
-  .sg-impl-right{ flex:1.4 1 520px; min-width:0; display:flex; flex-direction:column; border-top:1px solid #090909; }
-  .sg-impl-row{ display:grid; grid-template-columns:48px minmax(0,1fr); gap:0 20px; padding:clamp(24px,3vw,40px) 0; border-bottom:1px solid rgba(9,9,9,0.16); }
-  .sg-impl-row .n{ font:500 12px/1.6 'JetBrains Mono',monospace; color:#5F5E58; }
-  .sg-impl-row .body{ display:flex; flex-direction:column; gap:14px; }
-  .sg-impl-row .tag{ font:500 12px/1.4 'JetBrains Mono',monospace; letter-spacing:.16em; }
-  .sg-impl-row .claim{ margin:0; font-weight:600; font-size:clamp(21px,1.9vw,28px); line-height:1.25; letter-spacing:-.012em; text-wrap:pretty; }
-  .sg-impl-row .kw{ margin:0; font:400 13px/1.8 'JetBrains Mono',monospace; color:#3C3B37; }
-  .sg-impl-row.is-ai{ background:#090909; color:#EEEAE2; padding-left:clamp(18px,2.4vw,32px); padding-right:clamp(18px,2.4vw,32px); margin-top:-1px; border-bottom:0; }
-  .sg-impl-row.is-ai .n, .sg-impl-row.is-ai .tag{ color:var(--sage); }
-  .sg-impl-row.is-ai .kw{ color:#CFCBC3; }
-
-  /* ============ 07 HONEST GEO ============ */
-  .sg-honest{ background:var(--sage); color:#090909; padding:clamp(20px,3vw,44px); }
-  .sg-honest-frame{ border:1px solid rgba(9,9,9,0.35); padding:clamp(6px,0.8vw,10px); }
-  .sg-honest-inner{ border:1px solid rgba(9,9,9,0.18); padding:clamp(56px,8vw,130px) clamp(20px,5vw,96px); }
-  .sg-honest-head{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font:500 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.18em; color:rgba(9,9,9,0.72); }
-  .sg-honest-h2{ margin:clamp(32px,4vw,64px) 0 0; font-weight:800; font-size:clamp(40px,5.8vw,92px); line-height:.94; letter-spacing:-.035em; text-transform:uppercase; max-width:14ch; text-wrap:balance; }
-  .sg-honest-cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(24px,4vw,60px); margin-top:clamp(44px,6vw,90px); padding-top:clamp(22px,3vw,34px); border-top:1px solid rgba(9,9,9,0.4); }
-  .sg-honest-cols p{ margin:0; font-size:clamp(17px,1.25vw,19px); line-height:1.6; text-wrap:pretty; }
-  .sg-honest-cols p.lead{ font-weight:600; font-size:clamp(20px,1.6vw,24px); line-height:1.35; }
-
-  /* ============ 09 MEASUREMENT ============ */
-  .sg-measure{ padding:clamp(72px,10vw,150px) clamp(20px,4vw,64px); background-image:linear-gradient(rgba(9,9,9,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(9,9,9,0.05) 1px,transparent 1px); background-size:48px 48px; }
-  .sg-measure-head{ display:flex; flex-wrap:wrap; gap:clamp(28px,4vw,72px); align-items:end; padding-bottom:clamp(48px,6vw,96px); }
-  .sg-measure-head .col{ flex:1 1 620px; min-width:0; display:flex; flex-direction:column; gap:24px; }
-  .sg-measure-h2{ margin:0; font-weight:800; font-size:clamp(34px,4.3vw,62px); line-height:1; letter-spacing:-.028em; text-transform:uppercase; }
-  .sg-measure-h2 .dim{ color:#76756F; }
-  .sg-measure-aside{ flex:1 1 320px; max-width:40ch; display:flex; flex-direction:column; gap:18px; }
-  .sg-measure-aside p{ margin:0; font-size:clamp(17px,1.25vw,19px); line-height:1.6; color:#3C3B37; }
-  .sg-measure-strike{ font:400 13px/1.4 'JetBrains Mono',monospace; color:#76756F; text-decoration:line-through; }
-
-  .sg-measure-top{ display:flex; flex-wrap:wrap; gap:clamp(28px,4vw,72px); align-items:end; padding-bottom:clamp(20px,2.4vw,32px); border-bottom:1px solid #090909; }
-  .sg-primary-metric{ flex:1 1 480px; min-width:0; }
-  .sg-primary-num{ font-weight:800; font-size:clamp(120px,15vw,240px); line-height:.82; letter-spacing:-.055em; color:rgba(9,9,9,0.28); margin-top:18px; }
-  .sg-primary-name{ font-weight:800; font-size:clamp(28px,3vw,44px); text-transform:uppercase; letter-spacing:-.02em; margin-top:16px; }
-  .sg-primary-note{ font-size:16px; line-height:1.5; color:#3C3B37; margin-top:6px; max-width:40ch; }
-  .sg-secondary{ flex:0 1 320px; min-width:0; display:flex; flex-direction:column; border-bottom:1px solid rgba(9,9,9,0.14); }
-  .sg-secondary-label{ font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:#5F5E58; padding-bottom:10px; }
-  .sg-secondary-row{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:14px 0; border-top:1px solid rgba(9,9,9,0.14); }
-  .sg-secondary-row .n{ font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:#5F5E58; }
-  .sg-secondary-row .name{ flex:1; font-weight:700; font-size:clamp(16px,1.3vw,19px); text-transform:uppercase; }
-  .sg-secondary-row .v{ font-weight:700; font-size:clamp(24px,2.2vw,32px); letter-spacing:-.02em; color:rgba(9,9,9,0.28); }
-
-  .sg-measure-bottom{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); align-items:start; }
-  .sg-measure-bottom > div{ padding:24px 20px 0 0; border-right:1px solid rgba(9,9,9,0.14); }
-  .sg-measure-bottom > div:last-child{ border-right:0; }
-  .sg-mb-label{ font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:#5F5E58; }
-  .sg-mb-title{ font-weight:700; font-size:clamp(20px,1.8vw,26px); text-transform:uppercase; margin-top:14px; }
-  .sg-mb-list{ font:400 13px/1.9 'JetBrains Mono',monospace; color:#3C3B37; margin-top:10px; }
-  .sg-mb-num{ font-weight:800; font-size:clamp(46px,4.2vw,64px); line-height:.95; letter-spacing:-.035em; color:rgba(9,9,9,0.28); margin-top:10px; }
-  .sg-mb-dark{ background:#090909; color:#EEEAE2; padding:24px 20px; }
-  .sg-mb-dark .sg-mb-label{ color:var(--sage); }
-  .sg-ai-layer-row{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-top:14px; padding-bottom:12px; border-bottom:1px solid rgba(238,234,226,0.14); }
-  .sg-ai-layer-row:last-child{ border-bottom:0; padding-top:12px; padding-bottom:0; }
-  .sg-ai-layer-row .name{ font-weight:700; font-size:clamp(18px,1.6vw,22px); text-transform:uppercase; }
-  .sg-ai-layer-row .v{ font-weight:700; font-size:clamp(28px,2.6vw,40px); color:#7A7A74; }
-
-  /* ============ 10 FORMATS ============ */
-  .sg-formats{ padding:clamp(80px,10vw,150px) clamp(20px,4vw,64px); }
-  .sg-formats-head{ display:flex; justify-content:space-between; align-items:end; flex-wrap:wrap; gap:20px; padding-bottom:clamp(36px,5vw,70px); }
-  .sg-formats-head .col{ display:flex; flex-direction:column; gap:22px; }
-  .sg-formats-h2{ margin:0; font-weight:800; font-size:clamp(38px,4.6vw,68px); line-height:.98; letter-spacing:-.03em; text-transform:uppercase; }
-  .sg-formats-head .serif{ font-size:clamp(22px,2vw,28px); line-height:1.2; color:#B5B2AB; }
-  .sg-format-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:clamp(16px,2.4vw,40px); align-items:start; padding:clamp(28px,3.4vw,52px) clamp(20px,2.8vw,44px); color:#EEEAE2; transition:background .6s ease; }
-  .sg-format-row:hover{ background:rgba(238,234,226,0.035); }
-  .sg-format-row + .sg-format-row{ border-top:1px solid rgba(238,234,226,0.12); }
-  .sg-format-num{ display:flex; flex-direction:column; gap:14px; }
-  .sg-format-num .tag{ font:500 12px/1 'JetBrains Mono',monospace; letter-spacing:.18em; color:var(--sage); }
-  .sg-format-num .title{ font-weight:800; font-size:clamp(26px,2.6vw,38px); line-height:1.02; letter-spacing:-.025em; text-transform:uppercase; }
-  .sg-format-mid{ display:flex; flex-direction:column; gap:10px; }
-  .sg-format-mid .kind{ font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.14em; color:#999993; }
-  .sg-format-mid p{ margin:0; font-size:17px; line-height:1.55; color:#CFCBC3; max-width:38ch; }
-  .sg-format-price{ display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between; gap:20px; text-align:right; }
-  .sg-format-price .price{ font-weight:700; font-size:clamp(24px,2.2vw,32px); letter-spacing:-.02em; }
-  .sg-format-price .cta{ font:500 12px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:var(--sage); }
-
-  /* ============ 11 FINAL CTA ============ */
-  .sg-final{ padding:clamp(40px,6vw,90px) clamp(20px,4vw,64px) clamp(80px,10vw,150px); border-top:1px solid rgba(238,234,226,0.08); }
-  .sg-final-grid{ display:flex; flex-wrap:wrap; gap:clamp(36px,5vw,88px); align-items:stretch; }
-  .sg-final-copy{ flex:1 1 520px; min-width:0; display:flex; flex-direction:column; justify-content:center; gap:clamp(22px,3vw,34px); }
-  .sg-final-h2{ margin:0; font-weight:800; font-size:clamp(38px,4.6vw,68px); line-height:.98; letter-spacing:-.03em; text-transform:uppercase; text-wrap:balance; }
-  .sg-final-copy p{ margin:0; max-width:46ch; font-size:clamp(18px,1.4vw,20px); line-height:1.55; color:#CFCBC3; text-wrap:pretty; }
-
-  .sg-widget-frame{ flex:1 1 420px; min-width:0; border:1px solid rgba(238,234,226,0.18); padding:8px; }
-  .sg-widget-inner{ border:1px solid rgba(238,234,226,0.08); padding:clamp(20px,2.6vw,36px); display:flex; flex-direction:column; gap:22px; }
-  .sg-widget-head{ display:flex; justify-content:space-between; font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.16em; color:#999993; }
-  .sg-widget-head .status{ color:#999993; }
-  .sg-widget-input{ display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(238,234,226,0.35); padding:10px 0; }
-  .sg-widget-input .proto{ font:400 15px/1 'JetBrains Mono',monospace; color:#7A7A74; }
-  .sg-widget-input input{ flex:1; min-width:0; background:transparent; border:0; color:#EEEAE2; font:400 clamp(16px,1.4vw,20px)/1.2 'JetBrains Mono',monospace; padding:4px 0; }
-  .sg-check-row{ display:grid; grid-template-columns:28px minmax(0,1fr) auto; gap:12px; align-items:center; padding:13px 0; border-top:1px solid rgba(238,234,226,0.1); font:400 13px/1.35 'JetBrains Mono',monospace; }
-  .sg-check-row .n{ color:#7A7A74; }
-  .sg-check-row .label{ color:#EEEAE2; }
-  .sg-check-row .state{ letter-spacing:.1em; color:#7A7A74; }
-  .sg-check-row.is-active .state{ color:var(--bronze); }
-  .sg-check-row.is-done .state{ color:var(--sage); }
-  .sg-widget-submit{ display:flex; flex-direction:column; gap:14px; padding-top:6px; }
-  .sg-widget-btn{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 26px; background:var(--sage); color:#090909; font:500 13px/1 'JetBrains Mono',monospace; letter-spacing:.18em; text-transform:uppercase; transition:background .5s ease; cursor:pointer; border:0; width:100%; font-family:inherit; }
-  .sg-widget-btn:hover{ background:#EEEAE2; }
-
-  /* ============ FOOTER ============ */
-  .sg-foot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; padding:26px clamp(20px,4vw,64px); border-top:1px solid rgba(238,234,226,0.1); font:400 11px/1.4 'JetBrains Mono',monospace; letter-spacing:.1em; color:#7A7A74; }
-  .sg-foot a{ color:#999993; }
+  /* ---------- появление ---------- */
+  .rv{ opacity:0; transform:translateY(18px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .browser.rv, .phone.rv, .fig.rv{ transform:none; transition:opacity .55s ease; }
+  .rv.shown{ opacity:1; transform:none; }
+  .hs{ opacity:0; transform:translateY(16px); animation:hsIn 1.3s var(--ease) forwards; }
+  .hs1{ animation-delay:.15s; } .hs2{ animation-delay:.4s; } .hs3{ animation-delay:.9s; } .hs4{ animation-delay:1.25s; }
+  @keyframes hsIn{ to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){ .rv,.hs{ opacity:1; transform:none; animation:none; transition:none; } }
 </style>
+</head>
+<body>
 
-<header class="sg-top">
-  <a class="sg-brand" href="../index.html#work">
-    <span class="sg-brand-name">TINA DIGITAL</span>
-    <span class="sg-brand-role">Сайты · Digital-продукты · Разработка</span>
-  </a>
-  <nav class="sg-nav">
-    <a href="../index.html#work">Проекты</a>
-    <a href="../turnkey/">Сайты под ключ</a>
-    <a href="index.html" class="is-active">SEO + GEO</a>
-    <a href="../index.html#yandex-direct">Яндекс Директ</a>
-    <a href="../index.html#contact">Контакты</a>
-  </nav>
+<header class="top">
+  <a href="../">TINA DIGITAL</a>
+  <nav><a href="../">Проекты</a><a href="../turnkey/">Сайты под ключ</a><a class="on" href="./">SEO + GEO</a><a href="https://t.me/belovachristina" target="_blank" rel="noopener">Яндекс Директ</a><a class="m" href="#check">Проверить сайт</a></nav>
 </header>
 
-<section class="sg-hero" data-screen-label="01 Hero">
-  <div class="sg-hero-tech">
-    <span>01 — SEARCH AS A SYSTEM</span>
-    <span class="geo">59.93° N · 30.31° E</span>
-  </div>
-  <div class="sg-hero-grid">
-    <div class="sg-hero-copy">
-      <div class="sg-kicker"><span class="rule"></span><span class="label">SEO + GEO / AI SEARCH</span></div>
-      <h1 class="sg-h1">Продвижение сайта в поиске и&nbsp;нейросетях</h1>
-      <p class="sg-lede">Чтобы вас находили по реальному спросу в Яндексе и Google, а AI-поиск понимал бизнес и мог использовать сайт как источник. Структуру, контент и код при необходимости меняю сама.</p>
-      <div class="sg-cta-block">
-        <a href="#check" class="sg-cta">Проверить видимость сайта <span>→</span></a>
-        <span class="sg-cta-note">ПРЕДВАРИТЕЛЬНЫЙ АНАЛИЗ · БЕЗ ОБЯЗАТЕЛЬСТВ</span>
-      </div>
-    </div>
-    <div class="sg-figure-frame">
-      <div class="sg-figure-inner">
-        <canvas id="sgHeroCanvas"></canvas>
-        <div class="sg-tech-tag" style="left:14px;top:12px;">FIG. 01 — QUERY BECOMES DATA</div>
-        <div class="sg-tech-tag" style="right:14px;bottom:12px;">POINT CLOUD · ENTITIES 05</div>
-      </div>
-    </div>
-  </div>
+<main>
 
-  <div class="sg-strip">
+<!-- 01 обложка -->
+<section class="cover">
+  <div class="cover-grid">
     <div>
-      <div class="sg-strip-head"><span>QUERY</span><span id="sgQueryIndex">01 / 04</span></div>
-      <div class="sg-query-row">
-        <span class="dot"></span>
-        <span class="sg-query-text" id="sgQueryText">продвижение сайта в нейросетях</span>
-        <span class="sg-query-cursor"></span>
-      </div>
+      <div class="kicker mono hs hs1"><span>01 / 11 — search as a system</span><span>SEO · GEO · AI search</span></div>
+      <h1 class="h-xl hs hs2" style="font-size:clamp(52px,8.4vw,168px)">SEO&nbsp;+&nbsp;GEO<span class="sub">Продвижение сайта в&nbsp;поиске и&nbsp;нейросетях</span></h1>
+      <p class="serif tag hs hs3">Search, redefined.</p>
+      <p class="lede hs hs3">Чтобы вас находили по&nbsp;реальному спросу в&nbsp;Яндексе и&nbsp;Google, а&nbsp;AI-поиск понимал бизнес и&nbsp;мог использовать сайт как источник. Структуру, контент и&nbsp;код при необходимости меняю сама.</p>
     </div>
-    <div>
-      <div class="sg-strip-head"><span>INDEX</span></div>
-      <div class="sg-index-row is-active"><span class="n">01</span><span class="p">/uslugi/seo-geo</span><span class="bar"></span></div>
-      <div class="sg-index-row"><span class="n">02</span><span class="p">/cases/enduro</span><span class="bar" style="background:rgba(238,234,226,0.2)"></span></div>
-      <div class="sg-index-row"><span class="n">03</span><span class="p">/ceny</span><span class="bar" style="background:rgba(238,234,226,0.12)"></span></div>
-    </div>
-    <div>
-      <div class="sg-strip-head"><span>SOURCE / FACTS</span></div>
-      <div class="sg-facts">
-        <span class="k">service</span><span class="v">сайт + SEO + GEO</span>
-        <span class="k">region</span><span class="v">СПб / РФ</span>
-        <span class="k">proof</span><span class="v">cases / 02</span>
-      </div>
-    </div>
-    <div>
-      <div class="sg-ai-head"><span>AI ANSWER</span><span class="pulse">●</span></div>
-      <p class="sg-ai-answer">Подрядчик сам проектирует, разрабатывает сайт и отвечает за его видимость<sup>[1]</sup></p>
-      <span class="sg-ai-source">[1] tinadigital.ru</span>
-    </div>
+    <figure class="fig hs hs2">
+      <div class="field-box"><img src="../assets/seo-geo/hero-figure-tall.jpg" alt="AI-визуал: фигура из точек — запрос превращается в данные"><canvas id="heroField" aria-hidden="true"></canvas></div>
+      <span class="ai-tag">AI</span>
+      <figcaption class="mono"><span>fig. 01 — query becomes data</span><span>наведите курсор</span></figcaption>
+    </figure>
+  </div>
+  <div class="meta hs hs4">
+    <div><small>Что делаю</small>SEO + GEO: структура, контент, код, разметка</div>
+    <div><small>Где</small>Яндекс, Google и&nbsp;AI-поиск</div>
+    <div><small>Как</small>Внедряю сама, без&nbsp;ТЗ на&nbsp;40&nbsp;страниц</div>
+    <div><small>Стоимость</small><a class="wine" href="#price">от&nbsp;40&nbsp;000&nbsp;₽</a></div>
   </div>
 </section>
 
-<section class="sg-light sg-changed" data-screen-label="02 Search has changed">
-  <div class="sg-changed-head">
-    <span class="sg-eyebrow-lt">02 — ПРОБЛЕМА</span>
-    <span class="serif">Search, redefined.</span>
-  </div>
-  <div class="sg-changed-lead" data-reveal="1">
-    <h2 class="sg-h2">Клиент может выбрать конкурента, не&nbsp;открыв ни&nbsp;одного сайта.</h2>
-    <p>Раньше сайт в основном боролся за место в списке ссылок. Теперь часть выбора происходит прямо внутри поиска и AI-ответов: пользователь сравнивает компании, цены и условия еще до перехода на сайт.</p>
-  </div>
-
-  <div class="sg-space-frame" data-reveal="1">
-    <canvas id="sgSpaceCanvas"></canvas>
-    <div class="sg-space-caption">
-      <span class="side">ЧЕЛОВЕК</span>
-      <span class="bar"></span>
-      <span class="bubble"><span class="dot"></span><span class="q">аренда лодки на ладоге с эхолотом цена</span></span>
-      <span class="bar"></span>
-      <span class="side">БИЗНЕС</span>
+<!-- 02 проблема -->
+<section class="sec paper">
+  <div class="wrap">
+    <p class="label"><b>02</b> / проблема</p>
+    <div class="grid">
+      <h2 class="h-l c7 rv">Клиент может выбрать конкурента, <em>не&nbsp;открыв ни&nbsp;одного сайта</em></h2>
+      <p class="body o8 rv">Раньше сайт в&nbsp;основном боролся за&nbsp;место в&nbsp;списке ссылок. Теперь часть выбора происходит прямо внутри поиска и&nbsp;AI-ответов: пользователь сравнивает компании, цены и&nbsp;условия еще до&nbsp;перехода на&nbsp;сайт.</p>
     </div>
-  </div>
-
-  <div class="sg-compare" data-reveal="1">
-    <div>
-      <div class="sg-compare-head"><span>A / CLASSIC SEARCH</span><span>КЛИК → САЙТ → ВЫБОР</span></div>
-      <div class="sg-bars">
-        <div class="sg-bar-row"><span class="n">01</span><span class="track"></span></div>
-        <div class="sg-bar-row"><span class="n">02</span><span class="track" style="background:rgba(9,9,9,0.5)"></span></div>
-        <div class="sg-bar-row"><span class="n">03</span><span class="track" style="background:rgba(9,9,9,0.3)"></span><span class="tag">ВАШ САЙТ</span></div>
-        <div class="sg-bar-row"><span class="n">04</span><span class="track" style="background:rgba(9,9,9,0.16)"></span></div>
+    <figure class="space rv">
+      <canvas id="spaceField" aria-hidden="true"></canvas>
+      <figcaption class="mono"><span>fig. 02 — search space</span><span>человек → запрос → бизнес</span></figcaption>
+    </figure>
+    <div class="query rv"><i></i><span>аренда лодки на&nbsp;ладоге с&nbsp;эхолотом цена</span><small>человек → бизнес</small></div>
+    <div class="versus">
+      <div class="panel panel-a rv">
+        <div class="head mono"><b>A / classic search</b><span>клик → сайт → выбор</span></div>
+        <ol class="results">
+          <li><span class="n">01</span><i></i><span></span></li>
+          <li><span class="n">02</span><i></i><span></span></li>
+          <li><span class="n">03</span><i></i><b>ваш сайт</b></li>
+          <li><span class="n">04</span><i></i><span></span></li>
+        </ol>
+        <p class="out">Пользователь открывал несколько сайтов и&nbsp;сравнивал сам. У&nbsp;вас был шанс.</p>
       </div>
-      <p class="sg-caption-lt">Пользователь открывал несколько сайтов и сравнивал сам. У вас был шанс.</p>
-    </div>
-    <div>
-      <div class="sg-compare-head dark"><span>B / AI ANSWER</span><span>0 КЛИКОВ → ВЫБОР</span></div>
-      <div class="sg-ai-card">
-        <p>Под вашу задачу подходят две компании. У первой<sup>[1]</sup> цены и сроки указаны прямо на сайте, у второй<sup>[2]</sup> есть кейсы в вашей отрасли.</p>
-        <div class="sg-ai-refs">
-          <div class="ref"><span class="n">[1]</span><span class="u">competitor-a.ru/ceny</span></div>
-          <div class="ref"><span class="n">[2]</span><span class="u">competitor-b.ru/cases</span></div>
-          <div class="not-source"><span class="n">[—]</span><span class="u">ваш-сайт.ru</span><span class="bar"></span><span class="flag">НЕ В ИСТОЧНИКАХ</span></div>
+      <div class="panel panel-b rv">
+        <div class="head mono"><b>B / AI answer</b><span>0 кликов → выбор</span></div>
+        <p class="answer">Под вашу задачу подходят две компании. У&nbsp;первой<sup>[1]</sup> цены и&nbsp;сроки указаны прямо на&nbsp;сайте, у&nbsp;второй<sup>[2]</sup> есть кейсы в&nbsp;вашей отрасли.</p>
+        <div class="refs">
+          <span>[1] competitor-a.ru/ceny</span>
+          <span>[2] competitor-b.ru/cases</span>
+          <span class="no">[—] ваш-сайт.ru <b>не в источниках</b></span>
         </div>
-      </div>
-      <p class="sg-caption-lt" style="color:#090909;font-weight:500;">Решение принято до перехода. Сайт, которого нет среди источников, не сравнивают.</p>
-    </div>
-  </div>
-</section>
-
-<section class="sg-system" data-screen-label="03 One system">
-  <div class="sg-system-head" data-reveal="1">
-    <div class="col">
-      <span class="sg-eyebrow">03 — SEO + GEO / ONE SYSTEM</span>
-      <h2 class="sg-h2-mid">Если поиск не понимает сайт, AI тоже не из чего его выбирать.</h2>
-    </div>
-    <p>SEO помогает сайту появляться по реальному поисковому спросу. GEO добавляет слой AI-поиска: насколько легко системе понять бизнес, извлечь факты и использовать сайт как источник.</p>
-  </div>
-
-  <div class="sg-frame" data-reveal="1">
-    <div class="sg-frame-inner">
-      <div class="sg-inputs">
-        <div><div class="sg-io-label">01 / INPUT</div><div class="sg-input-title">Technical</div><p>Сайт доступен людям и краулерам</p></div>
-        <div><div class="sg-io-label">02 / INPUT</div><div class="sg-input-title">Structure</div><p>Страницы под реальный спрос</p></div>
-        <div><div class="sg-io-label">03 / INPUT</div><div class="sg-input-title">Content</div><p>Факты, цены, условия, доказательства</p></div>
-        <div><div class="sg-io-label">04 / INPUT</div><div class="sg-input-title">Entities</div><p>Бренд, услуги и связи в разметке</p></div>
-      </div>
-      <div class="sg-source-bar">
-        <span class="rule"></span>
-        <span class="label">ВАШ САЙТ — ЕДИНЫЙ ИСТОЧНИК</span>
-        <span class="dot"></span>
-        <span class="rule"></span>
-      </div>
-      <div class="sg-outputs">
-        <div><div><div class="sg-io-label">05 / OUTPUT · SEO</div><div class="sg-output-title">Search</div></div><span class="note">Видимость в Яндексе и Google</span></div>
-        <div class="geo"><div><div class="sg-io-label">06 / OUTPUT · GEO</div><div class="sg-output-title">AI visibility</div></div><span class="note">Сайт как источник для AI-ответов</span></div>
+        <p class="out">Решение принято до&nbsp;перехода. Сайт, которого нет среди источников, не&nbsp;сравнивают.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sg-why" data-screen-label="04 Why Tina Digital">
-  <span class="sg-eyebrow">04 — WHY TINA DIGITAL</span>
-  <h2 class="sg-why-h2" data-reveal="1">Я не отдаю вам SEO-ТЗ <span class="outline">на&nbsp;40&nbsp;страниц.</span></h2>
-  <div class="sg-why-lead" data-reveal="1">
-    <p>Я не заканчиваю работу на аудите. Если нужно создать посадочную, изменить структуру, переписать блок, поправить код, schema, скорость или mobile, я внедряю это сама.</p>
-    <p class="serif">Вам не нужно отдельно сводить SEO-специалиста, дизайнера и разработчика.</p>
+<!-- 03 одна система -->
+<section class="system">
+  <div class="sys-l">
+    <p class="label"><b>03</b> / SEO + GEO — one system</p>
+    <h2 class="h-l rv">Если поиск не&nbsp;понимает сайт, <em>AI тоже не&nbsp;из&nbsp;чего его выбирать</em></h2>
+    <p class="body rv">SEO помогает сайту появляться по&nbsp;реальному поисковому спросу. GEO добавляет слой AI-поиска: насколько легко системе понять бизнес, извлечь факты и&nbsp;использовать сайт как источник.</p>
+    <p class="serif rv">One site. One source.</p>
   </div>
+  <div class="sys-r">
+    <ol class="io">
+      <li class="rv"><small>01</small><b>Technical</b><span>Сайт доступен людям и&nbsp;краулерам</span></li>
+      <li class="rv"><small>02</small><b>Structure</b><span>Страницы под&nbsp;реальный спрос</span></li>
+      <li class="rv"><small>03</small><b>Content</b><span>Факты, цены, условия, доказательства</span></li>
+      <li class="rv"><small>04</small><b>Entities</b><span>Бренд, услуги и&nbsp;связи в&nbsp;разметке</span></li>
+      <li class="src rv">↓ ваш сайт — единый источник</li>
+      <li class="rv"><small>05</small><b>Search</b><span>Видимость в&nbsp;Яндексе и&nbsp;Google</span></li>
+      <li class="geo rv"><small>06</small><b>AI visibility</b><span>Сайт как источник для&nbsp;AI-ответов</span></li>
+    </ol>
+  </div>
+</section>
 
-  <div class="sg-flows" data-reveal="1">
-    <div>
-      <div class="sg-flow-head"><span>ОБЫЧНО / 3 ПОДРЯДЧИКА</span><span>3 ПЕРЕДАЧИ ЗАДАЧ</span></div>
-      <div class="sg-flow-old-track">
-        <span class="rule"></span><span class="gap"></span>
-        <span class="rule"></span><span class="gap"></span>
-        <span class="rule"></span>
-      </div>
-      <div class="sg-flow-old-labels">
-        <span>SEO-аудит → ТЗ</span><span></span><span>дизайнер</span><span></span><span>разработчик · «не в приоритете»</span>
-      </div>
+<!-- 04 почему -->
+<section class="sec ink2 why">
+  <div class="wrap">
+    <p class="label"><b>04</b> / why TINA DIGITAL</p>
+    <h2 class="h-xl rv">Я не&nbsp;отдаю вам SEO-ТЗ <span class="lt">на&nbsp;40&nbsp;страниц.</span></h2>
+    <div class="grid" style="margin-top:clamp(40px,5vw,70px);align-items:start">
+      <p class="lede c6 rv">Я&nbsp;не&nbsp;заканчиваю работу на&nbsp;аудите. Если нужно создать посадочную, изменить структуру, переписать блок, поправить код, schema, скорость или mobile, я&nbsp;внедряю это сама.</p>
+      <p class="serif o8 rv">Вам не&nbsp;нужно отдельно сводить SEO-специалиста, дизайнера и&nbsp;разработчика.</p>
     </div>
-
-    <div>
-      <div class="sg-flow-head sage"><span>TINA DIGITAL / ОДНИ РУКИ</span><span>0 ПЕРЕДАЧ</span></div>
-      <div class="sg-flow-new-track"><div class="sg-flow-new-fill" id="sgFlowFill"></div></div>
-      <div class="sg-steps">
-        <div><div class="n">01</div><div class="name">Analysis</div></div>
-        <div><div class="n">02</div><div class="name">Structure</div></div>
-        <div><div class="n">03</div><div class="name">UX</div></div>
-        <div><div class="n">04</div><div class="name">Content</div></div>
-        <div><div class="n">05</div><div class="name">Code</div></div>
-        <div><div class="n">06</div><div class="name">SEO</div></div>
-        <div class="is-geo"><div class="n">07</div><div class="name">GEO</div></div>
+    <div class="flows">
+      <div class="flow rv">
+        <div class="head mono"><b>Обычно / 3 подрядчика</b><span>3 передачи задач</span></div>
+        <ul class="old"><li>SEO-аудит → ТЗ <small>seo</small></li><li>Дизайнер <small>design</small></li><li>Разработчик · «не&nbsp;в&nbsp;приоритете» <small>dev</small></li></ul>
+      </div>
+      <div class="flow new rv">
+        <div class="head mono"><b>TINA DIGITAL / одни руки</b><span>0 передач</span></div>
+        <ul class="chips"><li>01 analysis</li><li>02 structure</li><li>03 UX</li><li>04 content</li><li>05 code</li><li>06 SEO</li><li class="on">07 GEO</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sg-case" data-screen-label="05 Case Enduro">
-  <div class="sg-case-head sg-case-pad" data-reveal="1">
-    <div class="col">
-      <div class="sg-case-eyebrow"><span class="rule"></span><span class="label">05 — CASE 01 / ENDURO ENERGY</span></div>
-      <h2 class="sg-case-h2">Органический трафик без платной рекламы.</h2>
+<!-- 05 кейс Enduro -->
+<section class="sec">
+  <div class="wrap">
+    <div class="case-head"><b>Case 01 / Enduro Energy</b><span>SEO с&nbsp;этапа проектирования</span><span>Source / Yandex Metrica</span></div>
+    <div class="grid">
+      <h2 class="h-l c7 rv">Органический трафик <em>без&nbsp;платной рекламы</em></h2>
+      <p class="body o8 rv">SEO было заложено в&nbsp;сайт еще на&nbsp;этапе проектирования. Поэтому структура, страницы, география и&nbsp;контент работают как одна система, а&nbsp;не&nbsp;добавлены после запуска.</p>
     </div>
-    <p>SEO было заложено в сайт еще на этапе проектирования. Поэтому структура, страницы, география и контент работают как одна система, а не добавлены после запуска.</p>
-  </div>
-
-  <div class="sg-browser sg-case-pad" data-reveal="1">
-    <div class="sg-browser-inner">
-      <div class="sg-browser-bar">
-        <span class="sg-browser-dots"><span></span><span></span><span></span></span>
-        <span class="sg-browser-url">enduro-energy.ru</span>
-        <span class="sg-browser-tag">DESKTOP · 1440</span>
-      </div>
-      <div class="sg-browser-screen">
-        <video class="sg-shot-media is-bottom-anchor" src="../assets/seo-geo/enduro-main.mp4" autoplay muted loop playsinline></video>
+    <div class="full">
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru</span></div>
+        <video src="../assets/turnkey/enduro-hero.mp4" poster="../assets/turnkey/enduro-hero.jpg" muted loop playsinline preload="none" data-auto></video>
       </div>
     </div>
+    <div class="proof">
+      <div class="rv"><b>881</b><small class="mono">search traffic</small><span>переход из&nbsp;поисковых систем</span></div>
+      <div class="rv"><b>94,7%</b><small class="mono">search share</small><span>визитов пришли из&nbsp;поиска</span></div>
+      <div class="rv on"><b>0&nbsp;₽</b><small class="mono">paid ads</small><span>платная реклама не&nbsp;использовалась</span></div>
+    </div>
+    <div class="period mono"><span>930 — всего визитов · 921 — посетитель</span><span>period / 01–23 sep 2026</span></div>
+    <div class="detail">
+      <div class="rv">
+        <div class="sub-h mono"><span>Целевые действия</span><span>01–23 sep 2026</span></div>
+        <div class="rows">
+          <div><b>18</b><span>завершений расчета стоимости</span></div>
+          <div><b>13</b><span>переходов в&nbsp;Telegram</span></div>
+          <div><b>11</b><span>кликов «Записаться»</span></div>
+          <div><b>2:24</b><span>среднее время на&nbsp;сайте · отказы 1,72%</span></div>
+        </div>
+        <p class="fine">Действия не&nbsp;суммируются: один пользователь мог совершить несколько.</p>
+      </div>
+      <div class="rv">
+        <div class="sub-h mono"><span>Квартал</span><span>24 jun – 23 sep 2026</span></div>
+        <div class="rows">
+          <div><b>888</b><span>переходов из&nbsp;поисковых систем</span></div>
+          <div><b>958</b><span>визитов · 943 посетителя</span></div>
+          <div><b>2:22</b><span>среднее время · отказы 2,82%</span></div>
+        </div>
+        <p class="fine">Отдельный период. Не&nbsp;смешивается с&nbsp;данными сентября.</p>
+      </div>
+    </div>
+    <figure class="metrica rv">
+      <div class="browser white"><div class="bar"><i></i><i></i><i></i><span>metrika.yandex.ru · источники трафика</span></div>
+        <img src="../assets/seo-geo/enduro-metrica-crop.png" alt="Яндекс Метрика, Enduro Energy: источники трафика за 24 июня — 23 сентября 2026" loading="lazy">
+      </div>
+      <figcaption class="mono"><b>proof / yandex metrica</b><span>24 jun – 23 sep 2026</span><span>рост переходов из&nbsp;поиска, фрагмент отчета «По&nbsp;источникам трафика»</span></figcaption>
+    </figure>
+    <p style="margin-top:34px"><a class="link" href="../case-enduro.html">Смотреть кейс Enduro →</a></p>
   </div>
+</section>
 
-  <div class="sg-case-pad" style="padding-top:clamp(80px,10vw,140px);">
-    <div class="sg-meta-row" data-reveal="1"><span>PERIOD / <span class="hl">01–23 SEP 2026</span></span><span>SOURCE / YANDEX METRICA</span></div>
+<!-- 06 что меняется -->
+<section class="sec paper">
+  <div class="wrap">
+    <p class="label"><b>06</b> / implementation</p>
+    <div class="grid">
+      <h2 class="h-l c7 rv">Что реально меняется <em>в&nbsp;сайте</em></h2>
+      <p class="body o8 rv">Реальный бизнес должен быть понятен машинным системам. Это не&nbsp;отчет, а&nbsp;изменения в&nbsp;самом продукте.</p>
+    </div>
+    <figure class="machine rv">
+      <canvas id="machineField" aria-hidden="true"></canvas>
+      <figcaption class="mono"><span>fig. 03 — business → machine-readable</span><span id="machineState">image</span></figcaption>
+    </figure>
+    <div class="layers">
+      <div class="layer rv"><div class="num">01</div><div><b>Technical</b><p>Поисковые и&nbsp;AI-системы могут нормально прочитать сайт.</p></div><div class="tags">индексация · robots / sitemap · canonical · мета-данные · HTML · structured data · скорость · technical issues</div></div>
+      <div class="layer rv"><div class="num">02</div><div><b>Search structure</b><p>Под реальный спрос существуют правильные страницы.</p></div><div class="tags">семантика · структура услуг · посадочные · регионы · внутренняя перелинковка · commercial intent</div></div>
+      <div class="layer rv"><div class="num">03</div><div><b>Content</b><p>На&nbsp;сайте есть информация, по&nbsp;которой можно понять и&nbsp;выбрать компанию.</p></div><div class="tags">услуги · цены · условия · кейсы · FAQ · экспертность · сравнения · прямые ответы</div></div>
+      <div class="layer on rv"><div class="num">04</div><div><b>AI visibility</b><p>Бренд и&nbsp;услуги понятны системам, которые формируют ответы.</p></div><div class="tags">entities · AI crawlers · sources · brand information · structured data · monitoring · AI visibility</div></div>
+    </div>
+  </div>
+</section>
 
-    <div class="sg-kpis" data-reveal="1">
+<!-- 07 честно -->
+<section class="sec honest">
+  <div class="wrap">
+    <p class="label"><b>07</b> / honest GEO · no guarantees · only controllable factors</p>
+    <h2 class="h-xl rv">Нет кнопки «добавить мой сайт в&nbsp;ChatGPT».</h2>
+    <div class="cols">
+      <p class="rv">Я&nbsp;не&nbsp;продаю гарантию на&nbsp;то, чем никто не&nbsp;управляет.</p>
+      <p class="rv">Я&nbsp;работаю с&nbsp;тем, что можно контролировать: доступностью сайта, структурой, фактами, контентом и&nbsp;источниками.</p>
+      <p class="rv">Задача — сделать бизнес понятным для&nbsp;поиска и&nbsp;повысить вероятность того, что AI сможет использовать его как релевантный источник.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 кейс Ладога -->
+<section class="sec ink2">
+  <div class="wrap">
+    <div class="case-head"><b>Case 02 / Лодки на&nbsp;Ладоге</b><span>Local search</span><span>Structure by&nbsp;queries</span></div>
+    <div class="grid">
+      <h2 class="h-l c7 rv">Локальный бизнес ищут <em>не&nbsp;только по&nbsp;названию</em></h2>
+      <p class="body o8 rv">Пользователь ищет конкретно: сколько стоит аренда, есть ли эхолот, нужен ли залог, можно ли выйти на&nbsp;воду сегодня и&nbsp;как добраться до&nbsp;пирса. Поэтому сайт строился вокруг реальных сценариев выбора, а&nbsp;не&nbsp;только брендового запроса.</p>
+    </div>
+    <div class="duo">
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
+        <video src="../assets/turnkey/ladoga-hero.mp4" poster="../assets/turnkey/ladoga-hero.jpg" muted loop playsinline preload="none" data-auto></video>
+      </div>
+      <div class="phone rv"><div class="scr"><img src="../assets/seo-geo/ladoga-mobile.webp" alt="Мобильная версия lodki-ladoga.ru — выбор лодки" loading="lazy"></div></div>
+    </div>
+    <div class="qmap">
       <div>
-        <div class="sg-kpi-num">881</div>
-        <div class="sg-kpi-label">SEARCH TRAFFIC</div>
-        <div class="sg-kpi-note">переход из поисковых систем</div>
+        <p class="label" style="margin-bottom:14px"><b>query → section</b></p>
+        <p class="serif rv">Каждый запрос ведёт в&nbsp;свой раздел сайта.</p>
+        <p style="margin-top:26px"><a class="link" href="https://lodki-ladoga.ru" target="_blank" rel="noopener">view live ↗ lodki-ladoga.ru</a></p>
       </div>
-      <div>
-        <div class="sg-kpi-num">94,7%</div>
-        <div class="sg-kpi-label">SEARCH SHARE</div>
-        <div class="sg-kpi-note">визитов пришли из поиска</div>
-      </div>
-      <div class="accent">
-        <div class="sg-kpi-num">0 ₽</div>
-        <div class="sg-kpi-label">PAID ADS</div>
-        <div class="sg-kpi-note">платная реклама не использовалась</div>
-      </div>
-    </div>
-    <div class="sg-kpi-foot" data-reveal="1"><span>930 — всего визитов</span><span>921 — посетитель</span><span>01–23 SEP 2026</span></div>
-
-    <div class="sg-detail" data-reveal="1">
-      <div class="sg-detail-left">
-        <p class="sg-detail-lead">За 1–23 сентября 94,7% визитов пришли из поисковых систем. Платная реклама не использовалась.</p>
-
-        <div class="sg-mini-stats">
-          <div class="sg-mini-stat"><div class="v">2:24</div><div class="l">AVG. TIME</div></div>
-          <div class="sg-mini-stat"><div class="v">1,72%</div><div class="l">BOUNCE RATE</div></div>
-        </div>
-
-        <div>
-          <div class="sg-actions-head"><span>ЦЕЛЕВЫЕ ДЕЙСТВИЯ</span><span>01–23 SEP 2026</span></div>
-          <div class="sg-action-row"><span class="num">18</span><span class="txt"><span class="ru">завершений расчета стоимости</span><span class="en">COST CALCULATIONS</span></span></div>
-          <div class="sg-action-row"><span class="num">13</span><span class="txt"><span class="ru">переходов в Telegram</span><span class="en">TELEGRAM CLICKS</span></span></div>
-          <div class="sg-action-row"><span class="num">11</span><span class="txt"><span class="ru">кликов «Записаться»</span><span class="en">BOOKING CLICKS</span></span></div>
-          <p class="sg-fine">Действия не суммируются: один пользователь мог совершить несколько.</p>
-        </div>
-      </div>
-
-      <div class="sg-detail-right">
-        <div class="sg-quarter">
-          <div class="sg-quarter-label">КВАРТАЛ / 24 JUN – 23 SEP 2026</div>
-          <div class="sg-quarter-grid">
-            <span class="v">888</span><span class="l">переходов из поисковых систем</span>
-            <span class="v">958</span><span class="l">визитов</span>
-            <span class="v">943</span><span class="l">посетителя</span>
-            <span class="v">2:22</span><span class="l">среднее время</span>
-            <span class="v">2,82%</span><span class="l">отказов</span>
-          </div>
-          <p class="sg-fine" style="margin-top:4px;">Отдельный период. Не смешивается с данными сентября.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="sg-proof" data-reveal="1">
-      <div class="sg-proof-frame">
-        <div class="sg-proof-frame-inner">
-          <img src="../assets/seo-geo/enduro-metrica-crop.png" alt="Яндекс Метрика, Enduro Energy: источники трафика за 24 июня — 23 сентября 2026" style="display:block;width:100%;height:auto;">
-        </div>
-      </div>
-      <div class="sg-proof-caption">
-        <span class="hl">PROOF / YANDEX METRICA</span>
-        <span>24 JUN – 23 SEP 2026</span>
-        <span class="dim">Рост переходов из поиска, фрагмент отчета «По источникам трафика»</span>
+      <div class="qrows rv">
+        <div><span class="q">аренда лодки на&nbsp;ладоге цена</span><span class="p">#fleet</span></div>
+        <div><span class="q">лодка с&nbsp;эхолотом на&nbsp;ладоге</span><span class="p">#included</span></div>
+        <div><span class="q">рыбалка на&nbsp;ладоге на&nbsp;лодке</span><span class="p">#scenarios</span></div>
+        <div><span class="q">аренда лодки без&nbsp;залога</span><span class="p">#faq</span></div>
+        <div><span class="q">как забронировать лодку на&nbsp;ладоге</span><span class="p">#process</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sg-light sg-impl" data-screen-label="06 What changes">
-  <div class="sg-impl-bg" aria-hidden="true"></div>
-  <div class="sg-impl-grid">
-    <div class="sg-impl-left">
-      <span class="sg-eyebrow-lt">06 — IMPLEMENTATION</span>
-      <h2 class="sg-impl-h2">Что реально меняется в&nbsp;сайте</h2>
-      <p>Реальный бизнес должен быть понятен машинным системам. Это не отчет, а изменения в самом продукте.</p>
-      <div class="sg-mesh-frame">
-        <div class="sg-mesh-inner">
-          <canvas id="sgMeshCanvas"></canvas>
-          <span class="sg-tech-tag">FIG. 03 — BUSINESS → MACHINE-READABLE</span>
-        </div>
+<!-- 09 измерения -->
+<section class="sec paper">
+  <div class="wrap">
+    <p class="label"><b>09</b> / measurement</p>
+    <div class="grid">
+      <h2 class="h-l c8 rv"><span class="lt">Смотрю не&nbsp;на&nbsp;то, сколько сделано.</span> А&nbsp;на&nbsp;то, что <em>изменилось.</em></h2>
+      <div style="grid-column:10 / span 3">
+        <p class="body rv">Отчет не&nbsp;должен заканчиваться фразой «написали 8&nbsp;текстов и&nbsp;добавили ключи».</p>
+        <p class="strike rv">8 текстов · 120 ключей · 40 страниц ТЗ</p>
       </div>
     </div>
-
-    <div class="sg-impl-right">
-      <div class="sg-impl-row" data-reveal="1">
-        <span class="n">01</span>
-        <div class="body">
-          <span class="tag">TECHNICAL</span>
-          <p class="claim">Поисковые и AI-системы могут нормально прочитать сайт.</p>
-          <p class="kw">индексация · robots / sitemap · canonical · мета-данные · HTML · structured data · скорость · technical issues</p>
-        </div>
+    <div class="measure">
+      <div class="primary rv">
+        <small class="mono">01 / primary metric</small>
+        <b>Organic traffic</b>
+        <p>Визиты из&nbsp;поиска — главный показатель, по&nbsp;которому видно, что изменилось.</p>
       </div>
-      <div class="sg-impl-row" data-reveal="1">
-        <span class="n">02</span>
-        <div class="body">
-          <span class="tag">SEARCH STRUCTURE</span>
-          <p class="claim">Под реальный спрос существуют правильные страницы.</p>
-          <p class="kw">семантика · структура услуг · посадочные · регионы · внутренняя перелинковка · commercial intent</p>
-        </div>
-      </div>
-      <div class="sg-impl-row" data-reveal="1">
-        <span class="n">03</span>
-        <div class="body">
-          <span class="tag">CONTENT</span>
-          <p class="claim">На сайте есть информация, по которой можно понять и выбрать компанию.</p>
-          <p class="kw">услуги · цены · условия · кейсы · FAQ · экспертность · сравнения · прямые ответы</p>
-        </div>
-      </div>
-      <div class="sg-impl-row is-ai" data-reveal="1">
-        <span class="n">04</span>
-        <div class="body">
-          <span class="tag">AI VISIBILITY</span>
-          <p class="claim">Бренд и услуги понятны системам, которые формируют ответы.</p>
-          <p class="kw">entities · AI crawlers · sources · brand information · structured data · monitoring · AI visibility</p>
-        </div>
+      <div class="mlist rv">
+        <div><span class="n">02</span><b>Показы</b><small>search</small></div>
+        <div><span class="n">03</span><b>Клики</b><small>search</small></div>
+        <div><span class="n">04</span><b>Топ-запросы</b><small>demand</small></div>
+        <div><span class="n">05</span><b>Конверсии</b><small>business</small></div>
+        <div><span class="n">06</span><b>AI visibility</b><small>AI layer</small></div>
+        <div><span class="n">07</span><b>AI referrals</b><small>AI layer</small></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sg-honest" data-screen-label="07 Honest GEO">
-  <div class="sg-honest-frame">
-    <div class="sg-honest-inner">
-      <div class="sg-honest-head"><span>07 — HONEST GEO</span><span>NO GUARANTEES · ONLY CONTROLLABLE FACTORS</span></div>
-      <h2 class="sg-honest-h2" data-reveal="1">Нет кнопки «добавить мой сайт в&nbsp;ChatGPT».</h2>
-      <div class="sg-honest-cols" data-reveal="1">
-        <p class="lead">Я не продаю гарантию на то, чем никто не управляет.</p>
-        <p>Я работаю с тем, что можно контролировать: доступностью сайта, структурой, фактами, контентом и источниками.</p>
-        <p>Задача — сделать бизнес понятным для поиска и повысить вероятность того, что AI сможет использовать его как релевантный источник.</p>
-      </div>
+<!-- 10 форматы -->
+<section class="sec paper" id="price" style="border-top:1px solid var(--d-line)">
+  <div class="wrap">
+    <p class="label"><b>10</b> / форматы работы</p>
+    <div class="grid">
+      <h2 class="h-l c7 rv">С&nbsp;чего можно <em>начать</em></h2>
+      <p class="serif o8 rv">Three ways in.</p>
+    </div>
+    <div class="prices">
+      <a class="price-row rv" href="#check"><div class="num">01</div><div><small class="mono">настроить · разовая работа</small><b>SEO + GEO существующего сайта</b><p>Найти слабые места и&nbsp;сразу внести изменения в&nbsp;структуру, техническую часть и&nbsp;ключевые страницы.</p></div><div class="sum">от&nbsp;40&nbsp;000&nbsp;₽</div></a>
+      <a class="price-row rv" href="#check"><div class="num">02</div><div><small class="mono">развивать · регулярная работа</small><b>SEO-продвижение</b><p>Новые точки входа из&nbsp;поиска, развитие структуры и&nbsp;контента, аналитика и&nbsp;постоянные доработки.</p></div><div class="sum">от&nbsp;20&nbsp;000&nbsp;₽/мес<em>минимум 3&nbsp;месяца</em></div></a>
+      <a class="price-row rv" href="../turnkey/"><div class="num on">03</div><div><small class="mono">сделать с&nbsp;нуля · проект под ключ</small><b>Сайт + SEO + GEO</b><p>Поисковая архитектура проектируется одновременно с&nbsp;UX, дизайном и&nbsp;разработкой.</p></div><div class="sum">от&nbsp;90&nbsp;000&nbsp;₽</div></a>
     </div>
   </div>
 </section>
 
-<section class="sg-case" data-screen-label="08 Case Ladoga">
-  <div class="sg-case-pad" data-reveal="1" style="display:flex;flex-direction:column;gap:24px;padding-bottom:clamp(40px,5vw,80px);max-width:1100px;">
-    <div class="sg-case-eyebrow"><span class="rule"></span><span class="label">08 — CASE 02 / ЛОДКИ НА ЛАДОГЕ</span></div>
-    <h2 class="sg-case-h2">Локальный бизнес ищут не только по&nbsp;названию.</h2>
-  </div>
-
-  <div class="sg-case-pad" style="display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,72px);align-items:flex-start;margin-bottom:clamp(60px,8vw,120px);">
-    <div class="sg-browser" data-reveal="1" style="flex:1.3 1 520px;min-width:0;">
-      <div class="sg-browser-inner">
-        <div class="sg-browser-bar">
-          <span class="sg-browser-dots"><span></span><span></span><span></span></span>
-          <span class="sg-browser-url">lodki-ladoga.ru</span>
-          <span class="sg-browser-tag">DESKTOP</span>
-        </div>
-        <div class="sg-browser-screen">
-          <video class="sg-shot-media" src="../assets/seo-geo/ladoga-main.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-      <div class="sg-mobile-float is-left">
-        <div class="sg-mobile-float-inner">
-          <div class="sg-mobile-notch"><span></span></div>
-          <div class="sg-mobile-screen">
-            <img class="sg-shot-media" src="../assets/seo-geo/ladoga-mobile.webp" alt="Мобильная версия сайта lodki-ladoga.ru — выбор лодки">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:36px;">
-      <p class="sg-lede" style="max-width:none;" data-reveal="1">Пользователь ищет конкретно: сколько стоит аренда, есть ли эхолот, нужен ли залог, можно ли выйти на воду сегодня и как добраться до пирса. Поэтому сайт строился вокруг реальных сценариев выбора, а не только брендового запроса.</p>
-
-      <div data-reveal="1">
-        <div class="sg-qp-head"><span>QUERY</span><span>→ SECTION</span></div>
-        <div class="sg-qp-row"><span class="q">аренда лодки на ладоге цена</span><span class="p">#fleet</span></div>
-        <div class="sg-qp-row"><span class="q">лодка с эхолотом на ладоге</span><span class="p">#included</span></div>
-        <div class="sg-qp-row"><span class="q">рыбалка на ладоге на лодке</span><span class="p">#scenarios</span></div>
-        <div class="sg-qp-row"><span class="q">аренда лодки без залога</span><span class="p">#faq</span></div>
-        <div class="sg-qp-row is-hl"><span class="q">как забронировать лодку на ладоге</span><span class="p">#process</span></div>
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-<section class="sg-light sg-measure" data-screen-label="09 Measurement">
-  <div class="sg-measure-head" data-reveal="1">
-    <div class="col">
-      <span class="sg-eyebrow-lt">09 — MEASUREMENT</span>
-      <h2 class="sg-measure-h2"><span class="dim">Смотрю не на то, сколько сделано.</span><br>А на то, что изменилось.</h2>
-    </div>
-    <div class="sg-measure-aside">
-      <p>Отчет не должен заканчиваться фразой «написали 8 текстов и добавили ключи».</p>
-      <span class="sg-measure-strike">8 текстов · 120 ключей · 40 страниц ТЗ</span>
-    </div>
-  </div>
-
-</section>
-
-<section class="sg-formats" data-screen-label="10 Formats">
-  <div class="sg-formats-head" data-reveal="1">
-    <div class="col"><span class="sg-eyebrow">10 — ФОРМАТЫ РАБОТЫ</span><h2 class="sg-formats-h2">С чего можно начать</h2></div>
-    <span class="serif">Three ways in.</span>
-  </div>
-
-  <div class="sg-frame">
-    <div class="sg-frame-inner">
-      <a href="#check" class="sg-format-row" data-reveal="1">
-        <div class="sg-format-num"><span class="tag">01 / НАСТРОИТЬ</span><span class="title">SEO + GEO существующего сайта</span></div>
-        <div class="sg-format-mid"><span class="kind">РАЗОВАЯ РАБОТА</span><p>Найти слабые места и сразу внести изменения в структуру, техническую часть и ключевые страницы.</p></div>
-        <div class="sg-format-price"><span class="price">от 40&nbsp;000 ₽</span><span class="cta">ОБСУДИТЬ →</span></div>
-      </a>
-      <a href="#check" class="sg-format-row" data-reveal="1">
-        <div class="sg-format-num"><span class="tag">02 / РАЗВИВАТЬ</span><span class="title">SEO-продвижение</span></div>
-        <div class="sg-format-mid"><span class="kind">РЕГУЛЯРНАЯ РАБОТА</span><p>Новые точки входа из поиска, развитие структуры и контента, аналитика и постоянные доработки.</p></div>
-        <div class="sg-format-price"><span class="price">от 20&nbsp;000 ₽ / мес</span><span class="cta">ОБСУДИТЬ →</span></div>
-      </a>
-      <a href="#check" class="sg-format-row" data-reveal="1">
-        <div class="sg-format-num"><span class="tag">03 / СДЕЛАТЬ С НУЛЯ</span><span class="title">Сайт + SEO + GEO</span></div>
-        <div class="sg-format-mid"><span class="kind">ПРОЕКТ ПОД КЛЮЧ</span><p>Поисковая архитектура проектируется одновременно с UX, дизайном и разработкой.</p></div>
-        <div class="sg-format-price"><span class="price">от 90&nbsp;000 ₽</span><span class="cta">ОБСУДИТЬ →</span></div>
-      </a>
+<!-- 11 диагностика -->
+<section class="sec final" id="check">
+  <div class="wrap">
+    <p class="label"><b>11</b> / диагностика</p>
+    <h2 class="h-xl rv" style="font-size:clamp(44px,7.4vw,132px)">Посмотрю, как поиск видит <em>ваш сайт сейчас.</em></h2>
+    <div class="grid">
+      <p class="lede c5 rv">Проверю базовую видимость, структуру и&nbsp;очевидные технические ограничения. Скажу, где сайт теряет поисковый спрос и&nbsp;есть ли смысл вкладываться в&nbsp;SEO/GEO сейчас.</p>
+      <form class="check o8 rv" id="checkForm" style="grid-column:7 / span 6">
+        <div class="head mono"><span>Visibility check</span><span>что посмотрю</span></div>
+        <label class="field"><span>https://</span><input id="site" name="site" placeholder="ваш-сайт.ru" autocomplete="off" inputmode="url" aria-label="Адрес сайта"></label>
+        <ol>
+          <li><small>01</small>Индексация и&nbsp;доступность</li>
+          <li><small>02</small>Структура под&nbsp;спрос</li>
+          <li><small>03</small>Контент и&nbsp;факты</li>
+          <li><small>04</small>Готовность к&nbsp;AI-поиску</li>
+        </ol>
+        <button class="cta" type="submit">Отправить сайт в&nbsp;Telegram <span>→</span></button>
+        <span class="note mono">откроется Telegram с&nbsp;готовым сообщением · предварительный анализ · без&nbsp;обязательств</span>
+      </form>
     </div>
   </div>
 </section>
 
-<section class="sg-final" id="check" data-screen-label="11 Final CTA">
-  <div class="sg-final-grid">
-    <div class="sg-final-copy" data-reveal="1">
-      <span class="sg-eyebrow">11 — ДИАГНОСТИКА</span>
-      <h2 class="sg-final-h2">Посмотрю, как поиск видит ваш сайт сейчас.</h2>
-      <p>Проверю базовую видимость, структуру и очевидные технические ограничения. Скажу, где сайт теряет поисковый спрос и есть ли смысл вкладываться в SEO/GEO сейчас.</p>
-    </div>
+</main>
 
-    <div class="sg-widget-frame" data-reveal="1">
-      <div class="sg-widget-inner">
-        <div class="sg-widget-head"><span>VISIBILITY CHECK</span><span class="status" id="sgStatusLabel">○ ГОТОВО К ЗАПУСКУ</span></div>
-        <div class="sg-widget-input">
-          <span class="proto">https://</span>
-          <input id="sgSiteInput" placeholder="ваш-сайт.ru" autocomplete="off">
-        </div>
-        <div id="sgChecks">
-          <div class="sg-check-row" data-check="0"><span class="n">01</span><span class="label">Индексация и доступность</span><span class="state">ОЖИДАЕТ</span></div>
-          <div class="sg-check-row" data-check="1"><span class="n">02</span><span class="label">Структура под спрос</span><span class="state">ОЖИДАЕТ</span></div>
-          <div class="sg-check-row" data-check="2"><span class="n">03</span><span class="label">Контент и факты</span><span class="state">ОЖИДАЕТ</span></div>
-          <div class="sg-check-row" data-check="3"><span class="n">04</span><span class="label">Готовность к AI-поиску</span><span class="state">ОЖИДАЕТ</span></div>
-        </div>
-        <div class="sg-widget-submit">
-          <button type="button" class="sg-widget-btn" id="sgRunCheck"><span>Проверить видимость</span><span>→</span></button>
-          <span class="sg-cta-note">ПРЕДВАРИТЕЛЬНЫЙ АНАЛИЗ · БЕЗ ОБЯЗАТЕЛЬСТВ</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="sg-foot">
-  <span>TINA DIGITAL — 2026</span>
-  <span>SEO + GEO / ПРОДВИЖЕНИЕ В ПОИСКЕ И НЕЙРОСЕТЯХ</span>
-  <a href="https://t.me/belovachristina" rel="noopener">TELEGRAM</a>
-  <span class="sg-foot-legal"><a href="../privacy/">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a> · <a href="../cookies/">COOKIE</a> · <a href="#" data-cookie-settings>НАСТРОЙКИ COOKIE</a></span>
+<footer class="foot">
+  <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../privacy/">Политика конфиденциальности</a><a href="../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
+  <span class="mono">SEO + GEO / продвижение в&nbsp;поиске и&nbsp;нейросетях</span>
 </footer>
 
 <script>
 (function(){
   "use strict";
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* появление */
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px 20% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('shown'); });
 
-  /* ---------- scroll reveal ---------- */
-  var revealEls = document.querySelectorAll('[data-reveal]');
-  if ('IntersectionObserver' in window && !reduceMotion){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
+  /* видео играют, только когда видны; load() обрывает play(), поэтому видимый ролик перезапускаем по canplay */
+  var vids = document.querySelectorAll('video[data-auto]');
+  if ('IntersectionObserver' in window){
+    var pre = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting){ var v = e.target; if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } pre.unobserve(v); }
+    }); }, { rootMargin:'100% 0px 100% 0px' });
+    var vo = new IntersectionObserver(function(es){ es.forEach(function(e){
+      var v = e.target; v._vis = e.isIntersecting;
+      if (e.isIntersecting) v.play().catch(function(){}); else v.pause();
+    }); }, { threshold:.05 });
+    vids.forEach(function(v){
+      v.muted = true;
+      v.addEventListener('canplay', function(){ if (v._vis && v.paused) v.play().catch(function(){}); });
+      pre.observe(v); vo.observe(v);
+    });
+  }
+
+
+  /* ---------- живые AI-фигуры: частицы из AI-изображения ----------
+     частица помнит «дом» (точку фигуры), дышит вокруг него, отталкивается от курсора/пальца;
+     hero растворяется вверх при прокрутке, машинная фигура пересобирается в сетку символов */
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var small = innerWidth < 760;
+  function Field(canvas, o){
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = 0, H = 0, n = 0, hx, hy, x, y, vx, vy, ph, grp, gx, gy, labels = [];
+    var mouse = { x:-1e4, y:-1e4 }, running = false, built = false, t0 = 0, raf = 0;
+    var prog = 0, progS = 0, ghost = null, gpos = null;
+    var img = new Image(); img.src = o.src;
+    img.onload = function(){ build(); if (o.box) o.box.classList.add('live'); if (reduce){ frame(performance.now()); } };
+    var rt; addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ if (img.complete) build(); }, 200); });
+
+    function build(){
+      var r = canvas.getBoundingClientRect(); if (!r.width) return;
+      W = r.width; H = r.height;
+      canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      /* картинка вписывается в область фигуры (o.inset — поля вокруг под метки и разлёт) */
+      var fx = W * o.inset[0], fy = H * o.inset[1], fw = W - fx * 2, fh = H - fy * 2;
+      var s = Math.min(fw / img.width, fh / img.height) * (o.scale || 1);
+      var dw = img.width * s, dh = img.height * s, dx0 = (W - dw) / 2 + (o.shift || 0) * W, dy0 = (H - dh) / 2;
+      var step = Math.max(2, Math.sqrt(dw * dh / (o.max * 1.6)));
+      var cw = Math.max(1, Math.round(dw / step)), ch = Math.max(1, Math.round(dh / step));
+      var oc = document.createElement('canvas'); oc.width = cw; oc.height = ch;
+      var ox = oc.getContext('2d'); ox.drawImage(img, 0, 0, cw, ch);
+      var d = ox.getImageData(0, 0, cw, ch).data, P = [];
+      if (o.ghost){
+        /* «призрак» фигуры: светлые точки исходника без серого фона — черты лица читаются под частицами */
+        var gw = Math.round(dw), gh = Math.round(dh); ghost = document.createElement('canvas'); ghost.width = gw; ghost.height = gh;
+        var gx2 = ghost.getContext('2d'); gx2.drawImage(img, 0, 0, gw, gh);
+        var gd = gx2.getImageData(0, 0, gw, gh), a = gd.data;
+        for (var z = 0; z < a.length; z += 4){ var L = (a[z] * .3 + a[z+1] * .59 + a[z+2] * .11) / 255, al = Math.max(0, Math.min(1, (L - .32) / .35)), pxi = (z / 4) % gw, pyi = (z / 4 / gw) | 0, e = Math.min(pxi / (gw * .12), (gw - pxi) / (gw * .04), pyi / (gh * .08), (gh - pyi) / (gh * .04), 1); a[z] = a[z+1] = a[z+2] = 244; a[z+3] = al * e * 255; }
+        gx2.putImageData(gd, 0, 0); gpos = [dx0, dy0, dw, dh];
+      }
+      for (var j = 0; j < ch; j++) for (var i = 0; i < cw; i++){
+        var k = (j * cw + i) * 4, l = (d[k] * .3 + d[k+1] * .59 + d[k+2] * .11) / 255;
+        if (o.invert) l = 1 - l;
+        if (l > o.min && Math.random() < Math.pow(l, o.gamma)) P.push(dx0 + (i + Math.random()) * step, dy0 + (j + Math.random()) * step, l);
+      }
+      n = Math.min(P.length / 3, o.max) | 0;
+      hx = new Float32Array(n); hy = new Float32Array(n); x = new Float32Array(n); y = new Float32Array(n);
+      vx = new Float32Array(n); vy = new Float32Array(n); ph = new Float32Array(n); grp = new Uint8Array(n);
+      gx = new Float32Array(n); gy = new Float32Array(n);
+      var g = o.grid || 10;
+      for (var q = 0; q < n; q++){
+        var pi = (Math.random() * (P.length / 3)) | 0;
+        hx[q] = P[pi * 3]; hy[q] = P[pi * 3 + 1]; var lum = P[pi * 3 + 2];
+        grp[q] = Math.random() < o.accent ? 3 : (lum > .75 ? 2 : lum > .5 ? 1 : 0);
+        ph[q] = Math.random() * 6.283;
+        gx[q] = Math.round(hx[q] / g) * g; gy[q] = Math.round(hy[q] / g) * g;
+        /* старт: частицы летят из облака «данных» */
+        x[q] = built ? hx[q] : W * (Math.random() * 1.2 - .1); y[q] = built ? hy[q] : (o.from === 'bottom' ? H + Math.random() * H * .3 : H * Math.random());
+        vx[q] = 0; vy[q] = 0;
+      }
+      labels = (o.labels || []).map(function(t, li){
+        /* метка цепляется к частице в своём секторе вокруг центра фигуры */
+        var a = -Math.PI * .85 + li / Math.max(1, o.labels.length - 1) * Math.PI * 1.7, best = 0, bd = -1e9;
+        for (var q2 = 0; q2 < n; q2 += 7){ var ax = hx[q2] - W / 2, ay = hy[q2] - H / 2, sc = ax * Math.cos(a) + ay * Math.sin(a); if (sc > bd){ bd = sc; best = q2; } }
+        return { t:t, i:best, a:a };
       });
-    }, { threshold: 0.12 });
-    revealEls.forEach(function(el){ io.observe(el); });
-  } else {
-    revealEls.forEach(function(el){ el.classList.add('is-in'); });
-  }
-
-  var flowFill = document.getElementById('sgFlowFill');
-  if (flowFill){
-    if (reduceMotion || !('IntersectionObserver' in window)){
-      flowFill.classList.add('is-in');
-    } else {
-      var fio = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if (e.isIntersecting){ flowFill.classList.add('is-in'); fio.disconnect(); } });
-      }, { threshold: 0.5 });
-      fio.observe(flowFill);
+      built = true; t0 = performance.now();
     }
-  }
 
-  /* ---------- query rotator (hero strip) ---------- */
-  var queries = ['продвижение сайта в нейросетях', 'сайт под ключ с seo спб', 'как попасть в ответы ai', 'seo для локального бизнеса'];
-  var qi = 0;
-  var qText = document.getElementById('sgQueryText');
-  var qIndex = document.getElementById('sgQueryIndex');
-  if (qText && !reduceMotion){
-    setInterval(function(){
-      qi = (qi + 1) % queries.length;
-      qText.textContent = queries[qi];
-      qIndex.textContent = '0' + (qi + 1) + ' / 0' + queries.length;
-    }, 3800);
-  }
+    var glyphs = null;
+    function glyphSet(){
+      glyphs = ['0','1','{','}',':','/','<','>','#','@'].map(function(c){
+        var gc = document.createElement('canvas'), z = Math.round(11 * dpr); gc.width = z; gc.height = z;
+        var g2 = gc.getContext('2d'); g2.fillStyle = o.color[2]; g2.font = (9 * dpr) + 'px "JetBrains Mono", monospace'; g2.textBaseline = 'middle'; g2.textAlign = 'center'; g2.fillText(c, z / 2, z / 2);
+        return gc;
+      });
+    }
 
-  /* ---------- visibility-check widget (local UI demo, no data sent anywhere) ---------- */
-  var runBtn = document.getElementById('sgRunCheck');
-  var statusLabel = document.getElementById('sgStatusLabel');
-  var checkRows = document.querySelectorAll('#sgChecks .sg-check-row');
-  var checkTimer = null;
-  if (runBtn){
-    runBtn.addEventListener('click', function(){
-      clearInterval(checkTimer);
-      var step = -1;
-      checkRows.forEach(function(r){ r.classList.remove('is-active','is-done'); r.querySelector('.state').textContent = 'ОЖИДАЕТ'; });
-      statusLabel.textContent = '● ИДЕТ ПРОВЕРКА';
-      checkTimer = setInterval(function(){
-        if (step >= 0 && checkRows[step]){
-          checkRows[step].classList.remove('is-active');
-          checkRows[step].classList.add('is-done');
-          checkRows[step].querySelector('.state').textContent = 'В ОТЧЕТЕ';
+    function frame(now){
+      if (!built){ raf = requestAnimationFrame(frame); return; }
+      var t = (now - t0) / 1000, R = o.repel, R2 = R * R, kk = o.k * Math.min(1, .25 + t / 1.6);
+      progS += (prog - progS) * .08;
+      var m = progS, mm = m * m;
+      ctx.clearRect(0, 0, W, H);
+      if (ghost){ ctx.globalAlpha = o.ghost * (1 - Math.min(1, mm * 2.2)) * Math.min(1, t / 1.4); ctx.drawImage(ghost, gpos[0], gpos[1], gpos[2], gpos[3]); ctx.globalAlpha = 1; }
+      var buckets = [[],[],[],[]];
+      for (var q = 0; q < n; q++){
+        var tx = hx[q] + Math.sin(t * .7 + ph[q]) * o.drift, ty = hy[q] + Math.cos(t * .55 + ph[q] * 1.3) * o.drift;
+        if (o.dissolve && mm > 0){ tx += Math.sin(ph[q] * 3) * mm * W * .18; ty -= mm * (H * .35 + ph[q] * 30); }
+        if (o.morph){ tx += (gx[q] - tx) * m; ty += (gy[q] - ty) * m; }
+        if (reduce){ x[q] = tx; y[q] = ty; }
+        else {
+          var dx = x[q] - mouse.x, dy = y[q] - mouse.y, dd = dx * dx + dy * dy;
+          if (dd < R2){ var dl = Math.sqrt(dd) + .01, f = (1 - dl / R) * o.push; vx[q] += dx / dl * f; vy[q] += dy / dl * f; }
+          vx[q] += (tx - x[q]) * kk; vy[q] += (ty - y[q]) * kk; vx[q] *= o.damp; vy[q] *= o.damp;
+          x[q] += vx[q]; y[q] += vy[q];
         }
-        step++;
-        if (step >= checkRows.length){
-          clearInterval(checkTimer);
-          statusLabel.textContent = '● ЗАЯВКА ГОТОВА';
-          return;
+        buckets[grp[q]].push(q);
+      }
+      var sz = o.size, useGlyph = o.morph && m > .55;
+      if (useGlyph && !glyphs) glyphSet();
+      for (var b = 0; b < 4; b++){
+        var L = buckets[b]; ctx.fillStyle = o.color[b]; ctx.globalAlpha = o.alpha[b];
+        for (var z = 0; z < L.length; z++){
+          var p = L[z];
+          if (useGlyph && b < 3 && (p % 3 === 0)){ ctx.drawImage(glyphs[p % glyphs.length], x[p] - 5, y[p] - 5, 10, 10); }
+          else ctx.fillRect(x[p], y[p], b === 3 ? sz * 1.6 : sz, b === 3 ? sz * 1.6 : sz);
         }
-        checkRows[step].classList.add('is-active');
-        checkRows[step].querySelector('.state').textContent = 'АНАЛИЗ…';
-      }, 700);
-    });
-  }
-
-  /* ---------- canvas: hero point-cloud figure + measurement mesh, both
-     built from the same source figure's luminance map ---------- */
-  var fig = null, figAR = 1312 / 736, pts = null;
-  function masked(u, v){ return (u < 0.34 && v < 0.23) || (u > 0.78 && v > 0.73); }
-  function cover(w, h, fy){
-    var W = Math.max(w, h / figAR), H = W * figAR;
-    return { W: W, H: H, ox: w - W, oy: Math.min(0, Math.max(h - H, h / 2 - fy * H)) };
-  }
-  function lumAt(u, v){
-    if (!fig || u < 0 || v < 0 || u >= 1 || v >= 1 || masked(u, v)) return 0;
-    return fig.lum[((v * fig.H) | 0) * fig.W + ((u * fig.W) | 0)];
-  }
-  function fitCanvas(cv){
-    var r = cv.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
-    cv.width = Math.max(1, r.width * d); cv.height = Math.max(1, r.height * d);
-    var ctx = cv.getContext('2d'); ctx.setTransform(d, 0, 0, d, 0, 0);
-    return { ctx: ctx, w: r.width, h: r.height };
-  }
-
-  var heroCv = document.getElementById('sgHeroCanvas');
-  var meshCv = document.getElementById('sgMeshCanvas');
-  var spaceCv = document.getElementById('sgSpaceCanvas');
-  var heroSize = null, meshSize = null, spaceSize = null, spaceLayers = null, spaceMarks = [];
-  var t0 = performance.now();
-  var sage = '#A6B394';
-
-  var meta = ['query.intent ....... commercial', 'query.geo .......... 59.93N 30.31E', 'entity.type ........ Organization', 'source.trust ....... 0.__', 'index.state ........ crawled'];
-  var nodes = [[0.2, 0.8, 'location'], [0.5, 0.6, 'entity'], [0.46, 0.34, 'context'], [0.79, 0.5, 'intent'], [0.875, 0.415, 'query']];
-  var meshNodes = [[0.875, 0.415, 'Organization'], [0.6, 0.33, 'Service'], [0.52, 0.62, 'Offer / price'], [0.22, 0.82, 'Area served']];
-
-  function loadFigure(){
-    var img = new Image();
-    img.onload = function(){
-      var W = 260, H = Math.round(W * img.height / img.width);
-      var c = document.createElement('canvas'); c.width = W; c.height = H;
-      var x = c.getContext('2d'); x.drawImage(img, 0, 0, W, H);
-      var d = x.getImageData(0, 0, W, H).data;
-      figAR = H / W;
-      var lum = new Float32Array(W * H);
-      for (var i = 0; i < W * H; i++) lum[i] = Math.max(0, Math.min(1, ((d[i * 4] + d[i * 4 + 1] + d[i * 4 + 2]) / 765 - 0.3) / 0.62));
-      fig = { W: W, H: H, lum: lum };
-      var arr = [];
-      for (var j = 0; j < H; j++) for (var k = 0; k < W; k++) {
-        var u = k / W, v = j / H;
-        if (masked(u, v)) continue;
-        var b = lum[j * W + k];
-        if (b < 0.08 || Math.random() > b * b * 0.6) continue;
-        arr.push({ u: u + Math.random() / W, v: v + Math.random() / H, b: b, s: 0.6 + b * 1.1, ph: Math.random() * 6.28 });
       }
-      pts = arr.length > 16000 ? arr.filter(function(){ return Math.random() < 16000 / arr.length; }) : arr;
-      heroSize = null; meshSize = null;
-      if (reduceMotion){ drawHero(); drawMesh(); }
-    };
-    img.src = '../assets/seo-geo/hero-figure.jpg';
-  }
-
-  function drawHero(){
-    if (!heroCv || !pts) return;
-    if (!heroSize) heroSize = fitCanvas(heroCv);
-    var ctx = heroSize.ctx, w = heroSize.w, h = heroSize.h, t = (performance.now() - t0) / 1000;
-    ctx.clearRect(0, 0, w, h);
-    var C = cover(w, h, 0.42), scan = (t * 0.045) % 1.3 - 0.15;
-    ctx.fillStyle = '#EEEAE2';
-    for (var i = 0; i < pts.length; i++){
-      var p = pts[i];
-      var flow = Math.max(0, 1 - p.v / 0.5);
-      var amp = 0.5 + flow * 4.5 * (1.1 - p.b);
-      var dx = Math.sin(t * 0.32 + p.v * 14 + p.ph * 0.3) * amp + flow * flow * Math.sin(t * 0.18 + p.ph) * 5;
-      var dy = Math.cos(t * 0.27 + p.u * 10 + p.ph) * amp * 0.45;
-      var near = Math.max(0, 1 - Math.abs(p.v - scan) * 20);
-      var tw = p.b < 0.35 ? 0.55 + 0.45 * Math.sin(t * 1.1 + p.ph * 3) : 1;
-      ctx.globalAlpha = Math.min(1, (0.22 + p.b * 0.78) * tw + near * 0.35);
-      ctx.fillRect(C.ox + p.u * C.W + dx, C.oy + p.v * C.H + dy, p.s, p.s);
-    }
-    ctx.globalAlpha = 1;
-    ctx.font = "400 10px 'JetBrains Mono', monospace"; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
-    meta.forEach(function(m, i){ ctx.fillStyle = 'rgba(238,234,226,' + (0.4 + 0.2 * Math.sin(t * 0.5 + i)) + ')'; ctx.fillText(m, 14, 42 + i * 15); });
-    var P = nodes.map(function(n){ return [C.ox + n[0] * C.W, C.oy + n[1] * C.H, n[2]]; });
-    ctx.strokeStyle = 'rgba(166,179,148,0.55)'; ctx.lineWidth = 1; ctx.setLineDash([2, 5]); ctx.lineDashOffset = -t * 6;
-    ctx.beginPath(); P.forEach(function(q, i){ i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); ctx.stroke(); ctx.setLineDash([]);
-    ctx.font = "500 10px 'JetBrains Mono', monospace";
-    P.forEach(function(q, i){
-      var pulse = 0.5 + 0.5 * Math.sin(t * 0.8 + i), last = i === P.length - 1;
-      ctx.fillStyle = sage; ctx.fillRect(q[0] - 2.5, q[1] - 2.5, 5, 5);
-      ctx.globalAlpha = 0.4 + pulse * 0.6; ctx.strokeStyle = sage; ctx.strokeRect(q[0] - 7, q[1] - 7, 14, 14); ctx.globalAlpha = 1;
-      var left = q[0] > w - 110;
-      ctx.textAlign = left ? 'right' : 'left';
-      ctx.fillStyle = last ? sage : 'rgba(238,234,226,0.85)';
-      ctx.fillText(String(q[2]).toUpperCase(), q[0] + (left ? -14 : 14), q[1] - 12);
-    });
-    ctx.textAlign = 'left';
-  }
-
-  function drawMesh(){
-    if (!meshCv || !fig) return;
-    if (!meshSize) meshSize = fitCanvas(meshCv);
-    var ctx = meshSize.ctx, w = meshSize.w, h = meshSize.h, t = (performance.now() - t0) / 1000;
-    ctx.clearRect(0, 0, w, h);
-    var C = cover(w, h, 0.5), scan = (t * 0.04) % 1.3 - 0.15;
-    for (var y = 6; y < h; y += 6) {
-      var v = (y - C.oy) / C.H, near = Math.max(0, 1 - Math.abs(v - scan) * 16);
-      ctx.strokeStyle = 'rgba(9,9,9,' + (0.5 + near * 0.45) + ')'; ctx.lineWidth = near > 0.4 ? 1.1 : 0.75;
-      ctx.beginPath(); var on = false;
-      for (var x = 0; x <= w; x += 3) {
-        var b = lumAt((x - C.ox) / C.W, v);
-        if (b > 0.16) { var py = y - b * 8 - near * b * 5; on ? ctx.lineTo(x, py) : ctx.moveTo(x, py); on = true; } else on = false;
+      ctx.globalAlpha = 1;
+      if (labels.length && mm < .6){
+        ctx.font = '10px "JetBrains Mono", monospace'; ctx.textBaseline = 'middle';
+        labels.forEach(function(lb, li){
+          var px = x[lb.i], py = y[lb.i], al = (1 - mm / .6) * Math.min(1, Math.max(0, (t - .9 - li * .12) / .8));
+          var lx = px + Math.cos(lb.a) * (W * .14) + Math.sin(t * .4 + li) * 6, ly = py + Math.sin(lb.a) * (H * .12) + Math.cos(t * .5 + li) * 5;
+          lx = Math.max(8, Math.min(W - 70, lx)); ly = Math.max(10, Math.min(H - 10, ly));
+          ctx.globalAlpha = al * .45; ctx.strokeStyle = o.lineColor; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(lx, ly); ctx.stroke();
+          ctx.globalAlpha = al; ctx.fillStyle = o.color[3]; ctx.fillRect(px - 2, py - 2, 4, 4);
+          ctx.fillStyle = o.labelColor; ctx.fillText(lb.t, lx + 6, ly);
+        });
+        ctx.globalAlpha = 1;
       }
-      ctx.stroke();
+      if (o.onMorph) o.onMorph(m);
+      if (running && !reduce) raf = requestAnimationFrame(frame);
     }
-    ctx.font = "500 10px 'JetBrains Mono', monospace"; ctx.textBaseline = 'middle';
-    meshNodes.forEach(function(n, i){
-      var x = C.ox + n[0] * C.W, y = C.oy + n[1] * C.H, lx = 14;
-      ctx.strokeStyle = 'rgba(9,9,9,0.5)'; ctx.lineWidth = 0.8;
-      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(lx + 96, y); ctx.stroke();
-      ctx.fillStyle = i === 1 ? sage : '#090909'; ctx.fillRect(x - 3, y - 3, 6, 6);
-      if (i === 1) { ctx.strokeStyle = '#090909'; ctx.strokeRect(x - 7, y - 7, 14, 14); }
-      ctx.fillStyle = '#090909'; ctx.fillText(n[2], lx, y - 8);
-    });
+
+    function start(){ if (running || reduce) return; running = true; raf = requestAnimationFrame(frame); }
+    function stop(){ running = false; cancelAnimationFrame(raf); }
+    new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? start() : stop(); }); }, { rootMargin:'120px' }).observe(canvas);
+
+    function setM(e){ var r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; }
+    canvas.addEventListener('pointermove', setM);
+    canvas.addEventListener('pointerdown', function(e){ setM(e); if (e.pointerType !== 'mouse') setTimeout(function(){ mouse.x = mouse.y = -1e4; }, 450); });
+    canvas.addEventListener('pointerleave', function(){ mouse.x = mouse.y = -1e4; });
+    return { set: function(v){ prog = v; } };
   }
 
-  /* ---------- canvas: search-space word cloud (section 02) ---------- */
-  function bust(x, y){
-    var hx = (x - 0.5) / 0.13, hy = (y - 0.3) / 0.18;
-    if (hx * hx + hy * hy < 1) return true;
-    if (y > 0.44 && y < 0.62 && Math.abs(x - 0.5) < 0.075) return true;
-    if (y >= 0.56) return Math.abs(x - 0.5) < Math.min(0.46, 0.075 + (y - 0.56) * 2.2);
-    return false;
-  }
-  function buildSpace(w, h){
-    var d = Math.min(window.devicePixelRatio || 1, 2);
-    var words = ['поиск', 'запрос', 'SEO', 'GEO', 'AI search', 'источник', 'индексация', 'Яндекс', 'Google', 'ChatGPT', 'AI visibility', 'органический трафик', 'продвижение сайта'];
-    var S = h * 1.05, cx = w * 0.64, top = h * 0.02;
-    function inB(px, py){ return bust((px - cx) / S + 0.5, (py - top) / S); }
-    function mk(){ var c = document.createElement('canvas'); c.width = w * d; c.height = h * d; var x = c.getContext('2d'); x.setTransform(d, 0, 0, d, 0, 0); return [c, x]; }
-    var farA = mk(), silA = mk(), midA = mk(), nearA = mk();
-    var far = farA[0], fx = farA[1], sil = silA[0], sx = silA[1], mid = midA[0], mx = midA[1], near = nearA[0], nx = nearA[1];
-    sx.filter = 'blur(' + Math.round(h * 0.045) + 'px)';
-    sx.fillStyle = 'rgba(9,9,9,0.82)';
-    function P(x, y){ return [cx + (x - 0.5) * S, top + y * S]; }
-    sx.beginPath(); sx.ellipse(cx, top + 0.3 * S, 0.13 * S, 0.18 * S, 0, 0, Math.PI * 2); sx.fill();
-    sx.beginPath();
-    [[0.425, 0.44], [0.575, 0.44], [0.575, 0.56], [0.96, 0.736], [0.96, 1.1], [0.04, 1.1], [0.04, 0.736], [0.425, 0.56]].forEach(function(q, i){ var r = P(q[0], q[1]); i ? sx.lineTo(r[0], r[1]) : sx.moveTo(r[0], r[1]); });
-    sx.closePath(); sx.fill();
-    spaceMarks = [];
-    var n = Math.round(w * h / 900);
-    for (var i = 0; i < n; i++) {
-      var px = Math.random() * w, py = Math.random() * h, inside = inB(px, py);
-      if (!inside && Math.random() > 0.22) continue;
-      var word = words[(Math.random() * words.length) | 0], r2 = Math.random();
-      var layer = r2 < 0.35 ? 0 : r2 < 0.8 ? 1 : 2;
-      var ctx = [fx, mx, nx][layer];
-      var size = layer === 0 ? 14 + Math.random() * 16 : layer === 1 ? 10 + Math.random() * 4 : 11 + Math.random() * 3;
-      ctx.filter = layer === 0 ? 'blur(3px)' : layer === 1 ? 'blur(0.6px)' : 'none';
-      ctx.font = (layer === 2 ? '600 ' : '500 ') + size + "px 'Manrope', sans-serif";
-      var light = inside && Math.random() < 0.6;
-      ctx.fillStyle = light ? 'rgba(238,234,226,' + (0.5 + Math.random() * 0.5) + ')' : 'rgba(9,9,9,' + (layer === 0 ? 0.14 : inside ? 0.7 : 0.32) + ')';
-      ctx.fillText(word, px, py);
-      if (layer === 2 && inside && spaceMarks.length < 3 && Math.random() < 0.08 && /источник|запрос|AI visibility/.test(word)) spaceMarks.push([px - 9, py - size * 0.4]);
-    }
-    return { far: far, sil: sil, mid: mid, near: near, d: d };
-  }
-  function drawSpace(){
-    if (!spaceCv) return;
-    if (!spaceSize) { spaceSize = fitCanvas(spaceCv); spaceLayers = buildSpace(spaceSize.w, spaceSize.h); }
-    var ctx = spaceSize.ctx, w = spaceSize.w, h = spaceSize.h, L = spaceLayers, t = (performance.now() - t0) / 1000;
-    ctx.clearRect(0, 0, w, h);
-    function off(k){ return [Math.sin(t * 0.09) * 14 * k, Math.cos(t * 0.07) * 4 * k]; }
-    [[L.far, 0.4], [L.sil, 0.15], [L.mid, 0.7], [L.near, 1.2]].forEach(function(pair){
-      var c = pair[0], k = pair[1], o = off(k); ctx.drawImage(c, o[0], o[1], w, h);
-    });
-    var o = off(1.2);
-    spaceMarks.forEach(function(m){ ctx.fillStyle = sage; ctx.fillRect(m[0] + o[0], m[1] + o[1], 5, 5); });
-    ctx.font = "500 10px 'JetBrains Mono', monospace"; ctx.fillStyle = 'rgba(9,9,9,0.7)';
-    ctx.fillText('FIG. 02 — SEARCH SPACE', 0, 16); ctx.fillText('DEPTH 03 · QUERIES ' + Math.round(w * h / 900), 0, 30);
-  }
-
-  var raf = null;
-  function loop(){
-    drawHero(); drawMesh(); drawSpace();
-    if (!reduceMotion) raf = requestAnimationFrame(loop);
-  }
-  window.addEventListener('resize', function(){
-    heroSize = null; meshSize = null; spaceSize = null;
-    if (reduceMotion){ drawHero(); drawMesh(); drawSpace(); }
+  var cover = document.querySelector('.cover');
+  var hero = Field(document.getElementById('heroField'), {
+    src:'../assets/seo-geo/hero-figure-tall.jpg', box:document.querySelector('.field-box'),
+    inset:[.06, .03], scale:1.05, max: small ? 8000 : 18000, min:.4, gamma:2, ghost:.34, accent:.02, size: small ? 1.1 : 1.25,
+    color:['#a8a49c','#d8d4cc','#f7f5f1','#c0707f'], alpha:[.6,.85,1,1],
+    drift: 2.2, k:.055, damp:.86, repel: small ? 60 : 95, push:1.9, dissolve:true,
+    labels:['услуги','цены','кейсы','регион','бренд','FAQ'], lineColor:'#B29A78', labelColor:'rgba(238,234,226,.72)'
   });
-  loadFigure();
-  loop();
+  var state = document.getElementById('machineState');
+  var machine = Field(document.getElementById('machineField'), {
+    src:'../assets/seo-geo/hero-figure-crop.jpg', inset:[.04, .06], scale:1, shift:-.18,
+    max: small ? 5000 : 10000, min:.46, gamma:2, accent:.03, size:1.3, grid: small ? 9 : 12,
+    color:['#8a857c','#4a4640','#090909','#9E4F61'], alpha:[.5,.75,.95,1],
+    drift:1.4, k:.05, damp:.85, repel: small ? 55 : 85, push:1.7, morph:true, from:'bottom',
+    onMorph:function(v){ if (state) state.textContent = v > .55 ? 'data · structured' : v > .15 ? 'parsing…' : 'image'; }
+  });
+  function onScroll(){
+    var vh = innerHeight;
+    if (hero && cover){ var r = cover.getBoundingClientRect(); hero.set(Math.max(0, Math.min(1, -r.top / (r.height * .9)))); }
+    var mc = document.getElementById('machineField');
+    if (machine && mc){ var r2 = mc.getBoundingClientRect(); machine.set(Math.max(0, Math.min(1, (vh * .8 - r2.top) / (vh * .7)))); }
+  }
+  addEventListener('scroll', onScroll, { passive:true }); onScroll();
+
+
+  /* ---------- «поиск»: размытый силуэт из слов с глубиной резкости ----------
+     слова и буквы в трёх слоях (дальний — размыт, ближний — резкий), плывут, слои сдвигаются за курсором,
+     внутри силуэта слова светлые, снаружи — тёмные */
+  (function(){
+    var cv = document.getElementById('spaceField'); if (!cv) return;
+    var ctx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2), W, H, S, cx, top, items = [], sil = null, sprites = {};
+    var mx = 0, my = 0, tmx = 0, tmy = 0, running = false, raf = 0, t0 = performance.now();
+    var GL = ['поиск','поиск','поиск','поиск','п','о','и','с','к','с','к'];
+    function bust(u, v){ /* силуэт: голова + шея + плечи, координаты в долях S */
+      var hx = (u - .5) / .15, hy = (v - .3) / .2; if (hx * hx + hy * hy < 1) return true;
+      if (v > .44 && v < .6 && Math.abs(u - .5) < .085) return true;
+      if (v >= .56){ var w = .085 + Math.min(1, (v - .56) / .2) * .38; return Math.abs(u - .5) < w; }
+      return false;
+    }
+    function sprite(txt, light, blur){
+      var key = txt + light + blur; if (sprites[key]) return sprites[key];
+      var fs = 40, c = document.createElement('canvas'), m = document.createElement('canvas').getContext('2d');
+      m.font = '500 ' + fs + 'px Manrope, sans-serif'; var w = Math.ceil(m.measureText(txt).width) + blur * 6 + 8, h = fs + blur * 6 + 8;
+      c.width = w; c.height = h; var g = c.getContext('2d'); g.font = m.font; g.textBaseline = 'middle';
+      if (blur) g.filter = 'blur(' + blur + 'px)';
+      g.fillStyle = light ? '#f4f2ee' : '#16140f'; g.fillText(txt, blur * 3 + 4, h / 2);
+      return (sprites[key] = { c:c, w:w, h:h, fs:fs });
+    }
+    function build(){
+      var r = cv.getBoundingClientRect(); if (!r.width) return; W = r.width; H = r.height;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      S = H * 1.02; cx = W * .52; top = H * .04;
+      /* размытый тёмный силуэт — фон фигуры */
+      sil = document.createElement('canvas'); sil.width = Math.round(W * dpr); sil.height = Math.round(H * dpr);
+      var g = sil.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.filter = 'blur(' + Math.round(H * .045) + 'px)'; g.fillStyle = 'rgba(12,11,10,.86)';
+      g.beginPath(); g.ellipse(cx, top + .3 * S, .15 * S, .2 * S, 0, 0, 6.283); g.fill();
+      g.fillRect(cx - .085 * S, top + .44 * S, .17 * S, .18 * S);
+      g.beginPath(); g.moveTo(cx - .085 * S, top + .56 * S); g.lineTo(cx + .085 * S, top + .56 * S); g.lineTo(cx + .465 * S, top + .76 * S); g.lineTo(cx + .465 * S, top + 1.2 * S); g.lineTo(cx - .465 * S, top + 1.2 * S); g.lineTo(cx - .465 * S, top + .76 * S); g.closePath(); g.fill();
+      items = [];
+      var N = Math.round(W * H / (innerWidth < 760 ? 1500 : 1100));
+      for (var i = 0; i < N; i++){
+        var px = Math.random() * W, py = Math.random() * H, inside = bust((px - cx) / S + .5, (py - top) / S);
+        if (!inside && Math.random() > .3) continue;
+        var r2 = Math.random(), layer = r2 < .3 ? 0 : r2 < .78 ? 1 : 2;
+        var txt = GL[(Math.random() * GL.length) | 0];
+        var light = inside ? Math.random() < .72 : Math.random() < .12;
+        var size = layer === 0 ? 17 + Math.random() * 16 : layer === 1 ? 11 + Math.random() * 4 : 12 + Math.random() * 5;
+        items.push({ x:px, y:py, l:layer, s:size, sp:sprite(txt, light, layer === 0 ? 3 : layer === 1 ? 0.6 : 0),
+          a: layer === 0 ? .32 : inside ? .6 + Math.random() * .4 : .28 + Math.random() * .3, ph:Math.random() * 6.283, v:.15 + Math.random() * .35 });
+      }
+      items.sort(function(a, b){ return a.l - b.l; });
+    }
+    function frame(now){
+      var t = (now - t0) / 1000;
+      mx += (tmx - mx) * .06; my += (tmy - my) * .06;
+      ctx.clearRect(0, 0, W, H);
+      ctx.drawImage(sil, mx * -10, my * -6, W, H);
+      for (var i = 0; i < items.length; i++){
+        var it = items[i], k = [.35, .75, 1.35][it.l];
+        var x = it.x + Math.sin(t * .09 * (1 + it.l) + it.ph) * 16 * k + mx * 22 * k - ((t * it.v * 6 * k) % (W + 200)) * 0;
+        var y = it.y + Math.cos(t * .07 * (1 + it.l) + it.ph) * 5 * k + my * 12 * k;
+        var sc = it.s / it.sp.fs;
+        ctx.globalAlpha = it.a * (.75 + .25 * Math.sin(t * .8 + it.ph));
+        ctx.drawImage(it.sp.c, x, y - it.sp.h * sc / 2, it.sp.w * sc, it.sp.h * sc);
+      }
+      ctx.globalAlpha = 1;
+      if (running) raf = requestAnimationFrame(frame);
+    }
+    var reduceM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function start(){ if (running) return; if (!items.length) build(); if (reduceM){ frame(performance.now()); return; } running = true; raf = requestAnimationFrame(frame); }
+    function stop(){ running = false; cancelAnimationFrame(raf); }
+    document.fonts && document.fonts.ready.then(function(){ sprites = {}; build(); if (reduceM) frame(performance.now()); });
+    new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? start() : stop(); }); }, { rootMargin:'100px' }).observe(cv);
+    var rt; addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(build, 200); });
+    cv.addEventListener('pointermove', function(e){ var r = cv.getBoundingClientRect(); tmx = (e.clientX - r.left) / r.width * 2 - 1; tmy = (e.clientY - r.top) / r.height * 2 - 1; });
+    cv.addEventListener('pointerleave', function(){ tmx = tmy = 0; });
+  })();
+
+  /* диагностика: честно — открываем Telegram с готовым сообщением, никуда ничего не отправляем сами */
+  var form = document.getElementById('checkForm'), site = document.getElementById('site');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var s = (site.value || '').trim().replace(/^https?:\/\//, '');
+    var text = s ? 'Здравствуйте! Посмотрите, пожалуйста, как поиск видит мой сайт: ' + s : 'Здравствуйте! Хочу проверить, как поиск видит мой сайт.';
+    window.open('https://t.me/belovachristina?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  });
 })();
 </script>
-
 <script src="../assets/legal/legal.js"></script>
+</body>
+</html>
