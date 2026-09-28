@@ -9,7 +9,7 @@
 <meta name="description" content="Кейсы TINA DIGITAL: сайт пластического хирурга, производство в Китае, архитектурное бюро, аренда лодок на Ладоге, прокат эндуро, эвакуатор в Яндекс Директе. Стратегия, дизайн, код, SEO.">
 <meta property="og:title" content="Кейсы — TINA DIGITAL">
 <meta property="og:description" content="Разный бизнес. Разная логика. Разный визуальный язык.">
-<meta property="og:image" content="https://tinadigital.ru/assets/og/home.jpg">
+<meta property="og:image" content="https://tinadigital.ru/assets/og/tina-cube.jpg">
 <meta property="og:url" content="https://tinadigital.ru/projects/">
 <link rel="stylesheet" href="../assets/fonts/manrope.css">
 <link rel="stylesheet" href="../assets/fonts/seo-extra.css">
@@ -70,7 +70,7 @@
   .meta h2{ margin-top:18px; font-weight:600; text-transform:uppercase; letter-spacing:-.04em; line-height:.9; font-size:clamp(34px,4.2vw,80px); transition:color .5s var(--ease); }
   .case:hover .meta h2{ color:#fff; }
   .meta .niche{ margin-top:14px; color:var(--t-faint); }
-  .meta .line{ margin-top:clamp(18px,2.4vw,34px); font-size:clamp(24px,2.4vw,38px); line-height:1.15; color:var(--t-dim); max-width:18ch; }
+  .meta .line{ margin-top:clamp(18px,2.4vw,34px); font-size:clamp(24px,2.4vw,38px); line-height:1.15; color:var(--t-dim); max-width:28ch; }
   .chips{ list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; margin-top:clamp(20px,2.4vw,32px); }
   .chips li{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; padding:7px 11px; border:1px solid rgba(238,234,226,.18); border-radius:999px; color:var(--t-dim); }
   .go{ display:inline-flex; gap:12px; margin-top:clamp(22px,2.6vw,36px); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-dim); border-bottom:1px solid var(--wine); padding-bottom:3px; transition:color .3s, gap .4s var(--ease); }
@@ -81,8 +81,8 @@
   .browser .bar{ height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; background:#1c1c1f; }
   .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3a3e; flex:none; }
   .browser .bar span{ margin:0 auto; font-size:12px; color:#8d8d93; background:#29292d; padding:4px 22px; border-radius:7px; transform:translateX(-24px); white-space:nowrap; }
-  .browser .scr{ position:relative; aspect-ratio:16/9.6; overflow:hidden; background:#000; }
-  .browser video, .browser img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 1.4s var(--ease), filter .8s var(--ease); filter:saturate(.85) brightness(.9); }
+  .browser .scr{ position:relative; overflow:hidden; background:#000; }
+  .browser video, .browser img{ display:block; width:100%; height:auto; transition:transform 1.4s var(--ease), filter .8s var(--ease); filter:saturate(.85) brightness(.9); }
   .case:hover .browser{ transform:translateY(-8px); box-shadow:0 80px 140px -30px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1); }
   .case:hover .browser video, .case:hover .browser img{ transform:scale(1.025); filter:saturate(1.05) brightness(1); }
   /* проявка кадра при появлении */
@@ -92,8 +92,8 @@
   @media (max-width:600px){ .browser{ border-radius:9px; } .browser .bar{ height:26px; padding:0 10px; gap:5px; } .browser .bar i{ width:7px; height:7px; } .browser .bar span{ font-size:10px; padding:2px 12px; transform:none; } }
 
   /* курсор «Смотреть кейс» */
-  .cur{ position:fixed; z-index:60; left:0; top:0; width:112px; height:112px; margin:-56px 0 0 -56px; border-radius:50%; background:var(--wine); color:var(--t); display:grid; place-items:center; text-align:center; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; line-height:1.4; pointer-events:none; transform:scale(0); transition:transform .45s var(--ease); }
-  .cur.on{ transform:scale(1); }
+  .cur{ position:fixed; z-index:60; left:0; top:0; width:132px; height:132px; margin:-66px 0 0 -66px; border-radius:50%; border:1px solid rgba(178,154,120,.75); background:rgba(9,9,9,.22); -webkit-backdrop-filter:blur(8px) saturate(1.1); backdrop-filter:blur(8px) saturate(1.1); color:#EEEAE2; display:grid; place-items:center; text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:19px; line-height:1.15; letter-spacing:.01em; pointer-events:none; transform:scale(0); }
+  .cur::after{ content:''; position:absolute; inset:7px; border-radius:50%; border:1px solid rgba(178,154,120,.22); }
   @media (hover:none), (max-width:900px){ .cur{ display:none; } }
 
   /* ---------- другие работы ---------- */
@@ -104,8 +104,8 @@
   .grid5{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(14px,2vw,28px); margin-top:clamp(40px,6vw,80px); }
   .work{ grid-column:span 4; }
   .work:nth-child(1){ grid-column:span 7; } .work:nth-child(2){ grid-column:span 5; margin-top:clamp(0px,6vw,90px); }
-  .work .ph{ position:relative; overflow:hidden; border-radius:4px; background:#d9d4ca; aspect-ratio:16/10; }
-  .work .ph img{ width:100%; height:100%; object-fit:cover; transition:transform 1.4s var(--ease); }
+  .work .ph{ position:relative; overflow:hidden; border-radius:6px; background:#d9d4ca; box-shadow:0 40px 80px -40px rgba(40,30,20,.45), 0 0 0 1px rgba(0,0,0,.06); }
+  .work .ph img{ display:block; width:100%; height:auto; transition:transform 1.4s var(--ease); }
   .work:hover .ph img{ transform:scale(1.04); }
   .work .cap{ display:flex; justify-content:space-between; gap:12px; margin-top:12px; color:var(--d-dim); }
   .work .cap b{ font-weight:400; color:#090909; }
@@ -145,7 +145,7 @@
     <div>
       <h1 class="label" style="margin:0 0 18px"><b>01</b> / проекты TINA DIGITAL</h1>
       <p class="serif tag">Разный бизнес. Разная логика. Разный визуальный язык.</p>
-      <p class="lede">Каждый проект начинается не&nbsp;с&nbsp;визуала, а&nbsp;с&nbsp;бизнеса: что продаём, кому, что мешает купить. Дальше — структура, дизайн, код и&nbsp;поисковая база в&nbsp;одних руках.</p>
+      <p class="lede">Каждый проект начинается не&nbsp;с&nbsp;визуала, а&nbsp;с&nbsp;бизнеса: что продаём, кому, что мешает купить. Потом структура, дизайн, код и&nbsp;поисковая база в&nbsp;одних руках.</p>
     </div>
   </div>
 </section>
@@ -197,12 +197,12 @@
         <span class="n">04 / local</span>
         <h2>Лодки на&nbsp;Ладоге</h2>
         <p class="niche mono">Аренда лодок для&nbsp;рыбалки · Назия</p>
-        <p class="serif line">Рыбалка на&nbsp;Ладоге — без&nbsp;ожидания и&nbsp;залога.</p>
+        <p class="serif line">Рыбалка на&nbsp;Ладоге без&nbsp;ожидания и&nbsp;залога.</p>
         <ul class="chips"><li>УТП</li><li>воронка</li><li>бронь онлайн</li><li>AI-визуал</li><li>SEO</li></ul>
         <span class="go">Смотреть кейс <span>→</span></span>
       </div>
       <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
-        <div class="scr"><video src="../assets/ladoga/v-hero-d.mp4" poster="../assets/ladoga/v-hero-d.jpg" muted loop playsinline preload="none"></video></div></div></div>
+        <div class="scr"><video src="../assets/ladoga/v-hero-d-clean.mp4" poster="../assets/ladoga/v-hero-d-clean.jpg" muted loop playsinline preload="none"></video></div></div></div>
     </a>
 
     <a class="case" href="../case-enduro.html">
@@ -210,7 +210,7 @@
         <span class="n">05 / rental</span>
         <h2>Enduro Energy</h2>
         <p class="niche mono">Прокат эндуро-мотоциклов</p>
-        <p class="serif line">94,7% визитов из&nbsp;поиска — без&nbsp;рекламы.</p>
+        <p class="serif line">94,7% визитов из&nbsp;поиска без&nbsp;рекламы.</p>
         <ul class="chips"><li>калькулятор</li><li>interaction</li><li>код</li><li>SEO</li></ul>
         <span class="go">Смотреть кейс <span>→</span></span>
       </div>
@@ -237,10 +237,10 @@
 <section class="more">
   <div class="wrap">
     <p class="label"><b>07</b> / другие работы</p>
-    <h2 class="rv">Ещё проекты — <em>разные ниши, один подход</em></h2>
+    <h2 class="rv">Ещё проекты. <em>Разные ниши, один подход</em></h2>
     <div class="grid5">
       <figure class="work rv"><div class="ph"><img src="../assets/cube/back-3-noir-full.jpg" alt="NOIR — сайт мехового ателье" loading="lazy"></div><figcaption class="cap mono"><b>NOIR</b><span>fur atelier website</span></figcaption></figure>
-      <figure class="work rv"><div class="ph"><img src="../assets/cube/back-7-tyaga-hero.jpg" alt="Tyaga — прокат внедорожной техники" loading="lazy" style="object-position:65% center"></div><figcaption class="cap mono"><b>Tyaga</b><span>offroad rental website</span></figcaption></figure>
+      <figure class="work rv"><div class="ph"><img src="../assets/cube/back-7-tyaga-hero.jpg" alt="Tyaga — прокат внедорожной техники" loading="lazy"></div><figcaption class="cap mono"><b>Tyaga</b><span>offroad rental website</span></figcaption></figure>
       <figure class="work rv"><div class="ph"><img src="../assets/cube/right-6-arapov-bio.jpg" alt="Timofey Arapov — персональный сайт" loading="lazy"></div><figcaption class="cap mono"><b>Timofey Arapov</b><span>personal website</span></figcaption></figure>
       <figure class="work rv"><div class="ph"><img src="../assets/cube/right-3-jewelry.jpg" alt="Custom Jewelry — лендинг" loading="lazy"></div><figcaption class="cap mono"><b>Custom Jewelry</b><span>landing page</span></figcaption></figure>
       <figure class="work rv"><div class="ph"><img src="../assets/cube/back-4-unikate.jpg" alt="UniKate — лендинг" loading="lazy"></div><figcaption class="cap mono"><b>UniKate</b><span>landing page</span></figcaption></figure>
