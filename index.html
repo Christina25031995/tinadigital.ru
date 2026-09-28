@@ -1571,11 +1571,21 @@
       }, { passive: false });
     }
 
-    canvas.addEventListener('click', function(){
+    /* плитку ищем прямо в точке клика/тапа: на телефоне нет наведения, и hovered там пустой */
+    var tapVec = new THREE.Vector2();
+    function tileAt(e){
+      var r = canvas.getBoundingClientRect();
+      tapVec.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+      raycaster.setFromCamera(tapVec, camera);
+      var hit = raycaster.intersectObjects(tiles)[0];
+      return hit ? hit.object : null;
+    }
+    canvas.addEventListener('click', function(e){
       if (dragMoved){ dragMoved = false; return; } /* a drag ending on the canvas shouldn't also open a tile */
-      if (!hovered || !hovered.userData.label) return;
-      if (hovered.userData.link){ if (/^https?:/.test(hovered.userData.link)) window.open(hovered.userData.link, '_blank', 'noopener'); else window.location.href = hovered.userData.link; }
-      else { console.info('[hero] open case:', hovered.userData.label, '(no case URL set yet)'); }
+      var t = tileAt(e) || hovered;
+      if (!t || !t.userData.label) return;
+      if (t.userData.link){ if (/^https?:/.test(t.userData.link)) window.open(t.userData.link, '_blank', 'noopener'); else window.location.href = t.userData.link; }
+      else { console.info('[hero] open case:', t.userData.label, '(no case URL set yet)'); }
     });
 
     function setPop(mesh, out){
