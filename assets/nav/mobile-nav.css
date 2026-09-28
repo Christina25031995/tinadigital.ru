@@ -1,0 +1,52 @@
+/* Мобильная навигация внутренних страниц: нижний док «Кейсы · Услуги · Связаться» (как на главной)
+   и шапка с фоном под цвет секции. Только ≤760px — на компьютере ничего не меняется. */
+.mn-dock, .mn-ov, .mn-sheet{ display:none; }
+
+@media (max-width:760px){
+  /* ---------- шапка: без mix-blend, с фоном под текущую секцию ---------- */
+  .top.mn-hdr{ mix-blend-mode:normal !important; padding-top:calc(6px + env(safe-area-inset-top)) !important; padding-bottom:6px !important;
+    background:rgba(9,9,9,.86); -webkit-backdrop-filter:blur(14px) saturate(1.2); backdrop-filter:blur(14px) saturate(1.2);
+    border-bottom:1px solid rgba(238,234,226,.08); transition:background-color .3s ease, border-color .3s ease, color .3s ease, transform .35s cubic-bezier(.22,.8,.28,1); }
+  .top.mn-hdr, .top.mn-hdr a, .top.mn-hdr button{ color:#EEEAE2 !important; }
+  .top.mn-hdr.mn-light{ background:rgba(238,234,226,.9); border-bottom-color:rgba(9,9,9,.08); }
+  .top.mn-hdr.mn-light, .top.mn-hdr.mn-light a, .top.mn-hdr.mn-light button{ color:#090909 !important; }
+  /* зона нажатия ≥44px без изменения вида */
+  .top.mn-hdr > a, .top.mn-hdr nav > .m{ display:inline-flex; align-items:center; min-height:44px; }
+
+  /* ---------- док ---------- */
+  .mn-dock{ display:flex; position:fixed; left:14px; right:14px; bottom:calc(10px + env(safe-area-inset-bottom)); z-index:79; height:60px; max-width:560px; margin:0 auto;
+    background:rgba(19,19,21,.92); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border:1px solid rgba(243,241,236,.08); border-radius:18px; box-shadow:0 8px 30px rgba(0,0,0,.35);
+    align-items:stretch; justify-content:space-between; font-family:Manrope, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  .mn-dock-btn{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; min-height:44px; margin:0; padding:0;
+    background:none; border:0; color:rgba(243,241,236,.6); font:inherit; font-size:11px; font-weight:600; letter-spacing:.02em; text-decoration:none;
+    cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  .mn-dock-btn svg{ width:20px; height:20px; display:block; }
+  .mn-dock-btn.is-active{ color:#c9a57f; }
+  .mn-dock-btn:focus-visible{ outline:2px solid rgba(201,165,127,.7); outline-offset:-5px; border-radius:14px; }
+  /* место под док в конце страницы */
+  body.mn-on{ padding-bottom:calc(84px + env(safe-area-inset-bottom)) !important; }
+
+  /* ---------- лист «Услуги» ---------- */
+  .mn-ov{ display:block; position:fixed; inset:0; z-index:77; background:rgba(6,6,7,.6); opacity:0; pointer-events:none; transition:opacity .35s ease; }
+  .mn-ov.is-open{ opacity:1; pointer-events:auto; }
+  .mn-sheet{ display:flex; flex-direction:column; position:fixed; left:0; right:0; bottom:0; z-index:78; max-height:86svh;
+    background:#131315; color:#f3f1ec; border-top:1px solid rgba(243,241,236,.14); border-radius:22px 22px 0 0;
+    transform:translateY(102%); transition:transform .45s cubic-bezier(.22,.8,.28,1); visibility:hidden;
+    padding-bottom:calc(80px + env(safe-area-inset-bottom)); font-family:Manrope, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  .mn-sheet.is-open{ transform:translateY(0); visibility:visible; }
+  .mn-sheet-handle{ width:36px; height:4px; border-radius:2px; background:rgba(243,241,236,.14); margin:10px auto 2px; flex-shrink:0; }
+  .mn-sheet-head{ padding:14px 24px 16px; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(243,241,236,.6); border-bottom:1px solid rgba(243,241,236,.08); }
+  .mn-sheet-body{ overflow-y:auto; padding:16px 24px 20px; -webkit-overflow-scrolling:touch; display:flex; flex-direction:column; gap:10px; }
+  .mn-card{ display:grid; grid-template-columns:1fr auto; gap:4px 14px; padding:17px 18px; border:1px solid rgba(243,241,236,.14); border-radius:16px;
+    background:rgba(243,241,236,.035); color:#f3f1ec; text-decoration:none; -webkit-tap-highlight-color:transparent; }
+  .mn-card.is-active{ border-color:rgba(201,165,127,.55); }
+  .mn-card b{ grid-column:1; font-size:17px; font-weight:700; letter-spacing:-.01em; line-height:1.25; }
+  .mn-card span{ grid-column:1; font-size:13px; line-height:1.5; color:rgba(243,241,236,.6); }
+  .mn-card em{ grid-column:1; font-style:normal; font-size:14px; font-weight:700; color:#c9a57f; margin-top:5px; }
+  .mn-card i{ grid-column:2; grid-row:1 / 4; align-self:center; font-style:normal; font-size:17px; color:rgba(243,241,236,.6); }
+  .mn-all{ display:flex; align-items:center; justify-content:space-between; min-height:48px; margin-top:6px; padding:0 2px; font-size:15px; font-weight:700;
+    color:#f3f1ec; text-decoration:none; border-bottom:1px solid rgba(243,241,236,.14); }
+  .mn-all i{ font-style:normal; color:#c9a57f; }
+}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){ .mn-sheet, .mn-ov, .top.mn-hdr{ transition:none; } }
