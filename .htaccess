@@ -1,0 +1,10 @@
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Старые адреса кейсов → новые (301)
+RewriteRule ^case-(pomazkov|enduro|ladoga|liana|liberman)\.html$ /cases/$1/ [R=301,L]
+# /cases/pomazkov → /cases/pomazkov/
+RewriteRule ^cases/([a-z]+)$ /cases/$1/ [R=301,L]
+</IfModule>
