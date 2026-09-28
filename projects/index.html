@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кейсы — TINA DIGITAL</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="canonical" href="https://tinadigital.ru/projects/">
+<meta name="description" content="Кейсы TINA DIGITAL: сайт пластического хирурга, производство в Китае, архитектурное бюро, аренда лодок на Ладоге, прокат эндуро, эвакуатор в Яндекс Директе. Стратегия, дизайн, код, SEO.">
+<meta property="og:title" content="Кейсы — TINA DIGITAL">
+<meta property="og:description" content="Разный бизнес. Разная логика. Разный визуальный язык.">
+<meta property="og:image" content="https://tinadigital.ru/assets/og/home.jpg">
+<meta property="og:url" content="https://tinadigital.ru/projects/">
+<link rel="stylesheet" href="../assets/fonts/manrope.css">
+<link rel="stylesheet" href="../assets/fonts/seo-extra.css">
+<link rel="stylesheet" href="../assets/legal/legal.css">
+<style>
+  @font-face{ font-family:'Manrope'; font-style:normal; font-weight:300; font-display:swap; src:url(../assets/fonts/Manrope-cyrillic.woff2) format('woff2'); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+  @font-face{ font-family:'Manrope'; font-style:normal; font-weight:300; font-display:swap; src:url(../assets/fonts/Manrope-latin.woff2) format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+  :root{
+    --ink:#090909; --ink-2:#141413; --ink-3:#1A1A18; --paper:#EEEAE2; --t:#EEEAE2;
+    --t-dim:rgba(238,234,226,.64); --t-faint:rgba(238,234,226,.36);
+    --d-dim:rgba(9,9,9,.64); --d-faint:rgba(9,9,9,.4);
+    --wine:#9E4F61; --wine-2:#8E4556; --bronze:#B29A78;
+    --ease:cubic-bezier(.22,.8,.28,1);
+    --pad:clamp(20px,4.45vw,88px);
+    --line:rgba(238,234,226,.16); --d-line:rgba(9,9,9,.16);
+  }
+  *{ box-sizing:border-box; }
+  html{ background:var(--ink); -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--ink); color:var(--t); font-family:Manrope,system-ui,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  img,video{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,p,figure,ul{ margin:0; }
+
+  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px var(--pad); font-size:13px; font-weight:700; letter-spacing:.12em; mix-blend-mode:difference; color:#fff; }
+  .top nav{ display:flex; gap:clamp(16px,2.2vw,32px); }
+  .top nav a{ color:#fff; font-weight:500; letter-spacing:.02em; font-size:13px; opacity:.72; transition:opacity .3s; }
+  .top nav .on, .top nav a:hover{ opacity:1; }
+  @media (max-width:760px){ .top nav > :not(.m){ display:none; } .top nav .m{ opacity:1; } }
+
+  .mono{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+  .serif{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; }
+  .label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); display:flex; flex-wrap:wrap; gap:8px 14px; margin:0 0 28px; }
+  .label b{ font-weight:400; color:var(--bronze); }
+  .wrap{ max-width:1500px; margin:0 auto; }
+
+  /* ---------- обложка: «КЕЙСЫ» из частиц ---------- */
+  .cover{ position:relative; min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; padding:120px var(--pad) 48px; overflow:hidden; background:radial-gradient(110% 80% at 70% 10%, #1d1a19 0%, var(--ink) 62%); }
+  .cover canvas{ position:absolute; inset:0; width:100%; height:100%; touch-action:pan-y; }
+  .cover .fallback{ position:absolute; left:var(--pad); right:var(--pad); top:26%; font-weight:800; text-transform:uppercase; letter-spacing:-.05em; line-height:.8; font-size:clamp(90px,21vw,380px); color:rgba(238,234,226,.9); }
+  .cover.live .fallback{ visibility:hidden; }
+  .cover-bottom{ position:relative; z-index:2; display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:clamp(20px,4vw,80px); align-items:end; pointer-events:none; }
+  .cover-bottom a{ pointer-events:auto; }
+  .cover .tag{ font-size:clamp(28px,3vw,52px); line-height:1.1; color:var(--bronze); }
+  .cover .lede{ margin-top:18px; max-width:560px; font-size:clamp(17px,1.4vw,21px); line-height:1.5; color:var(--t-dim); }
+  .stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; border-top:1px solid var(--line); padding-top:20px; }
+  .stats b{ display:block; font-size:clamp(34px,4vw,64px); line-height:.9; font-weight:600; letter-spacing:-.04em; }
+  .stats span{ display:block; margin-top:8px; color:var(--t-faint); }
+  .hint{ position:absolute; z-index:2; right:var(--pad); top:110px; color:var(--t-faint); }
+  @media (max-width:900px){ .cover-bottom{ grid-template-columns:1fr; } .hint{ display:none; } }
+
+  /* ---------- кейсы ---------- */
+  .cases{ padding:clamp(60px,8vw,120px) var(--pad) clamp(40px,6vw,90px); }
+  .case{ display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.35fr); gap:clamp(24px,4.5vw,90px); align-items:center; padding:clamp(40px,6vw,100px) 0; border-top:1px solid var(--line); cursor:none; }
+  .case:nth-child(even){ grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr); }
+  .case:nth-child(even) .meta{ order:2; }
+  .meta .n{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.14em; color:var(--bronze); }
+  .meta h2{ margin-top:18px; font-weight:600; text-transform:uppercase; letter-spacing:-.04em; line-height:.9; font-size:clamp(34px,4.2vw,80px); transition:color .5s var(--ease); }
+  .case:hover .meta h2{ color:#fff; }
+  .meta .niche{ margin-top:14px; color:var(--t-faint); }
+  .meta .line{ margin-top:clamp(18px,2.4vw,34px); font-size:clamp(24px,2.4vw,38px); line-height:1.15; color:var(--t-dim); max-width:18ch; }
+  .chips{ list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; margin-top:clamp(20px,2.4vw,32px); }
+  .chips li{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; padding:7px 11px; border:1px solid rgba(238,234,226,.18); border-radius:999px; color:var(--t-dim); }
+  .go{ display:inline-flex; gap:12px; margin-top:clamp(22px,2.6vw,36px); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-dim); border-bottom:1px solid var(--wine); padding-bottom:3px; transition:color .3s, gap .4s var(--ease); }
+  .case:hover .go{ color:var(--t); gap:18px; }
+
+  .shot{ position:relative; }
+  .browser{ border-radius:14px; overflow:hidden; background:#111113; box-shadow:0 60px 120px -30px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.06); transition:transform 1s var(--ease), box-shadow 1s var(--ease); }
+  .browser .bar{ height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; background:#1c1c1f; }
+  .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3a3e; flex:none; }
+  .browser .bar span{ margin:0 auto; font-size:12px; color:#8d8d93; background:#29292d; padding:4px 22px; border-radius:7px; transform:translateX(-24px); white-space:nowrap; }
+  .browser .scr{ position:relative; aspect-ratio:16/9.6; overflow:hidden; background:#000; }
+  .browser video, .browser img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 1.4s var(--ease), filter .8s var(--ease); filter:saturate(.85) brightness(.9); }
+  .case:hover .browser{ transform:translateY(-8px); box-shadow:0 80px 140px -30px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1); }
+  .case:hover .browser video, .case:hover .browser img{ transform:scale(1.025); filter:saturate(1.05) brightness(1); }
+  /* проявка кадра при появлении */
+  .shot{ clip-path:inset(12% 8% 12% 8% round 14px); transition:clip-path 1.3s var(--ease); }
+  .shot.shown{ clip-path:inset(0 0 0 0 round 14px); }
+  @media (max-width:900px){ .case, .case:nth-child(even){ grid-template-columns:1fr; cursor:auto; } .case:nth-child(even) .meta{ order:0; } .shot{ order:-1; } }
+  @media (max-width:600px){ .browser{ border-radius:9px; } .browser .bar{ height:26px; padding:0 10px; gap:5px; } .browser .bar i{ width:7px; height:7px; } .browser .bar span{ font-size:10px; padding:2px 12px; transform:none; } }
+
+  /* курсор «Смотреть кейс» */
+  .cur{ position:fixed; z-index:60; left:0; top:0; width:112px; height:112px; margin:-56px 0 0 -56px; border-radius:50%; background:var(--wine); color:var(--t); display:grid; place-items:center; text-align:center; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; line-height:1.4; pointer-events:none; transform:scale(0); transition:transform .45s var(--ease); }
+  .cur.on{ transform:scale(1); }
+  @media (hover:none), (max-width:900px){ .cur{ display:none; } }
+
+  /* ---------- другие работы ---------- */
+  .more{ background:var(--paper); color:#090909; padding:clamp(80px,10vw,150px) var(--pad); }
+  .more .label{ color:var(--d-faint); }
+  .more h2{ font-weight:600; text-transform:uppercase; letter-spacing:-.035em; line-height:.95; font-size:clamp(34px,4.6vw,78px); }
+  .more h2 em{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; text-transform:none; color:var(--wine); }
+  .grid5{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(14px,2vw,28px); margin-top:clamp(40px,6vw,80px); }
+  .work{ grid-column:span 4; }
+  .work:nth-child(1){ grid-column:span 7; } .work:nth-child(2){ grid-column:span 5; margin-top:clamp(0px,6vw,90px); }
+  .work .ph{ position:relative; overflow:hidden; border-radius:4px; background:#d9d4ca; aspect-ratio:16/10; }
+  .work .ph img{ width:100%; height:100%; object-fit:cover; transition:transform 1.4s var(--ease); }
+  .work:hover .ph img{ transform:scale(1.04); }
+  .work .cap{ display:flex; justify-content:space-between; gap:12px; margin-top:12px; color:var(--d-dim); }
+  .work .cap b{ font-weight:400; color:#090909; }
+  @media (max-width:760px){ .grid5 > .work{ grid-column:1 / -1 !important; margin-top:0 !important; } }
+
+  /* ---------- финал ---------- */
+  .final{ padding:clamp(90px,12vw,180px) var(--pad); }
+  .final h2{ font-weight:600; text-transform:uppercase; letter-spacing:-.045em; line-height:.9; font-size:clamp(46px,8vw,146px); }
+  .final h2 em{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; text-transform:none; color:var(--bronze); }
+  .final .row{ display:flex; flex-wrap:wrap; gap:14px 26px; align-items:center; margin-top:clamp(36px,5vw,60px); }
+  .cta{ display:inline-flex; align-items:center; gap:20px; padding:24px 34px; background:var(--wine); color:var(--t); font-size:14px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:background .3s; }
+  .cta:hover{ background:var(--wine-2); }
+  .link{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-dim); border-bottom:1px solid var(--wine); padding-bottom:3px; }
+  .foot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px 30px; padding:30px var(--pad) 40px; font-size:13px; color:var(--t-faint); border-top:1px solid var(--line); }
+  .foot .links{ display:flex; flex-wrap:wrap; gap:10px 28px; }
+
+  .rv{ opacity:0; transform:translateY(18px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+  .rv.shown{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .rv{ opacity:1; transform:none; transition:none; } .shot{ clip-path:none; } }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Кейсы TINA DIGITAL","url":"https://tinadigital.ru/projects/","hasPart":[{"@type":"CreativeWork","name":"Philipp Pomazkov — сайт пластического хирурга","url":"https://tinadigital.ru/case-pomazkov.html"},{"@type":"CreativeWork","name":"Liana Gini — производство в Китае","url":"https://tinadigital.ru/case-liana.html"},{"@type":"CreativeWork","name":"Liberman Studio — архитектор и дизайнер интерьеров","url":"https://tinadigital.ru/case-liberman.html"},{"@type":"CreativeWork","name":"Лодки на Ладоге — аренда лодок для рыбалки","url":"https://tinadigital.ru/case-ladoga.html"},{"@type":"CreativeWork","name":"Enduro Energy — прокат эндуро-мотоциклов","url":"https://tinadigital.ru/case-enduro.html"},{"@type":"CreativeWork","name":"ВС-Логистика — эвакуатор, Яндекс Директ","url":"https://tinadigital.ru/direct/#case"}],"provider":{"@id":"https://tinadigital.ru/#studio"}}</script>
+</head>
+<body>
+
+<header class="top">
+  <a href="../">TINA DIGITAL</a>
+  <nav><a class="on" href="./">Проекты</a><a href="../turnkey/">Сайты под ключ</a><a href="../seo-geo/">SEO + GEO</a><a href="../direct/">Яндекс Директ</a><a class="m" href="https://t.me/belovachristina" target="_blank" rel="noopener">Обсудить проект</a></nav>
+</header>
+
+<main>
+
+<section class="cover" id="cover">
+  <div class="fallback" aria-hidden="true">Кейсы</div>
+  <canvas id="word" aria-hidden="true"></canvas>
+  <span class="hint mono">наведите курсор</span>
+  <div class="cover-bottom">
+    <div>
+      <h1 class="label" style="margin:0 0 18px"><b>01</b> / проекты TINA DIGITAL</h1>
+      <p class="serif tag">Разный бизнес. Разная логика. Разный визуальный язык.</p>
+      <p class="lede">Каждый проект начинается не&nbsp;с&nbsp;визуала, а&nbsp;с&nbsp;бизнеса: что продаём, кому, что мешает купить. Дальше — структура, дизайн, код и&nbsp;поисковая база в&nbsp;одних руках.</p>
+    </div>
+    <div class="stats">
+      <div><b>06</b><span class="mono">кейсов</span></div>
+      <div><b>11</b><span class="mono">проектов</span></div>
+      <div><b>01</b><span class="mono">руки — от&nbsp;стратегии до&nbsp;кода</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cases" id="cases">
+  <div class="wrap">
+
+    <a class="case" href="../case-pomazkov.html">
+      <div class="meta rv">
+        <span class="n">01 / medical</span>
+        <h2>Philipp Pomazkov</h2>
+        <p class="niche mono">Пластический хирург · Санкт-Петербург</p>
+        <p class="serif line">Хирурга выбирают не&nbsp;по&nbsp;прайсу.</p>
+        <ul class="chips"><li>исследование</li><li>стратегия</li><li>UX</li><li>дизайн</li><li>код</li></ul>
+        <span class="go">Смотреть кейс <span>→</span></span>
+      </div>
+      <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
+        <div class="scr"><video src="../assets/pomazkov/v-hero-d.mp4" poster="../assets/pomazkov/v-hero-d.jpg" muted loop playsinline preload="none"></video></div></div></div>
+    </a>
+
+    <a class="case" href="../case-liana.html">
+      <div class="meta rv">
+        <span class="n">02 / b2b</span>
+        <h2>Liana Gini</h2>
+        <p class="niche mono">Производство в&nbsp;Китае</p>
+        <p class="serif line">Сложная <span style="white-space:nowrap">B2B‑услуга</span> как понятная история продажи.</p>
+        <ul class="chips"><li>боли</li><li>УТП</li><li>структура</li><li>дизайн</li><li>mobile</li></ul>
+        <span class="go">Смотреть кейс <span>→</span></span>
+      </div>
+      <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>lianagini.ru</span></div>
+        <div class="scr"><video src="../assets/turnkey/liana-hero.mp4" poster="../assets/turnkey/liana-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
+    </a>
+
+    <a class="case" href="../case-liberman.html">
+      <div class="meta rv">
+        <span class="n">03 / architecture</span>
+        <h2>Liberman Studio</h2>
+        <p class="niche mono">Архитектор и&nbsp;дизайнер интерьеров</p>
+        <p class="serif line">Архитектор, а&nbsp;не&nbsp;ещё один дизайнер.</p>
+        <ul class="chips"><li>анализ</li><li>позиционирование</li><li>воронка</li><li>дизайн</li><li>код</li></ul>
+        <span class="go">Смотреть кейс <span>→</span></span>
+      </div>
+      <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru</span></div>
+        <div class="scr"><video src="../assets/liberman/v-hero-d.mp4" poster="../assets/liberman/v-hero-d.jpg" muted loop playsinline preload="none"></video></div></div></div>
+    </a>
+
+    <a class="case" href="../case-ladoga.html">
+      <div class="meta rv">
+        <span class="n">04 / local</span>
+        <h2>Лодки на&nbsp;Ладоге</h2>
+        <p class="niche mono">Аренда лодок для&nbsp;рыбалки · Назия</p>
+        <p class="serif line">Рыбалка на&nbsp;Ладоге — без&nbsp;ожидания и&nbsp;залога.</p>
+        <ul class="chips"><li>УТП</li><li>воронка</li><li>бронь онлайн</li><li>AI-визуал</li><li>SEO</li></ul>
+        <span class="go">Смотреть кейс <span>→</span></span>
+      </div>
+      <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
+        <div class="scr"><video src="../assets/ladoga/v-hero-d.mp4" poster="../assets/ladoga/v-hero-d.jpg" muted loop playsinline preload="none"></video></div></div></div>
+    </a>
+
+    <a class="case" href="../case-enduro.html">
+      <div class="meta rv">
+        <span class="n">05 / rental</span>
+        <h2>Enduro Energy</h2>
+        <p class="niche mono">Прокат эндуро-мотоциклов</p>
+        <p class="serif line">94,7% визитов из&nbsp;поиска — без&nbsp;рекламы.</p>
+        <ul class="chips"><li>калькулятор</li><li>interaction</li><li>код</li><li>SEO</li></ul>
+        <span class="go">Смотреть кейс <span>→</span></span>
+      </div>
+      <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru</span></div>
+        <div class="scr"><video src="../assets/turnkey/enduro-hero.mp4" poster="../assets/turnkey/enduro-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
+    </a>
+
+    <a class="case" href="../direct/#case">
+      <div class="meta rv">
+        <span class="n">06 / Яндекс Директ</span>
+        <h2>ВС‑Логистика</h2>
+        <p class="niche mono">Эвакуатор · Санкт-Петербург</p>
+        <p class="serif line">Эвакуатор выбирают за&nbsp;минуту.</p>
+        <ul class="chips"><li>спрос</li><li>посадочные</li><li>кампании</li><li>звонок в&nbsp;2&nbsp;касания</li></ul>
+        <span class="go">Смотреть кейс <span>→</span></span>
+      </div>
+      <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>вс-логистика</span></div>
+        <div class="scr"><video src="../assets/direct/vs-d-hero.mp4" poster="../assets/direct/vs-d-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
+    </a>
+
+  </div>
+</section>
+
+<section class="more">
+  <div class="wrap">
+    <p class="label"><b>07</b> / другие работы</p>
+    <h2 class="rv">Ещё проекты — <em>разные ниши, один подход</em></h2>
+    <div class="grid5">
+      <figure class="work rv"><div class="ph"><img src="../assets/cube/back-3-noir-full.jpg" alt="NOIR — сайт мехового ателье" loading="lazy"></div><figcaption class="cap mono"><b>NOIR</b><span>fur atelier website</span></figcaption></figure>
+      <figure class="work rv"><div class="ph"><img src="../assets/cube/back-7-tyaga-hero.jpg" alt="Tyaga — прокат внедорожной техники" loading="lazy" style="object-position:65% center"></div><figcaption class="cap mono"><b>Tyaga</b><span>offroad rental website</span></figcaption></figure>
+      <figure class="work rv"><div class="ph"><img src="../assets/cube/right-6-arapov-bio.jpg" alt="Timofey Arapov — персональный сайт" loading="lazy"></div><figcaption class="cap mono"><b>Timofey Arapov</b><span>personal website</span></figcaption></figure>
+      <figure class="work rv"><div class="ph"><img src="../assets/cube/right-3-jewelry.jpg" alt="Custom Jewelry — лендинг" loading="lazy"></div><figcaption class="cap mono"><b>Custom Jewelry</b><span>landing page</span></figcaption></figure>
+      <figure class="work rv"><div class="ph"><img src="../assets/cube/back-4-unikate.jpg" alt="UniKate — лендинг" loading="lazy"></div><figcaption class="cap mono"><b>UniKate</b><span>landing page</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <p class="label"><b>08</b> / следующий проект</p>
+    <h2 class="rv">Расскажите, что нужно <em>продать.</em></h2>
+    <div class="row rv">
+      <a class="cta" href="https://t.me/belovachristina" target="_blank" rel="noopener">Обсудить проект <span>→</span></a>
+      <a class="link" href="../turnkey/">Сайты под ключ</a>
+      <a class="link" href="../seo-geo/">SEO + GEO</a>
+      <a class="link" href="../direct/">Яндекс Директ</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../privacy/">Политика конфиденциальности</a><a href="../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
+  <span class="mono">Кейсы</span>
+</footer>
+
+<div class="cur" id="cur" aria-hidden="true">Смотреть<br>кейс</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var small = innerWidth < 760;
+
+  /* ---------- «КЕЙСЫ» из частиц: слово собирается, дышит, разлетается от курсора, растворяется при прокрутке ---------- */
+  (function(){
+    var cv = document.getElementById('word'), cover = document.getElementById('cover');
+    if (!cv) return;
+    var ctx = cv.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2), W, H, n = 0, hx, hy, x, y, vx, vy, ph, grp;
+    var mouse = { x:-1e4, y:-1e4 }, prog = 0, progS = 0, t0 = 0, running = false, raf = 0;
+    function build(){
+      var r = cv.getBoundingClientRect(); if (!r.width) return; W = r.width; H = r.height;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var oc = document.createElement('canvas'), step = small ? 3 : 4; oc.width = Math.ceil(W / step); oc.height = Math.ceil(H / step);
+      var o = oc.getContext('2d'), fs = Math.min(W * (small ? .205 : .22), H * .42) / step;
+      o.fillStyle = '#fff'; o.font = '800 ' + fs + 'px Manrope, sans-serif'; o.textBaseline = 'alphabetic';
+      var word = 'КЕЙСЫ', tw = o.measureText(word).width, px0 = small ? oc.width * .05 : (oc.width - tw) * .08, py0 = oc.height * (small ? .44 : .5);
+      o.save(); o.translate(px0, py0); o.scale(1, 1); o.fillText(word, 0, 0); o.restore();
+      var d = o.getImageData(0, 0, oc.width, oc.height).data, P = [];
+      for (var j = 0; j < oc.height; j++) for (var i = 0; i < oc.width; i++){ if (d[(j * oc.width + i) * 4 + 3] > 128) P.push(i * step + Math.random() * step, j * step + Math.random() * step); }
+      var max = small ? 5000 : 12000; n = Math.min(P.length / 2, max) | 0;
+      hx = new Float32Array(n); hy = new Float32Array(n); x = new Float32Array(n); y = new Float32Array(n); vx = new Float32Array(n); vy = new Float32Array(n); ph = new Float32Array(n); grp = new Uint8Array(n);
+      for (var q = 0; q < n; q++){
+        var k = (Math.random() * (P.length / 2)) | 0; hx[q] = P[k * 2]; hy[q] = P[k * 2 + 1];
+        ph[q] = Math.random() * 6.283; grp[q] = Math.random() < .035 ? 2 : Math.random() < .4 ? 1 : 0;
+        x[q] = Math.random() * W; y[q] = H + Math.random() * H * .4; vx[q] = vy[q] = 0;
+      }
+      t0 = performance.now(); cover.classList.add('live');
+      if (reduce){ for (var z = 0; z < n; z++){ x[z] = hx[z]; y[z] = hy[z]; } draw(0, 0); }
+    }
+    function draw(t, m){
+      ctx.clearRect(0, 0, W, H);
+      var cols = ['rgba(238,234,226,.55)', 'rgba(247,245,241,.95)', '#c0707f'];
+      for (var g = 0; g < 3; g++){
+        ctx.fillStyle = cols[g];
+        for (var q = 0; q < n; q++){ if (grp[q] !== g) continue; var s = g === 2 ? 2.2 : 1.35; ctx.fillRect(x[q], y[q], s, s); }
+      }
+    }
+    function frame(now){
+      var t = (now - t0) / 1000, kk = .05 * Math.min(1, .25 + t / 1.4), R = small ? 70 : 120, R2 = R * R;
+      progS += (prog - progS) * .08; var mm = progS * progS;
+      for (var q = 0; q < n; q++){
+        var tx = hx[q] + Math.sin(t * .8 + ph[q]) * 1.6, ty = hy[q] + Math.cos(t * .6 + ph[q] * 1.3) * 1.6;
+        if (mm > 0){ tx += Math.sin(ph[q] * 3) * mm * W * .25; ty -= mm * (H * .5 + ph[q] * 40); }
+        var dx = x[q] - mouse.x, dy = y[q] - mouse.y, dd = dx * dx + dy * dy;
+        if (dd < R2){ var dl = Math.sqrt(dd) + .01, f = (1 - dl / R) * 2.2; vx[q] += dx / dl * f; vy[q] += dy / dl * f; }
+        vx[q] += (tx - x[q]) * kk; vy[q] += (ty - y[q]) * kk; vx[q] *= .86; vy[q] *= .86; x[q] += vx[q]; y[q] += vy[q];
+      }
+      draw(t, mm);
+      if (running) raf = requestAnimationFrame(frame);
+    }
+    function start(){ if (running || reduce) return; running = true; raf = requestAnimationFrame(frame); }
+    function stop(){ running = false; cancelAnimationFrame(raf); }
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(function(){ build(); new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? start() : stop(); }); }).observe(cv); });
+    var rt; addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(build, 200); });
+    function setM(e){ var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; }
+    cover.addEventListener('pointermove', setM);
+    cover.addEventListener('pointerdown', function(e){ setM(e); if (e.pointerType !== 'mouse') setTimeout(function(){ mouse.x = mouse.y = -1e4; }, 450); });
+    cover.addEventListener('pointerleave', function(){ mouse.x = mouse.y = -1e4; });
+    addEventListener('scroll', function(){ var r = cover.getBoundingClientRect(); prog = Math.max(0, Math.min(1, -r.top / (r.height * .85))); }, { passive:true });
+  })();
+
+  /* ---------- появление: текст — подъём, кадры — проявка ---------- */
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px -10% 0px' });
+  document.querySelectorAll('.rv, .shot').forEach(function(el){ io.observe(el); });
+
+  /* ---------- видео: на компьютере оживают при наведении, на телефоне — когда видны ---------- */
+  var hover = matchMedia('(hover:hover) and (min-width:901px)').matches;
+  document.querySelectorAll('.case').forEach(function(c){
+    var v = c.querySelector('video'); if (!v) return; v.muted = true;
+    function load(){ if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } }
+    function play(){ load(); var p = v.play(); if (p) p.catch(function(){}); }
+    v.addEventListener('canplay', function(){ if (v._want && v.paused) v.play().catch(function(){}); });
+    if (hover){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) load(); }); }, { rootMargin:'50% 0px' }).observe(c);
+      c.addEventListener('mouseenter', function(){ v._want = true; play(); });
+      c.addEventListener('mouseleave', function(){ v._want = false; v.pause(); });
+    } else {
+      new IntersectionObserver(function(es){ es.forEach(function(e){ v._want = e.isIntersecting; if (e.isIntersecting) play(); else v.pause(); }); }, { threshold:.35 }).observe(c);
+    }
+  });
+
+  /* ---------- курсор «Смотреть кейс» ---------- */
+  var cur = document.getElementById('cur'), cx = 0, cy = 0, tx = 0, ty = 0, on = false;
+  if (hover && !reduce){
+    addEventListener('mousemove', function(e){ tx = e.clientX; ty = e.clientY; });
+    document.querySelectorAll('.case').forEach(function(c){
+      c.addEventListener('mouseenter', function(){ on = true; cur.classList.add('on'); });
+      c.addEventListener('mouseleave', function(){ on = false; cur.classList.remove('on'); });
+    });
+    (function loop(){ cx += (tx - cx) * .18; cy += (ty - cy) * .18; cur.style.transform = 'translate(' + cx + 'px,' + cy + 'px) scale(' + (on ? 1 : 0) + ')'; requestAnimationFrame(loop); })();
+    cur.style.transition = 'none';
+  }
+})();
+</script>
+<script src="../assets/legal/legal.js"></script>
+</body>
+</html>
