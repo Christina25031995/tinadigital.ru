@@ -6,9 +6,9 @@
 <title>Лодки на Ладоге — кейс TINA DIGITAL</title>
 <link rel="canonical" href="https://tinadigital.ru/case-ladoga.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<meta name="description" content="Кейс: сайт проката моторных лодок на Ладоге. Структура по реальным поисковым сценариям, UX выбора лодки, бронирование в три шага, локальное SEO. TINA DIGITAL.">
+<meta name="description" content="Кейс: сайт проката лодок на Ладоге уровня премиум‑сегмента. Маркетинговый анализ, УТП, воронка AIDA, онлайн‑бронирование, SEO и визуал из снимков клиента, собранный нейросетью. TINA DIGITAL.">
 <meta property="og:title" content="Лодки на Ладоге — кейс TINA DIGITAL">
-<meta property="og:description" content="Сайт проката лодок: цена, эхолот, без залога, бронь и маршрут до пирса — в ответ на реальные вопросы из поиска.">
+<meta property="og:description" content="Сайт уровня премиум‑сегмента для проката лодок: УТП «без ожидания и залога», бронь без звонков, SEO без рекламы.">
 <meta property="og:image" content="https://tinadigital.ru/assets/ladoga/v-hero-d.jpg">
 <meta property="og:url" content="https://tinadigital.ru/case-ladoga.html">
 <meta property="og:type" content="article">
@@ -204,12 +204,101 @@
   .next b{ font-family:var(--serif); font-weight:400; font-size:clamp(46px,9vw,150px); line-height:.95; letter-spacing:-.03em; }
   .foot{ background:var(--ink); padding:30px var(--pad) 40px; }
 
+  /* ---------- v2: обложка с видео Instagram ---------- */
+  .cover{ min-height:auto; padding-top:clamp(120px,14vw,170px); }
+  .cover h1{ font-size:clamp(56px,8.4vw,168px); }
+  .cover .tag{ font-style:normal; font-size:clamp(26px,2.8vw,46px); }
+  .cover-grid{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:clamp(28px,4vw,70px); align-items:end; }
+  .cover .task{ margin:clamp(24px,3vw,40px) 0 0; padding:18px 22px; border:1px solid rgba(250,249,247,.16); border-radius:12px; background:rgba(250,249,247,.04); font-size:clamp(16px,1.35vw,20px); line-height:1.45; color:rgba(250,249,247,.86); max-width:640px; }
+  .cover .lede{ margin-top:22px; max-width:640px; color:rgba(250,249,247,.8); }
+  .insta{ margin:0; }
+  .insta video{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:14px; box-shadow:0 60px 120px -40px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06); background:#0c1519; }
+  @media (max-width: 900px){ .cover-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- v2: вводные ---------- */
+  .intro-rows{ display:grid; gap:12px; margin-top:34px; }
+  .intro-rows p{ margin:0; padding:20px 24px; border-radius:12px; border:1px solid rgba(18,24,28,.14); background:rgba(255,255,255,.5); font-size:clamp(17px,1.5vw,22px); line-height:1.4; }
+  .intro-rows p.hot{ border-color:rgba(198,70,58,.45); }
+  .ask{ margin:clamp(40px,5vw,70px) 0 0; padding:clamp(22px,2.6vw,34px); border-radius:14px; border:1px solid var(--boat); background:#fff; font-family:var(--serif); font-size:clamp(22px,2.4vw,36px); line-height:1.25; color:var(--t-dark); }
+  .ask b{ font-weight:400; color:var(--boat); }
+
+  /* ---------- v2: что сделано ---------- */
+  .did{ list-style:none; margin:34px 0 0; padding:0; counter-reset:d; }
+  .did li{ counter-increment:d; display:grid; grid-template-columns:64px 1fr; align-items:baseline; padding:18px 0; border-top:1px solid rgba(250,249,247,.16); font-size:clamp(17px,1.5vw,22px); line-height:1.4; color:rgba(250,249,247,.9); }
+  .did li::before{ content:counter(d, decimal-leading-zero); font-family:var(--serif); font-size:clamp(20px,1.8vw,26px); color:var(--boat-2); }
+  .utp{ margin-top:clamp(50px,7vw,100px); padding:clamp(24px,3vw,44px); border-radius:16px; border:1px solid rgba(224,112,95,.55); background:rgba(198,70,58,.07); }
+  .utp small{ display:block; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--boat-2); margin-bottom:12px; }
+  .utp p{ margin:0; font-family:var(--serif); font-size:clamp(26px,3.4vw,54px); line-height:1.12; letter-spacing:-.01em; }
+  .utp p span{ display:block; margin-top:14px; font-size:clamp(18px,1.6vw,24px); color:rgba(250,249,247,.72); }
+
+  /* ---------- v2: воронка ---------- */
+  .funnel{ list-style:none; margin:clamp(40px,5vw,70px) auto 0; padding:0; max-width:1180px; display:grid; gap:14px; }
+  .funnel li{ display:grid; grid-template-columns:150px 1fr; gap:20px; align-items:baseline; padding:22px 26px; border:1px solid rgba(250,249,247,.12); border-radius:10px; background:rgba(250,249,247,.03); }
+  .funnel li:nth-child(2){ margin:0 4%; } .funnel li:nth-child(3){ margin:0 8%; } .funnel li.duo{ margin:0 12%; grid-template-columns:1fr 1fr; padding:0; border:0; background:none; gap:14px; }
+  .funnel li:nth-child(5){ margin:0 17%; border-color:rgba(224,112,95,.6); background:rgba(198,70,58,.08); }
+  .funnel .st{ font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--boat-2); }
+  .funnel b{ display:block; font-family:var(--serif); font-weight:400; font-size:clamp(20px,1.9vw,28px); line-height:1.2; }
+  .funnel span.d{ display:block; margin-top:4px; font-size:15px; color:var(--l-dim); }
+  .funnel .duo > div{ padding:22px 26px; border:1px solid rgba(250,249,247,.12); border-radius:10px; background:rgba(250,249,247,.03); }
+  .funnel .duo .st{ display:block; margin-bottom:8px; }
+  @media (max-width: 760px){ .funnel li, .funnel li:nth-child(n){ margin:0; grid-template-columns:1fr; gap:8px; } .funnel li.duo{ grid-template-columns:1fr; } }
+
+  /* ---------- v2: боли ---------- */
+  .pains{ list-style:none; margin:34px 0 0; padding:0; display:grid; gap:10px; }
+  .pains li{ padding:18px 22px; border-radius:12px; border:1px solid rgba(18,24,28,.12); background:rgba(255,255,255,.55); }
+  .pains li:last-child{ border-color:rgba(198,70,58,.5); }
+  .pains s{ text-decoration:none; display:block; font-size:15px; color:var(--t-dim); }
+  .pains b{ display:block; margin-top:4px; font-family:var(--serif); font-weight:400; font-size:clamp(20px,1.8vw,27px); line-height:1.25; }
+  .pains b::before{ content:'→ '; color:var(--boat); }
+
+  /* ---------- v2: до / после ---------- */
+  .pairs{ display:grid; gap:clamp(50px,6vw,90px); margin-top:clamp(50px,7vw,100px); }
+  .ba{ margin:0; }
+  .ba-stage{ display:grid; gap:10px; }
+  .ba-a, .ba-b{ position:relative; overflow:hidden; border-radius:6px; aspect-ratio:var(--ar,4/3); background:#111; }
+  .ba-a img, .ba-b img{ width:100%; height:100%; object-fit:cover; }
+  .ba-a img{ object-position:var(--pos,50% 50%); }
+  .ba-t{ position:absolute; top:14px; display:inline-flex; gap:8px; align-items:center; padding:5px 10px; border-radius:6px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#fff; background:rgba(12,21,25,.55); border:1px solid rgba(255,255,255,.4); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); z-index:2; }
+  .ba-a .ba-t{ left:14px; } .ba-b .ba-t{ right:14px; }
+  .ba-t i{ font-style:normal; padding:1px 5px; border-radius:4px; background:rgba(224,112,95,.9); color:#fff; letter-spacing:.1em; }
+  .ba-range{ display:none; }
+  .ba figcaption{ margin-top:14px; font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); }
+  .ba-hint{ display:none; }
+  @media (min-width: 901px){
+    .ba-stage{ display:block; position:relative; aspect-ratio:var(--ar,4/3); border-radius:8px; overflow:hidden; box-shadow:0 50px 100px -40px rgba(0,0,0,.7); --x:50%; }
+    .ba-a, .ba-b{ position:absolute; inset:0; aspect-ratio:auto; border-radius:0; }
+    .ba-b{ clip-path:inset(0 0 0 var(--x)); }
+    .ba-stage::after{ content:''; position:absolute; top:0; bottom:0; left:var(--x); width:2px; margin-left:-1px; background:#fff; box-shadow:0 0 12px rgba(0,0,0,.5); pointer-events:none; z-index:3; }
+    .ba-knob{ position:absolute; top:50%; left:var(--x); width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; background:#fff; z-index:4; pointer-events:none; display:grid; place-items:center; box-shadow:0 6px 20px rgba(0,0,0,.35); }
+    .ba-knob svg{ width:22px; height:22px; stroke:#12181c; fill:none; stroke-width:2; }
+    .ba-range{ display:block; position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:ew-resize; z-index:5; -webkit-appearance:none; appearance:none; }
+    .ba-hint{ display:inline; }
+  }
+  @media (max-width: 900px){ .ba-knob{ display:none; } }
+
+  /* ---------- v2: результат ---------- */
+  .res{ margin-top:clamp(40px,6vw,80px); border-top:1px solid rgba(250,249,247,.16); }
+  .res div{ display:flex; justify-content:space-between; align-items:baseline; gap:20px; padding:clamp(16px,2vw,26px) 0; border-bottom:1px solid rgba(250,249,247,.16); }
+  .res span{ font-size:clamp(15px,1.3vw,19px); color:var(--l-dim); }
+  .res b{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,6vw,96px); line-height:1; white-space:nowrap; letter-spacing:-.02em; }
+  .res b.up{ color:var(--boat-2); }
+
+  /* ---------- v2: итог ---------- */
+  .final{ position:relative; min-height:88vh; display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(90px,12vw,160px) var(--pad); overflow:hidden; background:var(--ink); }
+  .final > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55; }
+  .final::before{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(12,21,25,.2) 0%, rgba(12,21,25,.85) 78%); z-index:1; }
+  .final .wrap{ position:relative; z-index:2; width:100%; }
+  .final .ai-tag{ position:absolute; top:24px; right:var(--pad); z-index:2; }
+  .final .cta-box{ margin:26px 0 0; padding:20px 24px; max-width:720px; border-radius:12px; border:1px solid rgba(250,249,247,.2); background:rgba(12,21,25,.45); font-family:var(--serif); font-size:clamp(20px,2vw,28px); line-height:1.35; }
+  .final .cta{ display:inline-flex; align-items:center; gap:16px; margin-top:26px; font-size:17px; font-weight:600; color:var(--boat-2); text-decoration:none; }
+  .final .cta::before{ content:''; width:56px; height:2px; background:var(--boat-2); }
+
   /* ---------- появление ---------- */
   .hs{ opacity:0; transform:translateY(14px); animation:hsIn 1.3s var(--ease) forwards; }
   .hs1{ animation-delay:.15s; } .hs2{ animation-delay:.45s; } .hs3{ animation-delay:1.05s; } .hs4{ animation-delay:1.45s; }
   @keyframes hsIn{ to{ opacity:1; transform:none; } }
   .rv{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
-  .browser.rv, .phone.rv, .sheet.rv, .ai-grid .rv{ transform:none; transition:opacity .45s ease; }
+  .browser.rv, .phone.rv, .sheet.rv, .ai-grid .rv, .ba.rv{ transform:none; transition:opacity .45s ease; }
   .rv.in{ opacity:1; transform:none; }
   @media (prefers-reduced-motion: reduce){ .hs{ animation:none; opacity:1; transform:none; } .rv{ opacity:1; transform:none; transition:none; } }
 </style>
@@ -226,11 +315,20 @@
 <!-- 00 обложка -->
 <section class="cover">
   <div class="kicker hs hs1"><span>Кейс — 2026</span><span>Сайт локального бизнеса</span></div>
-  <h1 class="hs hs2"><span>Лодки</span><span>на&nbsp;Ладоге</span></h1>
-  <p class="tag hs hs3">рыбалка без&nbsp;ожидания и&nbsp;залога</p>
+  <div class="cover-grid">
+    <div>
+      <h1 class="hs hs2"><span>Лодки</span><span>на&nbsp;Ладоге</span></h1>
+      <p class="tag hs hs3">Сайт уровня премиум‑сегмента</p>
+      <p class="task hs hs3">Задача: сайт должен ощущаться как салон Range Rover, а&nbsp;не&nbsp;как доска объявлений.</p>
+      <p class="lede hs hs4">Пока конкуренты — Авито и&nbsp;таблица с&nbsp;ценами, здесь тихая роскошь: воздух, крупные кадры, спокойный тон. Клиент сразу понимает уровень.</p>
+    </div>
+    <figure class="insta hs hs4">
+      <video src="assets/ladoga/cover-inst.mp4" poster="assets/ladoga/cover-inst.jpg" muted loop playsinline preload="none" data-auto aria-label="Обложка кейса в Instagram"></video>
+    </figure>
+  </div>
   <div class="meta hs hs4">
     <div><small>Клиент</small>Прокат моторных лодок. Пирс в&nbsp;деревне Назия, Ладожское озеро</div>
-    <div><small>Роль</small>Структура, UX/UI, дизайн, разработка, SEO и&nbsp;локальный поиск</div>
+    <div><small>Роль</small>Маркетинговый анализ, УТП, дизайн в&nbsp;Figma, вёрстка, SEO</div>
     <div><small>Год</small>2026</div>
     <div><small>Сайт</small><a href="https://lodki-ladoga.ru" target="_blank" rel="noopener">lodki-ladoga.ru ↗</a></div>
   </div>
@@ -242,61 +340,60 @@
   </div>
 </section>
 
-<!-- 01 задача -->
+<!-- 01 вводные -->
 <section class="sec paper">
   <div class="wrap grid-2">
     <div class="c-5">
-      <p class="label"><b>01</b> задача</p>
-      <h2 class="h-l rv">Лодку ищут не&nbsp;по&nbsp;названию, а&nbsp;<em>по&nbsp;вопросам</em></h2>
+      <p class="label"><b>01</b> вводные</p>
+      <h2 class="h-l rv">Вводные: с&nbsp;чем пришёл <em>клиент</em></h2>
     </div>
     <div class="c-6 off-7">
-      <p class="lede rv">Человек, который собрался на&nbsp;рыбалку, ищет конкретное. Сайт должен был ответить на&nbsp;эти вопросы раньше, чем он&nbsp;возьмёт телефон, и&nbsp;довести до&nbsp;брони.</p>
-      <ol class="asks rv">
-        <li><div>Сколько стоит аренда?<span>цена за&nbsp;день — прямо в&nbsp;карточке лодки</span></div></li>
-        <li><div>Есть ли эхолот?<span>что входит в&nbsp;аренду без доплат</span></div></li>
-        <li><div>Нужен ли залог?<span>условия до&nbsp;звонка</span></div></li>
-        <li><div>Можно выйти на&nbsp;воду сегодня?<span>ближайший свободный выход</span></div></li>
-        <li><div>Как доехать до&nbsp;пирса?<span>маршрут в&nbsp;Яндекс Картах</span></div></li>
-      </ol>
+      <div class="intro-rows rv">
+        <p>Клиент пришёл с&nbsp;карточкой на&nbsp;Яндексе и&nbsp;профилем на&nbsp;Авито.</p>
+        <p class="hot">Без УТП. Без позиционирования. Без понимания, кто его клиент.</p>
+        <p>Просто: «есть лодки, звоните».</p>
+      </div>
     </div>
   </div>
   <div class="wrap mt">
-    <div class="grid-2">
-      <div class="c-5">
-        <p class="label"><b>до</b> сайта</p>
-        <p class="body rv">До&nbsp;сайта у&nbsp;проката была только карточка в&nbsp;Яндекс Картах: адрес, телефон, фотографии и&nbsp;витрина из&nbsp;двух лодок.</p>
-      </div>
-    </div>
-    <div class="browser rv" style="margin-top:clamp(24px,3vw,40px)"><div class="bar"><i></i><i></i><i></i><span>yandex.ru/maps · Лодки на&nbsp;Ладоге</span></div>
-      <img src="assets/ladoga/before-yandex.jpg" alt="Карточка «Лодки на Ладоге» в Яндекс Картах" loading="lazy" width="2000" height="1027">
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>yandex.ru/maps · Лодки на&nbsp;Ладоге</span></div>
+      <img src="assets/ladoga/before-yandex.jpg" alt="Карточка «Лодки на Ладоге» в Яндекс Картах — с чем пришёл клиент" loading="lazy" width="2000" height="1027">
     </div>
     <p class="cap">точка входа до&nbsp;сайта — карточка в&nbsp;Яндекс Картах</p>
+    <p class="ask rv"><b>Запрос:</b> клиентов нет — они сливаются после звонка и&nbsp;не&nbsp;доходят до&nbsp;брони.</p>
   </div>
 </section>
 
-<!-- 02 research -->
+<!-- 02 что было сделано -->
 <section class="sec dark">
   <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>02</b> research до&nbsp;дизайна</p>
-      <h2 class="h-xl rv">Сначала <em>путь,</em> потом экран</h2>
+    <div class="c-5">
+      <p class="label"><b>02</b> что было сделано</p>
+      <h2 class="h-xl rv">Что было <em>сделано</em></h2>
     </div>
-    <div class="c-5 off-7">
-      <p class="lede rv">До&nbsp;первого макета — wireframe: путь пользователя, иерархия блоков, уровни текста и&nbsp;отдельные правила для&nbsp;телефона.</p>
-      <div class="art-stats rv">
-        <div><b>9</b><span>блоков структуры: у&nbsp;каждого своя задача</span></div>
-        <div><b>10–15&nbsp;с</b><span>цель пути: отличие → сценарий → лодка → бронь</span></div>
-        <div><b>1</b><span>главное действие — «Забронировать»</span></div>
-      </div>
+    <div class="c-6 off-7">
+      <ol class="did rv">
+        <li>Провела маркетинговый анализ ниши и&nbsp;конкурентов</li>
+        <li>Нашла страхи аудитории — залог, опыт, доплаты</li>
+        <li>Собрала УТП и&nbsp;позиционирование с&nbsp;нуля</li>
+        <li>Спроектировала дизайн в&nbsp;Figma и&nbsp;сверстала сайт</li>
+        <li>Настроила SEO под&nbsp;живые поисковые запросы</li>
+      </ol>
     </div>
   </div>
-  <div class="wrap mt">
+  <div class="wrap utp rv">
+    <small>УТП</small>
+    <p>«Рыбалка на&nbsp;Ладоге — без&nbsp;ожидания и&nbsp;залога».<span>Закрывает все три страха с&nbsp;первой строки.</span></p>
+  </div>
+  <div class="wrap mt grid-2">
+    <div class="c-5">
+      <p class="label"><b>до&nbsp;дизайна</b> wireframe</p>
+      <p class="body rv">Перед макетом — путь пользователя и&nbsp;иерархия блоков. Цель, записанная в&nbsp;wireframe: за&nbsp;10–15 секунд показать отличие от&nbsp;обычного проката → сценарий → лодка → бронь.</p>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(24px,3vw,40px)">
     <figure class="sheet rv"><img src="assets/ladoga/wf-flow.jpg" alt="Wireframe: UX flow — путь пользователя от первого экрана до брони" loading="lazy" width="1920" height="1175"></figure>
     <p class="cap">wireframe · UX flow — путь пользователя</p>
-  </div>
-  <div class="wrap mt">
-    <p class="big-quote rv">«Цель flow: за&nbsp;10–15 секунд показать <em>отличие от&nbsp;обычного проката</em> → сценарий → лодка → бронь».</p>
-    <p class="quote-by">из&nbsp;wireframe проекта</p>
   </div>
   <div class="wrap mt wf-duo">
     <div>
@@ -310,145 +407,94 @@
       <div><figure class="sheet rv"><img src="assets/ladoga/wf-mobile.jpg" alt="Мобильная версия: порядок блоков и поведение" loading="lazy" width="1350" height="495"></figure><p class="cap">правила мобильной версии</p></div>
     </div>
   </div>
-  <div class="wrap mt">
-    <p class="label"><b>решения</b></p>
-    <div class="decisions">
-      <div class="rv"><b>Одно действие</b><span>«Забронировать» повторяется в&nbsp;первом экране, карточках лодок, шапке, закреплённой кнопке на&nbsp;телефоне и&nbsp;в&nbsp;финале.</span></div>
-      <div class="rv"><b>«Это про&nbsp;меня»</b><span>Сценарии аренды — чтобы человек узнал себя: рыбалка, компания друзей, прогулка вдвоём, первый раз на&nbsp;лодке.</span></div>
-      <div class="rv"><b>Возражения до&nbsp;брони</b><span>Залог, права, бензин, эхолот, место выдачи — ответы стоят перед формой, а&nbsp;не&nbsp;после звонка.</span></div>
-    </div>
-  </div>
 </section>
 
-<!-- 03 выбор лодки -->
-<section class="sec cream">
+<!-- 03 воронка -->
+<section class="sec lake">
   <div class="wrap grid-2">
     <div class="c-6">
-      <p class="label"><b>03</b> ux · выбор лодки</p>
-      <h2 class="h-l rv">Выбрать лодку <em class="nb">за&nbsp;10&nbsp;секунд</em></h2>
+      <p class="label"><b>03</b> воронка</p>
+      <h2 class="h-l rv">Выстроила <em>воронку продаж</em></h2>
     </div>
     <div class="c-5 off-7">
-      <p class="body rv">В&nbsp;парке две одинаковые лодки — сравнивать нечего, поэтому карточка отвечает сразу на&nbsp;всё: характеристики, цена за&nbsp;день и&nbsp;ближайший свободный выход. Кнопка брони — в&nbsp;той же строке.</p>
-      <div class="specs rv">
-        <div><small>Длина</small><b>5&nbsp;м</b></div>
-        <div><small>Экипаж</small><b>до&nbsp;4</b></div>
-        <div><small>Мотор</small><b>20&nbsp;л.с.</b></div>
-        <div><small>Корпус</small><b>Алюминий</b></div>
-        <div><small>Цена</small><b>от&nbsp;8&nbsp;500&nbsp;₽/день</b></div>
-      </div>
+      <p class="lede rv">Классическая воронка AIDA — на&nbsp;каждом этапе клиент теряется, если что‑то не&nbsp;докручено.</p>
     </div>
   </div>
+  <ol class="funnel rv">
+    <li><span class="st">Внимание</span><div><b>Клиент видит нас в&nbsp;поиске</b><span class="d">SEO под&nbsp;запрос + карточка на&nbsp;Яндекс Картах</span></div></li>
+    <li><span class="st">Интерес</span><div><b>УТП снимает страхи</b><span class="d">Без залога, без прав, всё включено</span></div></li>
+    <li><span class="st">Желание</span><div><b>Выбирает лодку и&nbsp;слот</b><span class="d">Фото, цена и&nbsp;доступность видны сразу</span></div></li>
+    <li class="duo">
+      <div><span class="st">Действие</span><b>Заявка в&nbsp;Telegram</b><span class="d">Один клик — без звонков</span></div>
+      <div><span class="st">Действие</span><b>Онлайн‑бронирование</b><span class="d">Без звонков и&nbsp;ночных ожиданий</span></div>
+    </li>
+    <li><span class="st">Сделка</span><div><b>Бронь и&nbsp;выход на&nbsp;воду</b><span class="d">В&nbsp;день обращения</span></div></li>
+  </ol>
   <div class="wrap mt">
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · лодки</span></div>
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · выбор лодки</span></div>
       <video src="assets/ladoga/v-fleet-d.mp4" poster="assets/ladoga/v-fleet-d.jpg" muted loop playsinline preload="none" data-auto></video>
     </div>
+    <p class="cap">желание: фото, цена и&nbsp;ближайший выход — в&nbsp;карточке лодки</p>
   </div>
 </section>
 
-<!-- 04 что входит -->
-<section class="sec dark">
+<!-- 04 боли -->
+<section class="sec paper">
   <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>04</b> ux · состав аренды</p>
-      <h2 class="h-l rv">Всё уже на&nbsp;борту — <em>без&nbsp;доплат</em></h2>
+    <div class="c-5">
+      <p class="label"><b>04</b> боли клиента</p>
+      <h2 class="h-l rv">Закрыла все боли <em>клиента</em></h2>
+      <p class="body rv" style="margin-top:28px">Под&nbsp;каждый страх клиента — готовый ответ прямо на&nbsp;сайте.</p>
     </div>
-    <div class="c-5 off-7">
-      <p class="body rv">В&nbsp;wireframe задача блока записана как «снять страх скрытых доплат». Поэтому шесть пунктов, которые обычно выясняют по&nbsp;телефону, собраны в&nbsp;одну сетку.</p>
+    <div class="c-6 off-7">
+      <ul class="pains rv">
+        <li><s>Нет нормальной удочки и&nbsp;снастей</s><b>дадим</b></li>
+        <li><s>Не&nbsp;знаю куда плыть, волнуюсь</s><b>эхолот и&nbsp;точки клёва отмечены на&nbsp;карте</b></li>
+        <li><s>Кинут с&nbsp;бензином</s><b>включён в&nbsp;стоимость</b></li>
+        <li><s>Не&nbsp;хочу сразу домой после рыбалки</s><b>есть база отдыха</b></li>
+        <li><s>Не&nbsp;хочу везти рыбу домой</s><b>сварим уху на&nbsp;месте</b></li>
+      </ul>
     </div>
   </div>
   <div class="wrap mt">
     <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · включено</span></div>
-      <img src="assets/ladoga/d-included.jpg" alt="Блок «Всё необходимое уже на борту»" loading="lazy" width="2160" height="1461">
-    </div>
-    <div class="ann">
-      <div class="rv"><b>эхолот</b>Уже установлен и&nbsp;настроен — не&nbsp;нужно арендовать или покупать отдельно.</div>
-      <div class="rv"><b>бензин</b>20&nbsp;литров включены в&nbsp;стоимость — без доплат после поездки.</div>
-      <div class="rv"><b>без залога</b>Никакой залоговой суммы при&nbsp;выдаче лодки.</div>
+      <img src="assets/ladoga/d-included.jpg" alt="Блок «Всё необходимое уже на борту — без доплат на месте»" loading="lazy" width="2160" height="1461">
     </div>
   </div>
 </section>
 
-<!-- 05 сценарии + вопросы -->
-<section class="sec paper">
+<!-- 05 баня и снасти -->
+<section class="sec dark">
   <div class="wrap grid-2">
-    <div class="c-5">
-      <p class="label"><b>05</b> ux · сценарии</p>
-      <h2 class="h-l rv">Один прокат — <em>четыре повода</em></h2>
-      <p class="body rv" style="margin-top:28px">Рыбалка, компания до&nbsp;четырёх человек, прогулка вдвоём до&nbsp;крепости Орешек или первый раз за&nbsp;штурвалом. В&nbsp;каждой карточке — две короткие причины, почему это просто: «эхолот уже на&nbsp;борту», «права не&nbsp;нужны».</p>
-    </div>
-  </div>
-  <div class="wrap" style="margin-top:clamp(40px,5vw,70px)">
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · сценарии</span></div>
-      <img src="assets/ladoga/d-scenarios.jpg" alt="Блок «Выберите, как поедете на воду»: четыре сценария" loading="lazy" width="2160" height="1350">
-    </div>
-  </div>
-  <div class="wrap mt grid-2">
-    <div class="c-5">
-      <p class="label"><b>06</b> ux · вопросы</p>
-      <h2 class="h-l rv">Семь ответов <em>до&nbsp;звонка</em></h2>
-      <p class="body rv" style="margin-top:28px">Нужны ли права, есть ли залог, входят ли бензин и&nbsp;эхолот, можно ли взять лодку в&nbsp;день обращения, где её&nbsp;забирать и&nbsp;куда можно плыть. Короткие ответы в&nbsp;одну-две строки.</p>
-    </div>
-    <div class="c-6 off-7">
-      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · вопросы</span></div>
-        <video src="assets/ladoga/v-faq-d.mp4" poster="assets/ladoga/v-faq-d.jpg" muted loop playsinline preload="none" data-auto></video>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 бронирование -->
-<section class="sec cream">
-  <div class="wrap grid-2">
-    <div class="c-5">
-      <p class="label"><b>07</b> conversion · бронь</p>
-      <h2 class="h-l rv">Бронь <em>в&nbsp;три шага</em></h2>
-      <p class="body rv" style="margin-top:28px">Лодка и&nbsp;количество дней, дата и&nbsp;время старта, контакты. Итоговая сумма пересчитывается сразу, занятые даты и&nbsp;часы видны заранее. Под&nbsp;кнопкой — то, что снимает последнее сомнение: без предоплаты и&nbsp;без залога.</p>
-      <ol class="steps rv">
-        <li><b>01</b><span>Лодка</span></li>
-        <li><b>02</b><span>Дата</span></li>
-        <li><b>03</b><span>Контакты</span></li>
-      </ol>
-    </div>
-    <div class="c-6 off-7">
-      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · бронирование</span></div>
-        <video src="assets/ladoga/v-booking-d.mp4" poster="assets/ladoga/v-booking-d.jpg" muted loop playsinline preload="none" data-auto></video>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 08 маршрут -->
-<section class="sec paper">
-  <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>08</b> ux · маршрут</p>
-      <h2 class="h-l rv">10&nbsp;минут от&nbsp;<em>Мурманского шоссе</em></h2>
-    </div>
-    <div class="c-5 off-7">
-      <p class="body rv">Последний вопрос перед поездкой — куда ехать. Деревня Назия, Кировский район, асфальтовый подъезд, карта с&nbsp;меткой базы и&nbsp;кнопка «Построить маршрут в&nbsp;Яндекс Картах».</p>
+    <div class="c-7">
+      <p class="label"><b>05</b> закрыла и&nbsp;эту боль</p>
+      <h2 class="h-l rv">Баня и&nbsp;снасти — то, что <em>реально ждёт на&nbsp;берегу</em></h2>
     </div>
   </div>
   <div class="wrap mt">
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · локация</span></div>
-      <img src="assets/ladoga/d-map.jpg" alt="Блок «Аренда лодки рядом с Мурманским шоссе — дер. Назия»" loading="lazy" width="2160" height="1746">
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · отдых после рыбалки</span></div>
+      <img src="assets/ladoga/d-services.jpg" alt="Блок «Отдых на берегу после рыбалки»: баня, бассейн, купели, уха" loading="lazy" width="2160" height="1199">
+    </div>
+    <div class="browser rv" style="margin-top:clamp(30px,4vw,60px)"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · снасти</span></div>
+      <img src="assets/ladoga/d-gear.jpg" alt="Блок «Удочки, спиннинги и приманки»" loading="lazy" width="2160" height="1329">
     </div>
   </div>
 </section>
 
-<!-- 09 SEO -->
+<!-- 06 SEO -->
 <section class="sec lake">
   <div class="wrap grid-2">
     <div class="c-6">
-      <p class="label"><b>09</b> seo · локальный поиск</p>
-      <h2 class="h-l rv">Каждый запрос ведёт <em>в&nbsp;свой раздел</em></h2>
+      <p class="label"><b>06</b> seo</p>
+      <h2 class="h-l rv">SEO без&nbsp;рекламы — <em>и&nbsp;пошли заявки</em></h2>
     </div>
     <div class="c-5 off-7">
-      <p class="body rv">Структура строилась вокруг реальных сценариев выбора, а&nbsp;не&nbsp;только брендового запроса. Цена, эхолот, рыбалка, залог, бронь — у&nbsp;каждого запроса есть раздел, который на&nbsp;него отвечает.</p>
+      <p class="lede rv">Настроила SEO под&nbsp;живые запросы: «аренда лодки Ладога», «рыбалка с&nbsp;лодки СПб». Клиенты пишут сами — без бюджета на&nbsp;рекламу.</p>
     </div>
   </div>
   <div class="wrap mt grid-2">
     <div class="c-6">
-      <p class="label"><b>запрос</b> → раздел</p>
+      <p class="label"><b>запрос</b> → раздел сайта</p>
       <div class="qrows rv">
         <div><span class="q">аренда лодки на&nbsp;ладоге цена</span><span class="p">#fleet<small>лодки и&nbsp;цена</small></span></div>
         <div><span class="q">лодка с&nbsp;эхолотом на&nbsp;ладоге</span><span class="p">#included<small>что входит</small></span></div>
@@ -467,26 +513,39 @@
 <i>"addressLocality":</i> "деревня Назия",
 <i>"geo":</i> { 59.9053, 31.2044 },
 <i>"opens":</i> "07:00", <i>"closes":</i> "21:00"</pre>
-      <p class="body rv" style="margin-top:20px">Заголовок и&nbsp;описание страницы построены вокруг тех же вопросов, разметка LocalBusiness отдаёт поиску адрес, координаты, телефон и&nbsp;часы работы.</p>
     </div>
   </div>
 </section>
 
-<!-- 10 мобильная версия -->
-<section class="sec dark">
+<!-- 07 бронь -->
+<section class="sec cream">
   <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>10</b> responsive · мобильная версия</p>
-      <h2 class="h-l rv">На&nbsp;телефоне — <em>кнопка всегда рядом</em></h2>
+    <div class="c-5">
+      <p class="label"><b>07</b> бронирование</p>
+      <h2 class="h-l rv">Бронь работает, <em>пока владелец спит</em></h2>
+      <p class="body rv" style="margin-top:28px">Собрала виджет онлайн‑бронирования: лодка → дата и&nbsp;время → контакты. Клиент не&nbsp;теряется ночью и&nbsp;не&nbsp;ждёт ответа в&nbsp;директе — бронирует сам, в&nbsp;любой час.</p>
     </div>
-    <div class="c-5 off-7">
-      <p class="body rv">Мобильная версия проектировалась отдельно ещё в&nbsp;wireframe, а&nbsp;не&nbsp;сжималась из&nbsp;десктопа:</p>
-      <ul class="rules rv">
-        <li>Закреплённая кнопка «Забронировать» появляется после первого экрана</li>
-        <li>Навигация — в&nbsp;выдвижном меню</li>
-        <li>Лодки и&nbsp;сценарии — в&nbsp;одну колонку, характеристики остаются читаемыми</li>
-        <li>Бронирование — те&nbsp;же три шага, под&nbsp;палец</li>
-      </ul>
+    <div class="c-6 off-7">
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · бронирование</span></div>
+        <video src="assets/ladoga/v-booking-d.mp4" poster="assets/ladoga/v-booking-d.jpg" muted loop playsinline preload="none" data-auto></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 сам сайт -->
+<section class="sec dark">
+  <div class="wrap">
+    <p class="label"><b>08</b> сам сайт</p>
+    <h2 class="h-l rv" style="max-width:1200px">От&nbsp;первого экрана до&nbsp;брони — <em>без&nbsp;единого лишнего клика</em></h2>
+    <div class="browser rv mt"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
+      <video src="assets/ladoga/v-scroll-d.mp4" poster="assets/ladoga/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video>
+    </div>
+  </div>
+  <div class="wrap mt grid-2">
+    <div class="c-6">
+      <p class="label"><b>на&nbsp;телефоне</b></p>
+      <p class="body rv">Мобильная версия спроектирована отдельно ещё в&nbsp;wireframe: закреплённая кнопка «Забронировать» появляется после первого экрана, лодки и&nbsp;состав аренды — в&nbsp;одну колонку, бронь — те&nbsp;же три шага под&nbsp;палец.</p>
     </div>
   </div>
   <div class="phones">
@@ -498,24 +557,53 @@
   </div>
 </section>
 
-<!-- 11 визуальный язык -->
+<!-- 09 нейросеть: фото клиента → генерация -->
 <section class="sec dark" style="padding-top:0">
   <div class="wrap grid-2">
     <div class="c-6">
-      <p class="label"><b>11</b> visual · ai визуальный язык</p>
-      <h2 class="h-l rv">Ладога на&nbsp;рассвете. <em>Красная лодка.</em></h2>
+      <p class="label"><b>09</b> визуал · ai</p>
+      <h2 class="h-l rv">Съёмки не&nbsp;было — <em>сделала нейросетью</em></h2>
     </div>
     <div class="c-5 off-7">
-      <p class="lede rv">Спокойная тёмная палитра воды и&nbsp;хвои, один яркий акцент — цвет самих лодок. Атмосферные кадры сделаны с&nbsp;помощью AI: они задают настроение, но&nbsp;ничего не&nbsp;доказывают.</p>
+      <p class="lede rv">Ни бюджета, ни&nbsp;времени на&nbsp;фотографа. Весь визуал сайта собран из&nbsp;снимков клиента на&nbsp;телефон.</p>
+      <p class="body rv" style="margin-top:18px">Лодки настоящие — это флот клиента. Нейросеть поменяла свет, воду и&nbsp;атмосферу, но&nbsp;не&nbsp;сами лодки. <span class="ba-hint">Потяните разделитель, чтобы сравнить.</span></p>
     </div>
   </div>
+  <div class="wrap pairs">
+    <figure class="ba rv" style="--ar:1312/816;--pos:50% 70%">
+      <div class="ba-stage">
+        <div class="ba-a"><img src="assets/ladoga/before-shore.jpg" alt="Фото клиента: две красные лодки на песчаном берегу" loading="lazy" width="1280" height="960"><span class="ba-t">фото клиента</span></div>
+        <div class="ba-b"><img src="assets/ladoga/ai-boat-2.jpg" alt="Генерация: та же лодка на берегу — карточка лодки №2 на сайте" loading="lazy" width="1312" height="816"><span class="ba-t">генерация <i>AI</i></span></div>
+        <span class="ba-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Сравнить фото клиента и генерацию">
+      </div>
+      <figcaption>лодка на&nbsp;берегу → карточка лодки №2 на&nbsp;сайте</figcaption>
+    </figure>
+    <figure class="ba rv" style="--ar:4/3">
+      <div class="ba-stage">
+        <div class="ba-a"><img src="assets/ladoga/before-people.jpg" alt="Фото клиента: красная лодка на воде, двое в спасжилетах" loading="lazy" width="1280" height="960"><span class="ba-t">фото клиента</span></div>
+        <div class="ba-b"><img src="assets/ladoga/ai-pike.jpg" alt="Генерация: та же лодка на Ладоге, рыбаки вытаскивают щуку" loading="lazy" width="1195" height="896"><span class="ba-t">генерация <i>AI</i></span></div>
+        <span class="ba-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Сравнить фото клиента и генерацию">
+      </div>
+      <figcaption>лодка на&nbsp;воде → кадр рыбалки</figcaption>
+    </figure>
+    <figure class="ba rv" style="--ar:4/3">
+      <div class="ba-stage">
+        <div class="ba-a"><img src="assets/ladoga/before-shore.jpg" alt="Фото клиента: две красные лодки на песчаном берегу" loading="lazy" width="1280" height="960"><span class="ba-t">фото клиента</span></div>
+        <div class="ba-b"><img src="assets/ladoga/ai-two-boats.jpg" alt="Генерация: две лодки клиента у берега Ладоги на рассвете" loading="lazy" width="1195" height="896"><span class="ba-t">генерация <i>AI</i></span></div>
+        <span class="ba-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Сравнить фото клиента и генерацию">
+      </div>
+      <figcaption>две лодки у&nbsp;берега → Ладога на&nbsp;рассвете</figcaption>
+    </figure>
+  </div>
   <div class="wrap mt">
+    <p class="label"><b>серия кадров</b> для&nbsp;всего сайта</p>
     <div class="ai-grid">
-      <figure class="wide rv"><img src="assets/ladoga/ai-hero.jpg" alt="AI-кадр первого экрана: красная лодка в тумане на рассвете" loading="lazy" width="1280" height="720"><span class="ai-tag">AI</span><figcaption>кадр из&nbsp;видео первого экрана · не&nbsp;документальная съёмка</figcaption></figure>
-      <figure class="rv"><img src="assets/ladoga/ai-maintenance.jpg" alt="AI-кадр: обслуживание лодки" loading="lazy" width="1264" height="842"><span class="ai-tag">AI</span><figcaption>блок «сервис и&nbsp;качество»</figcaption></figure>
-      <figure class="rv"><img src="assets/ladoga/ai-gear.jpg" alt="AI-кадр: снасти и спиннинг" loading="lazy" width="1264" height="842"><span class="ai-tag">AI</span><figcaption>блок «снасти и&nbsp;рыбалка»</figcaption></figure>
-      <figure class="rv"><img src="assets/ladoga/ai-boat-1.jpg" alt="Лодка №1 у пирса, изображение обработано AI" loading="lazy" width="1312" height="816"><span class="ai-tag">AI</span><figcaption>карточка лодки №1</figcaption></figure>
-      <figure class="rv"><img src="assets/ladoga/ai-boat-2.jpg" alt="Лодка №2 на берегу, изображение обработано AI" loading="lazy" width="1312" height="816"><span class="ai-tag">AI</span><figcaption>карточка лодки №2</figcaption></figure>
+      <figure class="wide rv"><img src="assets/ladoga/ai-hero.jpg" alt="AI-кадр первого экрана: красная лодка в тумане на рассвете" loading="lazy" width="1280" height="720"><span class="ai-tag">AI</span><figcaption>кадр из&nbsp;видео первого экрана</figcaption></figure>
+      <figure class="rv"><img src="assets/ladoga/ai-boat-1.jpg" alt="Генерация: лодка №1 у пирса" loading="lazy" width="1312" height="816"><span class="ai-tag">AI</span><figcaption>карточка лодки №1</figcaption></figure>
+      <figure class="rv"><img src="assets/ladoga/ai-maintenance.jpg" alt="Генерация: обслуживание лодки" loading="lazy" width="1264" height="842"><span class="ai-tag">AI</span><figcaption>блок «сервис и&nbsp;качество»</figcaption></figure>
     </div>
   </div>
   <div class="wrap mt system">
@@ -530,38 +618,42 @@
     <div class="type-spec rv">
       <div><span style="font-family:var(--serif);font-size:clamp(28px,3vw,44px)">Выберите лодку</span><small>serif · заголовки</small></div>
       <div><span style="font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.4vw,36px);color:var(--boat-2)">без&nbsp;ожидания и&nbsp;залога</span><small>serif italic · акцент</small></div>
-      <div><span style="font-size:clamp(15px,1.3vw,18px);font-weight:600;letter-spacing:.2em;text-transform:uppercase">Состав аренды</span><small>гротеск · подписи, интерфейс</small></div>
+      <div><span style="font-size:clamp(15px,1.3vw,18px);font-weight:600;letter-spacing:.2em;text-transform:uppercase">Состав аренды</span><small>гротеск · интерфейс</small></div>
     </div>
   </div>
 </section>
 
-<!-- 12 сайт целиком -->
-<section class="sec cream">
+<!-- RESULTS: awaiting Christina's confirmation -->
+<!-- Цифры взяты со слайда 10 её кейса в Instagram. Источник (Метрика / PageSpeed) пока не подтверждён — не публиковать без подтверждения. -->
+<div class="results-pending" data-status="awaiting-confirmation" hidden>
+<section class="sec lake">
   <div class="wrap">
-    <p class="label"><b>12</b> live product · сайт целиком</p>
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
-      <video src="assets/ladoga/v-scroll-d.mp4" poster="assets/ladoga/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video>
+    <p class="label"><b>10</b> результат</p>
+    <h2 class="h-xl rv">Результат за&nbsp;<em>3&nbsp;месяца</em></h2>
+    <div class="res rv">
+      <div><span>Органический трафик</span><b class="up">+230%</b></div>
+      <div><span>Броней за&nbsp;сезон</span><b class="up">+190%</b></div>
+      <div><span>Конверсия в&nbsp;бронь</span><b>4,2%</b></div>
+      <div><span>Яндекс по&nbsp;ключевому запросу</span><b>ТОП‑2</b></div>
+      <div><span>PageSpeed mobile</span><b>91/100</b></div>
+      <div><span>Время загрузки</span><b>1,4&nbsp;сек</b></div>
     </div>
-    <a class="live" href="https://lodki-ladoga.ru" target="_blank" rel="noopener"><span>view live ↗</span>lodki-ladoga.ru</a>
   </div>
 </section>
+</div>
+<!-- /RESULTS -->
 
-<!-- 13 результат -->
-<section class="sec dark">
+<!-- 11 итог -->
+<section class="final">
+  <img src="assets/ladoga/ai-two-boats.jpg" alt="" loading="lazy" width="1195" height="896">
+  <span class="ai-tag">AI</span>
   <div class="wrap">
-    <p class="label"><b>13</b> результат</p>
-    <p class="statement rv">Сайт, который отвечает <em>до&nbsp;звонка.</em></p>
-    <p class="body rv" style="max-width:620px">Вместо карточки в&nbsp;Картах — сайт, где за&nbsp;один проход видно цену, состав аренды, условия и&nbsp;дорогу, а&nbsp;бронь оформляется в&nbsp;три шага.</p>
-    <div class="facts">
-      <div class="rv"><b>5</b><span>поисковых сценариев — у&nbsp;каждого свой раздел</span></div>
-      <div class="rv"><b>6</b><span>пунктов в&nbsp;составе аренды: от&nbsp;эхолота до&nbsp;пирса</span></div>
-      <div class="rv"><b>7</b><span>ответов на&nbsp;вопросы до&nbsp;брони</span></div>
-      <div class="rv"><b>3</b><span>шага бронирования: лодка, дата, контакты</span></div>
-    </div>
+    <p class="label"><b>11</b> итог</p>
+    <p class="statement rv">Хватит терять <em>клиентов</em></p>
+    <p class="cta-box rv">Хотите так&nbsp;же переупаковать свой бизнес — напишите.</p>
+    <a class="cta rv" href="https://t.me/belovachristina" target="_blank" rel="noopener">Разберём бесплатно</a>
   </div>
 </section>
-
-<div class="breath" aria-hidden="true"></div>
 
 <a class="next" href="case-pomazkov.html">
   <video src="assets/pomazkov/ai-hero.mp4" poster="assets/pomazkov/ai-hero.jpg" muted loop playsinline preload="none" data-auto></video>
@@ -605,6 +697,12 @@
       pre.observe(v); vo.observe(v);
     });
   }
+  /* до / после: разделитель */
+  document.querySelectorAll('.ba-stage').forEach(function(st){
+    var r = st.querySelector('.ba-range'); if (!r) return;
+    var set = function(){ st.style.setProperty('--x', r.value + '%'); };
+    r.addEventListener('input', set); set();
+  });
 })();
 </script>
 <script src="assets/legal/legal.js"></script>
