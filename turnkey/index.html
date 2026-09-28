@@ -9,7 +9,7 @@
 <meta name="description" content="Сайты под ключ от TINA DIGITAL: стратегия, UX, арт-дирекшн, разработка и запуск на вашем домене. Одностраничные от 60 000 ₽, многостраничные от 100 000 ₽.">
 <meta property="og:title" content="Сайты под ключ — TINA DIGITAL">
 <meta property="og:description" content="Проектирую и разрабатываю сайты целиком: от бизнес-логики и визуального языка до рабочего продукта на вашем домене.">
-<meta property="og:image" content="https://tinadigital.ru/assets/turnkey/liana-hero.jpg">
+<meta property="og:image" content="https://tinadigital.ru/assets/pomazkov/v-hero-d.jpg">
 <meta property="og:url" content="https://tinadigital.ru/turnkey/">
 <link rel="stylesheet" href="../assets/fonts/manrope.css">
 <link rel="stylesheet" href="../assets/fonts/seo-extra.css">
@@ -19,421 +19,595 @@
   @font-face{ font-family:'Manrope'; font-style:normal; font-weight:300; font-display:swap; src:url(../assets/fonts/Manrope-cyrillic.woff2) format('woff2'); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
   @font-face{ font-family:'Manrope'; font-style:normal; font-weight:300; font-display:swap; src:url(../assets/fonts/Manrope-latin.woff2) format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
 
-  :root{ --ink:#090909; --ink-2:#1A1A18; --paper:#EEEAE2; --t:#EEEAE2; --wine:#9E4F61; --wine-2:#8E4556; --bronze:#B29A78; --z:1; }
+  :root{
+    --ink:#090909; --ink-2:#141413; --ink-3:#1A1A18; --paper:#EEEAE2; --t:#EEEAE2;
+    --t-dim:rgba(238,234,226,.64); --t-faint:rgba(238,234,226,.36);
+    --d-ink:#090909; --d-dim:rgba(9,9,9,.64); --d-faint:rgba(9,9,9,.4);
+    --wine:#9E4F61; --wine-2:#8E4556; --bronze:#B29A78;
+    --ease:cubic-bezier(.22,.8,.28,1);
+    --pad:clamp(20px,4.45vw,88px);
+    --line:rgba(238,234,226,.16); --d-line:rgba(9,9,9,.16);
+  }
   *{ box-sizing:border-box; }
-  html{ background:var(--ink); }
-  body{ margin:0; background:var(--ink); color:var(--t); font-family:Manrope,Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-  a{ color:inherit; text-decoration:none; transition:color .3s ease; }
-  a:hover{ color:var(--wine); }
-  h1,h2,h3,p{ margin:0; }
-  img,video{ display:block; }
+  html{ background:var(--ink); -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--ink); color:var(--t); font-family:Manrope,system-ui,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  img,video{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,p,figure,ol,ul{ margin:0; }
+  button{ font:inherit; }
 
-  .mono{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; line-height:1.5; text-transform:uppercase; color:rgba(238,234,226,.55); }
-  .mono.br{ color:var(--bronze); }
-  .serif{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; color:rgba(238,234,226,.75); }
-  .h{ font-weight:600; letter-spacing:-.04em; line-height:.94; text-transform:uppercase; }
-  .h .lt{ font-weight:300; }
-  .p{ line-height:1.55; color:rgba(238,234,226,.8); text-wrap:pretty; }
-  .light{ background:var(--paper); color:#090909; }
-  .light .mono{ color:rgba(9,9,9,.5); }
-  .light .mono.br{ color:var(--bronze); }
-  .light .p{ color:rgba(9,9,9,.8); }
-  .light .serif{ color:rgba(9,9,9,.75); }
-  .dim{ color:rgba(238,234,226,.45); }
-  .light .dim{ color:rgba(9,9,9,.4); }
+  /* ---------- шапка ---------- */
+  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px var(--pad); font-size:13px; font-weight:700; letter-spacing:.12em; mix-blend-mode:difference; color:#fff; }
+  .top nav{ display:flex; gap:clamp(16px,2.2vw,32px); }
+  .top nav a, .top nav button{ color:#fff; background:none; border:0; padding:0; cursor:pointer; font-weight:500; letter-spacing:.02em; font-size:13px; opacity:.72; transition:opacity .3s; }
+  .top nav .on, .top nav a:hover, .top nav button:hover{ opacity:1; }
+  @media (max-width:760px){ .top nav > :not(.m){ display:none; } .top nav .m{ opacity:1; } }
 
-  .media{ position:relative; overflow:hidden; background:var(--ink-2); }
-  .media > img, .media > video{ width:100%; height:100%; object-fit:cover; }
-  .shadow{ box-shadow:0 40px 100px rgba(0,0,0,.6); }
-  .frame{ border:1px solid rgba(9,9,9,.2); padding:16px; }
-  .frame > .media{ width:100%; height:100%; background:#D9D4CA; }
-
-  .cta{ display:inline-flex; align-items:center; gap:20px; padding:24px 34px; background:var(--wine); color:var(--t); font-size:14px; font-weight:600; letter-spacing:.1em; border:0; cursor:pointer; font-family:inherit; transition:background .3s ease; }
-  .cta:hover{ background:var(--wine-2); color:var(--t); }
+  /* ---------- общие ---------- */
+  .sec{ position:relative; padding:clamp(90px,12vw,180px) var(--pad); }
+  .paper{ background:var(--paper); color:var(--d-ink); }
+  .wrap{ max-width:1500px; margin:0 auto; }
+  .label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); display:flex; flex-wrap:wrap; gap:8px 14px; margin:0 0 28px; }
+  .label b{ font-weight:400; color:var(--bronze); }
+  .paper .label{ color:var(--d-faint); }
+  .mono{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+  .br{ color:var(--bronze); }
+  .h-xl{ font-weight:600; text-transform:uppercase; letter-spacing:-.045em; line-height:.88; font-size:clamp(52px,10.5vw,190px); }
+  .h-l{ font-weight:600; text-transform:uppercase; letter-spacing:-.035em; line-height:.95; font-size:clamp(34px,5vw,84px); text-wrap:balance; }
+  .h-xl em, .h-l em{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; text-transform:none; letter-spacing:-.01em; color:var(--bronze); }
+  .paper .h-l em{ color:var(--wine); }
+  .lt{ font-weight:300; color:var(--t-faint); }
+  .paper .lt{ color:rgba(9,9,9,.34); }
+  .lede{ font-size:clamp(19px,1.6vw,24px); line-height:1.45; color:var(--t-dim); text-wrap:pretty; }
+  .body{ font-size:17px; line-height:1.62; color:var(--t-dim); text-wrap:pretty; }
+  .paper .body, .paper .lede{ color:var(--d-dim); }
+  .serif{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:clamp(26px,2.5vw,40px); line-height:1.2; color:var(--t-dim); }
+  .paper .serif{ color:rgba(9,9,9,.72); }
+  .grid{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(20px,3vw,48px); align-items:end; }
+  .c4{ grid-column:span 4; } .c5{ grid-column:span 5; } .c7{ grid-column:span 7; } .c8{ grid-column:span 8; }
+  .o8{ grid-column:8 / span 5; }
+  @media (max-width:900px){ .grid > *{ grid-column:1 / -1 !important; } }
+  .link{ display:inline-flex; gap:12px; align-items:baseline; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-dim); border-bottom:1px solid var(--wine); padding-bottom:3px; transition:color .3s; }
+  .link:hover{ color:var(--t); }
+  .paper .link{ color:var(--d-dim); }
+  .cta{ display:inline-flex; align-items:center; justify-content:space-between; gap:20px; padding:24px 34px; background:var(--wine); color:var(--t); font-size:14px; font-weight:600; letter-spacing:.1em; border:0; cursor:pointer; transition:background .3s; }
+  .cta:hover{ background:var(--wine-2); }
   .cta span{ font-size:20px; line-height:1; }
+  .media{ position:relative; overflow:hidden; background:var(--ink-3); }
+  .media > img, .media > video{ width:100%; height:100%; object-fit:cover; }
 
-  .tags{ display:flex; flex-wrap:wrap; gap:10px 28px; }
-  .tags .n{ color:var(--wine); }
+  /* ---------- устройства ---------- */
+  .browser{ border-radius:14px; overflow:hidden; background:#111113; box-shadow:0 60px 120px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06); }
+  .paper .browser{ box-shadow:0 60px 120px -40px rgba(40,30,20,.45), 0 0 0 1px rgba(0,0,0,.06); }
+  .browser .bar{ height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; background:#1c1c1f; }
+  .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3a3e; flex:none; }
+  .browser .bar span{ margin:0 auto; font-size:12px; color:#8d8d93; background:#29292d; padding:4px 22px; border-radius:7px; transform:translateX(-24px); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:70%; }
+  .browser video, .browser img{ width:100%; }
+  @media (max-width:600px){ .browser{ border-radius:9px; } .browser .bar{ height:26px; padding:0 10px; gap:5px; } .browser .bar i{ width:7px; height:7px; } .browser .bar span{ font-size:10px; padding:2px 12px; transform:none; } }
+  .phone{ --pw:clamp(170px,17vw,280px); width:var(--pw); aspect-ratio:390/844; border-radius:calc(var(--pw) * .15); background:#0a0a0b; padding:calc(var(--pw) * .035); box-shadow:0 50px 100px -30px rgba(0,0,0,.65), inset 0 0 0 1.5px #2a2a2e; position:relative; flex:none; }
+  .phone .scr{ width:100%; height:100%; border-radius:calc(var(--pw) * .125); overflow:hidden; background:#000; }
+  .phone .scr img, .phone .scr video{ width:100%; height:100%; object-fit:cover; object-position:top; }
+  .phone::before{ content:''; position:absolute; top:calc(var(--pw) * .07); left:50%; transform:translateX(-50%); width:30%; height:calc(var(--pw) * .085); background:#000; border-radius:20px; z-index:2; }
+  .cap{ margin:14px 0 0; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); text-align:center; }
+  .paper .cap{ color:var(--d-faint); }
+  .sheet{ background:#fff; box-shadow:0 40px 80px -20px rgba(0,0,0,.6); border-radius:3px; overflow:hidden; }
+  .sheet img{ width:100%; }
 
-  /* появление */
-  [data-rv]{ opacity:0; transform:translateY(22px); transition:opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
-  [data-rv].shown{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){ [data-rv]{ opacity:1; transform:none; transition:none; } }
+  /* ---------- 01 обложка ---------- */
+  .cover{ min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; padding:140px var(--pad) 56px; background:radial-gradient(110% 80% at 75% 0%, #1f1b1a 0%, var(--ink) 62%); }
+  .cover .kicker{ display:flex; justify-content:space-between; gap:20px; color:var(--t-dim); margin-bottom:3vw; }
+  .cover .tag{ margin:.8vw 0 0 .4vw; color:var(--bronze); font-size:clamp(28px,3.4vw,58px); }
+  .meta{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:clamp(40px,6vw,90px); padding-top:22px; border-top:1px solid var(--line); }
+  .meta div{ font-size:15px; line-height:1.45; }
+  .meta small{ display:block; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); margin-bottom:8px; }
+  .meta .wine{ border-bottom:1px solid var(--wine); }
+  @media (max-width:760px){ .meta{ grid-template-columns:1fr 1fr; } .cover .kicker span:last-child{ display:none; } }
+  .shot{ padding:0 var(--pad) clamp(90px,11vw,170px); }
+  .shot .browser{ max-width:1500px; margin:0 auto; }
+  .shot-cap{ max-width:1500px; margin:22px auto 0; display:flex; justify-content:space-between; align-items:baseline; gap:20px; }
+  .shot-cap p{ max-width:560px; font-size:clamp(17px,1.4vw,21px); line-height:1.45; color:var(--t-dim); }
+  @media (max-width:760px){ .shot-cap{ flex-direction:column; } }
 
-  /* =========================================================
-     DESKTOP ≥ 900px — композиция макета 1440 один в один,
-     масштабируется целиком через --z (см. скрипт внизу)
-     ========================================================= */
-  @media (min-width: 900px){
-    .s{ position:relative; overflow:hidden; }
-    .in{ position:relative; width:1440px; height:var(--H); margin:0 auto; zoom:var(--z); }
-    .a{ position:absolute; left:var(--x,auto); right:var(--r,auto); top:var(--y,auto); bottom:var(--b,auto); width:var(--w,auto); height:var(--h,auto); }
-    .h, .p, .serif{ font-size:var(--fs); }
-    .m-only{ display:none !important; }
+  /* ---------- 02 business gap — композиция из макета ---------- */
+  .gapsec{ padding-bottom:0; }
+  .big{ font-weight:600; text-transform:uppercase; letter-spacing:-.04em; line-height:.92; font-size:clamp(44px,7.8vw,150px); }
+  .big.lt{ font-weight:300; }
+  .gap-off{ margin:.45em 0 0 32%; white-space:nowrap; }
+  .gap-row{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,43%); gap:clamp(24px,4vw,80px); margin-top:clamp(40px,5vw,80px); }
+  .gap-text{ max-width:440px; padding-top:clamp(20px,4vw,76px); }
+  .gap-text .body{ font-size:clamp(17px,1.35vw,19px); color:rgba(9,9,9,.82); }
+  .gap-text .body + .body{ margin-top:18px; }
+  .gap-fig{ position:relative; }
+  .gap-fig .yr{ position:absolute; right:0; top:-26px; font-size:10px; letter-spacing:.12em; }
+  .gap-frame{ border:1px solid rgba(9,9,9,.18); padding:clamp(10px,1vw,14px); border-bottom:0; }
+  .gap-frame img{ width:100%; aspect-ratio:7/5; object-fit:cover; }
+  @media (max-width:760px){ .gapsec{ padding-bottom:70px; } .gap-off{ margin-left:0; white-space:normal; } .gap-row{ grid-template-columns:1fr; } .gap-text{ padding-top:0; } .gap-frame{ border-bottom:1px solid rgba(9,9,9,.18); } }
 
-    .top{ position:absolute; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:flex-start; padding:40px 64px 0; z-index:5; }
-    .nav{ display:flex; gap:36px; font-size:15px; color:rgba(238,234,226,.8); padding-top:2px; }
-    .hero-h1{ mix-blend-mode:difference; z-index:2; white-space:nowrap; line-height:.86; letter-spacing:-.045em; }
+  /* ---------- 03 one hand — композиция из макета ---------- */
+  .onehand{ display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); min-height:clamp(760px,72vw,1100px); }
+  .oh-l{ display:flex; flex-direction:column; padding:clamp(90px,9.7vw,150px) var(--pad) clamp(70px,7vw,110px); }
+  .oh-l h2{ font-weight:600; text-transform:uppercase; letter-spacing:-.035em; line-height:1; font-size:clamp(34px,5vw,96px); max-width:14ch; }
+  .oh-l .body{ margin-top:clamp(40px,5vw,80px); max-width:520px; font-size:clamp(17px,1.35vw,19px); color:rgba(238,234,226,.78); }
+  .oh-l .serif{ margin-top:auto; padding-top:60px; font-size:clamp(28px,2.8vw,44px); color:rgba(238,234,226,.8); }
+  .oh-r{ position:relative; padding:clamp(90px,10.4vw,160px) var(--pad) clamp(70px,7vw,110px) clamp(24px,2.8vw,48px); display:flex; flex-direction:column; }
+  .oh-r::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,transparent,rgba(238,234,226,.4) 15%,rgba(238,234,226,.4) 85%,transparent); }
+  .oh-chain{ list-style:none; padding:0; display:grid; gap:clamp(28px,4.9vw,80px); font-size:clamp(24px,2.8vw,48px); font-weight:600; letter-spacing:-.02em; line-height:1; text-transform:uppercase; }
+  .oh-chain li{ display:flex; align-items:baseline; gap:clamp(14px,1.7vw,26px); }
+  .oh-chain li small{ font-family:'JetBrains Mono',monospace; font-weight:400; font-size:11px; letter-spacing:.1em; color:var(--bronze); }
+  .oh-chain li.on{ color:var(--wine); }
+  .oh-r .mono{ margin-top:clamp(40px,5vw,80px); color:rgba(238,234,226,.45); letter-spacing:.12em; }
+  @media (max-width:760px){ .onehand{ grid-template-columns:1fr; min-height:0; } .oh-l{ padding-bottom:30px; } .oh-l .serif{ order:3; padding-top:30px; } .oh-r{ margin:0 var(--pad) 80px; padding:6px 0 6px 20px; } .oh-chain{ grid-template-columns:1fr 1fr; gap:18px 14px; font-size:22px; } }
 
-    .chain{ display:grid; gap:70px; font-size:40px; font-weight:600; letter-spacing:-.02em; line-height:1; }
-    .chain div{ display:flex; align-items:baseline; gap:24px; }
-    .chain .mono{ letter-spacing:.1em; }
+  /* ---------- кейсы ---------- */
+  .case-head{ display:flex; flex-wrap:wrap; gap:10px 34px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); margin-bottom:34px; }
+  .case-head b{ font-weight:400; color:var(--bronze); }
+  .chips{ list-style:none; margin-top:30px; padding:0; display:flex; flex-wrap:wrap; gap:8px; }
+  .chips li{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 12px; border:1px solid rgba(238,234,226,.18); border-radius:999px; color:var(--t-dim); }
+  .chips li.on{ border-color:var(--wine); color:var(--t); }
+  .full{ margin:clamp(50px,7vw,110px) calc(var(--pad) * -1) 0; }
+  .full .browser{ border-radius:0; box-shadow:none; }
+  .phones{ display:flex; justify-content:center; align-items:flex-start; gap:clamp(14px,2.4vw,40px); margin-top:clamp(60px,8vw,130px); }
+  .phones > div:nth-child(2){ margin-top:clamp(40px,6vw,110px); }
+  .phones > div:nth-child(3){ margin-top:clamp(10px,2vw,30px); }
+  @media (max-width:760px){ .phones{ overflow-x:auto; justify-content:flex-start; scroll-snap-type:x mandatory; padding:0 var(--pad) 10px; margin-left:calc(var(--pad) * -1); margin-right:calc(var(--pad) * -1); scrollbar-width:none; } .phones > div{ scroll-snap-align:center; margin-top:0 !important; } }
+  .proof{ display:grid; grid-template-columns:auto 1fr auto; gap:clamp(20px,4vw,70px); align-items:end; margin-top:clamp(70px,9vw,140px); padding-top:30px; border-top:1px solid var(--line); }
+  .proof > b{ font-size:clamp(96px,15vw,240px); line-height:.8; font-weight:600; letter-spacing:-.06em; }
+  .proof .body{ max-width:400px; }
+  .proof .serif{ margin-top:16px; }
+  .proof .quote{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(24px,2.3vw,36px); line-height:1.25; color:var(--t); max-width:520px; }
+  .proof .quote-by{ margin-top:12px; color:var(--t-faint); }
+  @media (max-width:900px){ .proof{ grid-template-columns:1fr !important; } }
 
-    .ix{ border-top:1px solid rgba(238,234,226,.16); }
-    .ix-row{ display:grid; grid-template-columns:60px 300px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-bottom:1px solid rgba(238,234,226,.16); cursor:pointer; transition:color .3s ease; }
-    .ix-row:hover, .ix-row.on{ color:var(--wine); }
-    .ix-row .t{ font-size:26px; font-weight:600; letter-spacing:-.01em; }
-    .ix-row .d{ font-size:15px; line-height:1.5; color:rgba(238,234,226,.6); }
+  /* ---------- 06 mobile ≠ desktop — композиция из макета ---------- */
+  .mob{ background:var(--ink-3); }
+  .mob-row{ display:grid; grid-template-columns:minmax(0,820fr) minmax(0,136fr) minmax(0,356fr); margin-top:clamp(40px,5vw,80px); }
+  .mob-row .mono{ display:block; margin-bottom:14px; letter-spacing:.12em; }
+  .mob-d .media{ aspect-ratio:820/512; box-shadow:0 40px 100px rgba(0,0,0,.6); background:var(--ink); }
+  .mob-m .media{ aspect-ratio:356/772; box-shadow:0 40px 100px rgba(0,0,0,.6); background:var(--ink); }
+  .mob-neq{ align-self:start; display:flex; justify-content:center; margin-top:clamp(90px,12.5vw,220px); font-size:clamp(80px,11vw,190px); line-height:1; font-weight:300; color:var(--wine); position:relative; z-index:2; }
+  .mob-d h2{ margin-top:clamp(36px,4.7vw,80px); font-weight:600; text-transform:uppercase; letter-spacing:-.04em; line-height:.94; font-size:clamp(34px,6.1vw,112px); }
+  .mob-m .note{ margin-top:clamp(24px,2.6vw,40px); font-size:15px; line-height:1.6; color:rgba(238,234,226,.55); }
+  .mob-spec{ display:flex; flex-wrap:wrap; gap:22px 64px; margin-top:clamp(50px,6vw,100px); font-size:15px; line-height:1.6; color:rgba(238,234,226,.7); }
+  .mob-spec .mono{ display:block; font-size:10px; margin-bottom:10px; }
+  @media (max-width:760px){ .mob-row{ grid-template-columns:1fr; } .mob-neq{ display:none; } .mob-m{ margin-top:40px; display:grid; grid-template-columns:52% 1fr; gap:16px; align-items:end; } .mob-m .mono{ grid-column:1 / -1; margin-bottom:0; } .mob-m .note{ margin-top:0; } }
 
-    .after{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; border-top:1px solid rgba(238,234,226,.16); padding-top:28px; }
-    .after .mono{ font-size:10px; margin-bottom:22px; }
-    .after b{ display:block; font-size:24px; font-weight:600; letter-spacing:-.01em; }
-    .after p{ margin-top:12px; font-size:15px; line-height:1.55; color:rgba(238,234,226,.6); }
+  /* ---------- 07 range ---------- */
+  .range{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(20px,3vw,48px); margin-top:clamp(60px,8vw,120px); }
+  .work{ display:block; }
+  .work .tags{ display:flex; flex-wrap:wrap; gap:6px 24px; margin-top:16px; color:var(--d-dim); }
+  .work .tags b{ font-weight:400; color:var(--wine); }
+  .work .body{ margin-top:12px; max-width:520px; }
+  .work .browser{ transition:transform 1s var(--ease); }
+  .work:hover .browser{ transform:translateY(-6px); }
+  .w-1{ grid-column:1 / span 8; }
+  .w-2{ grid-column:8 / span 5; margin-top:clamp(40px,12vw,220px); }
+  .w-3{ grid-column:2 / span 7; margin-top:clamp(20px,3vw,50px); }
+  .w-serif{ grid-column:9 / span 4; align-self:center; }
+  @media (max-width:900px){ .range > *{ grid-column:1 / -1 !important; margin-top:0 !important; } }
 
-    .proc{ display:grid; grid-template-columns:repeat(6,1fr); gap:24px; }
-    .proc > div{ padding-top:var(--pt); }
-    .proc .num{ font-size:120px; line-height:.9; font-weight:300; letter-spacing:-.05em; color:rgba(238,234,226,.9); }
-    .proc .num.acc{ font-weight:600; color:var(--wine); }
-    .proc b{ display:block; margin-top:var(--mt); font-size:20px; font-weight:600; }
-    .proc p{ margin-top:12px; font-size:14px; line-height:1.55; color:rgba(238,234,226,.6); }
+  /* ---------- 08 index ---------- */
+  .ix-wrap{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:clamp(30px,5vw,90px); margin-top:clamp(40px,6vw,80px); align-items:start; }
+  .ix{ border-top:1px solid var(--line); }
+  .ix-row{ display:grid; grid-template-columns:48px minmax(0,.9fr) minmax(0,1.1fr); gap:20px; align-items:baseline; padding:20px 0; border-bottom:1px solid var(--line); cursor:pointer; transition:color .3s; }
+  .ix-row .n{ color:var(--bronze); }
+  .ix-row .t{ font-size:clamp(19px,1.8vw,26px); font-weight:600; letter-spacing:-.01em; text-transform:uppercase; }
+  .ix-row .d{ font-size:15px; line-height:1.5; color:var(--t-dim); }
+  .ix-row:hover, .ix-row.on{ color:var(--wine); }
+  .ix-view{ position:sticky; top:90px; }
+  .ix-stage{ position:relative; aspect-ratio:4/3.3; background:radial-gradient(70% 70% at 50% 45%, #1d1b1a, var(--ink) 75%); border:1px solid var(--line); overflow:hidden; }
+  .ix-stage > *{ position:absolute; left:50%; top:50%; translate:-50% -50%; opacity:0; transition:opacity .45s ease; }
+  .ix-stage > .on{ opacity:1; }
+  .ix-stage .browser{ width:88%; }
+  .ix-stage .browser img{ aspect-ratio:16/10; object-fit:cover; object-position:top; }
+  .ix-stage .phone{ --pw:30%; }
+  .ix-stage .phone .scr{ height:auto; aspect-ratio:370/800; }
+  .ix-stage .sheet{ width:40%; rotate:-2deg; }
+  .ix-stage .slide{ width:60%; box-shadow:0 40px 80px -20px rgba(0,0,0,.6); }
+  .ix-cap{ margin-top:14px; color:var(--t-faint); }
+  @media (max-width:900px){ .ix-wrap{ grid-template-columns:1fr; } .ix-view{ position:relative; top:0; order:-1; } .ix-row{ grid-template-columns:34px 1fr; gap:4px 12px; padding:14px 0; } .ix-row .d{ grid-column:2; font-size:14px; } }
 
-    .price .in{ height:auto; padding:160px 64px 140px; }
-    .price-row{ display:grid; grid-template-columns:200px 1fr 360px; gap:24px; align-items:end; padding:64px 0; border-bottom:1px solid rgba(9,9,9,.2); }
-    .price-row .num{ font-size:140px; line-height:.8; font-weight:300; letter-spacing:-.05em; color:rgba(9,9,9,.25); }
-    .price-row .num.acc{ color:var(--wine); }
-    .price-row b{ display:block; font-size:40px; font-weight:600; letter-spacing:-.02em; }
-    .price-row p{ margin-top:14px; font-size:17px; color:rgba(9,9,9,.65); max-width:600px; }
-    .price-row .sum{ font-size:40px; font-weight:600; letter-spacing:-.02em; text-align:right; }
+  /* ---------- 09 enduro ---------- */
+  .en-shots{ position:relative; margin-top:clamp(50px,7vw,110px); }
+  .en-shots .main{ width:86%; margin-left:auto; }
+  .en-shots .small{ position:absolute; left:0; bottom:-12%; width:34%; z-index:2; }
+  @media (max-width:760px){ .en-shots .main{ width:100%; } .en-shots .small{ position:relative; width:70%; bottom:auto; margin-top:-14%; } }
+  .en-text{ margin-top:clamp(80px,12vw,200px); }
 
-    .foot{ display:flex; justify-content:space-between; font-size:13px; color:rgba(238,234,226,.45); }
-    .foot .links{ display:flex; gap:32px; }
-  }
+  /* ---------- 10 after launch ---------- */
+  .after{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,44px); margin-top:clamp(50px,7vw,100px); }
+  .after div{ border-top:1px solid var(--line); padding-top:22px; }
+  .after small{ display:block; color:var(--bronze); margin-bottom:18px; }
+  .after b{ display:block; font-size:clamp(20px,1.8vw,26px); font-weight:600; letter-spacing:-.01em; text-transform:uppercase; }
+  .after p{ margin-top:10px; font-size:15px; line-height:1.55; color:var(--t-dim); }
+  .after a{ color:var(--bronze); }
+  @media (max-width:760px){ .after{ grid-template-columns:1fr; } }
 
-  /* =========================================================
-     MOBILE < 900px — своя вертикальная раскладка
-     ========================================================= */
-  @media (max-width: 899.98px){
-    .d-only{ display:none !important; }
-    .h{ white-space:normal !important; }
-    .in{ padding:84px 20px 72px; display:flex; flex-direction:column; }
-    .s.first .in{ padding-top:22px; }
-    .h{ font-size:var(--fm, clamp(34px,10.4vw,46px)); line-height:.96; }
-    .p{ font-size:17px; }
-    .serif{ font-size:26px; }
-    .a + .a{ margin-top:18px; }
-    .mt0{ margin-top:0 !important; }
-    .mt-l{ margin-top:36px !important; }
-    .mt-s{ margin-top:10px !important; }
-    .media{ width:100%; aspect-ratio:var(--ar, 16/10); }
-    .bleed{ margin-left:-20px; margin-right:-20px; width:calc(100% + 40px); }
-    .frame{ padding:10px; aspect-ratio:var(--ar, 16/10); }
-    .frame > .media{ aspect-ratio:auto; }
-    .cta{ justify-content:space-between; width:100%; padding:22px 24px; }
+  /* ---------- 11 process ---------- */
+  .proc{ list-style:none; margin-top:clamp(50px,7vw,100px); padding:0; display:grid; grid-template-columns:repeat(6,1fr); gap:clamp(14px,2vw,28px); border-top:1px solid var(--line); }
+  .proc li{ padding-top:clamp(16px,2vw,26px); }
+  .proc li:nth-child(2){ margin-top:clamp(0px,3vw,50px); } .proc li:nth-child(3){ margin-top:clamp(0px,6vw,100px); } .proc li:nth-child(4){ margin-top:clamp(0px,9vw,150px); } .proc li:nth-child(5){ margin-top:clamp(0px,12vw,200px); } .proc li:nth-child(6){ margin-top:clamp(0px,15vw,250px); }
+  .proc .num{ font-size:clamp(56px,7vw,120px); line-height:.9; font-weight:300; letter-spacing:-.05em; }
+  .proc li.on .num{ font-weight:600; color:var(--wine); }
+  .proc b{ display:block; margin-top:18px; font-size:clamp(16px,1.3vw,20px); font-weight:600; text-transform:uppercase; }
+  .proc p{ margin-top:8px; font-size:14px; line-height:1.55; color:var(--t-dim); }
+  @media (max-width:900px){ .proc{ grid-template-columns:1fr 1fr; row-gap:34px; } .proc li{ margin-top:0 !important; } }
 
-    .top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:56px; }
-    .nav{ display:none; }
-    .top .m-cta{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; color:var(--bronze); background:none; border:0; padding:0; cursor:pointer; }
-    .hero-h1{ font-size:clamp(58px,19vw,92px) !important; line-height:.86; letter-spacing:-.045em; }
+  /* ---------- 12 цены ---------- */
+  .prices{ margin-top:clamp(40px,7vw,100px); border-top:1px solid rgba(9,9,9,.2); }
+  .price-row{ display:grid; grid-template-columns:minmax(0,200px) 1fr auto; gap:24px; align-items:end; padding:clamp(28px,4.4vw,64px) 0; border-bottom:1px solid rgba(9,9,9,.2); }
+  .price-row .num{ font-size:clamp(54px,9.7vw,140px); line-height:.8; font-weight:300; letter-spacing:-.05em; color:rgba(9,9,9,.25); }
+  .price-row .num.on{ color:var(--wine); }
+  .price-row b{ display:block; font-size:clamp(21px,2.8vw,40px); font-weight:600; letter-spacing:-.02em; text-transform:uppercase; }
+  .price-row p{ margin-top:10px; font-size:clamp(15px,1.2vw,17px); color:var(--d-dim); max-width:600px; }
+  .price-row .sum{ font-size:clamp(22px,2.8vw,40px); font-weight:600; letter-spacing:-.02em; text-align:right; white-space:nowrap; text-transform:uppercase; }
+  @media (max-width:760px){ .price-row{ grid-template-columns:auto 1fr; gap:6px 16px; } .price-row .num{ grid-row:span 2; } .price-row .sum{ grid-column:2; text-align:left; } }
+  .price-note{ margin-top:30px; font-size:14px; line-height:1.5; color:var(--d-faint); max-width:520px; }
 
-    .chain{ display:grid; grid-template-columns:1fr 1fr; gap:18px 16px; font-size:22px; font-weight:600; letter-spacing:-.02em; padding-left:18px; border-left:1px solid rgba(238,234,226,.3); }
-    .chain div{ display:flex; align-items:baseline; gap:10px; }
+  /* ---------- 14 cta ---------- */
+  .final{ min-height:90vh; display:flex; flex-direction:column; justify-content:center; }
+  .final .grid{ margin-top:clamp(40px,5vw,70px); align-items:start; }
+  .cta-col{ display:flex; flex-direction:column; gap:18px; align-items:flex-start; }
+  @media (max-width:760px){ .final .cta{ width:100%; } }
+  .foot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px 30px; padding:30px var(--pad) 40px; font-size:13px; color:var(--t-faint); border-top:1px solid var(--line); }
+  .foot .links{ display:flex; flex-wrap:wrap; gap:10px 28px; }
+  .foot a:hover{ color:var(--t); }
 
-    .duo-m{ display:flex; gap:12px; align-items:flex-start; }
-    .duo-m > *{ flex:1; }
-
-    .ix{ border-top:1px solid rgba(238,234,226,.16); }
-    .ix-row{ display:grid; grid-template-columns:34px 1fr; gap:4px 12px; padding:14px 0; border-bottom:1px solid rgba(238,234,226,.16); }
-    .ix-row .t{ font-size:19px; font-weight:600; }
-    .ix-row .d{ grid-column:2; font-size:14px; line-height:1.45; color:rgba(238,234,226,.6); }
-    .ix-row.on .t{ color:var(--wine); }
-
-    .after{ display:grid; gap:22px; border-top:1px solid rgba(238,234,226,.16); padding-top:22px; }
-    .after .mono{ font-size:10px; margin-bottom:8px; }
-    .after b{ display:block; font-size:20px; font-weight:600; }
-    .after p{ margin-top:6px; font-size:15px; line-height:1.5; color:rgba(238,234,226,.6); }
-
-    .proc{ display:grid; grid-template-columns:1fr 1fr; gap:28px 16px; }
-    .proc .num{ font-size:54px; line-height:.9; font-weight:300; letter-spacing:-.05em; }
-    .proc .num.acc{ font-weight:600; color:var(--wine); }
-    .proc b{ display:block; margin-top:10px; font-size:17px; font-weight:600; }
-    .proc p{ margin-top:6px; font-size:14px; line-height:1.5; color:rgba(238,234,226,.6); }
-
-    .price{ padding:0; }
-    .price-row{ display:grid; grid-template-columns:auto 1fr; gap:6px 16px; padding:28px 0; border-bottom:1px solid rgba(9,9,9,.2); }
-    .price-row .num{ grid-row:span 2; font-size:54px; line-height:.85; font-weight:300; letter-spacing:-.05em; color:rgba(9,9,9,.25); }
-    .price-row .num.acc{ color:var(--wine); }
-    .price-row b{ display:block; font-size:21px; font-weight:600; letter-spacing:-.01em; }
-    .price-row p{ margin-top:6px; font-size:15px; color:rgba(9,9,9,.65); }
-    .price-row .sum{ grid-column:2; font-size:22px; font-weight:600; margin-top:6px; }
-
-    .foot{ display:grid; gap:14px; font-size:13px; color:rgba(238,234,226,.45); margin-top:64px; }
-    .foot .links{ display:flex; flex-wrap:wrap; gap:10px 22px; }
-  }
-
-  /* контакты */
+  /* ---------- контакты ---------- */
   .ov{ position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.6); opacity:0; pointer-events:none; transition:opacity .35s ease; }
-  .dlg{ position:fixed; z-index:81; left:50%; top:50%; width:min(460px, calc(100vw - 32px)); transform:translate(-50%,-46%); opacity:0; pointer-events:none; transition:opacity .35s ease, transform .35s ease;
-    background:#131315; border:1px solid rgba(238,234,226,.14); padding:30px 28px 26px; }
+  .dlg{ position:fixed; z-index:81; left:50%; top:50%; width:min(460px, calc(100vw - 32px)); transform:translate(-50%,-46%); opacity:0; pointer-events:none; transition:opacity .35s ease, transform .35s ease; background:#131315; border:1px solid rgba(238,234,226,.14); padding:30px 28px 26px; }
   .ov.on{ opacity:1; pointer-events:auto; }
   .dlg.on{ opacity:1; pointer-events:auto; transform:translate(-50%,-50%); }
-  .dlg .x{ position:absolute; top:14px; right:16px; background:none; border:0; color:rgba(238,234,226,.6); font-size:26px; cursor:pointer; line-height:1; }
-  .dlg .lede{ font-size:19px; line-height:1.45; margin:14px 0 24px; }
-  .dlg .cta{ width:100%; justify-content:space-between; }
+  .dlg .x{ position:absolute; top:14px; right:16px; background:none; border:0; color:var(--t-dim); font-size:26px; cursor:pointer; line-height:1; }
+  .dlg .lede{ margin:14px 0 24px; color:var(--t); }
+  .dlg .cta{ width:100%; }
   .dlg .row{ margin-top:22px; padding-top:16px; border-top:1px solid rgba(238,234,226,.12); }
-  .dlg .row .mono{ font-size:10px; margin-bottom:6px; }
+  .dlg .row .mono{ font-size:10px; margin-bottom:6px; color:var(--t-faint); }
   .dlg .row a{ font-size:17px; }
+
+  /* ---------- появление ---------- */
+  .rv{ opacity:0; transform:translateY(18px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .browser.rv, .phones > .rv, .ix-view.rv, .media.rv{ transform:none; transition:opacity .55s ease; }
+  .rv.shown{ opacity:1; transform:none; }
+  .hs{ opacity:0; transform:translateY(16px); animation:hsIn 1.3s var(--ease) forwards; }
+  .hs1{ animation-delay:.15s; } .hs2{ animation-delay:.45s; } .hs3{ animation-delay:1s; } .hs4{ animation-delay:1.35s; }
+  @keyframes hsIn{ to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){ .rv,.hs{ opacity:1; transform:none; animation:none; transition:none; } }
 </style>
 </head>
 <body>
 
-<!-- ============ 01 HERO ============ -->
-<section class="s first" data-screen-label="01 Hero">
-  <div class="in" style="--H:1160px">
-    <header class="top">
-      <a href="../" style="color:inherit"><div style="font-size:15px;font-weight:600;letter-spacing:.02em">TINA DIGITAL</div><div class="d-only" style="font-size:13px;color:rgba(238,234,226,.55);margin-top:4px">Сайты · Digital-продукты · Разработка</div></a>
-      <nav class="nav"><a href="../">Проекты</a><a href="./" style="color:#EEEAE2">Сайты под ключ</a><a href="../seo-geo/">SEO + GEO</a><a href="https://t.me/belovachristina" target="_blank" rel="noopener">Яндекс Директ</a><a href="#contact" data-contact>Контакты</a></nav>
-      <button class="m-cta m-only" type="button" data-contact>КОНТАКТЫ</button>
-    </header>
-    <div class="a mono br" style="--r:64px;--y:118px;letter-spacing:.12em">01 / 13 &nbsp; STRUCTURE → LIVE</div>
-    <div class="a mono" style="--x:64px;--y:180px;color:rgba(238,234,226,.6)">WEB DESIGN / DEVELOPMENT / DIGITAL PRODUCTS</div>
-    <h1 class="a h hero-h1" style="--x:56px;--y:520px;--fs:236px">САЙТЫ<br>ПОД КЛЮЧ</h1>
-    <div class="a serif" style="--x:64px;--y:388px;--fs:34px">Built from the inside out.</div>
-    <div class="a media shadow" style="--x:560px;--y:150px;--w:1010px;--h:640px;--ar:16/10">
-      <video src="../assets/turnkey/liana-hero.mp4" poster="../assets/turnkey/liana-hero.jpg" muted loop playsinline autoplay preload="auto" data-auto></video>
-    </div>
-    <div class="a" style="--x:64px;--b:64px;--w:560px;z-index:2"><p class="p" style="--fs:22px;line-height:1.4;color:rgba(238,234,226,.86)">Проектирую и&nbsp;разрабатываю сайты целиком: от&nbsp;бизнес-логики и&nbsp;визуального языка до&nbsp;рабочего продукта на&nbsp;вашем домене.</p></div>
-    <div class="a" style="--r:64px;--b:64px;z-index:2"><a href="#cta" class="cta">ОБСУДИТЬ ПРОЕКТ <span>→</span></a></div>
+<header class="top">
+  <a href="../">TINA DIGITAL</a>
+  <nav><a href="../">Проекты</a><a class="on" href="./">Сайты под ключ</a><a href="../seo-geo/">SEO + GEO</a><a href="https://t.me/belovachristina" target="_blank" rel="noopener">Яндекс Директ</a><button class="m" type="button" data-contact>Контакты</button></nav>
+</header>
+
+<main>
+
+<!-- 01 обложка -->
+<section class="cover">
+  <div class="kicker mono hs hs1"><span>01 / 14 — structure → live</span><span>web design · development · digital products</span></div>
+  <h1 class="h-xl hs hs2">Сайты<br>под ключ</h1>
+  <p class="serif tag hs hs3">Built from the inside out.</p>
+  <div class="meta hs hs4">
+    <div><small>Что делаю</small>Стратегия, UX, арт-дирекшн, код, запуск</div>
+    <div><small>Как</small>Одна рука: без передачи между дизайнером и&nbsp;разработчиком</div>
+    <div><small>Результат</small>Рабочий сайт на&nbsp;вашем домене</div>
+    <div><small>Стоимость</small><a class="wine" href="#price">от&nbsp;60&nbsp;000&nbsp;₽</a></div>
   </div>
 </section>
 
-<!-- ============ 02 BUSINESS GAP ============ -->
-<section class="s light" data-screen-label="02 Business gap">
-  <div class="in" style="--H:1120px">
-    <div class="a mono" style="--x:64px;--y:140px">02 / BUSINESS GAP</div>
-    <h2 class="a h" data-rv style="--x:60px;--y:200px;--w:1000px;--fs:112px;letter-spacing:-.04em;line-height:.92">БИЗНЕС МОЖЕТ<br>ВЫРАСТИ.</h2>
-    <h2 class="a h lt-h" data-rv style="--x:520px;--y:470px;--fs:112px;line-height:.92;font-weight:300;color:rgba(9,9,9,.34);white-space:nowrap">САЙТ — ОСТАТЬСЯ<br>ПРЕЖНИМ.</h2>
-    <div class="a" style="--x:64px;--y:760px;--w:420px"><p class="p" style="--fs:19px">Компания меняется быстрее сайта.</p><p class="p" style="--fs:19px;margin-top:18px">Появляются новые услуги, другой уровень клиентов, более высокий чек и&nbsp;новая экспертиза. А&nbsp;первое digital-впечатление остаётся на&nbsp;уровне нескольких лет назад.</p></div>
-    <div class="a mono br" style="--r:64px;--y:684px;font-size:10px;letter-spacing:.12em">2019 → 2026</div>
-    <div class="a frame" data-rv style="--r:64px;--y:720px;--w:560px;--h:400px;--ar:7/5"><div class="media"><img src="../assets/turnkey/gap-interior.jpg" alt="Интерьер: проект Liberman Studio" loading="lazy"></div></div>
+<section class="shot">
+  <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
+    <video src="../assets/pomazkov/v-hero-d.mp4" poster="../assets/pomazkov/v-hero-d.jpg" muted loop playsinline preload="none" data-auto></video>
   </div>
+  <div class="shot-cap"><p>Проектирую и&nbsp;разрабатываю сайты целиком: от&nbsp;бизнес-логики и&nbsp;визуального языка до&nbsp;рабочего продукта на&nbsp;вашем домене.</p><a class="link" href="#cta" data-contact>Обсудить проект →</a></div>
 </section>
 
-<!-- ============ 03 ONE HAND ============ -->
-<section class="s" data-screen-label="03 Design-dev gap">
-  <div class="in" style="--H:1040px">
-    <div class="a mono" style="--x:64px;--y:140px">03 / ONE HAND</div>
-    <h2 class="a h" data-rv style="--x:60px;--y:200px;--w:760px;--fs:72px;--fm:clamp(30px,8.6vw,40px);line-height:1;letter-spacing:-.035em">САЙТ НЕ&nbsp;ДОЛЖЕН<br>ТЕРЯТЬСЯ МЕЖДУ<br>ДИЗАЙНЕРОМ<br>И&nbsp;РАЗРАБОТЧИКОМ.</h2>
-    <div class="a" style="--x:64px;--y:560px;--w:520px"><p class="p" style="--fs:19px;color:rgba(238,234,226,.78)">Я&nbsp;сама проектирую UX, создаю визуальную систему и&nbsp;реализую её в&nbsp;коде. Поэтому решения не&nbsp;упрощаются после макета и&nbsp;не&nbsp;теряются между несколькими исполнителями.</p></div>
-    <div class="a d-only" style="--x:960px;--y:0;--w:1px;--h:1040px;background:linear-gradient(to bottom,transparent,rgba(238,234,226,.4) 15%,rgba(238,234,226,.4) 85%,transparent)"></div>
-    <div class="a chain mt-l" style="--x:1000px;--y:150px">
-      <div><span class="mono br">01</span>STRATEGY</div>
-      <div><span class="mono br">02</span>UX</div>
-      <div><span class="mono br">03</span>ART DIRECTION</div>
-      <div><span class="mono br">04</span>CODE</div>
-      <div><span class="mono br">05</span>MOBILE</div>
-      <div style="color:var(--wine)"><span class="mono br">06</span>LIVE</div>
-    </div>
-    <div class="a mono" style="--x:1000px;--y:836px;letter-spacing:.12em;color:rgba(238,234,226,.45)">NO HANDOFF</div>
-    <div class="a serif" style="--x:64px;--y:860px;--fs:40px;color:rgba(238,234,226,.8)">One project. One logic.</div>
-  </div>
-</section>
-
-<!-- ============ 04 CASE 01 / LIANA ============ -->
-<section class="s" data-screen-label="04 Liana">
-  <div class="in" style="--H:2060px">
-    <div class="a mono tags" style="--x:64px;--y:110px;gap:10px 40px;color:rgba(238,234,226,.6)"><span class="br">CASE 01 / LIANA GINI</span><span>PRODUCTION IN CHINA</span><span>STRATEGY / UX / UI / DEVELOPMENT</span></div>
-    <div class="a media bleed" style="--x:0;--y:170px;--w:1440px;--h:820px;--ar:16/10">
-      <video src="../assets/turnkey/liana-team-d.mp4" poster="../assets/turnkey/liana-team-d.jpg" muted loop playsinline preload="none" data-auto></video>
-    </div>
-    <h2 class="a h mt-l" data-rv style="--x:60px;--y:1050px;--w:820px;--fs:54px;--fm:clamp(30px,8.6vw,40px);line-height:1;letter-spacing:-.035em">СЛОЖНАЯ B2B-УСЛУГА<br>КАК ПОНЯТНАЯ<br>ИСТОРИЯ ПРОДАЖИ.</h2>
-    <div class="a mono" style="--x:64px;--y:1300px;display:grid;gap:10px;line-height:1.7;color:rgba(238,234,226,.55)"><span>CLIENT FEAR</span><span>CONTROL</span><span>PROCESS</span><span>ECONOMICS</span><span>PROOF</span><span style="color:var(--wine)">ACTION</span></div>
-    <div class="a" style="--x:64px;--y:1560px;--w:380px"><p class="p" style="--fs:17px;color:rgba(238,234,226,.7)">Производственный партнёр в&nbsp;Китае. Страх клиента потерять деньги превращён в&nbsp;последовательность: контроль → процесс → экономика → доказательства.</p></div>
-    <div class="a duo-m mt-l" style="--x:0;--y:0">
-      <div class="a media shadow" data-rv style="--x:600px;--y:1000px;--w:276px;--h:600px;--ar:276/600;z-index:2">
-        <video src="../assets/turnkey/liana-team-m.mp4" poster="../assets/turnkey/liana-team-m.jpg" muted loop playsinline preload="none" data-auto></video>
+<!-- 02 business gap -->
+<section class="sec paper gapsec">
+  <div class="wrap">
+    <p class="label">02 / business gap</p>
+    <h2 class="big rv">Бизнес может<br>вырасти.</h2>
+    <h2 class="big lt gap-off rv">Сайт — остаться<br>прежним.</h2>
+    <div class="gap-row">
+      <div class="gap-text">
+        <p class="body rv">Компания меняется быстрее сайта.</p>
+        <p class="body rv">Появляются новые услуги, другой уровень клиентов, более высокий чек и&nbsp;новая экспертиза. А&nbsp;первое digital-впечатление остаётся на&nbsp;уровне нескольких лет назад.</p>
       </div>
-      <div class="a media shadow" data-rv style="--x:960px;--y:1050px;--w:416px;--h:560px;--ar:276/600">
-        <img src="../assets/turnkey/liana-problems-m.jpg" alt="Лиана Гини: блок «Не могу контролировать производство из другой страны»" loading="lazy" style="object-position:top">
-      </div>
+      <figure class="gap-fig rv">
+        <span class="mono br yr">2019 → 2026</span>
+        <div class="gap-frame"><img src="../assets/turnkey/gap-interior.jpg" alt="Интерьер из проекта Liberman Studio" loading="lazy"></div>
+      </figure>
     </div>
-    <div class="a h mt-l" style="--x:560px;--y:1660px;--fs:200px;--fm:96px;line-height:.9;letter-spacing:-.05em">260</div>
-    <div class="a mt-s" style="--x:1010px;--y:1700px;--w:300px"><p class="p" style="--fs:17px;line-height:1.5;color:rgba(238,234,226,.7)">запусков товаров с&nbsp;китайского производства — блок доказательств в&nbsp;структуре сайта.</p></div>
-    <div class="a serif mt-l" style="--x:64px;--y:1920px;--fs:34px;color:rgba(238,234,226,.7)">Trust has a&nbsp;visual language.</div>
-    <a class="a mono" href="https://lianagini.ru" target="_blank" rel="noopener" style="--r:64px;--y:1960px;letter-spacing:.12em;color:rgba(238,234,226,.45)">LIVE · lianagini.ru ↗</a>
   </div>
 </section>
 
-<!-- ============ 05 MOBILE ≠ SMALL DESKTOP ============ -->
-<section class="s" style="background:var(--ink-2)" data-screen-label="05 Mobile">
-  <div class="in" style="--H:1300px">
-    <div class="a mono" style="--x:64px;--y:110px">05 / MOBILE EXPERIENCE</div>
-    <h2 class="a h" data-rv style="--x:60px;--y:800px;--w:900px;--fs:88px;--fm:clamp(30px,8.6vw,40px)">МОБИЛЬНЫЙ САЙТ<br>НЕ&nbsp;ОБЯЗАН БЫТЬ<br>УМЕНЬШЕННЫМ<br>DESKTOP.</h2>
-    <div class="a mono br d-only" style="--x:64px;--y:190px;letter-spacing:.12em">1440</div>
-    <div class="a mono br d-only" style="--x:1020px;--y:190px;letter-spacing:.12em">390</div>
-    <div class="a duo-m mt-l" style="--x:0;--y:0;align-items:center">
-      <div class="a media shadow" data-rv style="--x:64px;--y:220px;--w:820px;--h:512px;--ar:1280/736;background:var(--ink);flex:1.9">
-        <video src="../assets/turnkey/liana-services-d.mp4" poster="../assets/turnkey/liana-services-d.jpg" muted loop playsinline preload="none" data-auto></video>
-      </div>
-      <div class="a media shadow" data-rv style="--x:1020px;--y:220px;--w:356px;--h:772px;--ar:390/846;background:var(--ink);flex:1">
-        <video src="../assets/turnkey/liana-scroll-m.mp4" poster="../assets/turnkey/liana-scroll-m.jpg" muted loop playsinline preload="none" data-auto></video>
+<!-- 03 one hand -->
+<section class="onehand">
+  <div class="oh-l">
+    <p class="label">03 / one hand</p>
+    <h2 class="rv">Сайт не&nbsp;должен теряться между дизайнером и&nbsp;разработчиком.</h2>
+    <p class="body rv">Я&nbsp;сама проектирую UX, создаю визуальную систему и&nbsp;реализую её в&nbsp;коде. Поэтому решения не&nbsp;упрощаются после макета и&nbsp;не&nbsp;теряются между несколькими исполнителями.</p>
+    <p class="serif rv">One project. One logic.</p>
+  </div>
+  <div class="oh-r">
+    <ol class="oh-chain">
+      <li class="rv"><small>01</small>Strategy</li><li class="rv"><small>02</small>UX</li><li class="rv"><small>03</small>Art direction</li><li class="rv"><small>04</small>Code</li><li class="rv"><small>05</small>Mobile</li><li class="rv on"><small>06</small>Live</li>
+    </ol>
+    <span class="mono">No handoff</span>
+  </div>
+</section>
+
+<!-- 04 кейс 01: Pomazkov -->
+<section class="sec" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="case-head"><b>Case 01 / Philipp Pomazkov</b><span>Plastic surgery</span><span>Strategy / UX / UI / Development</span></div>
+    <div class="grid">
+      <h2 class="h-l c7 rv">Хирурга выбирают <em>не&nbsp;по&nbsp;прайсу</em></h2>
+      <div class="o8">
+        <p class="body rv">Сайт хирурга продаёт не&nbsp;операцию и&nbsp;даже не&nbsp;врача, а&nbsp;снижение неопределённости перед высокорисковым личным решением. Поэтому структура построена на&nbsp;вопросах, которые пациент задаёт себе сам.</p>
+        <ul class="chips rv"><li>запрос</li><li>результат</li><li>хирург</li><li>процесс</li><li>цена</li><li class="on">запись</li></ul>
       </div>
     </div>
-    <div class="a d-only" style="--x:846px;--y:400px;font-size:220px;line-height:1;font-weight:300;color:var(--wine);z-index:2">≠</div>
-    <div class="a mt-l" style="--x:64px;--y:1180px;display:flex;flex-wrap:wrap;gap:22px 64px;font-size:15px;line-height:1.6;color:rgba(238,234,226,.7)">
-      <div><div class="mono br" style="font-size:10px;margin-bottom:10px">DESKTOP</div>sticky storytelling · large compositions · desktop navigation</div>
-      <div><div class="mono br" style="font-size:10px;margin-bottom:10px">MOBILE</div>swipe · vertical flow · bottom navigation · app-like interface</div>
+    <div class="full">
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · подход</span></div>
+        <video src="../assets/pomazkov/v-approach-d-2.mp4" poster="../assets/pomazkov/v-approach-d-2.jpg" muted loop playsinline preload="none" data-auto></video>
+      </div>
     </div>
-    <div class="a mt-l" style="--x:1020px;--y:1030px;--w:356px;font-size:15px;line-height:1.6;color:rgba(238,234,226,.55)">При scroll desktop-композиция не&nbsp;сжимается — она пересобирается: элементы перестраиваются, появляется нижняя навигация.</div>
-  </div>
-</section>
-
-<!-- ============ 06 RANGE ============ -->
-<section class="s light" data-screen-label="06 Range">
-  <div class="in" style="--H:2400px">
-    <div class="a mono" style="--x:64px;--y:140px">06 / RANGE</div>
-    <h2 class="a h" data-rv style="--x:60px;--y:200px;--w:1200px;--fs:96px;--fm:clamp(30px,8.6vw,40px)">РАЗНЫЙ БИЗНЕС.<br>РАЗНАЯ ЛОГИКА.<br><span class="lt" style="color:rgba(9,9,9,.4)">РАЗНЫЙ ВИЗУАЛЬНЫЙ ЯЗЫК.</span></h2>
-    <div class="a" style="--r:64px;--y:560px;--w:380px"><p class="p" style="--fs:19px">Я&nbsp;не&nbsp;переношу один визуальный стиль из&nbsp;проекта в&nbsp;проект. Для каждого бизнеса ищу собственный язык.</p></div>
-
-    <a class="a media mt-l" href="../case-pomazkov.html" data-rv style="--x:64px;--y:660px;--w:440px;--h:760px;--ar:440/760;background:#101010">
-      <video src="../assets/pomazkov/v-hero-m.mp4" poster="../assets/turnkey/pomazkov-hero-m.jpg" muted loop playsinline preload="none" data-auto></video>
-    </a>
-    <div class="a mono tags mt-s" style="--x:64px;--y:1440px;letter-spacing:.12em;color:rgba(9,9,9,.6)"><span class="n">02</span><span>PHILIPP POMAZKOV</span><span>PLASTIC SURGERY</span><span>MONOCHROME</span></div>
-
-    <a class="a media mt-l" href="../case-enduro.html" data-rv style="--x:560px;--y:760px;--w:880px;--h:460px;--ar:880/460;background:#101010">
-      <video src="../assets/turnkey/enduro-hero.mp4" poster="../assets/turnkey/enduro-hero.jpg" muted loop playsinline preload="none" data-auto></video>
-    </a>
-    <div class="a mono tags mt-s" style="--x:560px;--y:1240px;letter-spacing:.12em;color:rgba(9,9,9,.6)"><span class="n">03</span><span>ENDURO ENERGY</span><span>RENTAL · CALCULATOR</span><span>INTERACTION</span></div>
-
-    <div class="a serif mt-l" style="--x:560px;--y:1360px;--fs:44px">Built for the business, not the template.</div>
-
-    <a class="a media mt-l" href="https://lodki-ladoga.ru" target="_blank" rel="noopener" data-rv style="--x:64px;--y:1540px;--w:620px;--h:620px;--ar:1/1;background:#101010">
-      <video src="../assets/turnkey/ladoga-hero.mp4" poster="../assets/turnkey/ladoga-hero.jpg" muted loop playsinline preload="none" data-auto style="object-position:70% center"></video>
-    </a>
-    <div class="a mono tags mt-s" style="--x:64px;--y:2190px;letter-spacing:.12em;color:rgba(9,9,9,.6)"><span class="n">04</span><span>ЛОДКИ НА ЛАДОГЕ</span><span>BOAT RENTAL</span><span>NATURE</span></div>
-
-    <a class="a frame mt-l" href="https://libermanstudio.ru" target="_blank" rel="noopener" data-rv style="--x:760px;--y:1500px;--w:616px;--h:400px;--ar:616/400"><div class="media"><img src="../assets/turnkey/liberman-invest.jpg" alt="Liberman Studio: инвестиционный дизайн" loading="lazy" style="object-position:left center"></div></a>
-    <div class="a mono tags mt-s" style="--x:760px;--y:1920px;letter-spacing:.12em;color:rgba(9,9,9,.6)"><span class="n">05</span><span>LIBERMAN STUDIO / ILONA</span><span>ARCHITECTURAL BUREAU</span><span>PRECISION</span></div>
-    <div class="a mt-s" style="--x:760px;--y:2000px;--w:520px"><p class="p" style="--fs:17px;color:rgba(9,9,9,.7)">Архитектурное бюро. Пространство, пропорция, точность — интерфейс собран как план здания: внешняя рамка → внутренняя рамка → объект.</p></div>
-    <div class="a mono mt-l" style="--r:64px;--y:2260px;letter-spacing:.12em;color:rgba(9,9,9,.45)">05 PROJECTS · 05 VISUAL SYSTEMS</div>
-  </div>
-</section>
-
-<!-- ============ 07 INDEX OF WORK ============ -->
-<section class="s" data-screen-label="07 Index">
-  <div class="in" style="--H:1300px">
-    <div class="a mono" style="--x:64px;--y:120px">07 / INDEX OF WORK</div>
-    <h2 class="a h" style="--x:60px;--y:170px;--fs:48px;--fm:clamp(28px,8vw,36px);line-height:1;letter-spacing:-.03em">ЧТО ВХОДИТ В&nbsp;ПРОЕКТ</h2>
-    <div class="a media shadow mt-l" style="--x:900px;--y:290px;--w:476px;--h:640px;--ar:4/3">
-      <img id="ixImg" src="../assets/turnkey/pz-approach.jpg" alt="Pomazkov: блок «Подход»" loading="lazy" style="object-position:left top">
+    <div class="phones">
+      <div class="rv"><div class="phone"><div class="scr"><img src="../assets/pomazkov/app-home.jpg" alt="Pomazkov: главный экран на телефоне" loading="lazy"></div></div><p class="cap">главная</p></div>
+      <div class="rv"><div class="phone"><div class="scr"><img src="../assets/pomazkov/app-journey.jpg" alt="Pomazkov: путь пациента" loading="lazy"></div></div><p class="cap">путь пациента</p></div>
+      <div class="rv"><div class="phone"><div class="scr"><img src="../assets/pomazkov/app-booking.jpg" alt="Pomazkov: запись без форм" loading="lazy"></div></div><p class="cap">запись без&nbsp;форм</p></div>
     </div>
-    <div class="a mono mt-s" id="ixLabel" style="--x:900px;--y:950px;letter-spacing:.12em;color:rgba(238,234,226,.45)">04 / ART DIRECTION</div>
-    <div class="a ix mt-l" id="ix" style="--x:64px;--y:290px;--w:760px">
-      <div class="ix-row" data-img="pz-structure-1.jpg" data-alt="Структура сайта Pomazkov"><span class="mono br">01</span><span class="t">STRATEGY</span><span class="d">анализ бизнеса, аудитории и&nbsp;задачи</span></div>
-      <div class="ix-row" data-img="pz-structure-2.jpg" data-alt="Структура сайта Pomazkov, продолжение"><span class="mono br">02</span><span class="t">STRUCTURE</span><span class="d">логика страниц, аргументация, CTA</span></div>
-      <div class="ix-row" data-img="enduro-objections.jpg" data-alt="Enduro Energy: работа с возражениями"><span class="mono br">03</span><span class="t">UX</span><span class="d">пользовательские сценарии</span></div>
-      <div class="ix-row on" data-img="pz-approach.jpg" data-alt="Pomazkov: блок «Подход»"><span class="mono br">04</span><span class="t">ART DIRECTION</span><span class="d">визуальный язык проекта</span></div>
-      <div class="ix-row" data-img="liberman-formats.jpg" data-alt="Liberman Studio: форматы работы"><span class="mono br">05</span><span class="t">UI</span><span class="d">система интерфейса</span></div>
-      <div class="ix-row" data-img="enduro-calc.jpg" data-alt="Enduro Energy: калькулятор выезда"><span class="mono br">06</span><span class="t">DEVELOPMENT</span><span class="d">реализация и&nbsp;interactions</span></div>
-      <div class="ix-row" data-img="liana-hero-m.jpg" data-alt="Лиана Гини: мобильная версия"><span class="mono br">07</span><span class="t">MOBILE</span><span class="d">адаптация или отдельный mobile experience</span></div>
-      <div class="ix-row" data-img="ladoga-booking.jpg" data-alt="Лодки на Ладоге: бронирование"><span class="mono br">08</span><span class="t">TECHNICAL</span><span class="d">формы, аналитика, домен, SSL, launch</span></div>
-      <div class="ix-row" data-img="ladoga-faq.jpg" data-alt="Лодки на Ладоге: вопросы и ответы"><span class="mono br">09</span><span class="t">SEARCH BASE</span><span class="d">title, description, robots, sitemap, индексируемая структура — база для SEO/GEO</span></div>
+    <div class="proof">
+      <b class="rv">12</b>
+      <div class="rv">
+        <p class="body">вопросов пациента — на&nbsp;них построена структура сайта: от&nbsp;«куда я&nbsp;попал?» до&nbsp;«что делать дальше?»</p>
+        <p style="margin-top:22px"><a class="link" href="../case-pomazkov.html">Смотреть кейс целиком →</a></p>
+      </div>
+      <div class="rv">
+        <p class="quote">«Получилось всё даже лучше, чем я&nbsp;себе это представлял».</p>
+        <p class="mono quote-by">Филипп Помазков · голосовой отзыв</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 08 DEVELOPMENT PROOF / ENDURO ============ -->
-<section class="s" data-screen-label="08 Enduro">
-  <div class="in" style="--H:1500px">
-    <div class="a mono tags" style="--x:64px;--y:60px;gap:10px 40px;color:rgba(238,234,226,.6)"><span class="br">CASE 03 / ENDURO ENERGY</span><span>INTERACTIVE CALCULATOR</span><span>DEVELOPMENT</span></div>
-    <div class="a media mt-l" style="--x:220px;--y:120px;--w:1220px;--h:700px;--ar:1440/826">
-      <video src="../assets/turnkey/enduro-calc.mp4" poster="../assets/turnkey/enduro-calc.jpg" muted loop playsinline preload="none" data-auto style="object-position:left top"></video>
+<!-- 05 кейс 02: Liana Gini -->
+<section class="sec">
+  <div class="wrap">
+    <div class="case-head"><b>Case 02 / Liana Gini</b><span>Production in China</span><span>Strategy / UX / UI / Development</span></div>
+    <div class="grid">
+      <h2 class="h-l c7 rv">Сложная B2B-услуга как <em>понятная история продажи</em></h2>
+      <div class="o8">
+        <p class="body rv">Производственный партнёр в&nbsp;Китае. Страх клиента потерять деньги превращён в&nbsp;последовательность: контроль → процесс → экономика → доказательства.</p>
+        <ul class="chips rv"><li>client fear</li><li>control</li><li>process</li><li>economics</li><li>proof</li><li class="on">action</li></ul>
+      </div>
     </div>
-    <div class="a media shadow d-only" style="--x:64px;--y:560px;--w:420px;--h:300px;z-index:2;box-shadow:0 40px 100px rgba(0,0,0,.7)">
-      <video src="../assets/turnkey/enduro-park.mp4" poster="../assets/turnkey/enduro-park.jpg" muted loop playsinline preload="none" data-auto></video>
+    <div class="full">
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lianagini.ru</span></div>
+        <video src="../assets/turnkey/liana-hero.mp4" poster="../assets/turnkey/liana-hero.jpg" muted loop playsinline preload="none" data-auto></video>
+      </div>
     </div>
-    <h2 class="a h mt-l" data-rv style="--x:60px;--y:920px;--fs:104px;--fm:clamp(30px,8.6vw,40px);line-height:.92">ДИЗАЙН<br>НЕ&nbsp;ЗАКАНЧИВАЕТСЯ<br><span class="lt dim">НА&nbsp;МАКЕТЕ.</span></h2>
-    <div class="a" style="--x:900px;--y:1240px;--w:476px"><p class="p" style="--fs:17px;color:rgba(238,234,226,.7)">Калькулятор аренды, состояния интерфейса, motion — реализованы в&nbsp;коде вместе с&nbsp;дизайном. Поисковая архитектура заложена на&nbsp;этапе разработки, а&nbsp;не&nbsp;после.</p></div>
-    <div class="a serif mt-l" style="--x:64px;--y:1340px;--fs:40px">Interaction before decoration.</div>
-    <a class="a mono" href="../case-enduro.html" style="--r:64px;--y:1420px;letter-spacing:.12em;color:rgba(238,234,226,.45)">КЕЙС · enduro-energy.ru →</a>
+    <div class="phones">
+      <div class="rv"><div class="phone"><div class="scr"><img src="../assets/turnkey/liana-hero-m.jpg" alt="Лиана Гини: первый экран на телефоне" loading="lazy"></div></div><p class="cap">первый экран</p></div>
+      <div class="rv"><div class="phone"><div class="scr"><video src="../assets/turnkey/liana-team-m.mp4" poster="../assets/turnkey/liana-team-m.jpg" muted loop playsinline preload="none" data-auto></video></div></div><p class="cap">команда в&nbsp;Китае</p></div>
+      <div class="rv"><div class="phone"><div class="scr"><img src="../assets/turnkey/liana-problems-m2.jpg" alt="Лиана Гини: страх «не могу контролировать производство»" loading="lazy"></div></div><p class="cap">страх → контроль</p></div>
+    </div>
+    <div class="proof" style="grid-template-columns:auto 1fr">
+      <b class="rv">260</b>
+      <div class="rv">
+        <p class="body">запусков товаров с&nbsp;китайского производства — блок доказательств в&nbsp;структуре сайта.</p>
+        <p class="serif">Trust has a&nbsp;visual language.</p>
+        <p style="margin-top:18px"><a class="link" href="https://lianagini.ru" target="_blank" rel="noopener">view live ↗ lianagini.ru</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============ 09 AFTER LAUNCH ============ -->
-<section class="s" style="background:var(--ink-2)" data-screen-label="09 After launch">
-  <div class="in" style="--H:900px">
-    <div class="a mono" style="--x:64px;--y:120px">09 / AFTER LAUNCH</div>
-    <h2 class="a h" data-rv style="--x:60px;--y:180px;--w:900px;--fs:72px;--fm:clamp(30px,8.6vw,40px);line-height:1;letter-spacing:-.035em">САЙТ НЕ&nbsp;ЗАКАНЧИВАЕТСЯ<br>В&nbsp;МОМЕНТ ПУБЛИКАЦИИ.</h2>
-    <div class="a" style="--x:64px;--y:400px;--w:440px"><p class="p" style="--fs:19px;color:rgba(238,234,226,.78)">После запуска сайт можно развивать как маркетинговый инструмент. Структура проектируется так, чтобы это было возможно.</p></div>
-    <div class="a after mt-l" style="--x:640px;--r:64px;--y:400px">
-      <div><div class="mono br">01</div><b>SEO + GEO</b><p>Продвижение в&nbsp;классическом поиске и&nbsp;AI Search. <a href="../seo-geo/" style="color:var(--bronze)">Подробнее →</a></p></div>
-      <div><div class="mono br">02</div><b>ЯНДЕКС ДИРЕКТ</b><p>Платный поисковый трафик на&nbsp;подготовленные посадочные.</p></div>
-      <div><div class="mono br">03</div><b>ANALYTICS</b><p>Цели, события, воронка — заложены в&nbsp;разработку.</p></div>
+<!-- 06 mobile ≠ desktop -->
+<section class="sec mob">
+  <div class="wrap">
+    <p class="label">06 / mobile experience</p>
+    <div class="mob-row">
+      <div class="mob-d">
+        <span class="mono br">1440</span>
+        <div class="media rv"><video src="../assets/turnkey/liana-services-d.mp4" poster="../assets/turnkey/liana-services-d.jpg" muted loop playsinline preload="none" data-auto></video></div>
+        <h2 class="rv">Мобильный сайт<br>не&nbsp;обязан быть<br>уменьшенным<br>desktop.</h2>
+      </div>
+      <div class="mob-neq" aria-hidden="true">≠</div>
+      <div class="mob-m">
+        <span class="mono br">390</span>
+        <div class="media rv"><video src="../assets/turnkey/liana-scroll-m.mp4" poster="../assets/turnkey/liana-scroll-m.jpg" muted loop playsinline preload="none" data-auto></video></div>
+        <p class="note rv">При scroll desktop-композиция не&nbsp;сжимается — она пересобирается: элементы перестраиваются, появляется нижняя навигация.</p>
+      </div>
     </div>
-    <div class="a mt-l" style="--x:640px;--y:720px;font-size:13px;line-height:1.5;color:rgba(238,234,226,.45)">Отдельные направления. Не&nbsp;входят в&nbsp;стоимость базовой разработки — база под&nbsp;них закладывается в&nbsp;структуру сайта.</div>
-  </div>
-</section>
-
-<!-- ============ 10 PROCESS ============ -->
-<section class="s" data-screen-label="10 Process">
-  <div class="in" style="--H:1180px">
-    <div class="a mono" style="--x:64px;--y:120px">10 / PROCESS</div>
-    <h2 class="a h" style="--x:60px;--y:170px;--fs:48px;--fm:clamp(28px,8vw,36px);line-height:1;letter-spacing:-.03em">КАК СОБИРАЕТСЯ ПРОЕКТ</h2>
-    <div class="a d-only" style="--x:0;--y:640px;--w:1440px;--h:1px;background:rgba(238,234,226,.18)"></div>
-    <div class="a proc mt-l" style="--x:64px;--r:64px;--y:300px">
-      <div style="--pt:0;--mt:210px"><div class="num">01</div><b>BUSINESS</b><p>Что продаём, кому, почему выбирают, что мешает купить.</p></div>
-      <div style="--pt:60px;--mt:150px"><div class="num">02</div><b>DECISION</b><p>Что показать первым, что доказать, где снять сомнение.</p></div>
-      <div style="--pt:120px;--mt:90px"><div class="num">03</div><b>STRUCTURE</b><p>Собираю пользовательский путь.</p></div>
-      <div style="--pt:180px;--mt:30px"><div class="num">04</div><b>VISUAL</b><p>Создаю art direction проекта.</p></div>
-      <div style="--pt:240px;--mt:60px"><div class="num">05</div><b>CODE</b><p>Сразу думаю, как решение будет жить и&nbsp;двигаться в&nbsp;браузере.</p></div>
-      <div style="--pt:300px;--mt:60px"><div class="num acc">06</div><b>LIVE</b><p>Запуск на&nbsp;домене, аналитика, техническая база.</p></div>
+    <div class="mob-spec">
+      <div class="rv"><span class="mono br">Desktop</span>sticky storytelling · large compositions · desktop navigation</div>
+      <div class="rv"><span class="mono br">Mobile</span>swipe · vertical flow · bottom navigation · app-like interface</div>
     </div>
-    <div class="a mono mt-l" style="--x:64px;--y:1080px;letter-spacing:.12em;color:rgba(238,234,226,.45)">FROM STRUCTURE TO LIVE PRODUCT</div>
   </div>
 </section>
 
-<!-- ============ 11 PRICING ============ -->
-<section class="s light price" data-screen-label="11 Pricing">
-  <div class="in">
-    <div class="mono">11 / SCOPE</div>
-    <h2 class="h" style="margin-top:28px;--fs:48px;--fm:clamp(28px,8vw,36px);line-height:1;letter-spacing:-.03em">ФОРМАТЫ ПРОЕКТОВ</h2>
-    <div style="margin-top:clamp(40px,7vw,100px);border-top:1px solid rgba(9,9,9,.2)">
-      <div class="price-row"><div class="num">01</div><div><b>LANDING / PROMO</b><p>Одностраничный коммерческий сайт.</p></div><div class="sum">ОТ&nbsp;60&nbsp;000&nbsp;₽</div></div>
-      <div class="price-row"><div class="num">02</div><div><b>BUSINESS / MULTIPAGE</b><p>Многостраничный сайт бизнеса или услуг.</p></div><div class="sum">ОТ&nbsp;100&nbsp;000&nbsp;₽</div></div>
-      <div class="price-row"><div class="num acc">03</div><div><b>CUSTOM DIGITAL EXPERIENCE</b><p>Сложные сценарии, нестандартная механика, отдельный mobile experience.</p></div><div class="sum">ОТ&nbsp;150&nbsp;000&nbsp;₽</div></div>
+<!-- 07 разный бизнес -->
+<section class="sec paper">
+  <div class="wrap">
+    <p class="label"><b>07</b> / range</p>
+    <div class="grid">
+      <h2 class="h-l c8 rv">Разный бизнес. Разная логика. <span class="lt">Разный визуальный язык.</span></h2>
+      <p class="body rv" style="grid-column:10 / span 3">Я&nbsp;не&nbsp;переношу один визуальный стиль из&nbsp;проекта в&nbsp;проект. Для каждого бизнеса ищу собственный язык.</p>
     </div>
-    <p style="margin-top:36px;font-size:14px;line-height:1.5;color:rgba(9,9,9,.5);max-width:520px">Финальная стоимость зависит от&nbsp;структуры, количества страниц, контента и&nbsp;сложности механики.</p>
+    <div class="range">
+      <a class="work w-1 rv" href="https://lodki-ladoga.ru" target="_blank" rel="noopener">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
+          <video src="../assets/turnkey/ladoga-hero.mp4" poster="../assets/turnkey/ladoga-hero.jpg" muted loop playsinline preload="none" data-auto></video>
+        </div>
+        <div class="tags mono"><b>03</b><span>Лодки на&nbsp;Ладоге</span><span>Boat rental</span><span>Nature</span></div>
+      </a>
+      <a class="work w-2 rv" href="https://libermanstudio.ru" target="_blank" rel="noopener">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru</span></div>
+          <img src="../assets/turnkey/liberman-invest.jpg" alt="Liberman Studio: инвестиционный дизайн" loading="lazy">
+        </div>
+        <div class="tags mono"><b>04</b><span>Liberman Studio / Ilona</span><span>Architectural bureau</span></div>
+        <p class="body">Архитектурное бюро. Пространство, пропорция, точность — интерфейс собран как план здания: внешняя рамка → внутренняя рамка → объект.</p>
+      </a>
+      <a class="work w-3 rv" href="../case-enduro.html">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru</span></div>
+          <video src="../assets/turnkey/enduro-hero.mp4" poster="../assets/turnkey/enduro-hero.jpg" muted loop playsinline preload="none" data-auto></video>
+        </div>
+        <div class="tags mono"><b>05</b><span>Enduro Energy</span><span>Rental · Calculator</span><span>Interaction</span></div>
+      </a>
+      <p class="serif w-serif rv">Built for the&nbsp;business, not the&nbsp;template.</p>
+    </div>
+    <p class="mono rv" style="margin-top:clamp(50px,6vw,90px);text-align:right;color:var(--d-faint)">05 projects · 05 visual systems</p>
   </div>
 </section>
 
-<!-- ============ 12 FILTER ============ -->
-<section class="s light" style="border-top:1px solid rgba(9,9,9,.12)" data-screen-label="12 Filter">
-  <div class="in" style="--H:760px">
-    <div class="a mono" style="--x:64px;--y:120px">12 / FILTER</div>
-    <h2 class="a h" data-rv style="--x:560px;--y:130px;--w:820px;--fs:72px;--fm:clamp(30px,8.6vw,40px);line-height:1;letter-spacing:-.035em">НЕ&nbsp;КАЖДОЙ ЗАДАЧЕ<br>НУЖЕН<br>КАСТОМНЫЙ САЙТ.</h2>
-    <div class="a" style="--x:560px;--y:420px;--w:560px"><p class="p" style="--fs:19px">Если задачу можно решить готовым шаблоном, нет смысла платить за&nbsp;индивидуальную разработку.</p><p class="p" style="--fs:19px;margin-top:18px">Я&nbsp;нужна там, где сайт должен иметь собственный характер, объяснять сложный продукт и&nbsp;нормально работать после запуска.</p></div>
+<!-- 08 что входит -->
+<section class="sec">
+  <div class="wrap">
+    <p class="label"><b>08</b> / index of work</p>
+    <h2 class="h-l rv">Что входит <em>в&nbsp;проект</em></h2>
+    <div class="ix-wrap">
+      <div class="ix" id="ix">
+        <div class="ix-row" data-v="0"><span class="n mono">01</span><span class="t">Strategy</span><span class="d">анализ бизнеса, аудитории и&nbsp;задачи</span></div>
+        <div class="ix-row" data-v="1"><span class="n mono">02</span><span class="t">Structure</span><span class="d">логика страниц, аргументация, CTA</span></div>
+        <div class="ix-row" data-v="2"><span class="n mono">03</span><span class="t">UX</span><span class="d">пользовательские сценарии</span></div>
+        <div class="ix-row on" data-v="3"><span class="n mono">04</span><span class="t">Art direction</span><span class="d">визуальный язык проекта</span></div>
+        <div class="ix-row" data-v="4"><span class="n mono">05</span><span class="t">UI</span><span class="d">система интерфейса</span></div>
+        <div class="ix-row" data-v="5"><span class="n mono">06</span><span class="t">Development</span><span class="d">реализация и&nbsp;interactions</span></div>
+        <div class="ix-row" data-v="6"><span class="n mono">07</span><span class="t">Mobile</span><span class="d">адаптация или отдельный mobile experience</span></div>
+        <div class="ix-row" data-v="7"><span class="n mono">08</span><span class="t">Technical</span><span class="d">формы, аналитика, домен, SSL, launch</span></div>
+        <div class="ix-row" data-v="8"><span class="n mono">09</span><span class="t">Search base</span><span class="d">title, description, robots, sitemap, индексируемая структура — база для&nbsp;SEO/GEO</span></div>
+      </div>
+      <div class="ix-view rv">
+        <div class="ix-stage" id="ixStage">
+          <figure class="sheet"><img src="../assets/pomazkov/doc-dossier-1-01.jpg" alt="Досье бренда Pomazkov" loading="lazy"></figure>
+          <figure class="sheet"><img src="../assets/turnkey/pz-structure-1.jpg" alt="Структура сайта Pomazkov" loading="lazy"></figure>
+          <img class="slide" src="../assets/turnkey/enduro-objections.jpg" alt="Enduro Energy: работа с возражениями" loading="lazy">
+          <div class="browser on"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div><img src="../assets/turnkey/pz-approach.jpg" alt="Pomazkov: блок «Подход»" loading="lazy"></div>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru</span></div><img src="../assets/turnkey/liberman-formats.jpg" alt="Liberman Studio: форматы работы" loading="lazy"></div>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru</span></div><img src="../assets/turnkey/enduro-calc.jpg" alt="Enduro Energy: калькулятор" loading="lazy"></div>
+          <div class="phone"><div class="scr"><img src="../assets/turnkey/liana-hero-m.jpg" alt="Лиана Гини: мобильная версия" loading="lazy"></div></div>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div><img src="../assets/turnkey/ladoga-booking.jpg" alt="Лодки на Ладоге: бронирование" loading="lazy"></div>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div><img src="../assets/turnkey/ladoga-faq.jpg" alt="Лодки на Ладоге: вопросы и ответы" loading="lazy"></div>
+        </div>
+        <p class="mono ix-cap" id="ixCap">04 / Art direction · Pomazkov</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============ 13 FINAL CTA ============ -->
-<section class="s" id="cta" data-screen-label="13 CTA">
-  <div class="in" style="--H:1100px">
-    <div class="a mono" style="--x:64px;--y:200px">13 / CONTACT</div>
-    <h2 class="a h" data-rv style="--x:60px;--y:280px;--fs:120px;--fm:clamp(40px,12vw,56px);line-height:.9;letter-spacing:-.045em">РАССКАЖИТЕ,<br>ЧТО НУЖНО<br>ПРОДАТЬ.</h2>
-    <div class="a" style="--x:64px;--y:680px;--w:520px"><p class="p" style="--fs:19px;color:rgba(238,234,226,.75)">Посмотрю задачу, существующий сайт и&nbsp;объём проекта. Если вижу, что могу сделать сильнее, предложу структуру и&nbsp;формат работы.</p></div>
-    <div class="a mt-l" style="--x:900px;--y:700px"><button type="button" class="cta" data-contact>ОБСУДИТЬ ПРОЕКТ <span>→</span></button></div>
-    <div class="a mono" style="--x:900px;--y:800px">STRATEGY / DESIGN / DEVELOPMENT</div>
-    <footer class="a foot" style="--x:64px;--r:64px;--b:40px">
-      <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../privacy/">Политика конфиденциальности</a><a href="../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
-      <span class="mono d-only" style="letter-spacing:.12em;color:rgba(238,234,226,.45)">13 / 13</span>
-    </footer>
+<!-- 09 enduro -->
+<section class="sec" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="case-head"><b>Case 03 / Enduro Energy</b><span>Interactive calculator</span><span>Development</span></div>
+    <div class="en-shots">
+      <div class="browser main rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · стоимость</span></div>
+        <video src="../assets/turnkey/enduro-calc.mp4" poster="../assets/turnkey/enduro-calc.jpg" muted loop playsinline preload="none" data-auto></video>
+      </div>
+      <div class="browser small rv"><div class="bar"><i></i><i></i><i></i><span>мотопарк</span></div>
+        <video src="../assets/turnkey/enduro-park.mp4" poster="../assets/turnkey/enduro-park.jpg" muted loop playsinline preload="none" data-auto></video>
+      </div>
+    </div>
+    <div class="grid en-text">
+      <h2 class="h-l c7 rv">Дизайн не&nbsp;заканчивается <span class="lt">на&nbsp;макете.</span></h2>
+      <div class="o8">
+        <p class="body rv">Калькулятор аренды, состояния интерфейса, motion — реализованы в&nbsp;коде вместе с&nbsp;дизайном. Поисковая архитектура заложена на&nbsp;этапе разработки, а&nbsp;не&nbsp;после.</p>
+        <p class="serif rv" style="margin-top:22px">Interaction before decoration.</p>
+        <p class="rv" style="margin-top:22px"><a class="link" href="../case-enduro.html">Смотреть кейс →</a></p>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- 10 после запуска -->
+<section class="sec">
+  <div class="wrap">
+    <p class="label"><b>10</b> / after launch</p>
+    <div class="grid" style="align-items:start">
+      <h2 class="h-l c7 rv">Сайт не&nbsp;заканчивается <em>в&nbsp;момент публикации</em></h2>
+      <p class="body o8 rv">После запуска сайт можно развивать как маркетинговый инструмент. Структура проектируется так, чтобы это было возможно.</p>
+    </div>
+    <div class="after">
+      <div class="rv"><small class="mono">01</small><b>SEO + GEO</b><p>Продвижение в&nbsp;классическом поиске и&nbsp;AI Search. <a href="../seo-geo/">Подробнее →</a></p></div>
+      <div class="rv"><small class="mono">02</small><b>Яндекс Директ</b><p>Платный поисковый трафик на&nbsp;подготовленные посадочные.</p></div>
+      <div class="rv"><small class="mono">03</small><b>Analytics</b><p>Цели, события, воронка — заложены в&nbsp;разработку.</p></div>
+    </div>
+    <p class="rv" style="margin-top:34px;font-size:13px;line-height:1.5;color:var(--t-faint);max-width:620px">Отдельные направления. Не&nbsp;входят в&nbsp;стоимость базовой разработки — база под&nbsp;них закладывается в&nbsp;структуру сайта.</p>
+  </div>
+</section>
+
+<!-- 11 процесс -->
+<section class="sec" style="background:var(--ink-2)">
+  <div class="wrap">
+    <p class="label"><b>11</b> / process</p>
+    <h2 class="h-l rv">Как собирается <em>проект</em></h2>
+    <ol class="proc">
+      <li class="rv"><div class="num">01</div><b>Business</b><p>Что продаём, кому, почему выбирают, что мешает купить.</p></li>
+      <li class="rv"><div class="num">02</div><b>Decision</b><p>Что показать первым, что доказать, где снять сомнение.</p></li>
+      <li class="rv"><div class="num">03</div><b>Structure</b><p>Собираю пользовательский путь.</p></li>
+      <li class="rv"><div class="num">04</div><b>Visual</b><p>Создаю art direction проекта.</p></li>
+      <li class="rv"><div class="num">05</div><b>Code</b><p>Сразу думаю, как решение будет жить и&nbsp;двигаться в&nbsp;браузере.</p></li>
+      <li class="rv on"><div class="num">06</div><b>Live</b><p>Запуск на&nbsp;домене, аналитика, техническая база.</p></li>
+    </ol>
+    <p class="mono" style="margin-top:clamp(40px,5vw,70px);color:var(--t-faint)">from structure to live product</p>
+  </div>
+</section>
+
+<!-- 12 цены -->
+<section class="sec paper" id="price">
+  <div class="wrap">
+    <p class="label"><b>12</b> / scope</p>
+    <h2 class="h-l rv">Форматы <em>проектов</em></h2>
+    <div class="prices">
+      <div class="price-row rv"><div class="num">01</div><div><b>Landing / Promo</b><p>Одностраничный коммерческий сайт.</p></div><div class="sum">от&nbsp;60&nbsp;000&nbsp;₽</div></div>
+      <div class="price-row rv"><div class="num">02</div><div><b>Business / Multipage</b><p>Многостраничный сайт бизнеса или услуг.</p></div><div class="sum">от&nbsp;100&nbsp;000&nbsp;₽</div></div>
+      <div class="price-row rv"><div class="num on">03</div><div><b>Custom digital experience</b><p>Сложные сценарии, нестандартная механика, отдельный mobile experience.</p></div><div class="sum">от&nbsp;150&nbsp;000&nbsp;₽</div></div>
+    </div>
+    <p class="price-note">Финальная стоимость зависит от&nbsp;структуры, количества страниц, контента и&nbsp;сложности механики.</p>
+  </div>
+</section>
+
+<!-- 13 фильтр -->
+<section class="sec paper" style="border-top:1px solid var(--d-line)">
+  <div class="wrap grid" style="align-items:start">
+    <p class="label c4"><b>13</b> / filter</p>
+    <div style="grid-column:5 / span 8">
+      <h2 class="h-l rv">Не&nbsp;каждой задаче нужен <em>кастомный сайт</em></h2>
+      <p class="lede rv" style="margin-top:34px">Если задачу можно решить готовым шаблоном, нет смысла платить за&nbsp;индивидуальную разработку.</p>
+      <p class="body rv" style="margin-top:18px">Я&nbsp;нужна там, где сайт должен иметь собственный характер, объяснять сложный продукт и&nbsp;нормально работать после запуска.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 cta -->
+<section class="sec final" id="cta">
+  <div class="wrap">
+    <p class="label"><b>14</b> / contact</p>
+    <h2 class="h-xl rv" style="font-size:clamp(48px,8.4vw,150px)">Расскажите,<br>что нужно <em>продать.</em></h2>
+    <div class="grid">
+      <p class="body c5 rv" style="font-size:clamp(17px,1.4vw,20px)">Посмотрю задачу, существующий сайт и&nbsp;объём проекта. Если вижу, что могу сделать сильнее, предложу структуру и&nbsp;формат работы.</p>
+      <div class="cta-col o8 rv">
+        <button type="button" class="cta" data-contact>ОБСУДИТЬ ПРОЕКТ <span>→</span></button>
+        <span class="mono" style="color:var(--t-faint)">strategy / design / development</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../privacy/">Политика конфиденциальности</a><a href="../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
+  <span class="mono">Сайты под ключ</span>
+</footer>
 
 <!-- контакты -->
 <div class="ov" id="ov"></div>
 <div class="dlg" id="dlg" role="dialog" aria-modal="true" aria-label="Контакты">
   <button class="x" type="button" aria-label="Закрыть" data-close>×</button>
-  <div class="mono br">TINA DIGITAL · САЙТЫ ПОД КЛЮЧ</div>
+  <div class="mono br">TINA DIGITAL · сайты под ключ</div>
   <p class="lede">Расскажите, что нужно продать. Посмотрю задачу и&nbsp;предложу структуру и&nbsp;формат работы.</p>
   <a class="cta" href="https://t.me/belovachristina" target="_blank" rel="noopener">НАПИСАТЬ В&nbsp;TELEGRAM <span>→</span></a>
   <div class="row"><div class="mono">Telegram</div><a href="https://t.me/belovachristina" target="_blank" rel="noopener">@belovachristina</a></div>
@@ -443,15 +617,10 @@
 <script>
 (function(){
   "use strict";
-  var root = document.documentElement;
-  /* desktop: композиция 1440 масштабируется под ширину окна */
-  function fit(){ var w = root.clientWidth; root.style.setProperty('--z', w >= 900 ? String(Math.min(1, w / 1440)) : '1'); }
-  fit(); addEventListener('resize', fit);
-
   /* появление */
-  var rv = document.querySelectorAll('[data-rv]');
+  var rv = document.querySelectorAll('.rv');
   if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px -8% 0px' });
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px 20% 0px' });
     rv.forEach(function(el){ io.observe(el); });
   } else rv.forEach(function(el){ el.classList.add('shown'); });
 
@@ -472,26 +641,24 @@
     });
   }
 
-  /* 07: наведение (на телефоне — нажатие) на строку меняет фрагмент */
-  var img = document.getElementById('ixImg'), label = document.getElementById('ixLabel');
-  var rows = document.querySelectorAll('#ix .ix-row');
+  /* 08: наведение (на телефоне — нажатие) на строку меняет фрагмент */
+  var names = ['Pomazkov · досье', 'Pomazkov · структура', 'Enduro · возражения', 'Pomazkov', 'Liberman Studio', 'Enduro · калькулятор', 'Лиана Гини · 390', 'Ладога · бронирование', 'Ладога · вопросы'];
+  var rows = document.querySelectorAll('#ix .ix-row'), frames = document.getElementById('ixStage').children, cap = document.getElementById('ixCap');
   rows.forEach(function(r){
-    r.querySelector('.d');
     function show(){
+      var k = +r.getAttribute('data-v');
       rows.forEach(function(x){ x.classList.toggle('on', x === r); });
-      img.src = '../assets/turnkey/' + r.getAttribute('data-img'); img.alt = r.getAttribute('data-alt');
-      label.textContent = r.querySelector('.mono').textContent + ' / ' + r.querySelector('.t').textContent;
+      for (var i = 0; i < frames.length; i++) frames[i].classList.toggle('on', i === k);
+      cap.textContent = r.querySelector('.n').textContent + ' / ' + r.querySelector('.t').textContent + ' · ' + names[k];
     }
     r.addEventListener('mouseenter', show); r.addEventListener('click', show);
   });
-  rows.forEach(function(r){ var p = new Image(); p.src = '../assets/turnkey/' + r.getAttribute('data-img'); });
 
   /* контакты */
   var ov = document.getElementById('ov'), dlg = document.getElementById('dlg');
   function open(e){ if (e) e.preventDefault(); ov.classList.add('on'); dlg.classList.add('on'); }
   function close(){ ov.classList.remove('on'); dlg.classList.remove('on'); }
   document.querySelectorAll('[data-contact]').forEach(function(b){ b.addEventListener('click', open); });
-  document.querySelectorAll('a[href="#cta"]').forEach(function(a){ a.addEventListener('click', open); });
   ov.addEventListener('click', close); dlg.querySelector('[data-close]').addEventListener('click', close);
   addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
 })();
