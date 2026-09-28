@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лодки на Ладоге — кейс TINA DIGITAL</title>
+<link rel="canonical" href="https://tinadigital.ru/case-ladoga.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta name="description" content="Кейс: сайт проката моторных лодок на Ладоге. Структура по реальным поисковым сценариям, UX выбора лодки, бронирование в три шага, локальное SEO. TINA DIGITAL.">
+<meta property="og:title" content="Лодки на Ладоге — кейс TINA DIGITAL">
+<meta property="og:description" content="Сайт проката лодок: цена, эхолот, без залога, бронь и маршрут до пирса — в ответ на реальные вопросы из поиска.">
+<meta property="og:image" content="https://tinadigital.ru/assets/ladoga/v-hero-d.jpg">
+<meta property="og:url" content="https://tinadigital.ru/case-ladoga.html">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="assets/fonts/manrope.css">
+<link rel="stylesheet" href="assets/legal/legal.css">
+<style>
+  /* палитра и шрифты — из style.css сайта lodki-ladoga.ru.
+     Newsreader и DM Sans на сайте не содержат кириллицы, поэтому русский текст там рендерится в Georgia и системном гротеске — так же и здесь. */
+  :root{
+    --ink:#0c1519; --ink-2:#152228; --lake-mid:#1e3238; --paper:#f2f0ec; --cream:#faf9f7;
+    --pine:#3a5248; --pine-deep:#2d4239; --boat:#c6463a; --boat-2:#e0705f;
+    --t-dark:#12181c; --t-dim:#5c6b72; --t-faint:rgba(18,24,28,.42);
+    --l-ink:#faf9f7; --l-dim:rgba(250,249,247,.66); --l-faint:rgba(250,249,247,.38);
+    --serif:Georgia, 'Times New Roman', serif;
+    --sans:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --mono:ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --pad:clamp(20px,5vw,88px);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--ink); color:var(--l-ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  img,video{ display:block; max-width:100%; }
+  a{ color:inherit; }
+  .nb{ white-space:nowrap; }
+
+  /* ---------- шапка ---------- */
+  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center;
+    padding:20px var(--pad); font-family:'Manrope', var(--sans); font-size:13px; font-weight:700; letter-spacing:.12em; mix-blend-mode:difference; color:#fff; }
+  .top a{ text-decoration:none; }
+  .top .back{ font-weight:600; letter-spacing:.02em; }
+
+  /* ---------- общие ---------- */
+  .sec{ position:relative; padding:clamp(90px,12vw,190px) var(--pad); }
+  .sec.dark{ background:var(--ink); color:var(--l-ink); }
+  .sec.lake{ background:var(--ink-2); color:var(--l-ink); }
+  .sec.paper{ background:var(--paper); color:var(--t-dark); }
+  .sec.cream{ background:var(--cream); color:var(--t-dark); }
+  .wrap{ max-width:1500px; margin:0 auto; }
+  .label{ font-family:var(--sans); font-size:11.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; opacity:.62; display:flex; gap:14px; align-items:center; margin:0 0 28px; }
+  .label b{ font-weight:600; color:var(--boat-2); opacity:1; }
+  .paper .label b, .cream .label b{ color:var(--boat); }
+  .h-xl{ font-family:var(--serif); font-weight:400; letter-spacing:-.025em; line-height:1; margin:0; font-size:clamp(44px,7.4vw,128px); text-wrap:balance; }
+  .h-l{ font-family:var(--serif); font-weight:400; letter-spacing:-.02em; line-height:1.04; margin:0; font-size:clamp(34px,4.8vw,78px); text-wrap:balance; }
+  .h-l em, .h-xl em{ font-style:italic; color:var(--boat-2); }
+  .paper .h-l em, .cream .h-l em, .paper .h-xl em, .cream .h-xl em{ color:var(--boat); }
+  .lede{ font-family:var(--serif); font-size:clamp(19px,1.7vw,25px); line-height:1.45; margin:0; text-wrap:pretty; }
+  .body{ font-size:17px; line-height:1.65; margin:0 0 14px; text-wrap:pretty; }
+  .dark .body, .dark .lede, .lake .body, .lake .lede{ color:rgba(250,249,247,.8); }
+  .paper .body, .cream .body{ color:var(--t-dim); }
+  .grid-2{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(20px,3vw,48px); align-items:start; }
+  .c-5{ grid-column:span 5; } .c-6{ grid-column:span 6; } .c-7{ grid-column:span 7; }
+  .c-5.off-7{ grid-column:7 / span 5; } .c-6.off-7{ grid-column:7 / span 6; }
+  @media (max-width: 900px){ .grid-2 > *{ grid-column:1 / -1 !important; } }
+  .mt{ margin-top:clamp(50px,7vw,110px); }
+
+  /* ---------- устройства ---------- */
+  .browser{ border-radius:14px; overflow:hidden; background:#111; box-shadow:0 60px 120px -30px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06); }
+  .paper .browser, .cream .browser{ box-shadow:0 60px 120px -40px rgba(18,24,28,.4), 0 0 0 1px rgba(0,0,0,.06); }
+  .browser .bar{ height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; background:#1c1f21; }
+  .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3d40; flex:none; }
+  .browser .bar span{ margin:0 auto; font-family:var(--sans); font-size:12px; color:#8d9397; background:#2a2d30; padding:4px 22px; border-radius:7px; transform:translateX(-24px); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:70%; }
+  .browser video, .browser img{ width:100%; height:auto; }
+  .browser.tall .scroller{ max-height:min(900px, 90vh); overflow:hidden; position:relative; }
+  .browser.tall .scroller::after{ content:''; position:absolute; inset:auto 0 0 0; height:180px; background:linear-gradient(transparent, var(--fade, #0c1519)); }
+  .cap{ margin:14px 0 0; font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+  .paper .cap, .cream .cap{ color:var(--t-faint); }
+  .dark .cap, .lake .cap{ color:var(--l-faint); }
+
+  .phone{ width:clamp(200px,19vw,300px); aspect-ratio:390/844; border-radius:calc(clamp(200px,19vw,300px) * .15); background:#0a0a0b; padding:clamp(7px,.7vw,10px);
+    box-shadow:0 50px 100px -30px rgba(0,0,0,.6), inset 0 0 0 1.5px #2a2a2e; position:relative; flex:none; }
+  .phone .scr{ width:100%; height:100%; border-radius:calc(clamp(200px,19vw,300px) * .125); overflow:hidden; background:#000; }
+  .phone .scr img, .phone .scr video{ width:100%; height:100%; object-fit:cover; object-position:top; }
+  .phone::before{ content:''; position:absolute; top:clamp(14px,1.4vw,20px); left:50%; transform:translateX(-50%); width:30%; height:clamp(18px,1.9vw,26px); background:#000; border-radius:20px; z-index:2; }
+
+  /* ---------- обложка ---------- */
+  .cover{ min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:140px var(--pad) 60px; background:var(--ink); }
+  .cover .kicker{ font-size:11.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--l-dim); display:flex; justify-content:space-between; gap:20px; margin-bottom:3vw; }
+  .cover .kicker span{ white-space:nowrap; }
+  @media (max-width: 480px){ .cover .kicker{ font-size:10px; letter-spacing:.14em; } }
+  .cover h1{ font-family:var(--serif); font-weight:400; margin:0; line-height:.9; letter-spacing:-.04em; font-size:clamp(58px,12.6vw,240px); }
+  .cover h1 span{ display:block; }
+  .cover .tag{ font-family:var(--serif); font-style:italic; color:var(--boat-2); font-size:clamp(24px,3vw,50px); margin:1.4vw 0 0; }
+  .meta{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:clamp(40px,6vw,90px); padding-top:22px; border-top:1px solid rgba(250,249,247,.16); }
+  .meta div{ font-size:15px; line-height:1.45; }
+  .meta small{ display:block; font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--l-faint); margin-bottom:8px; }
+  .meta a{ text-decoration:none; border-bottom:1px solid var(--boat-2); }
+  @media (max-width: 760px){ .meta{ grid-template-columns:1fr 1fr; } }
+
+  .hero-shot{ background:var(--ink); padding:0 var(--pad) clamp(90px,12vw,180px); }
+  .hero-shot .browser{ max-width:1500px; margin:0 auto; }
+
+  /* ---------- задача ---------- */
+  .asks{ list-style:none; margin:40px 0 0; padding:0; counter-reset:f; }
+  .asks li{ counter-increment:f; display:grid; grid-template-columns:56px 1fr; gap:10px; padding:20px 0; border-top:1px solid rgba(18,24,28,.14); font-family:var(--serif); font-size:clamp(20px,1.7vw,26px); line-height:1.3; }
+  .asks li::before{ content:'0' counter(f); font-size:11.5px; font-weight:600; letter-spacing:.12em; color:var(--boat); padding-top:8px; }
+  .asks li span{ display:block; font-family:var(--sans); font-size:14px; color:var(--t-dim); margin-top:6px; line-height:1.5; }
+
+  /* ---------- research ---------- */
+  .art-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:34px; }
+  .art-stats div{ border-top:1px solid rgba(250,249,247,.18); padding-top:14px; }
+  .art-stats b{ display:block; font-family:var(--serif); font-weight:400; font-size:clamp(30px,3vw,46px); line-height:1; margin-bottom:8px; white-space:nowrap; }
+  .art-stats span{ font-size:14px; line-height:1.45; color:var(--l-dim); }
+  @media (max-width: 600px){ .art-stats{ grid-template-columns:1fr; } }
+  .sheet{ margin:0; background:#f4f4f4; border-radius:4px; overflow:hidden; box-shadow:0 40px 90px -30px rgba(0,0,0,.7); }
+  .sheet img{ width:100%; height:auto; }
+  .big-quote{ font-family:var(--serif); font-size:clamp(28px,3.4vw,54px); line-height:1.15; margin:0; max-width:1200px; text-wrap:balance; letter-spacing:-.01em; }
+  .big-quote em{ color:var(--boat-2); }
+  .quote-by{ margin-top:18px; font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); }
+  .wf-duo{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(20px,3vw,44px); align-items:start; }
+  .wf-duo .side{ display:grid; gap:clamp(20px,3vw,44px); }
+  @media (max-width: 900px){ .wf-duo{ grid-template-columns:1fr; } }
+  .decisions{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,44px); }
+  .decisions div{ border-top:1px solid rgba(250,249,247,.18); padding-top:18px; }
+  .decisions b{ display:block; font-family:var(--serif); font-weight:400; font-size:clamp(21px,1.9vw,28px); line-height:1.2; margin-bottom:10px; }
+  .decisions span{ font-size:16px; line-height:1.55; color:rgba(250,249,247,.8); }
+  @media (max-width: 900px){ .decisions{ grid-template-columns:1fr; } }
+
+  /* ---------- характеристики / аннотации ---------- */
+  .specs{ display:flex; flex-wrap:wrap; gap:0; margin-top:34px; border-top:1px solid rgba(18,24,28,.16); }
+  .specs div{ padding:16px 26px 0 0; margin-right:26px; }
+  .specs small{ display:block; font-size:10.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--t-faint); margin-bottom:6px; }
+  .specs b{ font-family:var(--serif); font-weight:400; font-size:clamp(22px,2vw,30px); }
+  .ann{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:34px; }
+  .ann div{ border-top:1px solid rgba(250,249,247,.22); padding-top:16px; font-size:16px; line-height:1.55; color:rgba(250,249,247,.82); }
+  .paper .ann div, .cream .ann div{ border-top-color:rgba(18,24,28,.16); color:var(--t-dim); }
+  .ann b{ display:block; font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--boat-2); margin-bottom:8px; }
+  .paper .ann b, .cream .ann b{ color:var(--boat); }
+  @media (max-width: 760px){ .ann{ grid-template-columns:1fr; } }
+  .steps{ list-style:none; margin:34px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(18,24,28,.22); }
+  .steps li{ padding:18px 14px 0 0; position:relative; }
+  .steps li::before{ content:''; position:absolute; top:-5px; left:0; width:9px; height:9px; border-radius:50%; background:var(--pine); }
+  .steps b{ display:block; font-size:11px; font-weight:600; letter-spacing:.14em; color:var(--t-faint); margin-bottom:6px; }
+  .steps span{ font-family:var(--serif); font-size:clamp(19px,1.6vw,24px); }
+
+  /* ---------- SEO ---------- */
+  .qrows{ border-top:1px solid rgba(250,249,247,.16); }
+  .qrows > div{ display:flex; justify-content:space-between; gap:18px; align-items:baseline; padding:16px 0; border-bottom:1px solid rgba(250,249,247,.16); }
+  .qrows .q{ font-family:var(--serif); font-size:clamp(18px,1.7vw,24px); }
+  .qrows .p{ font-family:var(--mono); font-size:12px; color:var(--boat-2); white-space:nowrap; }
+  .qrows .p small{ display:block; font-family:var(--sans); font-size:11px; color:var(--l-faint); text-align:right; margin-top:4px; letter-spacing:.02em; }
+  .code{ margin:0; padding:clamp(20px,2.4vw,34px); border-radius:12px; background:#081014; box-shadow:inset 0 0 0 1px rgba(250,249,247,.08); font-family:var(--mono); font-size:13px; line-height:1.7; color:rgba(250,249,247,.72); white-space:pre-wrap; word-break:break-word; }
+  .code i{ font-style:normal; color:#8a9aa3; }
+  .code b{ font-weight:400; color:var(--boat-2); }
+
+  /* ---------- мобайл ---------- */
+  .phones{ display:flex; justify-content:center; align-items:flex-start; gap:clamp(14px,2vw,34px); margin-top:clamp(50px,7vw,110px); padding-bottom:40px; }
+  .phones .phone{ width:clamp(170px,15.5vw,260px); border-radius:calc(clamp(170px,15.5vw,260px) * .15); }
+  .phones .phone .scr{ border-radius:calc(clamp(170px,15.5vw,260px) * .125); }
+  .phones .phone:nth-child(2){ margin-top:clamp(40px,6vw,110px); }
+  .phones .phone:nth-child(3){ margin-top:clamp(0px,1vw,20px); }
+  .phones .phone:nth-child(4){ margin-top:clamp(60px,8vw,150px); }
+  .phones .phone:nth-child(5){ margin-top:clamp(20px,3vw,50px); }
+  .phone .pc{ position:absolute; left:0; right:0; bottom:-36px; margin:0; text-align:center; font-size:10.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); }
+  @media (max-width: 900px){ .phones{ overflow-x:auto; justify-content:flex-start; padding:0 4px 44px; scroll-snap-type:x mandatory; } .phones .phone{ scroll-snap-align:center; margin-top:0 !important; } }
+  .rules{ list-style:none; margin:30px 0 0; padding:0; }
+  .rules li{ padding:12px 0; border-top:1px solid rgba(250,249,247,.14); font-size:16px; line-height:1.45; color:rgba(250,249,247,.82); }
+
+  /* ---------- визуальный язык ---------- */
+  .system{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,4vw,60px); align-items:start; }
+  .swatches{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .swatches div{ height:clamp(110px,9vw,150px); border-radius:6px; padding:12px; display:flex; flex-direction:column; justify-content:flex-end; font-family:var(--mono); font-size:11px; line-height:1.45; letter-spacing:.04em; box-shadow:inset 0 0 0 1px rgba(255,255,255,.08); }
+  .type-spec div{ border-top:1px solid rgba(250,249,247,.16); padding:16px 0; display:flex; justify-content:space-between; align-items:baseline; gap:20px; }
+  .type-spec small{ font-size:10.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); text-align:right; }
+  @media (max-width: 760px){ .system{ grid-template-columns:1fr; } .swatches{ grid-template-columns:repeat(2,1fr); } }
+  .ai-tag{ display:inline-flex; align-items:center; justify-content:center; padding:4px 9px; border-radius:6px; background:rgba(12,21,25,.5); color:#fff; border:1px solid rgba(255,255,255,.45); font-size:11px; font-weight:600; letter-spacing:.16em; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
+  .ai-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,1.2vw,18px); }
+  .ai-grid figure{ margin:0; position:relative; border-radius:4px; overflow:hidden; background:#111; }
+  .ai-grid figure.wide{ grid-column:span 2; }
+  .ai-grid img{ width:100%; height:auto; }
+  .ai-grid .ai-tag{ position:absolute; top:14px; left:14px; }
+  .ai-grid figcaption{ position:absolute; left:14px; bottom:12px; right:14px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.85); text-shadow:0 1px 8px rgba(0,0,0,.6); }
+  @media (max-width: 600px){ .ai-grid{ grid-template-columns:1fr; } .ai-grid figure.wide{ grid-column:auto; } }
+
+  /* ---------- результат ---------- */
+  .facts{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:clamp(40px,6vw,80px); }
+  .facts div{ border-top:1px solid rgba(250,249,247,.18); padding-top:18px; }
+  .facts b{ display:block; font-family:var(--serif); font-weight:400; font-size:clamp(34px,4vw,60px); line-height:1; margin-bottom:10px; }
+  .facts span{ font-size:15px; line-height:1.45; color:var(--l-dim); }
+  @media (max-width: 900px){ .facts{ grid-template-columns:1fr 1fr; } }
+  .statement{ font-family:var(--serif); font-weight:400; letter-spacing:-.02em; line-height:1.02; font-size:clamp(40px,6.4vw,110px); margin:0 0 30px; }
+  .statement em{ color:var(--boat-2); }
+  .live{ display:inline-flex; gap:14px; align-items:baseline; margin-top:22px; font-size:15px; font-weight:600; text-decoration:none; color:var(--t-dark); border-bottom:1px solid var(--boat); padding-bottom:3px; }
+  .live span{ font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--boat); }
+  .breath{ height:clamp(120px,16vw,240px); background:var(--ink); }
+
+  /* ---------- следующий кейс ---------- */
+  .next{ display:block; position:relative; min-height:70vh; overflow:hidden; text-decoration:none; color:#fff; background:#0c0c0d; }
+  .next video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55; transition:opacity .6s, transform 1.4s var(--ease); }
+  .next:hover video{ opacity:.75; transform:scale(1.03); }
+  .next .in{ position:relative; min-height:70vh; display:flex; flex-direction:column; justify-content:flex-end; padding:60px var(--pad); }
+  .next small{ font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; opacity:.7; }
+  .next b{ font-family:var(--serif); font-weight:400; font-size:clamp(46px,9vw,150px); line-height:.95; letter-spacing:-.03em; }
+  .foot{ background:var(--ink); padding:30px var(--pad) 40px; }
+
+  /* ---------- появление ---------- */
+  .hs{ opacity:0; transform:translateY(14px); animation:hsIn 1.3s var(--ease) forwards; }
+  .hs1{ animation-delay:.15s; } .hs2{ animation-delay:.45s; } .hs3{ animation-delay:1.05s; } .hs4{ animation-delay:1.45s; }
+  @keyframes hsIn{ to{ opacity:1; transform:none; } }
+  .rv{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+  .browser.rv, .phone.rv, .sheet.rv, .ai-grid .rv{ transform:none; transition:opacity .45s ease; }
+  .rv.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .hs{ animation:none; opacity:1; transform:none; } .rv{ opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="index.html">TINA DIGITAL</a>
+  <a class="back" href="index.html#work">← Все проекты</a>
+</header>
+
+<main>
+
+<!-- 00 обложка -->
+<section class="cover">
+  <div class="kicker hs hs1"><span>Кейс — 2026</span><span>Сайт локального бизнеса</span></div>
+  <h1 class="hs hs2"><span>Лодки</span><span>на&nbsp;Ладоге</span></h1>
+  <p class="tag hs hs3">рыбалка без&nbsp;ожидания и&nbsp;залога</p>
+  <div class="meta hs hs4">
+    <div><small>Клиент</small>Прокат моторных лодок. Пирс в&nbsp;деревне Назия, Ладожское озеро</div>
+    <div><small>Роль</small>Структура, UX/UI, дизайн, разработка, SEO и&nbsp;локальный поиск</div>
+    <div><small>Год</small>2026</div>
+    <div><small>Сайт</small><a href="https://lodki-ladoga.ru" target="_blank" rel="noopener">lodki-ladoga.ru ↗</a></div>
+  </div>
+</section>
+
+<section class="hero-shot">
+  <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
+    <video src="assets/ladoga/v-hero-d.mp4" poster="assets/ladoga/v-hero-d.jpg" muted loop playsinline preload="none" data-auto></video>
+  </div>
+</section>
+
+<!-- 01 задача -->
+<section class="sec paper">
+  <div class="wrap grid-2">
+    <div class="c-5">
+      <p class="label"><b>01</b> задача</p>
+      <h2 class="h-l rv">Лодку ищут не&nbsp;по&nbsp;названию, а&nbsp;<em>по&nbsp;вопросам</em></h2>
+    </div>
+    <div class="c-6 off-7">
+      <p class="lede rv">Человек, который собрался на&nbsp;рыбалку, ищет конкретное. Сайт должен был ответить на&nbsp;эти вопросы раньше, чем он&nbsp;возьмёт телефон, и&nbsp;довести до&nbsp;брони.</p>
+      <ol class="asks rv">
+        <li><div>Сколько стоит аренда?<span>цена за&nbsp;день — прямо в&nbsp;карточке лодки</span></div></li>
+        <li><div>Есть ли эхолот?<span>что входит в&nbsp;аренду без доплат</span></div></li>
+        <li><div>Нужен ли залог?<span>условия до&nbsp;звонка</span></div></li>
+        <li><div>Можно выйти на&nbsp;воду сегодня?<span>ближайший свободный выход</span></div></li>
+        <li><div>Как доехать до&nbsp;пирса?<span>маршрут в&nbsp;Яндекс Картах</span></div></li>
+      </ol>
+    </div>
+  </div>
+  <div class="wrap mt">
+    <div class="grid-2">
+      <div class="c-5">
+        <p class="label"><b>до</b> сайта</p>
+        <p class="body rv">До&nbsp;сайта у&nbsp;проката была только карточка в&nbsp;Яндекс Картах: адрес, телефон, фотографии и&nbsp;витрина из&nbsp;двух лодок.</p>
+      </div>
+    </div>
+    <div class="browser rv" style="margin-top:clamp(24px,3vw,40px)"><div class="bar"><i></i><i></i><i></i><span>yandex.ru/maps · Лодки на&nbsp;Ладоге</span></div>
+      <img src="assets/ladoga/before-yandex.jpg" alt="Карточка «Лодки на Ладоге» в Яндекс Картах" loading="lazy" width="2000" height="1027">
+    </div>
+    <p class="cap">точка входа до&nbsp;сайта — карточка в&nbsp;Яндекс Картах</p>
+  </div>
+</section>
+
+<!-- 02 research -->
+<section class="sec dark">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>02</b> research до&nbsp;дизайна</p>
+      <h2 class="h-xl rv">Сначала <em>путь,</em> потом экран</h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="lede rv">До&nbsp;первого макета — wireframe: путь пользователя, иерархия блоков, уровни текста и&nbsp;отдельные правила для&nbsp;телефона.</p>
+      <div class="art-stats rv">
+        <div><b>9</b><span>блоков структуры: у&nbsp;каждого своя задача</span></div>
+        <div><b>10–15&nbsp;с</b><span>цель пути: отличие → сценарий → лодка → бронь</span></div>
+        <div><b>1</b><span>главное действие — «Забронировать»</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap mt">
+    <figure class="sheet rv"><img src="assets/ladoga/wf-flow.jpg" alt="Wireframe: UX flow — путь пользователя от первого экрана до брони" loading="lazy" width="1920" height="1175"></figure>
+    <p class="cap">wireframe · UX flow — путь пользователя</p>
+  </div>
+  <div class="wrap mt">
+    <p class="big-quote rv">«Цель flow: за&nbsp;10–15 секунд показать <em>отличие от&nbsp;обычного проката</em> → сценарий → лодка → бронь».</p>
+    <p class="quote-by">из&nbsp;wireframe проекта</p>
+  </div>
+  <div class="wrap mt wf-duo">
+    <div>
+      <div class="browser tall rv" style="--fade:#0c1519"><div class="bar"><i></i><i></i><i></i><span>wireframe · иерархия страницы</span></div>
+        <div class="scroller"><img src="assets/ladoga/wf-page.jpg" alt="Wireframe страницы: 9 блоков и их задачи" loading="lazy" width="1440" height="3482"></div>
+      </div>
+      <p class="cap">wireframe страницы · 9 блоков, у&nbsp;каждого — задача</p>
+    </div>
+    <div class="side">
+      <div><figure class="sheet rv"><img src="assets/ladoga/wf-table.jpg" alt="Иерархия контента: уровни от логотипа до кнопок" loading="lazy" width="1350" height="635"></figure><p class="cap">уровни текста и&nbsp;роль каждого в&nbsp;UX</p></div>
+      <div><figure class="sheet rv"><img src="assets/ladoga/wf-mobile.jpg" alt="Мобильная версия: порядок блоков и поведение" loading="lazy" width="1350" height="495"></figure><p class="cap">правила мобильной версии</p></div>
+    </div>
+  </div>
+  <div class="wrap mt">
+    <p class="label"><b>решения</b></p>
+    <div class="decisions">
+      <div class="rv"><b>Одно действие</b><span>«Забронировать» повторяется в&nbsp;первом экране, карточках лодок, шапке, закреплённой кнопке на&nbsp;телефоне и&nbsp;в&nbsp;финале.</span></div>
+      <div class="rv"><b>«Это про&nbsp;меня»</b><span>Сценарии аренды — чтобы человек узнал себя: рыбалка, компания друзей, прогулка вдвоём, первый раз на&nbsp;лодке.</span></div>
+      <div class="rv"><b>Возражения до&nbsp;брони</b><span>Залог, права, бензин, эхолот, место выдачи — ответы стоят перед формой, а&nbsp;не&nbsp;после звонка.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 выбор лодки -->
+<section class="sec cream">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>03</b> ux · выбор лодки</p>
+      <h2 class="h-l rv">Выбрать лодку <em class="nb">за&nbsp;10&nbsp;секунд</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="body rv">В&nbsp;парке две одинаковые лодки — сравнивать нечего, поэтому карточка отвечает сразу на&nbsp;всё: характеристики, цена за&nbsp;день и&nbsp;ближайший свободный выход. Кнопка брони — в&nbsp;той же строке.</p>
+      <div class="specs rv">
+        <div><small>Длина</small><b>5&nbsp;м</b></div>
+        <div><small>Экипаж</small><b>до&nbsp;4</b></div>
+        <div><small>Мотор</small><b>20&nbsp;л.с.</b></div>
+        <div><small>Корпус</small><b>Алюминий</b></div>
+        <div><small>Цена</small><b>от&nbsp;8&nbsp;500&nbsp;₽/день</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap mt">
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · лодки</span></div>
+      <video src="assets/ladoga/v-fleet-d.mp4" poster="assets/ladoga/v-fleet-d.jpg" muted loop playsinline preload="none" data-auto></video>
+    </div>
+  </div>
+</section>
+
+<!-- 04 что входит -->
+<section class="sec dark">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>04</b> ux · состав аренды</p>
+      <h2 class="h-l rv">Всё уже на&nbsp;борту — <em>без&nbsp;доплат</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="body rv">В&nbsp;wireframe задача блока записана как «снять страх скрытых доплат». Поэтому шесть пунктов, которые обычно выясняют по&nbsp;телефону, собраны в&nbsp;одну сетку.</p>
+    </div>
+  </div>
+  <div class="wrap mt">
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · включено</span></div>
+      <img src="assets/ladoga/d-included.jpg" alt="Блок «Всё необходимое уже на борту»" loading="lazy" width="2160" height="1461">
+    </div>
+    <div class="ann">
+      <div class="rv"><b>эхолот</b>Уже установлен и&nbsp;настроен — не&nbsp;нужно арендовать или покупать отдельно.</div>
+      <div class="rv"><b>бензин</b>20&nbsp;литров включены в&nbsp;стоимость — без доплат после поездки.</div>
+      <div class="rv"><b>без залога</b>Никакой залоговой суммы при&nbsp;выдаче лодки.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 сценарии + вопросы -->
+<section class="sec paper">
+  <div class="wrap grid-2">
+    <div class="c-5">
+      <p class="label"><b>05</b> ux · сценарии</p>
+      <h2 class="h-l rv">Один прокат — <em>четыре повода</em></h2>
+      <p class="body rv" style="margin-top:28px">Рыбалка, компания до&nbsp;четырёх человек, прогулка вдвоём до&nbsp;крепости Орешек или первый раз за&nbsp;штурвалом. В&nbsp;каждой карточке — две короткие причины, почему это просто: «эхолот уже на&nbsp;борту», «права не&nbsp;нужны».</p>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(40px,5vw,70px)">
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · сценарии</span></div>
+      <img src="assets/ladoga/d-scenarios.jpg" alt="Блок «Выберите, как поедете на воду»: четыре сценария" loading="lazy" width="2160" height="1350">
+    </div>
+  </div>
+  <div class="wrap mt grid-2">
+    <div class="c-5">
+      <p class="label"><b>06</b> ux · вопросы</p>
+      <h2 class="h-l rv">Семь ответов <em>до&nbsp;звонка</em></h2>
+      <p class="body rv" style="margin-top:28px">Нужны ли права, есть ли залог, входят ли бензин и&nbsp;эхолот, можно ли взять лодку в&nbsp;день обращения, где её&nbsp;забирать и&nbsp;куда можно плыть. Короткие ответы в&nbsp;одну-две строки.</p>
+    </div>
+    <div class="c-6 off-7">
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · вопросы</span></div>
+        <video src="assets/ladoga/v-faq-d.mp4" poster="assets/ladoga/v-faq-d.jpg" muted loop playsinline preload="none" data-auto></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 бронирование -->
+<section class="sec cream">
+  <div class="wrap grid-2">
+    <div class="c-5">
+      <p class="label"><b>07</b> conversion · бронь</p>
+      <h2 class="h-l rv">Бронь <em>в&nbsp;три шага</em></h2>
+      <p class="body rv" style="margin-top:28px">Лодка и&nbsp;количество дней, дата и&nbsp;время старта, контакты. Итоговая сумма пересчитывается сразу, занятые даты и&nbsp;часы видны заранее. Под&nbsp;кнопкой — то, что снимает последнее сомнение: без предоплаты и&nbsp;без залога.</p>
+      <ol class="steps rv">
+        <li><b>01</b><span>Лодка</span></li>
+        <li><b>02</b><span>Дата</span></li>
+        <li><b>03</b><span>Контакты</span></li>
+      </ol>
+    </div>
+    <div class="c-6 off-7">
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · бронирование</span></div>
+        <video src="assets/ladoga/v-booking-d.mp4" poster="assets/ladoga/v-booking-d.jpg" muted loop playsinline preload="none" data-auto></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 маршрут -->
+<section class="sec paper">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>08</b> ux · маршрут</p>
+      <h2 class="h-l rv">10&nbsp;минут от&nbsp;<em>Мурманского шоссе</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="body rv">Последний вопрос перед поездкой — куда ехать. Деревня Назия, Кировский район, асфальтовый подъезд, карта с&nbsp;меткой базы и&nbsp;кнопка «Построить маршрут в&nbsp;Яндекс Картах».</p>
+    </div>
+  </div>
+  <div class="wrap mt">
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · локация</span></div>
+      <img src="assets/ladoga/d-map.jpg" alt="Блок «Аренда лодки рядом с Мурманским шоссе — дер. Назия»" loading="lazy" width="2160" height="1746">
+    </div>
+  </div>
+</section>
+
+<!-- 09 SEO -->
+<section class="sec lake">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>09</b> seo · локальный поиск</p>
+      <h2 class="h-l rv">Каждый запрос ведёт <em>в&nbsp;свой раздел</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="body rv">Структура строилась вокруг реальных сценариев выбора, а&nbsp;не&nbsp;только брендового запроса. Цена, эхолот, рыбалка, залог, бронь — у&nbsp;каждого запроса есть раздел, который на&nbsp;него отвечает.</p>
+    </div>
+  </div>
+  <div class="wrap mt grid-2">
+    <div class="c-6">
+      <p class="label"><b>запрос</b> → раздел</p>
+      <div class="qrows rv">
+        <div><span class="q">аренда лодки на&nbsp;ладоге цена</span><span class="p">#fleet<small>лодки и&nbsp;цена</small></span></div>
+        <div><span class="q">лодка с&nbsp;эхолотом на&nbsp;ладоге</span><span class="p">#included<small>что входит</small></span></div>
+        <div><span class="q">рыбалка на&nbsp;ладоге на&nbsp;лодке</span><span class="p">#scenarios<small>сценарии</small></span></div>
+        <div><span class="q">аренда лодки без&nbsp;залога</span><span class="p">#faq<small>вопросы</small></span></div>
+        <div><span class="q">как забронировать лодку на&nbsp;ладоге</span><span class="p">#contact<small>бронирование</small></span></div>
+      </div>
+    </div>
+    <div class="c-5 off-7">
+      <p class="label"><b>в коде</b> страницы</p>
+<pre class="code rv"><i>&lt;title&gt;</i>Аренда лодки на Ладоге — прокат моторных лодок без залога | Назия, Кировский район<i>&lt;/title&gt;</i>
+
+<i>"@type":</i> <b>"LocalBusiness"</b>,
+<i>"name":</i> "Лодки на Ладоге",
+<i>"streetAddress":</i> "Новоладожский канал, 27",
+<i>"addressLocality":</i> "деревня Назия",
+<i>"geo":</i> { 59.9053, 31.2044 },
+<i>"opens":</i> "07:00", <i>"closes":</i> "21:00"</pre>
+      <p class="body rv" style="margin-top:20px">Заголовок и&nbsp;описание страницы построены вокруг тех же вопросов, разметка LocalBusiness отдаёт поиску адрес, координаты, телефон и&nbsp;часы работы.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 мобильная версия -->
+<section class="sec dark">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>10</b> responsive · мобильная версия</p>
+      <h2 class="h-l rv">На&nbsp;телефоне — <em>кнопка всегда рядом</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="body rv">Мобильная версия проектировалась отдельно ещё в&nbsp;wireframe, а&nbsp;не&nbsp;сжималась из&nbsp;десктопа:</p>
+      <ul class="rules rv">
+        <li>Закреплённая кнопка «Забронировать» появляется после первого экрана</li>
+        <li>Навигация — в&nbsp;выдвижном меню</li>
+        <li>Лодки и&nbsp;сценарии — в&nbsp;одну колонку, характеристики остаются читаемыми</li>
+        <li>Бронирование — те&nbsp;же три шага, под&nbsp;палец</li>
+      </ul>
+    </div>
+  </div>
+  <div class="phones">
+    <div class="phone rv"><div class="scr"><video src="assets/ladoga/v-hero-m.mp4" poster="assets/ladoga/v-hero-m.jpg" muted loop playsinline preload="none" data-auto></video></div><p class="pc">первый экран</p></div>
+    <div class="phone rv"><div class="scr"><img src="assets/ladoga/m-fleet.jpg" alt="Мобильная версия: выбор лодки" loading="lazy"></div><p class="pc">лодки</p></div>
+    <div class="phone rv"><div class="scr"><img src="assets/ladoga/m-included.jpg" alt="Мобильная версия: что входит" loading="lazy"></div><p class="pc">включено</p></div>
+    <div class="phone rv"><div class="scr"><video src="assets/ladoga/v-booking-m.mp4" poster="assets/ladoga/v-booking-m.jpg" muted loop playsinline preload="none" data-auto></video></div><p class="pc">бронь</p></div>
+    <div class="phone rv"><div class="scr"><img src="assets/ladoga/m-map.jpg" alt="Мобильная версия: локация" loading="lazy"></div><p class="pc">маршрут</p></div>
+  </div>
+</section>
+
+<!-- 11 визуальный язык -->
+<section class="sec dark" style="padding-top:0">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>11</b> visual · ai визуальный язык</p>
+      <h2 class="h-l rv">Ладога на&nbsp;рассвете. <em>Красная лодка.</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="lede rv">Спокойная тёмная палитра воды и&nbsp;хвои, один яркий акцент — цвет самих лодок. Атмосферные кадры сделаны с&nbsp;помощью AI: они задают настроение, но&nbsp;ничего не&nbsp;доказывают.</p>
+    </div>
+  </div>
+  <div class="wrap mt">
+    <div class="ai-grid">
+      <figure class="wide rv"><img src="assets/ladoga/ai-hero.jpg" alt="AI-кадр первого экрана: красная лодка в тумане на рассвете" loading="lazy" width="1280" height="720"><span class="ai-tag">AI</span><figcaption>кадр из&nbsp;видео первого экрана · не&nbsp;документальная съёмка</figcaption></figure>
+      <figure class="rv"><img src="assets/ladoga/ai-maintenance.jpg" alt="AI-кадр: обслуживание лодки" loading="lazy" width="1264" height="842"><span class="ai-tag">AI</span><figcaption>блок «сервис и&nbsp;качество»</figcaption></figure>
+      <figure class="rv"><img src="assets/ladoga/ai-gear.jpg" alt="AI-кадр: снасти и спиннинг" loading="lazy" width="1264" height="842"><span class="ai-tag">AI</span><figcaption>блок «снасти и&nbsp;рыбалка»</figcaption></figure>
+      <figure class="rv"><img src="assets/ladoga/ai-boat-1.jpg" alt="Лодка №1 у пирса, изображение обработано AI" loading="lazy" width="1312" height="816"><span class="ai-tag">AI</span><figcaption>карточка лодки №1</figcaption></figure>
+      <figure class="rv"><img src="assets/ladoga/ai-boat-2.jpg" alt="Лодка №2 на берегу, изображение обработано AI" loading="lazy" width="1312" height="816"><span class="ai-tag">AI</span><figcaption>карточка лодки №2</figcaption></figure>
+    </div>
+  </div>
+  <div class="wrap mt system">
+    <div class="swatches rv">
+      <div style="background:#0c1519;color:#faf9f7;box-shadow:inset 0 0 0 1px rgba(250,249,247,.25)">#0C1519<br>глубокая вода</div>
+      <div style="background:#152228;color:#faf9f7">#152228<br>озеро</div>
+      <div style="background:#3a5248;color:#faf9f7">#3A5248<br>хвоя · кнопки</div>
+      <div style="background:#faf9f7;color:#12181c">#FAF9F7<br>лён</div>
+      <div style="background:#f2f0ec;color:#12181c">#F2F0EC<br>галька</div>
+      <div style="background:#c6463a;color:#faf9f7">#C6463A<br>лодка · акцент</div>
+    </div>
+    <div class="type-spec rv">
+      <div><span style="font-family:var(--serif);font-size:clamp(28px,3vw,44px)">Выберите лодку</span><small>serif · заголовки</small></div>
+      <div><span style="font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.4vw,36px);color:var(--boat-2)">без&nbsp;ожидания и&nbsp;залога</span><small>serif italic · акцент</small></div>
+      <div><span style="font-size:clamp(15px,1.3vw,18px);font-weight:600;letter-spacing:.2em;text-transform:uppercase">Состав аренды</span><small>гротеск · подписи, интерфейс</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 сайт целиком -->
+<section class="sec cream">
+  <div class="wrap">
+    <p class="label"><b>12</b> live product · сайт целиком</p>
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
+      <video src="assets/ladoga/v-scroll-d.mp4" poster="assets/ladoga/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video>
+    </div>
+    <a class="live" href="https://lodki-ladoga.ru" target="_blank" rel="noopener"><span>view live ↗</span>lodki-ladoga.ru</a>
+  </div>
+</section>
+
+<!-- 13 результат -->
+<section class="sec dark">
+  <div class="wrap">
+    <p class="label"><b>13</b> результат</p>
+    <p class="statement rv">Сайт, который отвечает <em>до&nbsp;звонка.</em></p>
+    <p class="body rv" style="max-width:620px">Вместо карточки в&nbsp;Картах — сайт, где за&nbsp;один проход видно цену, состав аренды, условия и&nbsp;дорогу, а&nbsp;бронь оформляется в&nbsp;три шага.</p>
+    <div class="facts">
+      <div class="rv"><b>5</b><span>поисковых сценариев — у&nbsp;каждого свой раздел</span></div>
+      <div class="rv"><b>6</b><span>пунктов в&nbsp;составе аренды: от&nbsp;эхолота до&nbsp;пирса</span></div>
+      <div class="rv"><b>7</b><span>ответов на&nbsp;вопросы до&nbsp;брони</span></div>
+      <div class="rv"><b>3</b><span>шага бронирования: лодка, дата, контакты</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="breath" aria-hidden="true"></div>
+
+<a class="next" href="case-pomazkov.html">
+  <video src="assets/pomazkov/ai-hero.mp4" poster="assets/pomazkov/ai-hero.jpg" muted loop playsinline preload="none" data-auto></video>
+  <div class="in"><small>Следующий кейс</small><b>Pomazkov →</b></div>
+</a>
+
+</main>
+
+<footer class="foot">
+  <div class="tl-legal">
+    <span>© 2026 TINA DIGITAL</span>
+    <a href="privacy/">Политика конфиденциальности</a>
+    <a href="cookies/">Политика cookie</a>
+    <a href="#" data-cookie-settings>Настройки cookie</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  /* появление блоков */
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold:0, rootMargin:'0px 0px 25% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('in'); });
+
+  /* видео играют только когда видны */
+  var vids = document.querySelectorAll('video[data-auto]');
+  if ('IntersectionObserver' in window){
+    /* load() обрывает начатый play(), поэтому видимый ролик запускаем ещё раз, когда он готов */
+    var pre = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting){ var v = e.target; if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } pre.unobserve(v); }
+    }); }, { rootMargin:'100% 0px 100% 0px' });
+    var vo = new IntersectionObserver(function(es){ es.forEach(function(e){
+      var v = e.target; v._vis = e.isIntersecting;
+      if (e.isIntersecting) v.play().catch(function(){}); else v.pause();
+    }); }, { threshold:.05 });
+    vids.forEach(function(v){
+      v.addEventListener('canplay', function(){ if (v._vis && v.paused) v.play().catch(function(){}); });
+      pre.observe(v); vo.observe(v);
+    });
+  }
+})();
+</script>
+<script src="assets/legal/legal.js"></script>
+</body>
+</html>

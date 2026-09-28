@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liberman Studio — кейс TINA DIGITAL</title>
+<link rel="canonical" href="https://tinadigital.ru/case-liberman.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta name="description" content="Кейс: сайт архитектора и дизайнера интерьера Илоны Либерман. Анализ аудитории, позиционирование «архитектор, а не ещё один дизайнер», воронка AIDA, лид‑магнит, дизайн и разработка. TINA DIGITAL.">
+<meta property="og:title" content="Liberman Studio — кейс TINA DIGITAL">
+<meta property="og:description" content="Сайт архитектора интерьера: позиционирование, воронка продаж, лид‑магнит, редакционная визуальная система.">
+<meta property="og:image" content="https://tinadigital.ru/assets/liberman/v-hero-d.jpg">
+<meta property="og:url" content="https://tinadigital.ru/case-liberman.html">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="assets/legal/legal.css">
+<style>
+  /* шрифты проекта (self-hosted, как на libermanstudio.ru) */
+  @font-face{ font-family:'Cormorant Garamond'; font-style:normal; font-weight:300 500; font-display:swap; src:url("assets/liberman/fonts/cormorant-cyr.woff2") format("woff2"); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+  @font-face{ font-family:'Cormorant Garamond'; font-style:normal; font-weight:300 500; font-display:swap; src:url("assets/liberman/fonts/cormorant-lat.woff2") format("woff2"); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face{ font-family:'Cormorant Garamond'; font-style:italic; font-weight:300 400; font-display:swap; src:url("assets/liberman/fonts/cormorant-italic-cyr.woff2") format("woff2"); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+  @font-face{ font-family:'Cormorant Garamond'; font-style:italic; font-weight:300 400; font-display:swap; src:url("assets/liberman/fonts/cormorant-italic-lat.woff2") format("woff2"); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face{ font-family:'Jost'; font-style:normal; font-weight:300 500; font-display:swap; src:url("assets/liberman/fonts/jost-cyr.woff2") format("woff2"); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+  @font-face{ font-family:'Jost'; font-style:normal; font-weight:300 500; font-display:swap; src:url("assets/liberman/fonts/jost-lat.woff2") format("woff2"); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+  :root{
+    /* палитра проекта: фон #F2EDE7, текст #1C1210, бордо #6E1B22, бордо тёмное #3B0D14, пудровый #E0A99A */
+    --ink:#0E0A0B; --ink-2:#161011; --wine:#3B0D14; --bordo:#6E1B22; --powder:#E0A99A;
+    --paper:#F2EDE7; --cream:#FBF8F2;
+    --t-dark:#1C1210; --t-dim:rgba(28,18,16,.66); --t-faint:rgba(28,18,16,.42);
+    --l-ink:#F2EDE7; --l-dim:rgba(242,237,231,.66); --l-faint:rgba(242,237,231,.38);
+    --serif:'Cormorant Garamond', Georgia, serif; --sans:'Jost', system-ui, -apple-system, sans-serif;
+    --ease:cubic-bezier(.22,.8,.28,1);
+    --pad:clamp(20px,5vw,88px);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--ink); color:var(--l-ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  img,video{ display:block; max-width:100%; height:auto; }
+  a{ color:inherit; }
+  .nw{ white-space:nowrap; }
+
+  /* ---------- шапка ---------- */
+  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center;
+    padding:20px var(--pad); font-family:var(--sans); font-size:12px; font-weight:500; letter-spacing:.16em; mix-blend-mode:difference; color:#fff; }
+  .top a{ text-decoration:none; }
+  .top .back{ letter-spacing:.06em; }
+
+  /* ---------- общие ---------- */
+  .sec{ position:relative; padding:clamp(90px,12vw,190px) var(--pad); }
+  .sec.dark{ background:var(--ink); color:var(--l-ink); }
+  .sec.wine{ background:var(--wine); color:var(--l-ink); }
+  .sec.paper{ background:var(--paper); color:var(--t-dark); }
+  .sec.cream{ background:var(--cream); color:var(--t-dark); }
+  .wrap{ max-width:1500px; margin:0 auto; }
+  .label{ font-family:var(--sans); font-weight:400; font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; opacity:.7; display:flex; gap:14px; align-items:center; margin:0 0 28px; flex-wrap:wrap; }
+  .label b{ font-weight:500; color:var(--powder); opacity:1; }
+  .paper .label b, .cream .label b{ color:var(--bordo); }
+  .h-xl{ font-family:var(--serif); font-weight:400; letter-spacing:-.02em; line-height:.95; margin:0; font-size:clamp(50px,8.4vw,146px); text-wrap:balance; }
+  .h-l{ font-family:var(--serif); font-weight:400; letter-spacing:-.015em; line-height:1; margin:0; font-size:clamp(38px,5.4vw,90px); text-wrap:balance; }
+  .h-xl em, .h-l em{ font-style:italic; font-weight:300; color:var(--powder); }
+  .paper .h-l em, .cream .h-l em, .paper .h-xl em, .cream .h-xl em{ color:var(--bordo); }
+  .lede{ font-family:var(--serif); font-weight:400; font-size:clamp(22px,2vw,30px); line-height:1.3; margin:0; text-wrap:pretty; }
+  .body{ font-size:17px; line-height:1.7; margin:0 0 14px; text-wrap:pretty; }
+  .dark .body, .wine .body{ color:rgba(242,237,231,.8); }
+  .dark .lede, .wine .lede{ color:rgba(242,237,231,.9); }
+  .paper .body, .cream .body{ color:var(--t-dim); }
+  .src{ display:block; margin-top:12px; font-size:11px; font-weight:400; letter-spacing:.16em; text-transform:uppercase; color:var(--t-faint); }
+  .dark .src, .wine .src{ color:var(--l-faint); }
+  .grid-2{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(20px,3vw,48px); align-items:start; }
+  .c-5{ grid-column:span 5; } .c-6{ grid-column:span 6; } .c-7{ grid-column:span 7; }
+  .c-5.off-7{ grid-column:7 / span 5; } .c-6.off-7{ grid-column:7 / span 6; }
+  @media (max-width: 900px){ .grid-2 > *{ grid-column:1 / -1 !important; } }
+
+  /* ---------- устройства (из шаблона) ---------- */
+  .browser{ border-radius:14px; overflow:hidden; background:#111; box-shadow:0 60px 120px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06); }
+  .paper .browser, .cream .browser{ box-shadow:0 60px 120px -40px rgba(59,13,20,.4), 0 0 0 1px rgba(0,0,0,.06); }
+  .browser .bar{ height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; background:#1c1a1b; }
+  .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3639; flex:none; }
+  .browser .bar span{ margin:0 auto; font-family:var(--sans); font-size:12px; font-weight:400; color:#8d888b; background:#292527; padding:4px 22px; border-radius:7px; transform:translateX(-24px); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:70%; }
+  .browser video, .browser img{ width:100%; height:auto; }
+  @media (max-width: 600px){ .browser{ border-radius:9px; } .browser .bar{ height:28px; padding:0 10px; gap:5px; } .browser .bar i{ width:7px; height:7px; } .browser .bar span{ font-size:10px; padding:2px 12px; transform:none; } }
+  .shot-cap{ margin:16px 0 0; font-size:11px; font-weight:400; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); }
+  .paper .shot-cap, .cream .shot-cap{ color:var(--t-faint); }
+
+  .phone{ width:clamp(200px,19vw,300px); aspect-ratio:390/844; border-radius:calc(clamp(200px,19vw,300px) * .15); background:#0a0a0b; padding:clamp(7px,.7vw,10px);
+    box-shadow:0 50px 100px -30px rgba(0,0,0,.6), inset 0 0 0 1.5px #2a2a2e; position:relative; flex:none; }
+  .phone .scr{ width:100%; height:100%; border-radius:calc(clamp(200px,19vw,300px) * .125); overflow:hidden; background:#000; }
+  .phone .scr img, .phone .scr video{ width:100%; height:100%; object-fit:cover; object-position:top; }
+  .phone::before{ content:''; position:absolute; top:clamp(14px,1.4vw,20px); left:50%; transform:translateX(-50%); width:30%; height:clamp(18px,1.9vw,26px); background:#000; border-radius:20px; z-index:2; }
+
+  /* ---------- обложка ---------- */
+  .cover{ min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:140px var(--pad) 60px; background:radial-gradient(120% 80% at 75% 0%, #2a0d12 0%, var(--ink) 62%); }
+  .cover .kicker{ font-size:11.5px; font-weight:400; letter-spacing:.2em; text-transform:uppercase; color:var(--l-dim); display:flex; justify-content:space-between; gap:20px; margin-bottom:3vw; }
+  .cover .logo{ height:clamp(56px,6.4vw,104px); width:auto; margin:0 0 clamp(20px,2.4vw,36px); }
+  .cover h1{ font-family:var(--serif); font-weight:300; margin:0; line-height:.82; letter-spacing:-.04em; font-size:clamp(66px,15.4vw,290px); }
+  .cover .tag{ font-family:var(--serif); font-style:italic; font-weight:300; color:var(--powder); font-size:clamp(26px,3.2vw,54px); line-height:1.1; margin:1.2vw 0 0 .4vw; }
+  .meta{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:clamp(40px,6vw,90px); padding-top:22px; border-top:1px solid rgba(242,237,231,.16); }
+  .meta div{ font-size:15px; line-height:1.5; }
+  .meta small{ display:block; font-size:11px; font-weight:400; letter-spacing:.2em; text-transform:uppercase; color:var(--l-faint); margin-bottom:8px; }
+  .meta a{ text-decoration:none; border-bottom:1px solid var(--powder); }
+  @media (max-width: 760px){ .meta{ grid-template-columns:1fr 1fr; } .cover .kicker{ flex-direction:column; gap:6px; } }
+
+  .hero-shot{ background:var(--ink); padding:0 var(--pad) clamp(90px,12vw,180px); }
+  .hero-shot .browser{ max-width:1500px; margin:0 auto; }
+
+  /* ---------- задача ---------- */
+  .task-q{ font-family:var(--serif); font-weight:400; font-size:clamp(26px,2.6vw,40px); line-height:1.2; margin:0; text-wrap:pretty; }
+  .task-q::before{ content:'«'; } .task-q::after{ content:'»'; }
+  .aud{ list-style:none; margin:40px 0 0; padding:0; }
+  .aud li{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:20px; align-items:baseline; padding:20px 0; border-top:1px solid rgba(28,18,16,.14); }
+  .aud li:last-child{ border-bottom:1px solid rgba(28,18,16,.14); }
+  .aud b{ font-family:var(--serif); font-weight:400; font-size:clamp(24px,2.2vw,34px); line-height:1.1; }
+  .aud span{ font-size:11.5px; font-weight:400; letter-spacing:.16em; text-transform:uppercase; color:var(--bordo); text-align:right; }
+  @media (max-width: 500px){ .aud li{ grid-template-columns:1fr; gap:6px; } .aud span{ text-align:left; } }
+
+  /* ---------- исследование ---------- */
+  .art-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:34px; }
+  .art-stats div{ border-top:1px solid rgba(242,237,231,.18); padding-top:14px; }
+  .art-stats b{ display:block; font-family:var(--serif); font-weight:400; font-size:clamp(34px,3.2vw,52px); line-height:1; margin-bottom:8px; color:var(--l-ink); }
+  .art-stats span{ font-size:14px; line-height:1.5; color:var(--l-dim); }
+  @media (max-width: 600px){ .art-stats{ grid-template-columns:1fr; } }
+  .papers{ position:relative; height:clamp(460px,50vw,760px); margin-top:clamp(50px,7vw,110px); }
+  .papers .pp{ position:absolute; margin:0; width:clamp(220px,28vw,430px); box-shadow:0 40px 80px -20px rgba(0,0,0,.75); border-radius:2px; overflow:hidden; background:#fff; }
+  .papers .pp img{ width:100%; }
+  @property --lift{ syntax:'<number>'; inherits:false; initial-value:0; }
+  .papers .pp{ will-change:transform; rotate:var(--r); translate:0 calc((var(--py,0) + var(--lift)) * 1px); transition:rotate .8s var(--ease), scale .8s var(--ease), --lift .8s var(--ease); }
+  .papers .p1{ --r:-5deg; left:4%; top:8%; }
+  .papers .p2{ --r:2deg; left:35%; top:0; z-index:2; }
+  .papers .p3{ --r:-2deg; left:66%; top:10%; z-index:3; }
+  .papers .pp:hover{ rotate:0deg; scale:1.03; --lift:-14; z-index:5; }
+  .papers-cap{ margin-top:18px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); }
+  @media (max-width: 760px){ .papers{ height:auto; display:grid; grid-template-columns:1fr; gap:14px; } .papers .pp{ position:static; width:auto; rotate:none; translate:none; scale:none; } .papers .p2, .papers .p3{ display:none; } }
+  .insight{ margin-top:clamp(60px,8vw,120px); }
+  .big-quote{ font-family:var(--serif); font-weight:300; font-size:clamp(32px,4vw,66px); line-height:1.08; margin:0; max-width:1250px; text-wrap:balance; letter-spacing:-.01em; }
+  .big-quote em{ font-style:italic; color:var(--powder); }
+  .decisions{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,44px); }
+  .decisions div{ border-top:1px solid rgba(242,237,231,.18); padding-top:18px; }
+  .decisions b{ display:block; font-family:var(--serif); font-weight:500; font-size:clamp(22px,2vw,30px); line-height:1.15; margin-bottom:10px; }
+  .decisions span{ font-size:16px; line-height:1.6; color:rgba(242,237,231,.8); }
+  @media (max-width: 900px){ .decisions{ grid-template-columns:1fr; } }
+
+  /* ---------- позиционирование ---------- */
+  .position{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); min-height:100vh; padding:0 !important; }
+  .position .txt{ padding:clamp(90px,12vw,180px) var(--pad); display:flex; flex-direction:column; justify-content:center; }
+  .position .ph{ position:relative; overflow:hidden; background:#e9e7e5; }
+  .position .ph img{ width:100%; height:100%; object-fit:cover; object-position:center 30%; }
+  .position .ph figcaption{ position:absolute; left:20px; bottom:18px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(28,18,16,.6); }
+  .versus{ margin:40px 0 0; display:grid; gap:10px; max-width:640px; }
+  .versus p{ margin:0; padding:20px 24px; font-family:var(--serif); font-size:clamp(22px,2vw,30px); line-height:1.2; }
+  .versus p:first-child{ background:rgba(242,237,231,.07); border-left:1px solid var(--powder); }
+  .versus p:last-child{ background:var(--bordo); font-style:italic; }
+  .quote-by{ font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--l-faint); margin-top:14px; }
+  @media (max-width: 900px){ .position{ grid-template-columns:1fr; } .position .ph{ height:auto; aspect-ratio:667/800; } }
+
+  /* ---------- воронка ---------- */
+  .aida{ list-style:none; margin:clamp(40px,5vw,70px) 0 0; padding:0; }
+  .aida li{ display:grid; grid-template-columns:minmax(150px,.7fr) minmax(0,1.3fr) minmax(0,1.2fr); gap:clamp(16px,3vw,48px); align-items:baseline; padding:24px 0; border-top:1px solid rgba(28,18,16,.14); }
+  .aida li > small{ font-size:12px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--bordo); position:relative; }
+  .aida li > b{ font-family:var(--serif); font-weight:400; font-size:clamp(24px,2.3vw,36px); line-height:1.1; }
+  .aida li > span{ font-family:var(--serif); font-style:italic; font-size:clamp(18px,1.5vw,22px); line-height:1.35; color:var(--t-dim); }
+  .aida li.deal{ background:var(--bordo); color:var(--l-ink); border-top:0; padding:26px clamp(18px,2vw,28px); margin-top:8px; }
+  .aida li.deal > small{ color:var(--powder); }
+  .aida li.deal > span{ color:rgba(242,237,231,.8); }
+  .bar-w{ display:block; height:2px; background:var(--bordo); margin-top:10px; }
+  @media (max-width: 760px){ .aida li{ grid-template-columns:1fr; gap:6px; } }
+  .pull{ margin:clamp(50px,6vw,90px) 0 0; font-family:var(--serif); font-style:italic; font-weight:300; font-size:clamp(26px,2.8vw,44px); line-height:1.2; max-width:1000px; color:var(--bordo); text-wrap:balance; }
+  .pull-by{ font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--t-faint); margin-top:12px; }
+
+  /* ---------- боли → экраны ---------- */
+  .pains{ margin:clamp(40px,5vw,70px) 0 0; display:grid; gap:12px; }
+  .pains .row{ display:grid; grid-template-columns:minmax(0,1fr) 60px minmax(0,1.15fr); align-items:stretch; }
+  .pains .q{ background:#E8E0D8; padding:22px 24px; font-size:17px; line-height:1.4; color:rgba(28,18,16,.7); display:flex; align-items:center; }
+  .pains .ln{ position:relative; } .pains .ln::after{ content:''; position:absolute; left:0; right:0; top:50%; height:1px; background:var(--bordo); }
+  .pains .a{ background:var(--bordo); color:var(--l-ink); padding:22px 26px; font-family:var(--serif); font-size:clamp(21px,1.9vw,28px); line-height:1.2; display:flex; align-items:center; }
+  @media (max-width: 700px){ .pains .row{ grid-template-columns:1fr; } .pains .ln{ height:14px; } .pains .ln::after{ left:24px; right:auto; width:1px; top:0; bottom:0; height:auto; } }
+
+  /* ---------- блоки сайта ---------- */
+  .blk{ margin-top:clamp(50px,6vw,90px); }
+  .blk + .blk{ margin-top:clamp(70px,9vw,140px); }
+  .blk-head{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(20px,3vw,48px); margin-bottom:clamp(28px,3vw,44px); align-items:end; }
+  .blk-head h3{ grid-column:span 5; margin:0; font-family:var(--serif); font-weight:400; font-size:clamp(32px,3.4vw,56px); line-height:1; letter-spacing:-.01em; }
+  .blk-head h3 small{ display:block; font-family:var(--sans); font-weight:500; font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--powder); margin-bottom:14px; }
+  .paper .blk-head h3 small, .cream .blk-head h3 small{ color:var(--bordo); }
+  .blk-head p{ grid-column:7 / span 6; margin:0; }
+  @media (max-width: 900px){ .blk-head > *{ grid-column:1 / -1 !important; } }
+  .tags{ display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+  .tags span{ padding:8px 14px; border:1px solid rgba(242,237,231,.22); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--l-dim); }
+  .paper .tags span{ border-color:rgba(28,18,16,.2); color:var(--t-dim); }
+
+  /* ---------- мобайл ---------- */
+  .phones{ display:flex; justify-content:center; align-items:flex-start; gap:clamp(14px,2vw,34px); margin-top:clamp(50px,7vw,110px); padding-bottom:44px; }
+  .phones.five .phone{ width:clamp(170px,15.5vw,260px); border-radius:calc(clamp(170px,15.5vw,260px) * .15); }
+  .phones.five .phone .scr{ border-radius:calc(clamp(170px,15.5vw,260px) * .125); }
+  .phones .phone:nth-child(2){ margin-top:clamp(40px,6vw,110px); }
+  .phones .phone:nth-child(3){ margin-top:clamp(0px,1vw,20px); }
+  .phones .phone:nth-child(4){ margin-top:clamp(60px,8vw,150px); }
+  .phones .phone:nth-child(5){ margin-top:clamp(20px,3vw,50px); }
+  .phone .cap{ position:absolute; left:0; right:0; bottom:-36px; margin:0; text-align:center; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); }
+  @media (max-width: 900px){ .phones{ overflow-x:auto; justify-content:flex-start; padding:0 4px 44px; scroll-snap-type:x mandatory; margin-left:calc(var(--pad) * -1); margin-right:calc(var(--pad) * -1); padding-left:var(--pad); padding-right:var(--pad); } .phones .phone{ scroll-snap-align:center; margin-top:0 !important; } }
+
+  /* ---------- визуальный язык ---------- */
+  .logo-stage{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,1.2vw,18px); margin-top:clamp(50px,6vw,90px); }
+  .logo-stage div{ aspect-ratio:16/10; display:grid; place-items:center; }
+  .logo-stage div:first-child{ background:var(--ink-2); box-shadow:inset 0 0 0 1px rgba(242,237,231,.08); }
+  .logo-stage div:last-child{ background:var(--paper); }
+  .logo-stage img{ width:36%; height:auto; }
+  .logo-cap{ margin-top:14px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); }
+  @media (max-width: 600px){ .logo-stage{ grid-template-columns:1fr; } }
+  .system{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,4vw,60px); margin-top:clamp(50px,6vw,90px); align-items:start; }
+  .swatches{ display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+  .swatches div{ height:clamp(120px,11vw,170px); padding:12px; display:flex; flex-direction:column; justify-content:flex-end; font-size:11px; letter-spacing:.06em; line-height:1.4; box-shadow:inset 0 0 0 1px rgba(242,237,231,.1); }
+  .type-spec div{ border-top:1px solid rgba(242,237,231,.16); padding:16px 0; display:flex; justify-content:space-between; align-items:baseline; gap:20px; }
+  .type-spec small{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); white-space:nowrap; }
+  .sys-note{ margin-top:14px; font-family:var(--serif); font-style:italic; font-size:20px; color:var(--powder); }
+  @media (max-width: 760px){ .system{ grid-template-columns:1fr; } .swatches{ grid-template-columns:repeat(3,1fr); } .type-spec div{ flex-direction:column; gap:6px; } }
+  .photos{ display:grid; grid-template-columns:1.2fr .8fr .8fr; grid-template-rows:auto auto; gap:clamp(10px,1.2vw,18px); margin-top:clamp(50px,6vw,90px); }
+  .photos figure{ margin:0; overflow:hidden; background:#111; }
+  .photos img{ width:100%; height:100%; object-fit:cover; transition:transform 1.4s var(--ease); }
+  .photos figure:hover img{ transform:scale(1.03); }
+  .photos .big{ grid-row:span 2; }
+  .photos .sm{ aspect-ratio:4/5; }
+  .photos .wide{ grid-column:span 2; aspect-ratio:3/2; }
+  @media (max-width: 760px){ .photos{ grid-template-columns:1fr 1fr; } .photos .big{ grid-column:span 2; grid-row:auto; aspect-ratio:3/4; } .photos .wide{ grid-column:span 2; } }
+
+  /* ---------- что сделано / результат ---------- */
+  .done{ list-style:none; margin:clamp(40px,5vw,70px) 0 0; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(28,18,16,.12); border:1px solid rgba(28,18,16,.12); }
+  .done li{ background:var(--paper); padding:24px 22px 30px; font-family:var(--serif); font-size:clamp(20px,1.6vw,24px); line-height:1.25; }
+  .done li b{ display:block; font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.14em; color:var(--bordo); margin-bottom:12px; }
+  .done li.on{ background:var(--bordo); color:var(--l-ink); } .done li.on b{ color:var(--powder); }
+  @media (max-width: 900px){ .done{ grid-template-columns:1fr 1fr; } }
+  @media (max-width: 480px){ .done{ grid-template-columns:1fr; } }
+  .facts{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:clamp(40px,6vw,80px); }
+  .facts div{ border-top:1px solid rgba(242,237,231,.18); padding-top:18px; }
+  .facts b{ display:block; font-family:var(--serif); font-weight:300; font-size:clamp(46px,5vw,80px); line-height:1; margin-bottom:10px; }
+  .facts span{ font-size:15px; line-height:1.5; color:var(--l-dim); }
+  @media (max-width: 900px){ .facts{ grid-template-columns:1fr 1fr; } }
+  .chat{ margin-top:clamp(50px,7vw,100px); display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(24px,4vw,60px); align-items:center; }
+  .chat .msg{ background:var(--paper); color:#111; border-radius:22px 22px 22px 6px; padding:clamp(20px,2.4vw,30px) clamp(22px,2.6vw,34px); font-family:var(--sans); font-weight:400; font-size:clamp(19px,1.7vw,24px); line-height:1.45; position:relative; }
+  .chat .msg time{ display:block; text-align:right; font-size:12px; color:rgba(0,0,0,.4); margin-top:6px; }
+  .chat .msg2{ display:inline-block; margin-top:10px; background:var(--paper); color:#111; border-radius:22px 22px 22px 6px; padding:14px 24px; font-size:clamp(18px,1.5vw,22px); font-weight:400; }
+  .chat .who{ font-family:var(--serif); font-style:italic; font-size:clamp(24px,2.2vw,34px); line-height:1.25; color:var(--powder); margin:0; }
+  .chat .who-by{ font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--l-faint); margin-top:14px; }
+  @media (max-width: 900px){ .chat{ grid-template-columns:1fr; } }
+
+  .pause{ padding-top:clamp(140px,18vw,280px); padding-bottom:clamp(140px,18vw,280px); }
+  .statement{ font-family:var(--serif); font-weight:300; letter-spacing:-.02em; line-height:.98; margin:0 0 clamp(30px,4vw,56px); font-size:clamp(44px,7vw,120px); text-wrap:balance; }
+  .statement em{ font-style:italic; color:var(--powder); }
+  .live{ display:inline-flex; gap:14px; align-items:baseline; margin-top:26px; font-size:15px; font-weight:400; text-decoration:none; color:var(--t-dark); border-bottom:1px solid var(--bordo); padding-bottom:3px; }
+  .live span{ font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--bordo); }
+  .breath{ height:clamp(120px,16vw,240px); background:var(--ink); }
+
+  /* ---------- следующий кейс ---------- */
+  .next{ display:block; position:relative; min-height:70vh; overflow:hidden; text-decoration:none; color:#fff; }
+  .next video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.4; transition:opacity .6s, transform 1.4s var(--ease); }
+  .next:hover video{ opacity:.7; transform:scale(1.03); }
+  .next .in{ position:relative; min-height:70vh; display:flex; flex-direction:column; justify-content:flex-end; padding:60px var(--pad); }
+  .next small{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; opacity:.75; }
+  .next b{ font-family:var(--serif); font-weight:300; font-size:clamp(50px,9vw,150px); line-height:.95; letter-spacing:-.03em; }
+  .foot{ background:var(--ink); padding:30px var(--pad) 40px; }
+
+  /* ---------- hero-анимация ---------- */
+  .hs{ opacity:0; transform:translateY(14px); animation:hsIn 1.3s var(--ease) forwards; }
+  .hs1{ animation-delay:.15s; } .hs2{ animation-delay:.45s; } .hs3{ animation-delay:1.05s; } .hs4{ animation-delay:1.45s; }
+  .cover h1.hs{ transform:translateY(22px); animation-duration:1.6s; }
+  @keyframes hsIn{ to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){ .hs{ animation:none; opacity:1; transform:none; } }
+
+  /* ---------- появление ---------- */
+  .rv{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+  .browser.rv, .phone.rv, .photos .rv, .papers.rv, .logo-stage.rv{ transform:none; transition:opacity .45s ease; }
+  .rv.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .rv{ opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="index.html">TINA DIGITAL</a>
+  <a class="back" href="index.html#work">← Все проекты</a>
+</header>
+
+<main>
+
+<!-- 00 обложка -->
+<section class="cover">
+  <div class="kicker hs hs1"><span>Case 03 — 2026</span><span>Interior design website</span></div>
+  <img class="logo hs hs2" src="assets/liberman/libe-logo-light.svg" alt="líbe studio — логотип" width="4504" height="3484">
+  <h1 class="hs hs2">Liberman</h1>
+  <p class="tag hs hs3">Красиво — это минимум. Дальше начинается работа.</p>
+  <div class="meta hs hs4">
+    <div><small>Клиент</small>Илона Либерман, архитектор и&nbsp;дизайнер интерьера. Санкт‑Петербург, Москва, удалённо</div>
+    <div><small>Роль</small>Анализ ниши, позиционирование, воронка, UX/UI, дизайн, разработка, SEO/GEO</div>
+    <div><small>Год</small>2026</div>
+    <div><small>Сайт</small><a href="https://libermanstudio.ru" target="_blank" rel="noopener">libermanstudio.ru ↗</a></div>
+  </div>
+</section>
+
+<section class="hero-shot">
+  <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru</span></div>
+    <video src="assets/liberman/v-hero-d.mp4" poster="assets/liberman/v-hero-d.jpg" width="1440" height="900" muted loop playsinline preload="none" data-auto></video>
+  </div>
+</section>
+
+<!-- 01 задача -->
+<section class="sec paper">
+  <div class="wrap grid-2">
+    <div class="c-5">
+      <p class="label"><b>01</b> (задача)</p>
+      <h2 class="h-l rv">Почему именно <em>Илона?</em></h2>
+    </div>
+    <div class="c-6 off-7">
+      <p class="task-q rv">Задача была не&nbsp;просто сделать красивый сайт дизайнера интерьера, а&nbsp;показать, почему среди множества сильных специалистов клиент должен выбрать именно Илону.</p>
+      <span class="src">Кристина · голосовой комментарий к&nbsp;кейсу</span>
+      <p class="body rv" style="margin-top:34px">Сайт в&nbsp;этой логике рассказывает не&nbsp;о&nbsp;студии, а&nbsp;о&nbsp;клиенте: с&nbsp;какой болью он пришёл и&nbsp;как её закроют. У&nbsp;сайта три аудитории, и&nbsp;у&nbsp;каждой своё сомнение:</p>
+      <ul class="aud rv">
+        <li><b>Хозяйка квартиры</b><span>боится переделок</span></li>
+        <li><b>Сомневающийся</b><span>не&nbsp;доверяет вкусу</span></li>
+        <li><b>Инвестор</b><span>считает деньги</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 02 исследование -->
+<section class="sec dark">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>02</b> (research) до&nbsp;дизайна</p>
+      <h2 class="h-xl rv">Не&nbsp;с&nbsp;визуала. <em>С&nbsp;анализа</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="lede rv">Сначала анализ аудитории, конкуренты и&nbsp;стратегия. И&nbsp;только потом это превращается в&nbsp;структуру и&nbsp;дизайн сайта.</p>
+      <p class="body rv" style="margin-top:22px">Первым документом стало досье: портрет Илоны по&nbsp;её Instagram (хайлайт About me, посты, подписи к&nbsp;проектам) и&nbsp;Threads, разбор двух сильных бюро‑референсов — lepobureau.ru и&nbsp;poisk‑bureau.com — и&nbsp;черновик структуры лендинга.</p>
+      <div class="art-stats rv">
+        <div><b>6+</b><span>лет реализации проектов — стаж, найденный в&nbsp;досье</span></div>
+        <div><b>66</b><span>публикаций с&nbsp;портфолио в&nbsp;её Instagram</span></div>
+        <div><b>2</b><span>бюро‑референса: навигация и&nbsp;логика первого экрана</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="papers rv">
+      <figure class="pp p1"><img src="assets/liberman/doc-dossier-1.jpg" alt="Досье: портрет Илоны, стр. 1" loading="lazy" width="910" height="1287"></figure>
+      <figure class="pp p2"><img src="assets/liberman/doc-dossier-2.jpg" alt="Досье: референсы и структура лендинга, стр. 2" loading="lazy" width="910" height="1287"></figure>
+      <figure class="pp p3"><img src="assets/liberman/doc-dossier-3.jpg" alt="Досье: блоки сайта и техника, стр. 3" loading="lazy" width="910" height="1287"></figure>
+    </div>
+    <p class="papers-cap">рабочий документ · досье и&nbsp;черновик структуры, август 2026</p>
+  </div>
+  <div class="wrap insight rv">
+    <p class="label"><b>находка</b> хайлайт «About me»</p>
+    <p class="big-quote">«Архитектор может быть дизайнером, а&nbsp;дизайнер архитектором — <em>никогда</em>». Отсюда её клиенты экономят «бесценный ресурс спокойствия» и&nbsp;большие деньги на&nbsp;переделках.</p>
+  </div>
+  <div class="wrap" style="margin-top:clamp(60px,8vw,120px)">
+    <p class="label"><b>что взяли из&nbsp;досье</b></p>
+    <div class="decisions">
+      <div class="rv"><b>Жемчужину — в&nbsp;центр</b><span>Не&nbsp;«красивые картинки», а&nbsp;дизайн, который реально можно построить без&nbsp;сюрпризов и&nbsp;дорогих ошибок.</span></div>
+      <div class="rv"><b>Инвестдизайн — отдельно</b><span>У&nbsp;Илоны уже было направление для&nbsp;квартир под&nbsp;аренду или продажу. Это другой сегмент — инвесторы, — и&nbsp;ему нужен свой раздел со&nbsp;своей цифрой.</span></div>
+      <div class="rv"><b>Готовый лид‑магнит</b><span>В&nbsp;Threads она бесплатно раздавала базу из&nbsp;100+ магазинов мебели, света и&nbsp;декора по&nbsp;ценовым сегментам. Инструмент уже был — его оставалось поставить на&nbsp;сайт.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 позиционирование -->
+<section class="sec wine position">
+  <div class="txt">
+    <p class="label"><b>03</b> (strategy) позиционирование</p>
+    <h2 class="h-xl rv">Архитектор, <em>а&nbsp;не&nbsp;ещё один дизайнер</em></h2>
+    <p class="body rv" style="margin-top:34px;max-width:600px">Илону продаём не&nbsp;как очередного дизайнера интерьера, а&nbsp;как архитектора. Дизайнер видит красивую картинку из&nbsp;Pinterest, архитектор — что здесь несущая стена, а&nbsp;здесь вентиляционное отверстие. Поэтому с&nbsp;Илоной ремонт доводится до&nbsp;конца с&nbsp;минимальным количеством правок и&nbsp;переделок.</p>
+    <div class="versus rv">
+      <p>Архитектор может быть дизайнером.</p>
+      <p>Дизайнер архитектором — никогда.</p>
+    </div>
+    <p class="quote-by">блок «Философия» на&nbsp;сайте · отрицание работает как&nbsp;фильтр</p>
+  </div>
+  <figure class="ph" style="margin:0"><img src="assets/liberman/p-ilona.jpg" alt="Илона Либерман — фото с сайта" loading="lazy" width="667" height="800"><figcaption>Илона Либерман · фото с&nbsp;сайта</figcaption></figure>
+</section>
+
+<!-- 04 воронка -->
+<section class="sec cream">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>04</b> (ux) воронка продаж</p>
+      <h2 class="h-l rv">Холодного человека — <em>по&nbsp;всему сайту</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="body rv">Воронка тоже строится до&nbsp;дизайна. Классическая AIDA: показать УТП, закрыть боли, вызвать желание проектами и&nbsp;стоимостью, дать бесплатную пользу и&nbsp;закончить призывом. На&nbsp;каждом этапе клиент теряется, если этап не&nbsp;докручен.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <ol class="aida">
+      <li class="rv"><small>Внимание<i class="bar-w" style="width:100%"></i></small><b>Прелоадер и&nbsp;первый экран останавливают</b><span>«Красиво — это минимум. Дальше начинается работа»</span></li>
+      <li class="rv"><small>Интерес<i class="bar-w" style="width:80%"></i></small><b>Философия закрывает главное возражение</b><span>Архитектор видит то, что дизайнер не&nbsp;увидит никогда</span></li>
+      <li class="rv"><small>Желание<i class="bar-w" style="width:60%"></i></small><b>Портфолио, инвестдизайн, цены, отзывы</b><span>Каждая аудитория видит свою задачу и&nbsp;свою цифру</span></li>
+      <li class="rv"><small>Действие<i class="bar-w" style="width:40%"></i></small><b>Лид‑магнит и&nbsp;форма с&nbsp;тремя полями</b><span>Для&nbsp;тех, кто ещё выбирает, и&nbsp;для&nbsp;тех, кто уже готов</span></li>
+      <li class="rv deal"><small>Сделка</small><b>Клиент приходит подготовленным</b><span>Знает, кто Илона, чем отличается и&nbsp;сколько стоит</span></li>
+    </ol>
+    <p class="pull rv">«Если у&nbsp;вас где‑то человек отваливается на&nbsp;этом этапе — всё, конверсия вашего сайта падает».</p>
+    <p class="pull-by">Кристина · из&nbsp;видеоразбора кейса</p>
+  </div>
+</section>
+
+<!-- 05 боли → экраны -->
+<section class="sec paper">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>05</b> (content) боли аудитории</p>
+      <h2 class="h-l rv">Каждый страх — <em>экран сайта,</em> а&nbsp;не&nbsp;абзац текста</h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="body rv">Если провести человека по&nbsp;этому пути и&nbsp;закрыть все его боли, неважно, насколько выше цена: он купит именно здесь, потому что почувствует себя в&nbsp;безопасности.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="pains">
+      <div class="row rv"><div class="q">Боится сюрприза на&nbsp;стройке</div><div class="ln"></div><div class="a">Файл‑смета и&nbsp;чертежи заранее</div></div>
+      <div class="row rv"><div class="q">Зачем архитектор, а&nbsp;не&nbsp;дизайнер</div><div class="ln"></div><div class="a">Дизайнер видит картинку, архитектор видит несущие стены</div></div>
+      <div class="row rv"><div class="q">Не&nbsp;доверяет незнакомцу</div><div class="ln"></div><div class="a">Личная история и&nbsp;фото вместо регалий</div></div>
+      <div class="row rv"><div class="q">Инвестор не&nbsp;видит выгоды</div><div class="ln"></div><div class="a">«Инвестдизайн» — цифрами, не&nbsp;эстетикой</div></div>
+    </div>
+    <div class="blk">
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru · философия</span></div>
+        <img src="assets/liberman/d-philosophy.jpg" alt="Блок «Философия» на сайте" loading="lazy" width="2160" height="1017">
+      </div>
+      <p class="shot-cap">блок «Философия»: ответ на&nbsp;вопрос «зачем архитектор»</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ключевые блоки: обо мне + портфолио -->
+<section class="sec dark">
+  <div class="wrap">
+    <p class="label"><b>06</b> (trust) обо мне и&nbsp;проекты</p>
+    <h2 class="h-xl rv">Работы <em>говорят за&nbsp;неё</em></h2>
+
+    <div class="blk">
+      <div class="blk-head">
+        <h3 class="rv"><small>обо мне</small>Проектирую под&nbsp;привычки, а&nbsp;не&nbsp;под&nbsp;тренды</h3>
+        <p class="body rv">Вместо регалий — живые детали из&nbsp;её практики: кухня серьёзнее, потому что хозяйка любит готовить; ванна вместо душа, потому что человек читает в&nbsp;ванной; зеркало у&nbsp;кровати, за&nbsp;которым прячется вешалка. И&nbsp;«главный прораб» — собака, которая спит на&nbsp;мешках с&nbsp;гипсокартоном.</p>
+      </div>
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru · обо мне</span></div>
+        <img src="assets/liberman/d-about.jpg" alt="Блок «Обо мне» на сайте" loading="lazy" width="2160" height="1479">
+      </div>
+    </div>
+
+    <div class="blk">
+      <div class="blk-head">
+        <h3 class="rv"><small>портфолио</small>Не&nbsp;набор красивых интерьеров</h3>
+        <p class="body rv">Портфолио здесь подтверждает всё, что сайт до&nbsp;этого рассказал о&nbsp;специалисте. Сетка проектов с&nbsp;типом помещения и&nbsp;метражом, фильтр «Жильё / Инвестдизайн» — каждая аудитория сразу находит своё.</p>
+      </div>
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru · проекты</span></div>
+        <video src="assets/liberman/v-work-d.mp4" poster="assets/liberman/v-work-d.jpg" width="1440" height="900" muted loop playsinline preload="none" data-auto></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 инвестдизайн + цены -->
+<section class="sec paper">
+  <div class="wrap">
+    <p class="label"><b>07</b> (desire) инвестдизайн и&nbsp;цены</p>
+    <h2 class="h-l rv">Инвестору — <em>цифры,</em> хозяйке — смету</h2>
+
+    <div class="blk">
+      <div class="blk-head">
+        <h3 class="rv"><small>отдельная услуга</small>Инвестиционный дизайн</h3>
+        <p class="body rv">Квартира под&nbsp;аренду или продажу — «так, чтобы понравилось не&nbsp;вам, а&nbsp;рынку». Раздел говорит на&nbsp;языке инвестора: минимум 30% к&nbsp;арендной ставке по&nbsp;объектам Илоны и&nbsp;6&nbsp;недель на&nbsp;проект.</p>
+      </div>
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru · инвестдизайн</span></div>
+        <img src="assets/liberman/d-invest.jpg" alt="Раздел «Инвестиционный дизайн»" loading="lazy" width="2160" height="1227">
+      </div>
+    </div>
+
+    <div class="blk">
+      <div class="blk-head">
+        <h3 class="rv"><small>услуги и&nbsp;стоимость</small>Три формата — от&nbsp;консультации до&nbsp;стройки</h3>
+        <p class="body rv">Цены открыты: консультация, экспресс‑проект и&nbsp;полный дизайн‑проект, плюс два формата авторского контроля. В&nbsp;состав проектов прямо вписаны чертежи и&nbsp;файл‑смета со&nbsp;ссылками — ответ тем, кто боится сюрприза на&nbsp;стройке.</p>
+      </div>
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru · услуги</span></div>
+        <img src="assets/liberman/d-services.jpg" alt="Блок «Услуги и стоимость»" loading="lazy" width="2160" height="2207">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 отзывы, лид-магнит, заявка -->
+<section class="sec dark">
+  <div class="wrap">
+    <p class="label"><b>08</b> (action) отзывы, лид‑магнит, заявка</p>
+    <h2 class="h-xl rv">Не&nbsp;купил сейчас — <em>купит потом</em></h2>
+
+    <div class="blk">
+      <div class="blk-head">
+        <h3 class="rv"><small>отзывы</small>Каждый бьёт в&nbsp;боль своей аудитории</h3>
+        <p class="body rv">Отзывы добавляют то, чего не&nbsp;может дать портфолио: подтверждают опыт реальных клиентов и&nbsp;снимают сомнения перед финальным обращением. Три отзыва подобраны под&nbsp;три аудитории: хозяйку квартиры, сомневающегося и&nbsp;инвестора.</p>
+      </div>
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru · отзывы</span></div>
+        <img src="assets/liberman/d-reviews.jpg" alt="Блок отзывов" loading="lazy" width="2160" height="809">
+      </div>
+    </div>
+
+    <div class="blk">
+      <div class="blk-head">
+        <h3 class="rv"><small>лид‑магнит</small>База 100+ магазинов мебели и&nbsp;декора</h3>
+        <p class="body rv">Для&nbsp;тех, кто заинтересовался, но&nbsp;ещё не&nbsp;готов. Лид‑магнит нужен во&nbsp;всех нишах с&nbsp;высоким чеком, где клиента надо прогреть: человек закрыл вкладку, а&nbsp;его контакт остался у&nbsp;Илоны — тёплая база вместо трафика, ушедшего навсегда.</p>
+      </div>
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru · бесплатно</span></div>
+        <img src="assets/liberman/d-lead.jpg" alt="Блок лид-магнита" loading="lazy" width="2160" height="945">
+      </div>
+    </div>
+
+    <div class="blk">
+      <div class="blk-head">
+        <h3 class="rv"><small>заявка</small>Три поля и&nbsp;мессенджеры</h3>
+        <p class="body rv">Для&nbsp;тех, кто уже готов: имя, телефон или Telegram, пара слов о&nbsp;задаче — и&nbsp;согласие на&nbsp;обработку данных. Рядом — Telegram, WhatsApp, MAX и&nbsp;телефон для&nbsp;тех, кому проще написать самому.</p>
+      </div>
+      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru · связаться</span></div>
+        <img src="assets/liberman/d-contact.jpg" alt="Блок заявки" loading="lazy" width="2160" height="1164">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 мобильная версия -->
+<section class="sec dark" style="background:radial-gradient(90% 70% at 50% 30%, #2a0d12 0%, var(--ink) 70%)">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>09</b> (responsive) мобильная версия</p>
+      <h2 class="h-l rv">Та&nbsp;же система — <em>на&nbsp;любом экране</em></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="body rv">Cormorant Garamond и&nbsp;fluid‑типографика без&nbsp;брейкпоинтов: заголовки плавно масштабируются от&nbsp;широкого монитора до&nbsp;телефона. Портфолио на&nbsp;телефоне листается карусель‑лентой, тарифы встают в&nbsp;колонку, навигация прячется в&nbsp;меню.</p>
+    </div>
+  </div>
+  <div class="phones five">
+    <div class="phone rv"><div class="scr"><video src="assets/liberman/v-scroll-m.mp4" poster="assets/liberman/v-scroll-m.jpg" muted loop playsinline preload="none" data-auto></video></div><p class="cap">проход по&nbsp;сайту</p></div>
+    <div class="phone rv"><div class="scr"><img src="assets/liberman/m-philosophy.jpg" alt="Философия, мобильная версия" loading="lazy"></div><p class="cap">философия</p></div>
+    <div class="phone rv"><div class="scr"><img src="assets/liberman/m-work.jpg" alt="Проекты, мобильная версия" loading="lazy"></div><p class="cap">проекты</p></div>
+    <div class="phone rv"><div class="scr"><img src="assets/liberman/m-invest.jpg" alt="Инвестдизайн, мобильная версия" loading="lazy"></div><p class="cap">инвестдизайн</p></div>
+    <div class="phone rv"><div class="scr"><img src="assets/liberman/m-lead.jpg" alt="Лид-магнит, мобильная версия" loading="lazy"></div><p class="cap">лид‑магнит</p></div>
+  </div>
+</section>
+
+<!-- 10 визуальный язык -->
+<section class="sec dark">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>10</b> (visual) визуальный язык</p>
+      <h2 class="h-l rv">Не&nbsp;очередной <em>бежевый</em> сайт</h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="lede rv">Хотелось сохранить премиальность, но&nbsp;не&nbsp;делать очередной бежевый сайт интерьерного дизайна, которых просто миллион. Поэтому — молочный, глубокий бордо, чёрный и&nbsp;крупная редакционная типографика.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="logo-stage rv">
+      <div><img src="assets/liberman/libe-logo-light.svg" alt="Логотип líbe studio, светлый" loading="lazy" width="4504" height="3484"></div>
+      <div><img src="assets/liberman/libe-logo.svg" alt="Логотип líbe studio, бордо" loading="lazy" width="4504" height="3484"></div>
+    </div>
+    <p class="logo-cap">логотип líbe studio · на&nbsp;тёмном и&nbsp;на&nbsp;молочном</p>
+    <div class="system">
+      <div class="rv">
+        <div class="swatches">
+          <div style="background:#F2EDE7;color:#1C1210">#F2EDE7<br>фон</div>
+          <div style="background:#1C1210;color:#F2EDE7">#1C1210<br>текст</div>
+          <div style="background:#6E1B22;color:#F2EDE7">#6E1B22<br>бордо</div>
+          <div style="background:#3B0D14;color:#F2EDE7">#3B0D14<br>бордо тёмное</div>
+          <div style="background:#E0A99A;color:#3B0D14">#E0A99A<br>пудровый</div>
+        </div>
+        <p class="sys-note">Ни&nbsp;одного отклонения по&nbsp;всему сайту — это дисциплина.</p>
+      </div>
+      <div class="type-spec rv">
+        <div><span style="font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.4vw,52px);line-height:1">Cormorant Garamond</span><small>заголовки · цифры</small></div>
+        <div><span style="font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(28px,3vw,46px);line-height:1;color:var(--powder)">Дальше начинается работа.</span><small>курсив · акцент</small></div>
+        <div><span style="font-family:var(--sans);font-weight:400;font-size:clamp(15px,1.3vw,18px);letter-spacing:.2em;text-transform:uppercase">Jost</span><small>текст · навигация</small></div>
+      </div>
+    </div>
+    <div class="photos">
+      <figure class="big rv"><img src="assets/liberman/w-leopard.jpg" alt="Проект «Розовый леопард», санузел" loading="lazy"></figure>
+      <figure class="sm rv"><img src="assets/liberman/w-bordo.jpg" alt="Проект «Бордо», спальня" loading="lazy"></figure>
+      <figure class="sm rv"><img src="assets/liberman/w-duplex.jpg" alt="Проект «Двухуровневая», гостиная" loading="lazy"></figure>
+      <figure class="wide rv"><img src="assets/liberman/w-terracotta.jpg" alt="Проект «Терракота», кухня-гостиная" loading="lazy"></figure>
+    </div>
+    <p class="shot-cap">визуализации проектов Илоны из&nbsp;портфолио на&nbsp;сайте — бордо в&nbsp;палитре сайта перекликается с&nbsp;её интерьерами</p>
+  </div>
+</section>
+
+<!-- 11 что сделано + результат -->
+<section class="sec paper">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>11</b> (scope) что было сделано</p>
+      <h2 class="h-l rv">Восемь этапов — <em>одна система</em></h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <ol class="done rv">
+      <li><b>01</b>Маркетинговый анализ ниши и&nbsp;конкурентов</li>
+      <li><b>02</b>УТП и&nbsp;позиционирование</li>
+      <li><b>03</b>Брендинг и&nbsp;визуальная концепция</li>
+      <li><b>04</b>Воронка продаж по&nbsp;AIDA</li>
+      <li><b>05</b>Лид‑магнит для&nbsp;захвата аудитории</li>
+      <li><b>06</b>Дизайн в&nbsp;Figma и&nbsp;вёрстка на&nbsp;чистом коде</li>
+      <li><b>07</b>SEO: мета‑теги, семантика, schema.org</li>
+      <li class="on"><b>08</b>GEO: ChatGPT, Perplexity и&nbsp;Google&nbsp;AI знают, кто Илона</li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec dark result">
+  <div class="wrap">
+    <p class="label"><b>12</b> (result) результат</p>
+    <h2 class="h-xl rv">Согласовали <em>почти без&nbsp;правок</em></h2>
+    <div class="facts">
+      <div class="rv"><b>4</b><span>боли аудитории — четыре экрана сайта с&nbsp;ответом</span></div>
+      <div class="rv"><b>3</b><span>аудитории, и&nbsp;для&nbsp;каждой — свой отзыв и&nbsp;своя цифра</span></div>
+      <div class="rv"><b>5</b><span>этапов воронки: от&nbsp;прелоадера до&nbsp;подготовленного клиента</span></div>
+      <div class="rv"><b>100+</b><span>магазинов в&nbsp;лид‑магните — контакт остаётся у&nbsp;Илоны</span></div>
+    </div>
+    <div class="chat rv">
+      <div>
+        <div class="msg">Супер, я&nbsp;тогда напишу тебе на&nbsp;неделе, мне прям очень нравится. Я&nbsp;бы только поменяла местами текст но прям чуть‑чуть точечно<time>18:59</time></div>
+        <div class="msg2">Спасибо большое 🙏🏻</div>
+        <p class="who-by" style="margin-top:18px">Илона Либерман, архитектор · сообщение после показа макета</p>
+      </div>
+      <div>
+        <p class="who">Согласовать макет у&nbsp;человека с&nbsp;насмотренностью и&nbsp;вкусом — для&nbsp;меня высшая награда.</p>
+        <p class="who-by">Кристина, TINA DIGITAL</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 смысловая пауза -->
+<section class="sec dark pause">
+  <div class="wrap">
+    <p class="label"><b>13</b></p>
+    <p class="statement rv">Не&nbsp;просто красивый сайт.<br><em>Маркетинговая система.</em></p>
+    <p class="body rv" style="max-width:600px">За&nbsp;визуалом стоит система, которая объясняет ценность специалиста и&nbsp;ведёт клиента к&nbsp;решению. Только такой сайт даёт конверсию и&nbsp;результаты продвижения, а&nbsp;не&nbsp;слитый бюджет.</p>
+  </div>
+</section>
+
+<!-- 14 сайт целиком -->
+<section class="sec cream">
+  <div class="wrap">
+    <p class="label"><b>14</b> (live product) сайт целиком</p>
+    <div class="browser rv" style="max-width:1180px;margin:0 auto"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru</span></div>
+      <video src="assets/liberman/v-scroll-d.mp4" poster="assets/liberman/v-scroll-d.jpg" width="1120" height="700" muted loop playsinline preload="none" data-auto></video>
+    </div>
+    <div style="max-width:1180px;margin:0 auto"><a class="live" href="https://libermanstudio.ru" target="_blank" rel="noopener"><span>view live ↗</span>libermanstudio.ru</a></div>
+  </div>
+</section>
+
+<div class="breath" aria-hidden="true"></div>
+
+<a class="next" href="case-pomazkov.html">
+  <video src="assets/pomazkov/v-approach-d-2.mp4" poster="assets/pomazkov/v-approach-d-2.jpg" muted loop playsinline preload="none" data-auto></video>
+  <div class="in"><small>Следующий кейс</small><b>Philipp Pomazkov →</b></div>
+</a>
+
+</main>
+
+<footer class="foot">
+  <div class="tl-legal">
+    <span>© 2026 TINA DIGITAL</span>
+    <a href="privacy/">Политика конфиденциальности</a>
+    <a href="cookies/">Политика cookie</a>
+    <a href="#" data-cookie-settings>Настройки cookie</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  /* появление блоков */
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold:0, rootMargin:'0px 0px 25% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('in'); });
+
+  /* видео играют только когда видны */
+  var vids = document.querySelectorAll('video[data-auto]');
+  if ('IntersectionObserver' in window){
+    /* load() обрывает начатый play(), поэтому видимый ролик запускаем ещё раз, когда он готов */
+    var pre = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting){ var v = e.target; if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } pre.unobserve(v); }
+    }); }, { rootMargin:'100% 0px 100% 0px' });
+    var vo = new IntersectionObserver(function(es){ es.forEach(function(e){
+      var v = e.target; v._vis = e.isIntersecting;
+      if (e.isIntersecting) v.play().catch(function(){}); else v.pause();
+    }); }, { threshold:.05 });
+    vids.forEach(function(v){
+      v.addEventListener('canplay', function(){ if (v._vis && v.paused) v.play().catch(function(){}); });
+      pre.observe(v); vo.observe(v);
+    });
+  }
+
+  /* research: медленный параллакс листов */
+  var papers = document.querySelector('.papers');
+  if (papers && !matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth > 760){
+    var pps = papers.querySelectorAll('.pp'), k = [-24, 14, -10], tick = false;
+    var upd = function(){ tick = false; var r = papers.getBoundingClientRect(); var c = (r.top + r.height/2 - innerHeight/2) / innerHeight;
+      if (c < -1.2 || c > 1.2) return; pps.forEach(function(el, i){ el.style.setProperty('--py', (c * k[i]).toFixed(1)); }); };
+    addEventListener('scroll', function(){ if (!tick){ tick = true; requestAnimationFrame(upd); } }, { passive:true }); upd();
+  }
+})();
+</script>
+<script src="assets/legal/legal.js"></script>
+</body>
+</html>
