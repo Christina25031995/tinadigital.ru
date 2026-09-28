@@ -36,7 +36,7 @@
     bar.setAttribute('aria-label', 'Уведомление о cookie');
     bar.innerHTML =
       '<p class="tl-cookie-text">Сайт использует cookie и&nbsp;Яндекс&nbsp;Метрику, чтобы видеть статистику посещений. ' +
-      'Подробнее — в&nbsp;<a href="' + base + 'cookies/">политике cookie</a> и&nbsp;<a href="' + base + 'privacy/">политике конфиденциальности</a>.</p>' +
+      'Подробнее в&nbsp;<a href="' + base + 'cookies/">политике cookie</a> и&nbsp;<a href="' + base + 'privacy/">политике конфиденциальности</a>.</p>' +
       '<div class="tl-cookie-actions">' +
         '<button type="button" class="tl-btn tl-btn-primary" data-v="all">Принять</button>' +
         '<button type="button" class="tl-btn" data-v="necessary">Только необходимые</button>' +

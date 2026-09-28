@@ -1385,6 +1385,8 @@
         mesh.userData.projectGroup = tileData.projectGroup;
 
         if (tileData.src && tileData.type === 'video'){
+          /* пока видео грузится, на плитке стоит его первый кадр */
+          loadTileTexture(loader, tileData.src.replace(/\.mp4$/, '-poster.jpg'), tw, th, mesh, tileData.focalPointX, tileData.focalPointY);
           loadTileVideo(tileData.src, tw, th, mesh, tileData.focalPointX, tileData.focalPointY);
         } else if (tileData.src){
           loadTileTexture(loader, tileData.src, tw, th, mesh, tileData.focalPointX, tileData.focalPointY);
@@ -1435,12 +1437,6 @@
       ctx.lineWidth = 1;
       ctx.strokeRect(1, 1, cnv.width - 2, cnv.height - 2);
 
-      var fs = Math.max(11, Math.round(cnv.height * 0.1));
-      ctx.fillStyle = 'rgba(244,242,238,.55)';
-      ctx.font = '700 ' + fs + 'px Manrope, sans-serif';
-      ctx.textBaseline = 'bottom';
-      ctx.fillText(tileData.id, cnv.width * 0.07, cnv.height * 0.88);
-
       var tex = new THREE.CanvasTexture(cnv);
       if ('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
       mesh.material.map = tex;
@@ -1449,6 +1445,7 @@
 
     function loadTileTexture(loader, src, w, h, mesh, fx, fy){
       loader.load(src, function(tex){
+        if (mesh.userData.videoReady) return;
         if ('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
         fitCover(tex, w, h, fx, fy);
         mesh.material.map = tex;
@@ -1475,7 +1472,9 @@
       video.autoplay = true;
       video.src = src;
 
-      video.addEventListener('loadedmetadata', function(){
+      video.addEventListener('loadeddata', function(){
+        if (mesh.userData.videoReady) return;
+        mesh.userData.videoReady = true;
         var tex = new THREE.VideoTexture(video);
         if ('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
         tex.minFilter = THREE.LinearFilter;
@@ -1487,7 +1486,7 @@
         mesh.material.needsUpdate = true;
       });
       video.addEventListener('error', function(){
-        applyEmptyPlaceholder(mesh, { id: '' }, w, h);
+        applyEmptyPlaceholder(mesh, {}, w, h);
       });
 
       video.play().catch(function(){});

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Philipp Pomazkov — кейс TINA DIGITAL</title>
+<title>Philipp Pomazkov | кейс TINA DIGITAL</title>
 <link rel="canonical" href="https://tinadigital.ru/cases/pomazkov/">
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <meta name="description" content="Кейс: сайт пластического хирурга Филиппа Помазкова. Стратегия «естественный результат», UX, дизайн и разработка. TINA DIGITAL.">
-<meta property="og:title" content="Philipp Pomazkov — кейс TINA DIGITAL">
+<meta property="og:title" content="Philipp Pomazkov | кейс TINA DIGITAL">
 <meta property="og:description" content="Сайт пластического хирурга: доверие вместо прайса, путь пациента, запись без форм.">
 <meta property="og:image" content="https://tinadigital.ru/assets/pomazkov/v-hero-d.jpg">
 <meta property="og:url" content="https://tinadigital.ru/cases/pomazkov/">
@@ -232,7 +232,9 @@
   .voice .play.on svg.p1{ display:none; } .voice .play:not(.on) svg.p2{ display:none; } .voice .play.on svg.p2{ margin-left:0; }
   .voice q{ display:block; font-style:italic; font-size:clamp(22px,2.4vw,36px); line-height:1.3; quotes:'«' '»'; }
   .voice small{ display:block; margin-top:12px; font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--l-faint); }
-  .wave{ display:flex; gap:3px; align-items:center; height:34px; margin-top:16px; }
+  .voice > div{ min-width:0; } /* иначе 60 полосок волны распирают колонку на телефоне */
+  .wave{ display:flex; gap:3px; align-items:center; height:34px; margin-top:16px; overflow:hidden; }
+  .wave i{ flex:none; }
   .wave i{ width:3px; border-radius:2px; background:rgba(184,150,96,.5); }
   @media (max-width: 600px){ .voice{ grid-template-columns:1fr; } }
 
@@ -277,7 +279,7 @@
 
 <!-- 00 обложка -->
 <section class="cover">
-  <div class="kicker hs hs1"><span>Case 02 — 2026</span><span>Medical website</span></div>
+  <div class="kicker hs hs1"><span>Case 02 · 2026</span><span>Medical website</span></div>
   <h1 class="hs hs2">Pomazkov</h1>
   <p class="tag hs hs3">естественный результат</p>
   <div class="meta hs hs4">
@@ -355,7 +357,7 @@
     <div class="decisions">
       <div class="rv"><b>Не&nbsp;соревноваться стажем</b><span>Не&nbsp;играть в&nbsp;«30 лет и&nbsp;100&nbsp;000 операций». Сильнее маршрут: вижу работу → понимаю решение → вижу честные границы → понимаю процесс.</span></div>
       <div class="rv"><b>Возраст не&nbsp;в&nbsp;центре</b><span>Не&nbsp;оправдываться и&nbsp;не&nbsp;выносить в&nbsp;заголовок: закрыть кейсами, образованием, путём врача и&nbsp;сопровождением после операции.</span></div>
-      <div class="rv"><b>«Скульптор твоего тела» — вторым</b><span>Авторская фраза из&nbsp;Instagram ценна, но&nbsp;главный оффер — «естественный результат»: серьёзнее для&nbsp;операций на&nbsp;лице.</span></div>
+      <div class="rv"><b>«Скульптор твоего тела» идёт вторым</b><span>Авторская фраза из&nbsp;Instagram ценна, но&nbsp;главным оффером стал «естественный результат»: серьёзнее для&nbsp;операций на&nbsp;лице.</span></div>
     </div>
   </div>
 </section>
@@ -367,7 +369,7 @@
     <h2 class="h-xl rv">Чувство<br><em>меры.</em></h2>
     <p class="quote rv">«Моя задача — не&nbsp;выполнить пожелание буквально, а&nbsp;сделать так, чтобы результат жил с&nbsp;человеком годами».</p>
     <p class="quote-by">Филипп Помазков</p>
-    <p class="body rv" style="margin-top:34px;max-width:560px">Вместо «сделаем больше и&nbsp;ярче» — «естественный результат». В&nbsp;досье зафиксировано: Филипп открыто допускает менее инвазивный вариант вместо максимального вмешательства. Это и&nbsp;стало основой позиционирования.</p>
+    <p class="body rv" style="margin-top:34px;max-width:560px">Вместо «сделаем больше и&nbsp;ярче» выбран «естественный результат». В&nbsp;досье зафиксировано: Филипп открыто допускает менее инвазивный вариант вместо максимального вмешательства. Это и&nbsp;стало основой позиционирования.</p>
   </div>
   <div class="ph"><span class="ai-tag abs" style="z-index:2">AI</span><img src="../../assets/pomazkov/p-portrait.jpg" alt="AI-кадр для сайта: хирург в операционной" loading="lazy"></div>
 </section>
@@ -378,7 +380,7 @@
     <div class="c-5">
       <p class="label"><b>04</b> (ux) навигация</p>
       <h2 class="h-l rv">Вход через <em>запрос,</em> а&nbsp;не&nbsp;через каталог</h2>
-      <p class="body rv" style="margin-top:28px">Пациент не&nbsp;думает терминами. Он думает о&nbsp;себе. Поэтому первый выбор на&nbsp;сайте — человеческая фраза, а&nbsp;под&nbsp;ней уже название операции.</p>
+      <p class="body rv" style="margin-top:28px">Пациент не&nbsp;думает терминами. Он думает о&nbsp;себе. Поэтому на&nbsp;сайте сначала идёт человеческая фраза, а&nbsp;под&nbsp;ней уже название операции.</p>
       <div class="vs rv"><span>блефаропластика</span><span>маммопластика</span><span>абдоминопластика</span></div>
     </div>
     <div class="c-6 off-7">
@@ -433,7 +435,7 @@
       <video src="../../assets/pomazkov/v-approach-d-2.mp4" poster="../../assets/pomazkov/v-approach-d-2.jpg" muted loop playsinline preload="none" data-auto></video>
     </div>
     <div class="ann">
-      <div class="rv"><b>анимация</b>Частицы собираются в&nbsp;силуэт при прокрутке — метафора формы, которую создают, а&nbsp;не&nbsp;исправляют.</div>
+      <div class="rv"><b>анимация</b>Частицы собираются в&nbsp;силуэт при прокрутке. Это метафора формы, которую создают, а&nbsp;не&nbsp;исправляют.</div>
       <div class="rv"><b>голос хирурга</b>Принципы сформулированы его словами: «Я&nbsp;не&nbsp;удаляю жир „под&nbsp;ноль“».</div>
       <div class="rv"><b>доверие</b>Безопасность прежде эффекта: если вмешательство избыточно, работу делят на&nbsp;этапы.</div>
     </div>
@@ -445,14 +447,14 @@
   <div class="wrap grid-2">
     <div class="c-6">
       <p class="label"><b>07</b> (journey) путь пациента</p>
-      <h2 class="h-l rv">Операция — только одна из&nbsp;<em>семи точек</em></h2>
+      <h2 class="h-l rv">Операция лишь одна из&nbsp;<em>семи точек</em></h2>
     </div>
     <div class="c-5 off-7">
-      <p class="body rv">На&nbsp;сайте показан весь путь: от&nbsp;консультации до&nbsp;контроля результата, с&nbsp;живыми деталями — например, что список анализов действует 10&nbsp;дней.</p>
+      <p class="body rv">На&nbsp;сайте показан весь путь: от&nbsp;консультации до&nbsp;контроля результата, с&nbsp;живыми деталями. Например, что список анализов действует 10&nbsp;дней.</p>
     </div>
   </div>
   <div class="wrap" style="margin-top:clamp(50px,6vw,90px)">
-    <p class="statement rv">Не&nbsp;скрывать процесс —<br><em>объяснить его.</em></p>
+    <p class="statement rv">Не&nbsp;скрывать процесс,<br><em>а&nbsp;объяснить его.</em></p>
     <ol class="steps rv">
       <li><b>01</b><span>Консультация</span></li>
       <li><b>02</b><span>Решение</span></li>
@@ -515,10 +517,10 @@
   <div class="wrap grid-2">
     <div class="c-6">
       <p class="label"><b>11</b> (visual · ai) визуальный язык</p>
-      <h2 class="h-l rv">AI — для&nbsp;атмосферы.<br><em>Не&nbsp;для&nbsp;доказательств.</em></h2>
+      <h2 class="h-l rv">AI создаёт атмосферу.<br><em>Не&nbsp;доказательства.</em></h2>
     </div>
     <div class="c-5 off-7">
-      <p class="lede rv">Филипп хотел, чтобы сайт выглядел взрослее и&nbsp;серьёзнее. Визуальная&nbsp;среда проекта собрана из&nbsp;AI-визуалов: строгая монохромная атмосфера без&nbsp;чужих фотографий. Всё, что относится к&nbsp;результату лечения, — только реальные материалы.</p>
+      <p class="lede rv">Филипп хотел, чтобы сайт выглядел взрослее и&nbsp;серьёзнее. Визуальная&nbsp;среда проекта собрана из&nbsp;AI-визуалов: строгая монохромная атмосфера без&nbsp;чужих фотографий. Всё, что относится к&nbsp;результату лечения, показано только на&nbsp;реальных материалах.</p>
     </div>
   </div>
   <figure class="ai-film rv">
@@ -528,8 +530,8 @@
   <div class="wrap">
     <div class="ai-points">
       <div class="rv"><b><small>01 / atmosphere</small>Атмосфера</b><span>AI-визуалы помогают создать нужную визуальную среду без&nbsp;использования чужих фотографий.</span></div>
-      <div class="rv"><b><small>02 / art direction</small>Арт-дирекшн</b><span>Портретные и&nbsp;пластические образы — часть художественной системы проекта, а&nbsp;не&nbsp;изображения пациентов.</span></div>
-      <div class="rv"><b><small>03 / real results</small>Реальные результаты</b><span>Результаты пациентов, фото «до/после» и&nbsp;клинические доказательства — только реальные материалы.</span></div>
+      <div class="rv"><b><small>02 / art direction</small>Арт-дирекшн</b><span>Портретные и&nbsp;пластические образы входят в&nbsp;художественную систему проекта. Это не&nbsp;изображения пациентов.</span></div>
+      <div class="rv"><b><small>03 / real results</small>Реальные результаты</b><span>Для&nbsp;результатов пациентов, фото «до/после» и&nbsp;клинических доказательств используются только реальные материалы.</span></div>
     </div>
     <div class="photos" style="margin-top:clamp(50px,6vw,90px)">
       <figure class="big rv"><img src="../../assets/pomazkov/p-gaze.jpg" alt="AI-портрет" loading="lazy"><span class="ai-tag abs">AI</span></figure>
@@ -584,7 +586,7 @@
 <section class="sec dark pause">
   <div class="wrap">
     <p class="label"><b>13</b></p>
-    <p class="statement big rv">От&nbsp;страха —<br><em>к&nbsp;пониманию.</em></p>
+    <p class="statement big rv">От&nbsp;страха<br><em>к&nbsp;пониманию.</em></p>
     <p class="body rv" style="max-width:560px">Сайт ведёт человека от&nbsp;собственного запроса к&nbsp;решению, объясняет процесс и&nbsp;только после этого предлагает запись.</p>
   </div>
 </section>
