@@ -1508,6 +1508,8 @@
     var tiles = [];
     var activeVideos = [];
     var loader = new THREE.TextureLoader();
+    /* медиа может прийти с CDN (jsDelivr) — текстурам WebGL нужен CORS */
+    loader.setCrossOrigin('anonymous');
 
     Object.keys(FACE_ROTATION).forEach(function(faceName){
       var rot = FACE_ROTATION[faceName];
@@ -1689,6 +1691,10 @@
         mesh.material.color.set(0xffffff);
         glow(mesh, tex);
         mesh.material.needsUpdate = true;
+      }, undefined, function(){
+        /* CDN недоступен — тот же файл с сайта */
+        var local = window.cdnLocal && window.cdnLocal(src);
+        if (local) loadTileTexture(loader, local, w, h, mesh, fx, fy);
       });
     }
 
@@ -1707,6 +1713,7 @@
       video.loop = true;
       video.playsInline = true;
       video.autoplay = true;
+      video.crossOrigin = 'anonymous';
       video.src = src;
 
       video.addEventListener('loadeddata', function(){
@@ -1723,6 +1730,8 @@
         mesh.material.needsUpdate = true;
       });
       video.addEventListener('error', function(){
+        var local = window.cdnLocal && window.cdnLocal(video.src);
+        if (local){ video.src = local; video.play().catch(function(){}); return; }
         applyEmptyPlaceholder(mesh, {}, w, h);
       });
 

@@ -647,7 +647,8 @@
     var W = 0, H = 0, n = 0, hx, hy, x, y, vx, vy, ph, grp, gx, gy, labels = [];
     var mouse = { x:-1e4, y:-1e4 }, running = false, built = false, t0 = 0, raf = 0;
     var prog = 0, progS = 0, ghost = null, gpos = null;
-    var img = new Image(); img.src = o.src;
+    var img = new Image(); img.crossOrigin = 'anonymous'; img.src = o.src;
+    img.onerror = function(){ var l = window.cdnLocal && window.cdnLocal(img.src); if (l){ img.onerror = null; img.src = l; } };
     img.onload = function(){ build(); if (o.box) o.box.classList.add('live'); if (reduce){ frame(performance.now()); } };
     var rt; addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ if (img.complete) build(); }, 200); });
 
