@@ -268,7 +268,7 @@
   @media (max-width: 900px){ .cx-contact-in{ grid-template-columns:1fr; gap:48px; } }
   @media (max-width: 768px){ .cx-contact{ padding:64px 18px calc(110px + env(safe-area-inset-bottom)); } .cx-contact-btn{ flex:1; justify-content:center; } }
 
-  @media (min-width: 769px){
+  @media (min-width: 981px){
     #cxInfoSheet{ left:50%; right:auto; top:50%; bottom:auto; width:min(460px, calc(100vw - 48px)); border-radius:22px; border:1px solid var(--line);
       transform:translate(-50%,-46%); opacity:0; pointer-events:none; transition:transform .45s var(--ease), opacity .3s ease; }
     #cxInfoSheet.is-open{ transform:translate(-50%,-50%); opacity:1; pointer-events:auto; }
@@ -289,8 +289,8 @@
     .cx-L-cta:hover{ border-color:var(--ink); background:rgba(243,241,236,.06); }
   }
   @media (min-width: 981px) and (max-height: 800px){ .cx-L-head{ font-size:clamp(22px,2.1vw,34px); } .cx-L-h{ bottom:54px; gap:14px; } }
-  @media (max-width: 768px){ .cx-hero-legal{ display:none; } }
-  .cx-drag-hint{ display:none; } /* mobile-only — shown in the ≤768px block below */
+  @media (max-width: 980px){ .cx-hero-legal{ display:none; } }
+  .cx-drag-hint{ display:none; } /* mobile-only — shown in the ≤980px block below */
 
   /* ============ CAPTION / CONTROLS ============ */
   /* editorial Projects index — an endless vertical scroll again, like the
@@ -360,7 +360,7 @@
      not shrunk into a small centred object. A fixed bottom dock replaces
      the (already-hidden) top nav as primary navigation. Desktop rules
      above this breakpoint are untouched. ============ */
-  @media (max-width: 768px){
+  @media (max-width: 980px){
     .cx-hero{ height:100svh; min-height:0; }
     /* the header was pushing .cx-main below the fold (100svh cube +
        header height > one screen). Taking .cx-main out of flow and
@@ -450,7 +450,7 @@
     align-items:stretch; justify-content:space-between;
     box-shadow: 0 8px 30px rgba(0,0,0,.35);
   }
-  @media (max-width: 768px){ .cx-dock{ display:flex; } }
+  @media (max-width: 980px){ .cx-dock{ display:flex; } }
   .cx-dock-btn{
     flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
     background:none; border:none; color:var(--ink-dim); font-family:inherit;
@@ -471,7 +471,7 @@
     opacity:0; pointer-events:none; transition:opacity .35s var(--ease);
   }
   .cx-sheet-overlay.is-open{ opacity:1; pointer-events:auto; }
-  @media (min-width: 769px){ .cx-sheet-overlay{ z-index:60; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); } }
+  @media (min-width: 981px){ .cx-sheet-overlay{ z-index:60; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); } }
   .cx-sheet{
     position:fixed; left:0; right:0; bottom:0; z-index:61;
     max-height:86svh; display:flex; flex-direction:column;
@@ -509,6 +509,100 @@
   .cx-info-cta{ display:flex; justify-content:center; gap:10px; margin:0 0 18px; padding:15px 20px; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:15px; text-decoration:none; }
   .cx-info-cta:hover{ background:#cf7449; }
   .cx-info-lede{ font-size:14px; line-height:1.6; color:var(--ink-dim); padding:4px 0 20px; }
+
+  /* ============ ТЕЛЕФОН И ПЛАНШЕТ (≤980px): первый экран с заголовком и CTA,
+     док на русском, лист «Услуги», прокручиваемый блок под кубом.
+     Всё ниже либо внутри max-width:980px, либо на элементах, которые
+     на компьютере скрыты (display:none) — десктоп не меняется. ============ */
+  @font-face{ font-family:'Cormorant Garamond'; font-style:italic; font-weight:400; font-display:swap;
+    src:url(assets/fonts/CormorantGaramond-cyrillic-italic.woff2) format('woff2'); unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+  @font-face{ font-family:'Cormorant Garamond'; font-style:italic; font-weight:400; font-display:swap;
+    src:url(assets/fonts/CormorantGaramond-latin-italic.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F; }
+
+  .cx-m-hero, .cx-more, .cx-hdr-m{ display:none; }
+
+  /* карточки услуг — общие для листа «Услуги» и блока под кубом */
+  .cx-svc-list{ display:flex; flex-direction:column; gap:10px; }
+  .cx-svc-card{ display:grid; grid-template-columns:1fr auto; gap:4px 14px; min-height:44px; padding:17px 18px;
+    border:1px solid var(--line); border-radius:16px; background:rgba(243,241,236,.035);
+    color:var(--ink); text-decoration:none; -webkit-tap-highlight-color:transparent; transition:border-color .2s, background-color .2s; }
+  .cx-svc-card:active, .cx-svc-card:hover{ border-color:rgba(201,165,127,.55); background:rgba(243,241,236,.06); }
+  .cx-svc-card b{ grid-column:1; font-size:17px; font-weight:700; letter-spacing:-.01em; line-height:1.25; }
+  .cx-svc-card .d{ grid-column:1; font-size:13px; line-height:1.5; color:var(--ink-dim); }
+  .cx-svc-card em{ grid-column:1; font-style:normal; font-size:14px; font-weight:700; color:#c9a57f; margin-top:5px; }
+  .cx-svc-card i{ grid-column:2; grid-row:1 / 4; align-self:center; font-style:normal; font-size:17px; color:var(--ink-dim); }
+  .cx-all-link{ display:flex; align-items:center; justify-content:space-between; min-height:48px; margin-top:6px; padding:0 2px;
+    font-size:15px; font-weight:700; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); }
+  .cx-all-link i{ font-style:normal; color:#c9a57f; }
+
+  /* лист «Проекты»: заголовок группы концептов */
+  .cx-project-group{ margin:14px 0 2px; padding-top:18px; border-top:1px solid var(--line);
+    font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); }
+  .cx-project-row.is-minor .cx-project-name{ font-size:15px; font-weight:600; }
+  .cx-project-row.is-minor{ padding:14px 0; }
+
+  @media (max-width: 980px){
+    body{ margin:0; background:var(--bg); }
+    .cx-plus{ display:none; }
+
+    /* hero = шапка + текст + куб; снизу место под док */
+    .cx-hero{ height:100svh; min-height:560px; padding-bottom:calc(88px + env(safe-area-inset-bottom)); }
+    .cx-brand-role{ display:none; }
+    .cx-m-hero{ display:block; position:relative; z-index:3; padding:clamp(14px,3.2svh,40px) 20px 0; }
+    .cx-m-head{ margin:0; font-weight:800; font-size:clamp(28px,8.2vw,56px); line-height:1.02; letter-spacing:-.03em; color:var(--ink); }
+    .cx-m-head em{ font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-weight:400; font-size:1.2em; line-height:.8; letter-spacing:-.01em; color:#c9a57f; }
+    .cx-m-svc{ margin:clamp(8px,1.4svh,14px) 0 0; font-size:13px; line-height:1.45; color:var(--ink-dim); letter-spacing:.01em; }
+    .cx-m-cta{ display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; margin-top:clamp(12px,2.2svh,22px); padding:0 24px;
+      border-radius:999px; background:var(--accent); color:#fff; font-size:15px; font-weight:700; text-decoration:none; -webkit-tap-highlight-color:transparent; }
+    .cx-m-cta:hover, .cx-m-cta:active{ background:#cf7449; }
+
+    /* куб занимает всё, что осталось под текстом */
+    .cx-main{ position:relative; inset:auto; flex:1; min-height:0; }
+    .cx-object-col{ position:relative; }
+    .cx-cube-wrap{ width:100%; height:calc(100% - 34px); max-width:none; margin:0; }
+    /* вертикальный свайп по кубу прокручивает страницу, горизонтальный вращает куб */
+    #cxCanvas{ touch-action:pan-y; }
+    .cx-drag-hint{ top:calc(100% + 8px); bottom:auto; font-size:12px; letter-spacing:.01em; text-transform:none; color:var(--ink-dim); }
+
+    /* док над листами, чтобы им можно было закрыть открытый лист */
+    .cx-dock{ z-index:62; max-width:560px; margin:0 auto; }
+    .cx-dock-btn{ font-size:11px; letter-spacing:.02em; text-transform:none; gap:6px; min-height:44px; }
+    .cx-dock-btn svg{ width:20px; height:20px; }
+    .cx-dock-btn.is-active{ color:#c9a57f; }
+    .cx-dock-btn:focus-visible{ outline:2px solid rgba(201,165,127,.7); outline-offset:-5px; border-radius:14px; }
+    .cx-case-list + .cx-all-link{ margin-top:18px; }
+    .cx-sheet{ padding-bottom:calc(80px + env(safe-area-inset-bottom)); }
+    .cx-hdr-d{ display:none; }
+    .cx-hdr-m{ display:inline; }
+    .cx-project-name{ display:block; color:var(--ink); }
+    .cx-project-cat{ display:block; }
+    .cx-project-arrow{ color:var(--ink-dim); }
+
+    /* прокручиваемый блок под первым экраном */
+    .cx-more{ display:block; position:relative; z-index:1; background:var(--bg); color:var(--ink);
+      font-family:'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      padding:28px 20px calc(96px + env(safe-area-inset-bottom)); }
+    .cx-more-block{ max-width:640px; margin:0 auto; padding:36px 0; border-top:1px solid var(--line-soft); }
+    .cx-more-block:first-child{ border-top:none; padding-top:12px; }
+    .cx-more-kicker{ margin:0 0 10px; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#c9a57f; }
+    .cx-more-h{ margin:0 0 20px; font-size:clamp(26px,7.4vw,40px); font-weight:800; line-height:1.04; letter-spacing:-.03em; }
+    .cx-case-list{ display:flex; flex-direction:column; gap:26px; }
+    .cx-case{ display:block; color:inherit; text-decoration:none; -webkit-tap-highlight-color:transparent; }
+    .cx-case img{ display:block; width:100%; height:auto; border-radius:12px; border:1px solid var(--line-soft); background:var(--panel); }
+    .cx-case-meta{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-top:12px; }
+    .cx-case-meta b{ display:block; font-size:17px; font-weight:700; letter-spacing:-.01em; }
+    .cx-case-meta span span{ display:block; margin-top:3px; font-size:13px; color:var(--ink-dim); }
+    .cx-case-meta i{ flex:none; font-style:normal; font-size:13px; font-weight:700; color:#c9a57f; padding-top:3px; white-space:nowrap; }
+    .cx-more-lede{ margin:0 0 22px; font-size:15px; line-height:1.6; color:var(--ink-dim); max-width:460px; }
+    .cx-more-final .cx-m-cta{ width:100%; margin-top:0; }
+    .cx-more-mail{ margin:16px 0 0; font-size:14px; color:var(--ink-dim); }
+    .cx-more-mail a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); }
+    .cx-more .tl-legal{ margin-top:36px; }
+  }
+  @media (max-width: 980px) and (max-height: 700px){
+    .cx-m-head{ font-size:clamp(26px,7.6vw,44px); }
+    .cx-m-svc{ font-size:12px; }
+  }
 </style>
 
 </head>
@@ -535,6 +629,13 @@
       <a href="#contact" data-open-info>Контакты</a>
     </nav>
   </header>
+
+  <!-- первый экран на телефоне и планшете (≤980px); на компьютере скрыт -->
+  <div class="cx-m-hero">
+    <p class="cx-m-head">Проектирую<br>коммерческие <em>сайты</em></p>
+    <p class="cx-m-svc">Сайты под&nbsp;ключ · SEO&nbsp;+&nbsp;GEO · Яндекс&nbsp;Директ</p>
+    <a class="cx-m-cta" href="https://t.me/belovachristina" target="_blank" rel="noopener">Обсудить проект <span aria-hidden="true">→</span></a>
+  </div>
 
   <!-- акцентный текст буквой L: вертикаль по левому краю + крупная строка вдоль низа (desktop) -->
   <p class="cx-L-v" aria-hidden="true">Стратегия · UX · Дизайн · Код · SEO + GEO</p>
@@ -570,11 +671,55 @@
       <div class="cx-bg-word" aria-hidden="true">Кристина</div>
       <div class="cx-cube-wrap" id="cxCubeWrap">
         <canvas id="cxCanvas" role="img" aria-label="Объёмный коллаж из фрагментов проектов — наведите курсор или кликните фрагмент, чтобы открыть проект"></canvas>
-        <p class="cx-drag-hint" id="cxDragHint" aria-hidden="true">Drag to explore</p>
+        <p class="cx-drag-hint" id="cxDragHint" aria-hidden="true">Нажмите на&nbsp;работу, чтобы открыть кейс</p>
       </div>
     </div>
   </div>
 
+</section>
+
+<!-- ============ ТЕЛЕФОН И ПЛАНШЕТ: услуги, кейсы и контакт под первым экраном
+     (≤980px; на компьютере display:none) ============ -->
+<section class="cx-more" id="cxMore" aria-label="Услуги и кейсы">
+  <div class="cx-more-block">
+    <p class="cx-more-kicker">Услуги</p>
+    <h2 class="cx-more-h">Сайт, поиск<br>и&nbsp;реклама</h2>
+    <div class="cx-svc-list">
+      <a class="cx-svc-card" href="turnkey/"><b>Сайты под&nbsp;ключ</b><span class="d">Стратегия, UX, дизайн, разработка и&nbsp;запуск на&nbsp;вашем домене</span><em>от&nbsp;60&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a>
+      <a class="cx-svc-card" href="seo-geo/"><b>SEO&nbsp;+&nbsp;GEO</b><span class="d">Видимость в&nbsp;Яндексе, Google и&nbsp;нейросетях</span><em>от&nbsp;40&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a>
+      <a class="cx-svc-card" href="direct/"><b>Яндекс Директ</b><span class="d">Платный поисковый трафик на&nbsp;подготовленные посадочные</span><em>от&nbsp;35&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a>
+    </div>
+  </div>
+  <div class="cx-more-block">
+    <p class="cx-more-kicker">Кейсы</p>
+    <h2 class="cx-more-h">Реальные проекты</h2>
+    <div class="cx-case-list">
+      <a class="cx-case" href="cases/pomazkov/">
+        <img src="assets/pomazkov/d-hero.jpg" width="2400" height="1500" alt="Главный экран сайта Philipp Pomazkov" loading="lazy" decoding="async">
+        <span class="cx-case-meta"><span><b>Philipp Pomazkov</b><span>Сайт пластического хирурга</span></span><i>Кейс →</i></span>
+      </a>
+      <a class="cx-case" href="cases/liana/">
+        <img src="assets/turnkey/liana-hero.jpg" width="1280" height="738" alt="Главный экран сайта Liana Gini" loading="lazy" decoding="async">
+        <span class="cx-case-meta"><span><b>Liana Gini</b><span>Производство в&nbsp;Китае</span></span><i>Кейс →</i></span>
+      </a>
+      <a class="cx-case" href="cases/liberman/">
+        <img src="assets/liberman/v-hero-d.jpg" width="1440" height="812" alt="Главный экран сайта Liberman Studio" loading="lazy" decoding="async">
+        <span class="cx-case-meta"><span><b>Liberman Studio</b><span>Архитектор интерьеров</span></span><i>Кейс →</i></span>
+      </a>
+    </div>
+    <a class="cx-all-link" href="projects/">Все проекты <i aria-hidden="true">→</i></a>
+  </div>
+  <div class="cx-more-block cx-more-final">
+    <h2 class="cx-more-h">Обсудить проект</h2>
+    <p class="cx-more-lede">Расскажите, что нужно продать. Посмотрю задачу и&nbsp;предложу структуру и&nbsp;формат работы.</p>
+    <a class="cx-m-cta" href="https://t.me/belovachristina" target="_blank" rel="noopener">Написать в&nbsp;Telegram <span aria-hidden="true">→</span></a>
+    <p class="cx-more-mail">или на&nbsp;почту <a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></p>
+    <div class="tl-legal">
+      <span>© 2026 TINA DIGITAL</span>
+      <a href="privacy/">Политика конфиденциальности</a>
+      <a href="cookies/">Cookie</a>
+    </div>
+  </div>
 </section>
 
 <!-- ============ MOBILE PROJECT FEED — desktop-hidden, real assets reused
@@ -647,14 +792,17 @@
 
 <!-- ============ MOBILE BOTTOM DOCK ============ -->
 <nav class="cx-dock" id="cxDock" aria-label="Мобильная навигация">
-  <button class="cx-dock-btn" id="cxDockProjects" type="button">
-    <span>Projects</span>
+  <button class="cx-dock-btn" id="cxDockProjects" type="button" aria-controls="cxProjectsSheet">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="2.5" width="6.5" height="6.5" rx="1.2"/><rect x="11" y="2.5" width="6.5" height="6.5" rx="1.2"/><rect x="2.5" y="11" width="6.5" height="6.5" rx="1.2"/><rect x="11" y="11" width="6.5" height="6.5" rx="1.2"/></svg>
+    <span>Проекты</span>
   </button>
-  <button class="cx-dock-btn is-active" id="cxDockCube" type="button">
-    <span class="cx-dock-cube-icon" aria-hidden="true"></span>
+  <button class="cx-dock-btn" id="cxDockServices" type="button" aria-controls="cxServicesSheet">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.5l7.5 4-7.5 4-7.5-4 7.5-4z"/><path d="M2.5 10.2l7.5 4 7.5-4"/><path d="M2.5 13.8l7.5 4 7.5-4"/></svg>
+    <span>Услуги</span>
   </button>
-  <button class="cx-dock-btn" id="cxDockInfo" type="button">
-    <span>Info</span>
+  <button class="cx-dock-btn" id="cxDockInfo" type="button" aria-controls="cxInfoSheet">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 3L2.5 9.2l5.6 2 2 5.8L17.5 3z"/><path d="M8.1 11.2L17.5 3"/></svg>
+    <span>Связаться</span>
   </button>
 </nav>
 
@@ -662,108 +810,125 @@
 <div class="cx-sheet-overlay" id="cxProjectsOverlay"></div>
 <div class="cx-sheet" id="cxProjectsSheet" role="dialog" aria-modal="true" aria-label="Проекты">
   <div class="cx-sheet-handle"></div>
-  <div class="cx-sheet-header">Selected Projects</div>
+  <div class="cx-sheet-header">Проекты</div>
   <div class="cx-sheet-body">
-    <a class="cx-project-row" href="cases/enduro/">
+    <a class="cx-project-row" href="cases/pomazkov/">
       <span class="cx-project-num">01</span>
       <span class="cx-project-main">
-        <span class="cx-project-name">Enduro Energy</span>
-        <span class="cx-project-cat">Enduro rental website</span>
-      </span>
-      <span class="cx-project-arrow" aria-hidden="true">
-        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
-      </span>
-    </a>
-    <a class="cx-project-row" href="cases/ladoga/">
-      <span class="cx-project-num">02</span>
-      <span class="cx-project-main">
-        <span class="cx-project-name">Ladoga</span>
-        <span class="cx-project-cat">Boat rental website</span>
-      </span>
-      <span class="cx-project-arrow" aria-hidden="true">
-        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
-      </span>
-    </a>
-    <a class="cx-project-row" href="cases/pomazkov/">
-      <span class="cx-project-num">03</span>
-      <span class="cx-project-main">
         <span class="cx-project-name">Philipp Pomazkov</span>
-        <span class="cx-project-cat">Medical website</span>
-      </span>
-      <span class="cx-project-arrow" aria-hidden="true">
-        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
-      </span>
-    </a>
-    <a class="cx-project-row" href="projects/#more">
-      <span class="cx-project-num">04</span>
-      <span class="cx-project-main">
-        <span class="cx-project-name">Timofey Arapov</span>
-        <span class="cx-project-cat">Host&rsquo;s personal brand</span>
+        <span class="cx-project-cat">Сайт пластического хирурга</span>
       </span>
       <span class="cx-project-arrow" aria-hidden="true">
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
     <a class="cx-project-row" href="cases/liana/">
-      <span class="cx-project-num">05</span>
+      <span class="cx-project-num">02</span>
       <span class="cx-project-main">
-        <span class="cx-project-name">Liana</span>
-        <span class="cx-project-cat">China production</span>
-      </span>
-      <span class="cx-project-arrow" aria-hidden="true">
-        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
-      </span>
-    </a>
-    <a class="cx-project-row" href="projects/#more">
-      <span class="cx-project-num">06</span>
-      <span class="cx-project-main">
-        <span class="cx-project-name">UniKate</span>
-        <span class="cx-project-cat">International marketing agency</span>
+        <span class="cx-project-name">Liana Gini</span>
+        <span class="cx-project-cat">Производство в&nbsp;Китае</span>
       </span>
       <span class="cx-project-arrow" aria-hidden="true">
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
     <a class="cx-project-row" href="cases/liberman/">
-      <span class="cx-project-num">07</span>
+      <span class="cx-project-num">03</span>
       <span class="cx-project-main">
         <span class="cx-project-name">Liberman Studio</span>
-        <span class="cx-project-cat">Interior design</span>
+        <span class="cx-project-cat">Архитектор интерьеров</span>
       </span>
       <span class="cx-project-arrow" aria-hidden="true">
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
-    <a class="cx-project-row" href="projects/#more">
+    <a class="cx-project-row" href="cases/ladoga/">
+      <span class="cx-project-num">04</span>
+      <span class="cx-project-main">
+        <span class="cx-project-name">Ladoga</span>
+        <span class="cx-project-cat">Прокат лодок</span>
+      </span>
+      <span class="cx-project-arrow" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
+      </span>
+    </a>
+    <a class="cx-project-row" href="cases/enduro/">
+      <span class="cx-project-num">05</span>
+      <span class="cx-project-main">
+        <span class="cx-project-name">Enduro Energy</span>
+        <span class="cx-project-cat">Прокат эндуро</span>
+      </span>
+      <span class="cx-project-arrow" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
+      </span>
+    </a>
+    <p class="cx-project-group">Другие работы</p>
+    <a class="cx-project-row is-minor" href="projects/#more">
+      <span class="cx-project-num">06</span>
+      <span class="cx-project-main">
+        <span class="cx-project-name">Timofey Arapov</span>
+        <span class="cx-project-cat">Личный бренд ведущего</span>
+      </span>
+      <span class="cx-project-arrow" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
+      </span>
+    </a>
+    <a class="cx-project-row is-minor" href="projects/#more">
+      <span class="cx-project-num">07</span>
+      <span class="cx-project-main">
+        <span class="cx-project-name">UniKate</span>
+        <span class="cx-project-cat">Международное агентство</span>
+      </span>
+      <span class="cx-project-arrow" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
+      </span>
+    </a>
+    <a class="cx-project-row is-minor" href="projects/#more">
       <span class="cx-project-num">08</span>
       <span class="cx-project-main">
         <span class="cx-project-name">NOIR</span>
-        <span class="cx-project-cat">Fur atelier website</span>
+        <span class="cx-project-cat">Меховое ателье</span>
       </span>
       <span class="cx-project-arrow" aria-hidden="true">
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
-    <a class="cx-project-row" href="projects/#more">
+    <a class="cx-project-row is-minor" href="projects/#more">
       <span class="cx-project-num">09</span>
       <span class="cx-project-main">
         <span class="cx-project-name">Tyaga</span>
-        <span class="cx-project-cat">Offroad rental website</span>
+        <span class="cx-project-cat">Прокат внедорожной техники</span>
       </span>
       <span class="cx-project-arrow" aria-hidden="true">
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
-    <a class="cx-project-row" href="projects/#more">
+    <a class="cx-project-row is-minor" href="projects/#more">
       <span class="cx-project-num">10</span>
       <span class="cx-project-main">
         <span class="cx-project-name">Custom Jewelry</span>
-        <span class="cx-project-cat">Landing page</span>
+        <span class="cx-project-cat">Лендинг ювелира</span>
       </span>
       <span class="cx-project-arrow" aria-hidden="true">
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </span>
     </a>
+    <a class="cx-all-link" href="projects/">Все проекты <i aria-hidden="true">→</i></a>
+  </div>
+</div>
+
+<!-- ============ SERVICES SHEET (≤980px, открывается из дока) ============ -->
+<div class="cx-sheet-overlay" id="cxServicesOverlay"></div>
+<div class="cx-sheet" id="cxServicesSheet" role="dialog" aria-modal="true" aria-label="Услуги">
+  <div class="cx-sheet-handle"></div>
+  <div class="cx-sheet-header">Услуги</div>
+  <div class="cx-sheet-body">
+    <div class="cx-svc-list" style="padding-top:16px">
+      <a class="cx-svc-card" href="turnkey/"><b>Сайты под&nbsp;ключ</b><span class="d">Стратегия, UX, дизайн, разработка и&nbsp;запуск на&nbsp;вашем домене</span><em>от&nbsp;60&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a>
+      <a class="cx-svc-card" href="seo-geo/"><b>SEO&nbsp;+&nbsp;GEO</b><span class="d">Видимость в&nbsp;Яндексе, Google и&nbsp;нейросетях</span><em>от&nbsp;40&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a>
+      <a class="cx-svc-card" href="direct/"><b>Яндекс Директ</b><span class="d">Платный поисковый трафик на&nbsp;подготовленные посадочные</span><em>от&nbsp;35&nbsp;000&nbsp;₽</em><i aria-hidden="true">→</i></a>
+    </div>
+    <a class="cx-all-link" href="projects/">Все проекты <i aria-hidden="true">→</i></a>
   </div>
 </div>
 
@@ -772,7 +937,7 @@
 <div class="cx-sheet-overlay" id="cxInfoOverlay"></div>
 <div class="cx-sheet" id="cxInfoSheet" role="dialog" aria-modal="true" aria-label="Инфо">
   <div class="cx-sheet-handle"></div>
-  <div class="cx-sheet-header">TINA DIGITAL</div>
+  <div class="cx-sheet-header"><span class="cx-hdr-d">TINA DIGITAL</span><span class="cx-hdr-m">Связаться</span></div>
   <div class="cx-sheet-body">
     <p class="cx-info-lede">Расскажите, что нужно продать. Посмотрю задачу и&nbsp;предложу структуру и&nbsp;формат работы.</p>
     <a class="cx-info-cta" href="https://t.me/belovachristina" target="_blank" rel="noopener">Написать в&nbsp;Telegram <span aria-hidden="true">→</span></a>
@@ -800,7 +965,7 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  var isMobile = window.matchMedia('(max-width: 768px)').matches;
+  var isMobile = window.matchMedia('(max-width: 980px)').matches;
 
   /* real projects, in English, matching the actual projectGroup values on
      the cube tiles below — single source of truth for the desktop
@@ -1273,6 +1438,22 @@
     var camDist = isMobile ? 0.7 : 1;
     camera.position.set(21.9 * camDist, 22.0 * camDist, 31.2 * camDist);
     camera.lookAt(0, 0, 0);
+    /* ≤980px: камера ниже (≈16° над горизонтом вместо ≈30°), чтобы на экране
+       были боковые грани с работами, а не пустая верхняя. Расстояние
+       подбирается под размер блока в resize(), чтобы куб целиком помещался
+       между текстом и доком. Компьютер не трогаем. */
+    var MOBILE_CAM_DIR = isMobile ? new THREE.Vector3(21.9, 11.0, 31.2).normalize() : null;
+    function fitMobileCamera(){
+      var tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      var needV = 10.4 / tanV;                                  /* высота силуэта */
+      var needH = 12.4 / (tanV * Math.min(1.6, camera.aspect)); /* ширина силуэта при вращении */
+      camera.position.copy(MOBILE_CAM_DIR).multiplyScalar(Math.max(needV, needH));
+      camera.lookAt(0, 0, 0);
+      /* в высоком блоке куб чуть поднимаем к тексту, чтобы не было пустоты под кнопкой */
+      var w = wrap.clientWidth, h = wrap.clientHeight;
+      if (camera.aspect < 0.95) camera.setViewOffset(w, h, 0, Math.round(h * Math.min(0.1, (0.95 - camera.aspect) * 0.42)), w, h);
+      else camera.clearViewOffset();
+    }
 
     scene.add(new THREE.AmbientLight(0xffffff, 1.0));
     var key = new THREE.DirectionalLight(0xffffff, 0.85);
@@ -1391,7 +1572,7 @@
         } else if (tileData.src){
           loadTileTexture(loader, tileData.src, tw, th, mesh, tileData.focalPointX, tileData.focalPointY);
         } else {
-          applyEmptyPlaceholder(mesh, tileData, tw, th);
+          applyEmptyPlaceholder(mesh, tileData, tw, th, isMobile);
         }
 
         faceGroup.add(mesh);
@@ -1420,27 +1601,73 @@
 
     /* neutral dark placeholder — no orange, no stock imagery, just a small
        temporary dev label so empty slots stay identifiable while wiring */
-    function applyEmptyPlaceholder(mesh, tileData, w, h){
-      var scalePx = 130;
+    function applyEmptyPlaceholder(mesh, tileData, w, h, invite){
+      var scalePx = invite ? 200 : 130;
       var cnv = document.createElement('canvas');
       cnv.width = Math.max(64, Math.round(w * scalePx));
       cnv.height = Math.max(64, Math.round(h * scalePx));
       var ctx = cnv.getContext('2d');
-      ctx.fillStyle = '#17171a';
-      ctx.fillRect(0, 0, cnv.width, cnv.height);
-      ctx.strokeStyle = 'rgba(255,255,255,.045)';
-      ctx.lineWidth = 2;
-      for (var x = -cnv.height; x < cnv.width; x += 22){
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x + cnv.height, cnv.height); ctx.stroke();
+      var hasText = false;
+      function draw(){
+        ctx.clearRect(0, 0, cnv.width, cnv.height);
+        ctx.fillStyle = '#17171a';
+        ctx.fillRect(0, 0, cnv.width, cnv.height);
+        ctx.strokeStyle = 'rgba(255,255,255,.045)';
+        ctx.lineWidth = 2;
+        for (var x = -cnv.height; x < cnv.width; x += 22){
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x + cnv.height, cnv.height); ctx.stroke();
+        }
+        ctx.strokeStyle = 'rgba(255,255,255,.08)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(1, 1, cnv.width - 2, cnv.height - 2);
+        if (invite) hasText = drawInvite(ctx, cnv.width, cnv.height);
       }
-      ctx.strokeStyle = 'rgba(255,255,255,.08)';
-      ctx.lineWidth = 1;
-      ctx.strokeRect(1, 1, cnv.width - 2, cnv.height - 2);
+      draw();
 
       var tex = new THREE.CanvasTexture(cnv);
       if ('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
       mesh.material.map = tex;
       mesh.material.needsUpdate = true;
+
+      /* ≤980px: пустая плитка — приглашение: текст «Здесь может быть ваш
+         проект», тап открывает Telegram, как кнопка «Обсудить проект».
+         Цвет материала поднимаем, иначе тёмный множитель гасит текст;
+         фон текстуры при этом остаётся почти чёрным. */
+      if (invite && hasText){
+        mesh.material.color.set(0x8a8a8c);
+        mesh.userData.label = 'Здесь может быть ваш проект';
+        mesh.userData.link = 'https://t.me/belovachristina';
+        mesh.userData.invite = true;
+        if (document.fonts && document.fonts.load){
+          document.fonts.load('600 40px Manrope').then(function(){ draw(); tex.needsUpdate = true; }).catch(function(){});
+        }
+      }
+    }
+    /* текст по центру плитки: одна строка, если влезает; иначе «ваш проект»
+       отдельной строкой; на совсем узкой плитке — в три строки */
+    function drawInvite(ctx, W, H){
+      var variants = [
+        ['Здесь может быть ваш проект'],
+        ['Здесь может быть', 'ваш проект'],
+        ['Здесь может', 'быть', 'ваш проект']
+      ];
+      var maxW = W * 0.8, best = null;
+      variants.forEach(function(lines){
+        ctx.font = '600 100px Manrope, sans-serif';
+        var widest = 0;
+        lines.forEach(function(l){ widest = Math.max(widest, ctx.measureText(l).width); });
+        var size = Math.min(100 * maxW / widest, (H * 0.62) / (lines.length * 1.25), 150);
+        if (!best || size > best.size * 1.15) best = { lines: lines, size: size };
+      });
+      if (best.size < 44) return false; /* плитка слишком мала, текст не прочитать */
+      var size = best.size;
+      ctx.font = '600 ' + size + 'px Manrope, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = 'rgba(243,241,236,.62)';
+      var lh = size * 1.25, y0 = H / 2 - (best.lines.length - 1) * lh / 2;
+      best.lines.forEach(function(l, i){ ctx.fillText(l, W / 2, y0 + i * lh); });
+      return true;
     }
 
     function loadTileTexture(loader, src, w, h, mesh, fx, fy){
@@ -1518,6 +1745,7 @@
       if (!w || !h) return;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
+      if (isMobile) fitMobileCamera();
       camera.updateProjectionMatrix();
     }
     resize();
@@ -1529,6 +1757,9 @@
        camera at load — the auto-spin still drifts it over time, but this is
        what's on screen the moment the page opens */
     var BASE_RX = -0.10, BASE_RY = 0.61, BASE_RZ = 0;
+    /* ≤980px: куб повёрнут на ~30°, чтобы с низкой камеры читались две
+       боковые грани, а не одна плоская */
+    if (isMobile) BASE_RY = 0.61 - 0.52;
     var target = { rx: BASE_RX, ry: BASE_RY };
     var current = { rx: BASE_RX, ry: BASE_RY };
 
@@ -1570,47 +1801,66 @@
     var autoSpinActive = true;
     var dragHintEl = document.getElementById('cxDragHint');
 
+    /* ≤980px, палец: направление жеста определяется по первым пикселям.
+       Горизонтальный — вращаем куб (и забираем жест у браузера),
+       вертикальный — отдаём браузеру, страница прокручивается дальше
+       (canvas там с touch-action:pan-y). Мышь работает как раньше. */
+    var axisLock = null, dragPointerType = 'mouse';
+    function lockAxis(dx, dy){
+      if (axisLock || Math.abs(dx) + Math.abs(dy) < 7) return;
+      axisLock = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
+      if (axisLock === 'v'){ isDragging = false; return; }
+      autoSpinActive = false;
+      if (dragHintEl) dragHintEl.classList.add('is-hidden');
+    }
+
     canvas.addEventListener('pointerdown', function(e){
       isDragging = true;
       dragMoved = false;
+      axisLock = null;
+      dragPointerType = e.pointerType;
       dragStartX = e.clientX; dragStartY = e.clientY;
       dragStartUX = userSpin.x; dragStartUY = userSpin.y;
       canvas.style.cursor = 'grabbing';
+      if (isMobile && e.pointerType === 'touch') return; /* захват указателя мешал бы прокрутке */
       if (canvas.setPointerCapture) canvas.setPointerCapture(e.pointerId);
       if (isMobile){
         autoSpinActive = false;
         if (dragHintEl) dragHintEl.classList.add('is-hidden');
-        /* touch-action:none already tells the browser this element owns
-           its own gestures, but iOS Safari's edge-swipe-back/forward is
-           a system-level recognizer that isn't always deterred by CSS
-           alone — preventDefault() on the actual touch event is the
-           other half of reliably winning that race, so a horizontal
-           drag starting near the screen edge rotates the cube instead
-           of navigating away from the page. */
-        if (e.pointerType === 'touch' && e.cancelable) e.preventDefault();
       }
     });
     window.addEventListener('pointermove', function(e){
       if (!isDragging) return;
       var dx = e.clientX - dragStartX;
       var dy = e.clientY - dragStartY;
+      if (isMobile && e.pointerType === 'touch'){
+        lockAxis(dx, dy);
+        if (axisLock !== 'h') return;
+        dragMoved = true;
+        userSpin.y = dragStartUY + dx * 0.012;
+        if (e.cancelable) e.preventDefault();
+        return;
+      }
       if (Math.abs(dx) + Math.abs(dy) > 4) dragMoved = true;
       userSpin.y = dragStartUY + dx * 0.012;
       userSpin.x = Math.max(-0.6, Math.min(0.6, dragStartUX - dy * 0.008));
-      if (isMobile && e.pointerType === 'touch' && e.cancelable) e.preventDefault();
     });
     window.addEventListener('pointerup', function(){
       isDragging = false;
       canvas.style.cursor = 'grab';
     });
-    /* belt-and-suspenders: Pointer Events' own preventDefault() is what
-       actually suppresses touch scrolling/gestures in current engines,
-       but a plain non-passive touchmove listener is the older,
-       most-broadly-honoured mechanism for the same thing — cheap
-       insurance on a gesture this easy to get wrong on real phones. */
+    window.addEventListener('pointercancel', function(){ isDragging = false; });
+    /* горизонтальный жест забираем у браузера и на уровне touchmove —
+       это то, что надёжно гасит системный свайп «назад» в iOS Safari */
     if (isMobile){
+      var tStartX = 0, tStartY = 0;
+      canvas.addEventListener('touchstart', function(e){
+        if (e.touches[0]){ tStartX = e.touches[0].clientX; tStartY = e.touches[0].clientY; }
+      }, { passive: true });
       canvas.addEventListener('touchmove', function(e){
-        if (isDragging && e.cancelable) e.preventDefault();
+        if (!isDragging || !e.touches[0]) return;
+        lockAxis(e.touches[0].clientX - tStartX, e.touches[0].clientY - tStartY);
+        if (axisLock === 'h' && e.cancelable) e.preventDefault();
       }, { passive: false });
     }
 
@@ -1731,7 +1981,20 @@
       renderer.render(scene, camera);
     }
     window.__cxDebug = {
-      snapTo: function(ry, rx){ target.ry = ry; target.rx = (rx===undefined?BASE_RX:rx); current.ry = target.ry; current.rx = target.rx; spin = 0; userSpin.x = 0; userSpin.y = 0; autoSpinActive = false; renderer.render(scene, camera); }
+      snapTo: function(ry, rx){ target.ry = ry; target.rx = (rx===undefined?BASE_RX:rx); current.ry = target.ry; current.rx = target.rx; spin = 0; userSpin.x = 0; userSpin.y = 0; autoSpinActive = false; renderer.render(scene, camera); },
+      /* для проверки: точка на canvas, где сейчас видна плитка-приглашение */
+      findPlaceholderPoint: function(){
+        var r = canvas.getBoundingClientRect(), v = new THREE.Vector2();
+        for (var gy = 0.1; gy < 0.95; gy += 0.04){
+          for (var gx = 0.1; gx < 0.95; gx += 0.04){
+            v.set(gx * 2 - 1, -(gy * 2 - 1));
+            raycaster.setFromCamera(v, camera);
+            var h = raycaster.intersectObjects(tiles)[0];
+            if (h && h.object.userData.invite) return { x: gx * r.width, y: gy * r.height };
+          }
+        }
+        return null;
+      }
     };
     animate();
   }
@@ -1743,62 +2006,49 @@
 <script>
 (function(){
   "use strict";
-  var dockProjects = document.getElementById('cxDockProjects');
-  var dockCube = document.getElementById('cxDockCube');
-  var dockInfo = document.getElementById('cxDockInfo');
-  var projectsSheet = document.getElementById('cxProjectsSheet');
-  var projectsOverlay = document.getElementById('cxProjectsOverlay');
-  var infoSheet = document.getElementById('cxInfoSheet');
-  var infoOverlay = document.getElementById('cxInfoOverlay');
-  if (!dockProjects || !dockCube || !dockInfo) return;
+  /* три листа: «Проекты», «Услуги» (только из дока на ≤980px) и «Связаться»
+     (он же модальное окно контактов на компьютере через data-open-info) */
+  var SHEETS = {
+    projects: { btn: 'cxDockProjects', sheet: 'cxProjectsSheet', overlay: 'cxProjectsOverlay' },
+    services: { btn: 'cxDockServices', sheet: 'cxServicesSheet', overlay: 'cxServicesOverlay' },
+    info:     { btn: 'cxDockInfo',     sheet: 'cxInfoSheet',     overlay: 'cxInfoOverlay' }
+  };
+  var ok = true;
+  Object.keys(SHEETS).forEach(function(k){
+    var d = SHEETS[k];
+    d.btn = document.getElementById(d.btn);
+    d.sheet = document.getElementById(d.sheet);
+    d.overlay = document.getElementById(d.overlay);
+    if (!d.btn || !d.sheet || !d.overlay) ok = false;
+  });
+  if (!ok) return;
 
-  var openSheet = null; /* 'projects' | 'info' | null */
+  var openSheet = null; /* 'projects' | 'services' | 'info' | null */
 
-  function setOpen(sheet, overlay, open){
-    sheet.classList.toggle('is-open', open);
-    overlay.classList.toggle('is-open', open);
-  }
-  function closeAll(){
-    setOpen(projectsSheet, projectsOverlay, false);
-    setOpen(infoSheet, infoOverlay, false);
-    document.body.style.overflow = '';
-    dockProjects.classList.remove('is-active');
-    dockInfo.classList.remove('is-active');
-    dockCube.classList.add('is-active');
-    openSheet = null;
-  }
-  function openOne(which){
-    var sheet = which === 'projects' ? projectsSheet : infoSheet;
-    var overlay = which === 'projects' ? projectsOverlay : infoOverlay;
-    var otherSheet = which === 'projects' ? infoSheet : projectsSheet;
-    var otherOverlay = which === 'projects' ? infoOverlay : projectsOverlay;
-    setOpen(otherSheet, otherOverlay, false);
-    setOpen(sheet, overlay, true);
-    document.body.style.overflow = 'hidden';
-    dockProjects.classList.toggle('is-active', which === 'projects');
-    dockInfo.classList.toggle('is-active', which === 'info');
-    dockCube.classList.remove('is-active');
+  function apply(which){
+    Object.keys(SHEETS).forEach(function(k){
+      var d = SHEETS[k], on = k === which;
+      d.sheet.classList.toggle('is-open', on);
+      d.overlay.classList.toggle('is-open', on);
+      d.btn.classList.toggle('is-active', on);
+      d.btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    document.body.style.overflow = which ? 'hidden' : '';
     openSheet = which;
   }
+  function closeAll(){ apply(null); }
+  function openOne(which){ apply(which); }
 
-  dockProjects.addEventListener('click', function(){
-    openSheet === 'projects' ? closeAll() : openOne('projects');
+  Object.keys(SHEETS).forEach(function(k){
+    SHEETS[k].btn.addEventListener('click', function(){
+      openSheet === k ? closeAll() : openOne(k);
+    });
+    SHEETS[k].overlay.addEventListener('click', closeAll);
   });
   document.querySelectorAll('[data-open-info]').forEach(function(a){
     a.addEventListener('click', function(e){ e.preventDefault(); openOne('info'); });
   });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && openSheet) closeAll(); });
-  dockInfo.addEventListener('click', function(){
-    openSheet === 'info' ? closeAll() : openOne('info');
-  });
-  dockCube.addEventListener('click', function(){
-    if (openSheet){ closeAll(); return; }
-    /* already on the cube home with nothing open — just re-centre the
-       view, no unnecessary animation spectacle */
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  projectsOverlay.addEventListener('click', closeAll);
-  infoOverlay.addEventListener('click', closeAll);
 
   /* rows without a real case page yet: close the sheet and return to the
      cube rather than navigating to a fake/invented destination */
