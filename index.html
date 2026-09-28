@@ -1449,7 +1449,7 @@
     }
 
     /* родные цвета скриншотов: основное свечение 0.72 + немного света сцены для объёма граней (без пересвета) */
-    var TILE = { base:0x555555, glow:0.72 };
+    var TILE = (window.__tile || { base:0x555555, glow:0.72 });
     function glow(mesh, tex){
       mesh.material.color.set(TILE.base);
       mesh.material.emissive = new THREE.Color(0xffffff);
