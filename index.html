@@ -1273,8 +1273,8 @@
     camera.position.set(21.9 * camDist, 22.0 * camDist, 31.2 * camDist);
     camera.lookAt(0, 0, 0);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 1.25));
-    var key = new THREE.DirectionalLight(0xffffff, 1.0);
+    scene.add(new THREE.AmbientLight(0xffffff, 1.0));
+    var key = new THREE.DirectionalLight(0xffffff, 0.85);
     key.position.set(5, 7, 9);
     scene.add(key);
     var fill = new THREE.DirectionalLight(0xffb493, 0.4);
@@ -1457,13 +1457,13 @@
       });
     }
 
-    /* плитки ярче: та же картинка светится изнутри — скриншоты видны в полную силу,
-       а свет сцены по-прежнему даёт граням объём */
-    var TILE_GLOW = 0.5;
+    /* родные цвета скриншотов: основное свечение 0.72 + немного света сцены для объёма граней (без пересвета) */
+    var TILE = { base:0x555555, glow:0.72 };
     function glow(mesh, tex){
+      mesh.material.color.set(TILE.base);
       mesh.material.emissive = new THREE.Color(0xffffff);
       mesh.material.emissiveMap = tex;
-      mesh.material.emissiveIntensity = TILE_GLOW;
+      mesh.material.emissiveIntensity = TILE.glow;
     }
 
     function loadTileVideo(src, w, h, mesh, fx, fy){
