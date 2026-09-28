@@ -215,6 +215,11 @@
   .insta video{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:14px; box-shadow:0 60px 120px -40px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06); background:#0c1519; }
   @media (max-width: 900px){ .cover-grid{ grid-template-columns:1fr; } }
 
+  .browser.bk{ max-width:min(460px, calc((100vh - 80px) * 600 / 1030)); margin-left:auto; margin-right:auto; }
+  .browser.bk .bar span{ padding:4px 12px; transform:none; }
+  .h-one{ font-size:clamp(32px,3.5vw,58px); }
+  @media (min-width: 901px){ .h-one{ white-space:nowrap; } }
+
   /* ---------- v2: вводные ---------- */
   .intro-rows{ display:grid; gap:12px; margin-top:34px; }
   .intro-rows p{ margin:0; padding:20px 24px; border-radius:12px; border:1px solid rgba(18,24,28,.14); background:rgba(255,255,255,.5); font-size:clamp(17px,1.5vw,22px); line-height:1.4; }
@@ -307,7 +312,7 @@
 
 <header class="top">
   <a href="index.html">TINA DIGITAL</a>
-  <a class="back" href="index.html#work">← Все проекты</a>
+  <a class="back" href="projects/">← Все проекты</a>
 </header>
 
 <main>
@@ -465,11 +470,9 @@
 
 <!-- 05 баня и снасти -->
 <section class="sec dark">
-  <div class="wrap grid-2">
-    <div class="c-7">
-      <p class="label"><b>05</b> закрыла и&nbsp;эту боль</p>
-      <h2 class="h-l rv">Баня и&nbsp;снасти — то, что <em>реально ждёт на&nbsp;берегу</em></h2>
-    </div>
+  <div class="wrap">
+    <p class="label"><b>05</b> закрыла и&nbsp;эту боль</p>
+    <h2 class="h-l h-one rv">Баня и&nbsp;снасти — то, что <em>реально ждёт на&nbsp;берегу</em></h2>
   </div>
   <div class="wrap mt">
     <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · отдых после рыбалки</span></div>
@@ -526,7 +529,7 @@
       <p class="body rv" style="margin-top:28px">Собрала виджет онлайн‑бронирования: лодка → дата и&nbsp;время → контакты. Клиент не&nbsp;теряется ночью и&nbsp;не&nbsp;ждёт ответа в&nbsp;директе — бронирует сам, в&nbsp;любой час.</p>
     </div>
     <div class="c-6 off-7">
-      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · бронирование</span></div>
+      <div class="browser bk rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru · бронирование</span></div>
         <video src="assets/ladoga/v-booking-d.mp4" poster="assets/ladoga/v-booking-d.jpg" muted loop playsinline preload="none" data-auto></video>
       </div>
     </div>
