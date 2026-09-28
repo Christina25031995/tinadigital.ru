@@ -90,6 +90,8 @@
   .phone{ --pw:clamp(150px,17vw,280px); width:var(--pw); aspect-ratio:390/844; border-radius:calc(var(--pw) * .15); background:#0a0a0b; padding:calc(var(--pw) * .035); box-shadow:0 50px 100px -30px rgba(0,0,0,.65), inset 0 0 0 1.5px #2a2a2e; position:relative; flex:none; }
   .phone .scr{ width:100%; height:100%; border-radius:calc(var(--pw) * .125); overflow:hidden; background:#000; }
   .phone .scr img{ width:100%; height:100%; object-fit:cover; object-position:top; }
+  .phone .scr.fitw{ background:#f3f1ec; }
+  .phone .scr.fitw img{ height:auto; object-fit:initial; }
   .phone::before{ content:''; position:absolute; top:calc(var(--pw) * .07); left:50%; transform:translateX(-50%); width:30%; height:calc(var(--pw) * .085); background:#000; border-radius:20px; z-index:2; }
   .case-head{ display:flex; flex-wrap:wrap; gap:10px 34px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); margin-bottom:34px; }
   .case-head b{ font-weight:400; color:var(--bronze); }
@@ -160,7 +162,7 @@
   @media (max-width:760px){ .system{ grid-template-columns:1fr; min-height:0; } .sys-l{ padding-bottom:30px; } .sys-l .serif{ padding-top:30px; } .sys-r{ margin:0 var(--pad) 80px; padding:6px 0 6px 20px; } }
 
   /* ---------- 04 почему ---------- */
-  .why .h-xl{ font-size:clamp(46px,8.4vw,150px); }
+  .why .h-xl{ font-size:clamp(40px,7vw,128px); }
   .why .h-xl .lt{ display:block; }
   .flows{ display:grid; grid-template-columns:1fr 1.4fr; gap:clamp(24px,4vw,70px); margin-top:clamp(60px,8vw,120px); }
   .flow .head{ display:flex; justify-content:space-between; gap:14px; padding-bottom:16px; border-bottom:1px solid var(--line); color:var(--t-faint); }
@@ -392,7 +394,7 @@
 <section class="sec ink2 why">
   <div class="wrap">
     <p class="label"><b>04</b> / why TINA DIGITAL</p>
-    <h2 class="h-xl rv">Я не&nbsp;отдаю вам SEO-ТЗ <span class="lt">на&nbsp;40&nbsp;страниц.</span></h2>
+    <h2 class="h-xl rv">Я не&nbsp;отдаю вам <span style="white-space:nowrap">SEO‑ТЗ</span><span class="lt">на&nbsp;40&nbsp;страниц.</span></h2>
     <div class="grid" style="margin-top:clamp(40px,5vw,70px);align-items:start">
       <p class="lede c6 rv">Я&nbsp;не&nbsp;заканчиваю работу на&nbsp;аудите. Если нужно создать посадочную, изменить структуру, переписать блок, поправить код, schema, скорость или mobile, я&nbsp;внедряю это сама.</p>
       <p class="serif o8 rv">Вам не&nbsp;нужно отдельно сводить SEO-специалиста, дизайнера и&nbsp;разработчика.</p>
@@ -506,7 +508,7 @@
       <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
         <video src="../assets/turnkey/ladoga-hero.mp4" poster="../assets/turnkey/ladoga-hero.jpg" muted loop playsinline preload="none" data-auto></video>
       </div>
-      <div class="phone rv"><div class="scr"><img src="../assets/seo-geo/ladoga-mobile.webp" alt="Мобильная версия lodki-ladoga.ru — выбор лодки" loading="lazy"></div></div>
+      <div class="phone rv"><div class="scr fitw"><img src="../assets/seo-geo/ladoga-mobile.webp" alt="Мобильная версия lodki-ladoga.ru — выбор лодки" loading="lazy"></div></div>
     </div>
     <div class="qmap">
       <div>
