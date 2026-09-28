@@ -124,6 +124,9 @@
 
   .rv{ opacity:0; transform:translateY(18px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
   .rv.shown{ opacity:1; transform:none; }
+  /* типографика: заголовки ровными строками, в абзацах без висячих слов */
+  h1, h2, .tag, .line{ text-wrap:balance; }
+  p, .lede{ text-wrap:pretty; }
   @media (prefers-reduced-motion: reduce){ .rv{ opacity:1; transform:none; transition:none; } .shot{ clip-path:none; } }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Кейсы TINA DIGITAL","url":"https://tinadigital.ru/projects/","hasPart":[{"@type":"CreativeWork","name":"Philipp Pomazkov — сайт пластического хирурга","url":"https://tinadigital.ru/case-pomazkov.html"},{"@type":"CreativeWork","name":"Liana Gini — производство в Китае","url":"https://tinadigital.ru/case-liana.html"},{"@type":"CreativeWork","name":"Liberman Studio — архитектор и дизайнер интерьеров","url":"https://tinadigital.ru/case-liberman.html"},{"@type":"CreativeWork","name":"Лодки на Ладоге — аренда лодок для рыбалки","url":"https://tinadigital.ru/case-ladoga.html"},{"@type":"CreativeWork","name":"Enduro Energy — прокат эндуро-мотоциклов","url":"https://tinadigital.ru/case-enduro.html"},{"@type":"CreativeWork","name":"ВС-Логистика — эвакуатор, Яндекс Директ","url":"https://tinadigital.ru/direct/#case"}],"provider":{"@id":"https://tinadigital.ru/#studio"}}</script>
@@ -144,8 +147,8 @@
   <div class="cover-bottom">
     <div>
       <h1 class="label" style="margin:0 0 18px"><b>01</b> / проекты TINA DIGITAL</h1>
-      <p class="serif tag">Разный бизнес. Разная логика. Разный визуальный язык.</p>
-      <p class="lede">Каждый проект начинается не&nbsp;с&nbsp;визуала, а&nbsp;с&nbsp;бизнеса: что продаём, кому, что мешает купить. Потом структура, дизайн, код и&nbsp;поисковая база в&nbsp;одних руках.</p>
+      <p class="serif tag">Разный бизнес.<br>Разная логика.<br>Разный визуальный&nbsp;язык.</p>
+      <p class="lede">Каждый проект начинается не&nbsp;с&nbsp;визуала, а&nbsp;с&nbsp;бизнеса: что продаём, кому и&nbsp;что мешает купить.<br>Уже&nbsp;потом структура, дизайн, код и&nbsp;поисковая база. Всё в&nbsp;одних&nbsp;руках.</p>
     </div>
   </div>
 </section>
@@ -331,7 +334,7 @@
     cover.addEventListener('pointermove', setM);
     cover.addEventListener('pointerdown', function(e){ setM(e); if (e.pointerType !== 'mouse') setTimeout(function(){ mouse.x = mouse.y = -1e4; }, 450); });
     cover.addEventListener('pointerleave', function(){ mouse.x = mouse.y = -1e4; });
-    addEventListener('scroll', function(){ var r = cover.getBoundingClientRect(); prog = Math.max(0, Math.min(1, -r.top / (r.height * .85))); }, { passive:true });
+    addEventListener('scroll', function(){ var r = cover.getBoundingClientRect(); prog = Math.max(0, Math.min(1, (-r.top - r.height * .12) / (r.height * 1.1))); }, { passive:true });
   })();
 
   /* ---------- появление: текст — подъём, кадры — проявка ---------- */
