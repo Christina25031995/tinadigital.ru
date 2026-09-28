@@ -87,8 +87,8 @@
   .browser video, .browser img{ width:100%; }
   .browser.white{ background:#fff; }
   @media (max-width:600px){ .browser{ border-radius:9px; } .browser .bar{ height:26px; padding:0 10px; gap:5px; } .browser .bar i{ width:7px; height:7px; } .browser .bar span{ font-size:10px; padding:2px 12px; transform:none; } }
-  .phone{ --pw:clamp(150px,17vw,280px); width:var(--pw); aspect-ratio:390/844; border-radius:calc(var(--pw) * .15); background:#0a0a0b; padding:calc(var(--pw) * .035); box-shadow:0 50px 100px -30px rgba(0,0,0,.65), inset 0 0 0 1.5px #2a2a2e; position:relative; flex:none; }
-  .phone .scr{ width:100%; height:100%; border-radius:calc(var(--pw) * .125); overflow:hidden; background:#000; }
+  .phone{ --pw:clamp(150px,17vw,280px); width:var(--pw); aspect-ratio:390/873; border-radius:calc(var(--pw) * .15); background:#0a0a0b; padding:calc(var(--pw) * .035); box-shadow:0 50px 100px -30px rgba(0,0,0,.65), inset 0 0 0 1.5px #2a2a2e; position:relative; flex:none; }
+  .phone .scr{ width:100%; height:100%; border-radius:calc(var(--pw) * .125); overflow:hidden; background:#000; padding-top:17%; } /* строка состояния: сайт начинается под камерой, как на настоящем iPhone */
   .phone .scr img{ width:100%; height:100%; object-fit:cover; object-position:top; }
   .phone .scr.fitw{ background:#f3f1ec; }
   .phone .scr.fitw img{ height:auto; object-fit:initial; }
