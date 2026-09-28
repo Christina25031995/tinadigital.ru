@@ -81,7 +81,9 @@
   .browser .bar{ height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; background:#1c1c1f; }
   .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3a3e; flex:none; }
   .browser .bar span{ margin:0 auto; font-size:12px; color:#8d8d93; background:#29292d; padding:4px 22px; border-radius:7px; transform:translateX(-24px); white-space:nowrap; }
-  .browser .scr{ position:relative; overflow:hidden; background:#000; }
+  .browser .scr{ position:relative; overflow:hidden; background:#000 center/cover no-repeat; }
+  .browser .scr::before{ content:""; position:absolute; inset:-16px; background:inherit; filter:blur(14px); }
+  .browser .scr > video{ position:relative; z-index:1; }
   .browser video, .browser img{ display:block; width:100%; height:auto; transition:transform 1.4s var(--ease), filter .8s var(--ease); filter:saturate(.85) brightness(.9); }
   .case:hover .browser{ transform:translateY(-8px); box-shadow:0 80px 140px -30px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1); }
   .case:hover .browser video, .case:hover .browser img{ transform:scale(1.025); filter:saturate(1.05) brightness(1); }
@@ -166,7 +168,7 @@
         <span class="go">Смотреть кейс <span>→</span></span>
       </div>
       <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
-        <div class="scr"><video src="../assets/pomazkov/v-hero-d.mp4" poster="../assets/pomazkov/v-hero-d.jpg" muted loop playsinline preload="none"></video></div></div></div>
+        <div class="scr" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABIAIAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOMjjbgiCQA9wM1cOnF08zyySOcqpyfw71UW4tbjCuV3noZHKqgHQDFWYjZIoDNBzx8tw9AED6bcyRu0dtKcscDbziq8ml3qKCbOYDHXaa1IzpJALPGN3X963FNnmsYHQ6bcFZVbIwSQx/GgDnCBnpT8D0FFFAChV9B+VPAAwQB1oooA/9k=)"><video width="1440" height="812" src="../assets/pomazkov/v-hero-d.mp4" poster="../assets/pomazkov/v-hero-d.jpg" muted loop playsinline preload="none"></video></div></div></div>
     </a>
 
     <a class="case" href="../cases/liana/">
@@ -179,7 +181,7 @@
         <span class="go">Смотреть кейс <span>→</span></span>
       </div>
       <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>lianagini.ru</span></div>
-        <div class="scr"><video src="../assets/turnkey/liana-hero.mp4" poster="../assets/turnkey/liana-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
+        <div class="scr" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABIAIAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOkSMGI/SsDw9a/2lFNa3bzKoO7KHqematPq7JJJErx7lJG0qc1R8LzieS7ilPylP4Tg9aysWTLZ2FpcGa3nkuWj+UKjBm9MAVb1DxRc6dbpHJprwq/3ZJDuGO5wO4PGM1SttPht7kmyfy1wTngnd7+ver17LcTacbS+skdWB8qZVLqGPHQcqcZ596EDHiGI7iY0JOeqisTw0ALubAA+Q9KKKYhcnzCc85ro7NmNhFknv3oopIbP/9k=)"><video width="1280" height="738" src="../assets/turnkey/liana-hero.mp4" poster="../assets/turnkey/liana-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
     </a>
 
     <a class="case" href="../cases/liberman/">
@@ -192,7 +194,7 @@
         <span class="go">Смотреть кейс <span>→</span></span>
       </div>
       <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>libermanstudio.ru</span></div>
-        <div class="scr"><video src="../assets/liberman/v-hero-d.mp4" poster="../assets/liberman/v-hero-d.jpg" muted loop playsinline preload="none"></video></div></div></div>
+        <div class="scr" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABIAIAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOBM8m7mI8cda2PD1uNQuZY5IgAqBhk571RksmRsq8ThucqBxWxpvlafOxiKtuGC5IHv0+tSyjfj0OFkCmNKztQ0iKKeJVRfmYUJrUwg3HG/PTPaq39qS3VwnnRBNrA7lfNIZgwu4tmAZsYPeq29v7x/OiiqEKrt/eP50TkiOPBI5oooA//Z)"><video width="1440" height="812" src="../assets/liberman/v-hero-d.mp4" poster="../assets/liberman/v-hero-d.jpg" muted loop playsinline preload="none"></video></div></div></div>
     </a>
 
     <a class="case" href="../cases/ladoga/">
@@ -205,7 +207,7 @@
         <span class="go">Смотреть кейс <span>→</span></span>
       </div>
       <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>lodki-ladoga.ru</span></div>
-        <div class="scr"><video src="../assets/ladoga/v-hero-d-clean.mp4" poster="../assets/ladoga/v-hero-d-clean.jpg" muted loop playsinline preload="none"></video></div></div></div>
+        <div class="scr" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AKr64pIBsXMZ5G0c/wAq2dLTStQt/NyYyOqyR4IqmunXAOXu3VR0wK17Ge2tIfL+aRj1ZzzUVL290qna/vAun6MXCs4J6jMZA/lVPVrzSbA7Ft5LhwP+WcRwPxNVbzxS0FzJAsMYMbdVfG4VlR63JcXN3Jqcb+TIBs8p8iMgfXvWUea+pvKDUbpF+eWVpCPNYfSmB3HBYt7miiu2JwSOf1i2WOcSK8mZGyctmsy3d3lCF2CkHIB68UUVg0uY6oyahoz/2Q==)"><video width="1200" height="750" src="../assets/ladoga/v-hero-d-clean.mp4" poster="../assets/ladoga/v-hero-d-clean.jpg" muted loop playsinline preload="none"></video></div></div></div>
     </a>
 
     <a class="case" href="../cases/enduro/">
@@ -218,7 +220,7 @@
         <span class="go">Смотреть кейс <span>→</span></span>
       </div>
       <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru</span></div>
-        <div class="scr"><video src="../assets/turnkey/enduro-hero.mp4" poster="../assets/turnkey/enduro-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
+        <div class="scr" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABIAIAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOLs7eS4P7qPdjqB1q2+l3ZG+K1bA681UsJTEZD5rx54+UZz+tWJNVvY0MUUr7Sew61n1KtpcfHpty0bSNE6kdvb1pjjMABJwpwM9qhW6eTLzMWk6BientStK2w8A8etLUCvfkrcAKcDYvT6VVDtu+8fzoorV7kLYeCfWnZPPJooqRn/2Q==)"><video width="1280" height="734" src="../assets/turnkey/enduro-hero.mp4" poster="../assets/turnkey/enduro-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
     </a>
 
     <a class="case" href="../direct/#case">
@@ -231,7 +233,7 @@
         <span class="go">Смотреть кейс <span>→</span></span>
       </div>
       <div class="shot"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>вс-логистика</span></div>
-        <div class="scr"><video src="../assets/direct/vs-d-hero.mp4" poster="../assets/direct/vs-d-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
+        <div class="scr" style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AO/N3HHM6C3kGG5YJkdevWpTcQvDKYeWRSeVI/nTmG1mKr15OF61UTUVuFkhFndRHYTuki2gcVSi3qiW7ESXjkbTx6knj/Gqsqh5hOyhplIw3cY6UJv3jacD2709gSSHzu71LvHZiXvI3Sik55/OmTKBDJgfwmiigszDEuwnn86gt2Lxhz1z2+tFFSI//9k=)"><video width="1200" height="750" src="../assets/direct/vs-d-hero.mp4" poster="../assets/direct/vs-d-hero.jpg" muted loop playsinline preload="none"></video></div></div></div>
     </a>
 
   </div>
@@ -349,7 +351,6 @@
     function play(){ load(); var p = v.play(); if (p) p.catch(function(){}); }
     v.addEventListener('canplay', function(){ if (v._want && v.paused) v.play().catch(function(){}); });
     if (hover){
-      new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) load(); }); }, { rootMargin:'50% 0px' }).observe(c);
       c.addEventListener('mouseenter', function(){ v._want = true; play(); });
       c.addEventListener('mouseleave', function(){ v._want = false; v.pause(); });
     } else {
