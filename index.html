@@ -61,7 +61,8 @@
 
   .cx-vignette{
     position:absolute; inset:0; z-index:0; pointer-events:none;
-    background:radial-gradient(120% 90% at 78% 45%, rgba(193,102,63,.10), transparent 55%),
+    background:radial-gradient(38% 46% at 51% 50%, rgba(246,232,214,.11), transparent 72%),
+               radial-gradient(120% 90% at 78% 45%, rgba(193,102,63,.12), transparent 55%),
                radial-gradient(140% 100% at 15% 100%, rgba(255,255,255,.05), transparent 45%);
   }
 
@@ -265,6 +266,20 @@
     #cxInfoSheet .cx-sheet-handle{ display:none; }
   }
   .cx-hero-legal{ position:absolute; z-index:5; left:clamp(20px,3vw,40px); bottom:22px; }
+  /* ============ L: вертикаль слева + крупная строка внизу ============ */
+  .cx-L-v, .cx-L-h{ display:none; }
+  @media (min-width: 981px){
+    .cx-L-v{ display:block; position:absolute; z-index:5; left:clamp(20px,3vw,40px); bottom:clamp(190px,24vh,250px);
+      writing-mode:vertical-rl; transform:rotate(180deg); font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-dim); white-space:nowrap; }
+    .cx-L-v::after{ content:''; display:inline-block; width:1px; height:56px; margin-top:16px; background:var(--ink-faint); vertical-align:middle; }
+    .cx-L-h{ display:flex; flex-direction:column; align-items:flex-start; gap:20px; position:absolute; z-index:5; left:clamp(56px,6vw,96px); bottom:62px; }
+    .cx-L-head{ font-weight:800; font-size:clamp(26px,2.55vw,46px); line-height:.98; letter-spacing:-.03em; color:var(--ink); }
+    .cx-L-head em{ font-style:normal; color:#c9a57f; }
+    .cx-L-cta{ flex:none; display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:999px; border:1px solid rgba(243,241,236,.28);
+      font-size:13px; font-weight:700; color:var(--ink); text-decoration:none; transition:border-color .3s var(--ease), background-color .3s var(--ease); }
+    .cx-L-cta:hover{ border-color:var(--ink); background:rgba(243,241,236,.06); }
+  }
+  @media (min-width: 981px) and (max-height: 800px){ .cx-L-head{ font-size:clamp(22px,2.1vw,34px); } .cx-L-h{ bottom:54px; gap:14px; } }
   @media (max-width: 768px){ .cx-hero-legal{ display:none; } }
   .cx-drag-hint{ display:none; } /* mobile-only — shown in the ≤768px block below */
 
@@ -509,6 +524,13 @@
       <a href="#contact" data-open-info>Контакты</a>
     </nav>
   </header>
+
+  <!-- акцентный текст буквой L: вертикаль по левому краю + крупная строка вдоль низа (desktop) -->
+  <p class="cx-L-v" aria-hidden="true">Стратегия · UX · Дизайн · Код · SEO + GEO</p>
+  <div class="cx-L-h">
+    <p class="cx-L-head">Проектирую<br>коммерческие <em>сайты</em></p>
+    <a class="cx-L-cta" href="#contact" data-open-info>Обсудить проект <span aria-hidden="true">→</span></a>
+  </div>
 
   <div class="tl-legal cx-hero-legal">
     <span>© 2026 TINA DIGITAL</span>
@@ -1216,6 +1238,15 @@
   setTile('back',  3, { src: 'assets/cube/back-3-noir-full.jpg', type: 'image', project: 'noir', label: 'NOIR', category: 'Fur atelier website', aspectRatio: 1.779, focalPointX: 50, focalPointY: 50 , projectGroup: 'noir'});
   setTile('back',  6, { src: 'assets/cube/back-7-tyaga-hero.jpg', type: 'image', project: 'tyaga', label: 'Tyaga', category: 'Offroad rental website', aspectRatio: 2.361, focalPointX: 65, focalPointY: 45 , projectGroup: 'tyaga'});
   setTile('back',  1, { src: 'assets/cube/back-9-clinic-mobile.jpg', type: 'image', project: 'pomazkov-mobile', label: 'Philipp Pomazkov', category: 'Mobile adaptation', aspectRatio: 0.470, focalPointX: 50, focalPointY: 50 , projectGroup: 'pomazkov'});
+  /* верхняя грань видна с высоты камеры — раньше она была пустой */
+  setTile('top',   0, { src: 'assets/cube/top-0-liana.mp4', type: 'video', project: 'liana-top', label: 'Liana', category: 'China production', aspectRatio: 1.778, focalPointX: 50, focalPointY: 50 , projectGroup: 'liana'});
+  setTile('top',   4, { src: 'assets/cube/top-4-liberman.mp4', type: 'video', project: 'liberman-top', label: 'Liberman Studio', category: 'Interior design', aspectRatio: 1.778, focalPointX: 50, focalPointY: 50 , projectGroup: 'liberman'});
+  setTile('top',   3, { src: 'assets/turnkey/liana-hero-m.jpg', type: 'image', project: 'liana-mobile', label: 'Liana', category: 'Mobile version', aspectRatio: 0.461, focalPointX: 50, focalPointY: 30 , projectGroup: 'liana'});
+  setTile('top',   5, { src: 'assets/turnkey/enduro-calc.jpg', type: 'image', project: 'enduro-calc', label: 'Enduro Energy', category: 'Rental calculator', link: 'case-enduro.html', aspectRatio: 1.885, focalPointX: 50, focalPointY: 40 , projectGroup: 'enduro'});
+  setTile('top',   1, { src: 'assets/cube/back-4-unikate.jpg', type: 'image', project: 'unikate', label: 'UniKate', category: 'Landing page', aspectRatio: 1.658, focalPointX: 50, focalPointY: 50 , projectGroup: 'unikate'});
+  setTile('top',   2, { src: 'assets/cube/right-6-arapov-bio.jpg', type: 'image', project: 'arapov-bio', label: 'Timofey Arapov', category: 'Personal website', aspectRatio: 1.731, focalPointX: 50, focalPointY: 45 , projectGroup: 'arapov'});
+  setTile('top',   6, { src: 'assets/turnkey/gap-livingroom.jpg', type: 'image', project: 'liberman-room', label: 'Liberman Studio', category: 'Interior design', aspectRatio: 1.4, focalPointX: 50, focalPointY: 50 , projectGroup: 'liberman'});
+  setTile('top',   7, { src: 'assets/pomazkov/app-home.jpg', type: 'image', project: 'pomazkov-app', label: 'Philipp Pomazkov', category: 'Mobile version', aspectRatio: 0.462, focalPointX: 50, focalPointY: 20 , projectGroup: 'pomazkov'});
   setTile('back',  4, { src: 'assets/cube/back-1-blepharoplasty-full.jpg', type: 'image', project: 'pomazkov-eyes', label: 'Philipp Pomazkov', category: 'Medical website', aspectRatio: 1.547, focalPointX: 50, focalPointY: 20 , projectGroup: 'pomazkov'});
 
   var canvas = document.getElementById('cxCanvas');
@@ -1241,8 +1272,8 @@
     camera.position.set(21.9 * camDist, 22.0 * camDist, 31.2 * camDist);
     camera.lookAt(0, 0, 0);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 1.0));
-    var key = new THREE.DirectionalLight(0xffffff, 0.85);
+    scene.add(new THREE.AmbientLight(0xffffff, 1.25));
+    var key = new THREE.DirectionalLight(0xffffff, 1.0);
     key.position.set(5, 7, 9);
     scene.add(key);
     var fill = new THREE.DirectionalLight(0xffb493, 0.4);
@@ -1277,7 +1308,7 @@
       new THREE.BoxGeometry(CUBE * 0.94, CUBE * 0.94, CUBE * 0.94),
       /* warm dark graphite — slightly lighter and warmer than the page's
          near-black background, translucent rather than a solid block */
-      new THREE.MeshStandardMaterial({ color: 0x2b241f, roughness: 0.95, transparent: true, opacity: 0.5 })
+      new THREE.MeshStandardMaterial({ color: 0x3a322b, roughness: 0.95, transparent: true, opacity: 0.55 })
     );
     group.add(core);
 
@@ -1374,7 +1405,7 @@
            visible behind a highlighted project, so the cube never reads
            as "one image floating in empty space". */
         var riserMat = new THREE.MeshStandardMaterial({
-          color: 0x2f2822, roughness: 0.95, metalness: 0,
+          color: 0x3d352e, roughness: 0.95, metalness: 0,
           transparent: true, opacity: 0.5
         });
         var riser = new THREE.Mesh(new THREE.BoxGeometry(tw, th, riserDepth), riserMat);
@@ -1420,8 +1451,18 @@
         fitCover(tex, w, h, fx, fy);
         mesh.material.map = tex;
         mesh.material.color.set(0xffffff);
+        glow(mesh, tex);
         mesh.material.needsUpdate = true;
       });
+    }
+
+    /* плитки ярче: та же картинка светится изнутри — скриншоты видны в полную силу,
+       а свет сцены по-прежнему даёт граням объём */
+    var TILE_GLOW = 0.5;
+    function glow(mesh, tex){
+      mesh.material.emissive = new THREE.Color(0xffffff);
+      mesh.material.emissiveMap = tex;
+      mesh.material.emissiveIntensity = TILE_GLOW;
     }
 
     function loadTileVideo(src, w, h, mesh, fx, fy){
@@ -1440,6 +1481,7 @@
         fitCover(tex, w, h, fx, fy);
         mesh.material.map = tex;
         mesh.material.color.set(0xffffff);
+        glow(mesh, tex);
         mesh.material.needsUpdate = true;
       });
       video.addEventListener('error', function(){
