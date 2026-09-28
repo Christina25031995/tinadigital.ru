@@ -182,7 +182,7 @@
     text-align:center; white-space:nowrap;
   }
 
-  #cxCanvas{ filter:contrast(1.14) saturate(1.2); }
+  #cxCanvas{ filter:saturate(1.12); }
   .cx-cube-wrap{
     position:relative; z-index:1;
     width: var(--cube-px);
@@ -1449,8 +1449,8 @@
       });
     }
 
-    /* работы в родных цветах (без затемнения светом сцены и без пересвета); сочность — фильтром холста в CSS */
-    var TILE = { base:0x000000, glow:1 };
+    /* работы в родных цветах, объём граней — от света сцены (подсветка изнутри выключена: glow 0) */
+    var TILE = { base:0xffffff, glow:0 };
     function glow(mesh, tex){
       mesh.material.color.set(TILE.base);
       mesh.material.emissive = new THREE.Color(0xffffff);
