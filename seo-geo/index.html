@@ -294,6 +294,44 @@
   .space figcaption{ display:flex; justify-content:space-between; gap:12px; margin-top:12px; color:var(--d-faint); }
   @media (max-width:760px){ .space canvas{ aspect-ratio:4/5; } }
 
+  /* ---------- faq ---------- */
+  .faq-head .body{ margin-top:clamp(24px,3vw,40px); max-width:380px; }
+  .faq{ border-top:1px solid var(--line); }
+  .faq details{ border-bottom:1px solid var(--line); }
+  .faq summary{ display:grid; grid-template-columns:48px minmax(0,1fr) 24px; gap:20px; align-items:baseline; padding:22px 0; cursor:pointer; list-style:none; -webkit-tap-highlight-color:transparent; }
+  .faq summary::-webkit-details-marker{ display:none; }
+  .faq summary:focus-visible{ outline:1px solid var(--bronze); outline-offset:4px; }
+  .faq summary .n{ color:var(--bronze); }
+  .faq summary h3{ margin:0; font-size:clamp(18px,1.6vw,23px); font-weight:600; letter-spacing:-.01em; line-height:1.3; text-wrap:balance; transition:color .3s; }
+  .faq summary i{ justify-self:end; font-style:normal; font-weight:300; font-size:28px; line-height:.8; color:var(--t-faint); transition:transform .35s var(--ease), color .3s; }
+  .faq summary:hover h3{ color:var(--bronze); }
+  .faq details[open] summary i{ transform:rotate(45deg); color:var(--wine); }
+  .faq .a{ padding:0 44px 28px 68px; }
+  .faq .a p{ max-width:640px; }
+  .faq .faq-fig{ display:none; }
+  .faq-head{ margin-bottom:clamp(36px,5vw,56px); }
+  @media (min-width:761px){
+    #faq{ padding-top:clamp(80px,7.6vw,120px); padding-bottom:clamp(80px,7.6vw,120px); }
+    .faq-head{ margin-bottom:clamp(44px,4.4vw,72px); }
+    .faq-head .h-l{ font-size:clamp(44px,6.2vw,108px); line-height:.9; }
+    .faq{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-top:1px solid var(--line); }
+    .faq details{ padding:clamp(26px,2.4vw,38px) clamp(24px,3.2vw,60px) clamp(30px,2.8vw,42px) 0; }
+    .faq details:nth-child(even){ padding-left:clamp(24px,3.2vw,60px); padding-right:0; border-left:1px solid var(--line); }
+    .faq summary{ grid-template-columns:52px minmax(0,1fr); gap:0; padding:0; cursor:default; pointer-events:none; }
+    .faq summary .n{ padding-top:.7em; }
+    .faq summary h3{ font-size:clamp(22px,1.95vw,30px); font-weight:600; line-height:1.16; letter-spacing:-.02em; }
+    .faq summary i{ display:none; }
+    .faq .a{ padding:14px 0 0 52px; }
+    .faq .a p{ max-width:600px; }
+    .faq .faq-fig{ display:block; margin:6px 0 10px; font-size:clamp(40px,4vw,62px); font-weight:300; letter-spacing:-.045em; line-height:1; color:var(--wine); white-space:nowrap; }
+  }
+  @media (min-width:1100px){
+    .faq-head{ display:grid; grid-template-columns:minmax(0,8fr) minmax(0,4fr); gap:0 clamp(30px,4vw,80px); align-items:end; }
+    .faq-head .label{ grid-column:1 / -1; }
+    .faq-head .body{ margin:0 0 .4em; justify-self:end; max-width:340px; }
+  }
+  @media (max-width:760px){ .faq summary{ grid-template-columns:30px minmax(0,1fr) 20px; gap:10px; padding:18px 0; } .faq summary h3{ font-size:18px; } .faq .a{ padding:0 0 22px 40px; } .faq .a .body{ font-size:16px; } }
+
   /* ---------- появление ---------- */
   .rv{ opacity:0; transform:translateY(18px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
   .browser.rv, .phone.rv, .fig.rv{ transform:none; transition:opacity .55s ease; }
@@ -304,6 +342,7 @@
   @media (prefers-reduced-motion: reduce){ .rv,.hs{ opacity:1; transform:none; animation:none; transition:none; } }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "SEO + GEO: продвижение сайта в поиске и нейросетях", "url": "https://tinadigital.ru/seo-geo/", "description": "SEO по реальному спросу в Яндексе и Google. GEO: видимость сайта как источника для AI-ответов. Изменения внедряются в сам сайт.", "provider": {"@id": "https://tinadigital.ru/#studio"}, "areaServed": "RU", "offers": [{"@type": "Offer", "name": "SEO + GEO существующего сайта (разовая работа)", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "40000", "priceCurrency": "RUB"}}, {"@type": "Offer", "name": "SEO-продвижение (в месяц, минимум 3 месяца)", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "20000", "priceCurrency": "RUB"}}, {"@type": "Offer", "name": "Сайт + SEO + GEO под ключ", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "90000", "priceCurrency": "RUB"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что такое GEO?", "acceptedAnswer": {"@type": "Answer", "text": "GEO: работа над видимостью сайта в AI-поиске и ответах нейросетей. Задача: чтобы системе было легко понять бизнес, извлечь факты и использовать сайт как источник."}}, {"@type": "Question", "name": "Чем GEO отличается от SEO?", "acceptedAnswer": {"@type": "Answer", "text": "SEO помогает сайту появляться по реальному поисковому спросу в Яндексе и Google. GEO добавляет слой AI-поиска. Если поиск не понимает сайт, AI тоже не из чего его выбирать."}}, {"@type": "Question", "name": "Сколько стоит SEO + GEO?", "acceptedAnswer": {"@type": "Answer", "text": "Разовая настройка существующего сайта от 40 000 ₽. SEO-продвижение от 20 000 ₽ в месяц, минимум 3 месяца. Новый сайт сразу с SEO и GEO от 90 000 ₽."}}, {"@type": "Question", "name": "Что входит в работу?", "acceptedAnswer": {"@type": "Answer", "text": "Изменения в самом сайте, а не отчёт. Индексация, robots и sitemap, мета-данные, разметка, скорость, структура услуг и посадочные под спрос, контент с ценами, условиями, кейсами и FAQ."}}, {"@type": "Question", "name": "Кто вносит изменения на сайт?", "acceptedAnswer": {"@type": "Answer", "text": "Я сама, без SEO-ТЗ на 40 страниц. Если нужно создать посадочную, изменить структуру, переписать блок, поправить код, schema, скорость или mobile, внедряю это сама."}}, {"@type": "Question", "name": "Нужен ли новый сайт?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. Можно начать с разовой работы: найти слабые места существующего сайта и сразу внести изменения в структуру, техническую часть и ключевые страницы."}}, {"@type": "Question", "name": "Гарантируете, что сайт появится в ответах нейросетей?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Кнопки «добавить мой сайт в ChatGPT» не существует. Я работаю с тем, что можно контролировать: доступностью сайта, структурой, фактами, контентом и источниками."}}, {"@type": "Question", "name": "Как понять, что продвижение работает?", "acceptedAnswer": {"@type": "Answer", "text": "Главный показатель: визиты из поиска. Дополнительно смотрю показы, клики, топ-запросы, конверсии, AI visibility и переходы из AI-сервисов."}}]}</script>
 </head>
 <body>
 
@@ -318,7 +357,7 @@
 <section class="cover">
   <div class="cover-grid">
     <div>
-      <div class="kicker mono hs hs1"><span>01 / 11 · search as a system</span><span>SEO · GEO · AI search</span></div>
+      <div class="kicker mono hs hs1"><span>01 / 12 · search as a system</span><span>SEO · GEO · AI search</span></div>
       <h1 class="h-xl hs hs2" style="font-size:clamp(52px,8.4vw,168px)">SEO&nbsp;+&nbsp;GEO<span class="sub">Продвижение сайта в&nbsp;поиске и&nbsp;нейросетях</span></h1>
       <p class="serif tag hs hs3">Search, redefined.</p>
       <p class="lede hs hs3">Чтобы вас находили по&nbsp;реальному спросу в&nbsp;Яндексе и&nbsp;Google, а&nbsp;AI-поиск понимал бизнес и&nbsp;мог использовать сайт как источник.<br>Структуру,&nbsp;контент и&nbsp;код при необходимости меняю сама.</p>
@@ -578,10 +617,37 @@
   </div>
 </section>
 
-<!-- 11 диагностика -->
+<!-- 11 faq -->
+<section class="sec ink2" id="faq">
+  <div class="wrap faq-wrap">
+    <div class="faq-head">
+      <p class="label"><b>11</b> / FAQ</p>
+      <h2 class="h-l rv">Что спрашивают<br><em>про SEO и&nbsp;GEO</em></h2>
+      <p class="body rv">Что такое GEO, сколько стоит и&nbsp;как понять, что продвижение работает.</p>
+    </div>
+    <div class="faq rv">
+      <details><summary><span class="n mono">01</span><h3>Что такое GEO?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">GEO: работа над видимостью сайта в&nbsp;<span style="white-space:nowrap">AI-поиске</span> и&nbsp;ответах нейросетей. Задача: чтобы системе было легко понять бизнес, извлечь факты и&nbsp;использовать сайт как источник.</p></div></details>
+      <details><summary><span class="n mono">02</span><h3>Чем GEO отличается от&nbsp;SEO?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">SEO помогает сайту появляться по&nbsp;реальному поисковому спросу в&nbsp;Яндексе и&nbsp;Google. GEO добавляет слой <span style="white-space:nowrap">AI-поиска</span>. Если поиск не&nbsp;понимает сайт, AI тоже не&nbsp;из&nbsp;чего его выбирать.</p></div></details>
+      <details><summary><span class="n mono">03</span><h3>Сколько стоит SEO&nbsp;+&nbsp;GEO?</h3><i aria-hidden="true">+</i></summary><div class="a"><div class="faq-fig" aria-hidden="true">от&nbsp;40&nbsp;000&nbsp;₽</div><p class="body">Разовая настройка существующего сайта от&nbsp;40&nbsp;000&nbsp;₽. <span style="white-space:nowrap">SEO-продвижение</span> от&nbsp;20&nbsp;000&nbsp;₽ в&nbsp;месяц, минимум 3&nbsp;месяца. Новый сайт сразу с&nbsp;SEO и&nbsp;GEO от&nbsp;90&nbsp;000&nbsp;₽.</p></div></details>
+      <details><summary><span class="n mono">04</span><h3>Что входит в&nbsp;работу?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Изменения в&nbsp;самом сайте, а&nbsp;не&nbsp;отчёт. Индексация, robots и&nbsp;sitemap, <span style="white-space:nowrap">мета-данные</span>, разметка, скорость, структура услуг и&nbsp;посадочные под&nbsp;спрос, контент с&nbsp;ценами, условиями, кейсами и&nbsp;FAQ.</p></div></details>
+      <details><summary><span class="n mono">05</span><h3>Кто вносит изменения на&nbsp;сайт?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Я&nbsp;сама, без&nbsp;<span style="white-space:nowrap">SEO-ТЗ</span> на&nbsp;40&nbsp;страниц. Если нужно создать посадочную, изменить структуру, переписать блок, поправить код, schema, скорость или mobile, внедряю это сама.</p></div></details>
+      <details><summary><span class="n mono">06</span><h3>Нужен ли новый сайт?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Не&nbsp;обязательно. Можно начать с&nbsp;разовой работы: найти слабые места существующего сайта и&nbsp;сразу внести изменения в&nbsp;структуру, техническую часть и&nbsp;ключевые страницы.</p></div></details>
+      <details><summary><span class="n mono">07</span><h3>Гарантируете, что сайт появится в&nbsp;ответах нейросетей?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Нет. Кнопки «добавить мой сайт в&nbsp;ChatGPT» не&nbsp;существует. Я&nbsp;работаю с&nbsp;тем, что можно контролировать: доступностью сайта, структурой, фактами, контентом и&nbsp;источниками.</p></div></details>
+      <details><summary><span class="n mono">08</span><h3>Как понять, что продвижение работает?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Главный показатель: визиты из&nbsp;поиска. Дополнительно смотрю показы, клики, <span style="white-space:nowrap">топ-запросы</span>, конверсии, AI visibility и&nbsp;переходы из&nbsp;<span style="white-space:nowrap">AI-сервисов</span>.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<script>(function(){ var mq = matchMedia('(min-width:761px)'), ds = document.querySelectorAll('#faq details');
+  function sync(){ ds.forEach(function(d){ d.open = mq.matches; var s = d.querySelector("summary"); if (mq.matches) s.setAttribute("tabindex","-1"); else s.removeAttribute("tabindex"); }); }
+  sync(); if (mq.addEventListener) mq.addEventListener('change', sync);
+  document.querySelectorAll('#faq summary').forEach(function(s){ s.addEventListener('click', function(e){ if (mq.matches) e.preventDefault(); }); });
+})();</script>
+
+<!-- 12 диагностика -->
 <section class="sec final" id="check">
   <div class="wrap">
-    <p class="label"><b>11</b> / диагностика</p>
+    <p class="label"><b>12</b> / диагностика</p>
     <h2 class="h-xl rv" style="font-size:clamp(44px,7.4vw,132px)">Посмотрю, как поиск видит <em>ваш сайт сейчас.</em></h2>
     <div class="grid">
       <p class="lede c5 rv">Проверю базовую видимость, структуру и&nbsp;очевидные технические ограничения. Скажу,&nbsp;где сайт теряет поисковый спрос и&nbsp;есть ли смысл вкладываться в&nbsp;SEO/GEO сейчас.</p>
