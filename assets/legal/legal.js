@@ -21,6 +21,21 @@
     window.ym(Number(METRIKA_ID), 'init', { ssr:true, webvisor:true, clickmap:true, referrer:document.referrer, url:location.href, accurateTrackBounce:true, trackLinks:true });
   }
 
+
+  /* цели Метрики: отправляются, только если посетитель дал согласие и Метрика загружена */
+  function goal(name){ try { if (metrikaLoaded && window.ym) window.ym(Number(METRIKA_ID), 'reachGoal', name); } catch(e){} }
+  window.tinaGoal = goal;
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+    var h = a.getAttribute('href') || '';
+    if (/t\.me\//.test(h)) goal('telegram');
+    else if (/^mailto:/.test(h)) goal('email');
+    else if (/(^|\/)cases\/[a-z]+\/?(#.*)?$/.test(h) || /direct\/#case$/.test(h)) goal('case_open');
+    else if (/(^|\/)(turnkey|seo-geo|direct)\/?$/.test(h)) goal('service_open');
+    else if (/(^|\/)projects\/?(#.*)?$/.test(h)) goal('cases_list');
+  }, true);
+  document.addEventListener('submit', function(e){ if (e.target && e.target.id === 'checkForm') goal('check_site'); }, true);
+
   var bar = null;
   function hide(){
     if (!bar) return;
