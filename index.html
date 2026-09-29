@@ -1896,6 +1896,7 @@
       if (dragMoved){ dragMoved = false; return; } /* a drag ending on the canvas shouldn't also open a tile */
       var t = tileAt(e) || hovered;
       if (!t || !t.userData.label) return;
+      if (window.tinaGoal) window.tinaGoal('cube_click');
       if (t.userData.link){ if (/^https?:/.test(t.userData.link)) window.open(t.userData.link, '_blank', 'noopener'); else window.location.href = t.userData.link; }
       else { console.info('[hero] open case:', t.userData.label, '(no case URL set yet)'); }
     });

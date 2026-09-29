@@ -34,6 +34,15 @@
     else if (/(^|\/)(turnkey|seo-geo|direct)\/?$/.test(h)) goal('service_open');
     else if (/(^|\/)projects\/?(#.*)?$/.test(h)) goal('cases_list');
   }, true);
+  /* вовлечённый визит: минута на сайте или 3-я страница за визит (считается только при согласии) */
+  (function(){
+    var n = 1, t0 = Date.now(), timer;
+    try { if (sessionStorage.getItem('tina-engaged') === '1') return; n = +(sessionStorage.getItem('tina-pages') || 0) + 1; sessionStorage.setItem('tina-pages', n); } catch(e){}
+    timer = setInterval(function(){
+      if (!metrikaLoaded) return;
+      if (n >= 3 || Date.now() - t0 >= 60000){ clearInterval(timer); goal('engaged'); try { sessionStorage.setItem('tina-engaged', '1'); } catch(e){} }
+    }, 2000);
+  })();
   document.addEventListener('submit', function(e){ if (e.target && e.target.id === 'checkForm') goal('check_site'); }, true);
 
   var bar = null;
