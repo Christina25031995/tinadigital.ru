@@ -1,8 +1,8 @@
 /* TINA DIGITAL — уведомление о cookie + Яндекс Метрика только после согласия.
-   Номер счётчика вписать в METRIKA_ID (пока пусто — Метрика не грузится вообще). */
+   Счётчик 113153676; грузится только после «Принять». */
 (function(){
   "use strict";
-  var METRIKA_ID = '';
+  var METRIKA_ID = '113153676';
   var KEY = 'tina-cookie-consent-v1'; /* 'all' | 'necessary' */
 
   var me = document.currentScript;
@@ -17,8 +17,8 @@
     metrikaLoaded = true;
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0];k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})
-      (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
-    window.ym(Number(METRIKA_ID), 'init', { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+      (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=' + METRIKA_ID, 'ym');
+    window.ym(Number(METRIKA_ID), 'init', { ssr:true, webvisor:true, clickmap:true, referrer:document.referrer, url:location.href, accurateTrackBounce:true, trackLinks:true });
   }
 
   var bar = null;
