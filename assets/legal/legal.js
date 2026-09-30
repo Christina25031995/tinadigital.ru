@@ -31,7 +31,7 @@
     if (/t\.me\//.test(h)) goal('telegram');
     else if (/^mailto:/.test(h)) goal('email');
     else if (/(^|\/)cases\/[a-z]+\/?(#.*)?$/.test(h) || /direct\/#case$/.test(h)) goal('case_open');
-    else if (/(^|\/)(turnkey|seo-geo|direct)\/?$/.test(h)) goal('service_open');
+    else if (/(^|\/)(turnkey|seo-geo|direct|zakon)\/?$/.test(h)) goal('service_open');
     else if (/(^|\/)projects\/?(#.*)?$/.test(h)) goal('cases_list');
   }, true);
   /* вовлечённый визит: минута на сайте или 3-я страница за визит (считается только при согласии) */

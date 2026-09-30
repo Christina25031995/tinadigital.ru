@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт по закону: 152‑ФЗ и закон о рекламе | TINA DIGITAL</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="canonical" href="https://tinadigital.ru/zakon/">
+<meta name="description" content="Юрист, который сам внедряет: проверяю сайт на 152‑ФЗ и закон о рекламе и сама исправляю cookie, аналитику, политику, согласия и медицинские&nbsp;предупреждения. 12 000 ₽, для медицины 15 000 ₽, срок 1–2 рабочих дня.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="TINA DIGITAL">
+<meta property="og:title" content="Сайт по закону | TINA DIGITAL">
+<meta property="og:description" content="Юрист, который сам внедряет: 152‑ФЗ и закон о рекламе на вашем сайте за 1–2 рабочих дня.">
+<meta property="og:image" content="https://tinadigital.ru/assets/og/zakon.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://tinadigital.ru/zakon/">
+<link rel="stylesheet" href="../assets/fonts/manrope.css">
+<link rel="stylesheet" href="../assets/legal/legal.css">
+<link rel="stylesheet" href="../assets/nav/mobile-nav.css">
+<style>
+  :root{
+    --ink:#111; --paper:#fff; --dim:#555; --faint:#8a8a8a; --hair:#dcdcdc; --red:#e0301e;
+    --pad:clamp(20px,4.45vw,88px);
+    --ease:cubic-bezier(.22,.8,.28,1);
+  }
+  *{ box-sizing:border-box; }
+  html{ background:var(--paper); -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:Manrope,system-ui,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; font-feature-settings:"tnum" 0; }
+  img{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,p,figure,ol,ul{ margin:0; padding:0; }
+  ol,ul{ list-style:none; }
+  button,input{ font:inherit; }
+  .nw{ white-space:nowrap; }
+  .dot{ color:var(--red); }
+
+  /* ---------- шапка (как на остальных страницах) ---------- */
+  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px var(--pad); font-size:13px; font-weight:700; letter-spacing:.12em; mix-blend-mode:difference; color:#fff; }
+  .top nav{ display:flex; gap:clamp(16px,2.2vw,32px); }
+  .top nav a{ color:#fff; font-weight:500; letter-spacing:.02em; font-size:13px; opacity:.72; transition:opacity .3s; }
+  .top nav .on, .top nav a:hover{ opacity:1; }
+  @media (max-width:760px){ .top nav > :not(.m){ display:none; } .top nav .m{ opacity:1; } }
+
+  /* ---------- общие ---------- */
+  .sec{ position:relative; background:var(--paper); padding:clamp(72px,10vh,120px) var(--pad); }
+  .sec + .sec{ padding-top:0; }
+  .wrap{ max-width:1440px; margin:0 auto; }
+  .rule{ display:flex; justify-content:space-between; gap:20px; border-top:1.5px solid var(--ink); padding-top:10px; font-size:13px; font-weight:500; letter-spacing:.01em; }
+  .rule span:last-child{ color:var(--faint); }
+  .h2{ font-weight:500; font-size:clamp(38px,5.2vw,80px); line-height:.96; letter-spacing:-.04em; text-wrap:balance; }
+  .lede{ font-size:clamp(17px,1.45vw,21px); line-height:1.42; letter-spacing:-.005em; color:var(--ink); text-wrap:pretty; }
+  .txt{ font-size:15.5px; line-height:1.5; color:var(--dim); text-wrap:pretty; }
+  .btn{ display:inline-flex; align-items:center; gap:28px; padding:20px 26px; background:var(--ink); color:#fff; font-size:15px; font-weight:600; letter-spacing:.01em; border:0; cursor:pointer; transition:background .25s; }
+  .btn:hover{ background:#000; }
+  .btn i{ font-style:normal; color:var(--red); }
+  .link{ border-bottom:1.5px solid var(--red); padding-bottom:2px; }
+
+  /* ---------- 01 обложка ---------- */
+  .cover{ padding-top:clamp(84px,11vh,112px); padding-bottom:clamp(32px,5vh,56px); }
+  .cover .wrap{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(24px,3.4vw,56px); height:min(calc(100svh - clamp(116px,16vh,168px)), 800px); min-height:600px; }
+  .cover .l{ display:flex; flex-direction:column; justify-content:space-between; min-width:0; }
+  .cover h1{ font-weight:500; font-size:clamp(56px,8.6vw,136px); line-height:.86; letter-spacing:-.05em; margin:auto 0 0 -.04em; }
+  .cover .who{ font-weight:500; font-size:clamp(24px,2.6vw,40px); line-height:1.05; letter-spacing:-.03em; margin-top:clamp(18px,2.6vh,28px); }
+  .cover .bot{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px 40px; align-items:end; margin-top:clamp(28px,5vh,56px); }
+  .cover .lede{ max-width:34em; }
+  .cover .meta{ font-size:13px; color:var(--faint); margin-top:14px; }
+  .cover figure{ position:relative; min-height:0; height:100%; }
+  .cover figure img{ width:100%; height:100%; object-fit:cover; object-position:50% 30%; background-size:cover; background-position:center; }
+
+  /* ---------- 02 о себе ---------- */
+  .about .wrap{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(24px,4vw,72px); align-items:end; }
+  .about .pics{ display:grid; grid-template-columns:minmax(0,1.62fr) minmax(0,1fr); gap:clamp(14px,1.6vw,24px); align-items:end; }
+  .about .pics img{ width:100%; height:auto; background-size:cover; background-position:center; }
+  .about .pics .big img{ max-height:min(66vh,620px); width:auto; max-width:100%; aspect-ratio:520/760; object-fit:cover; }
+  .cap{ font-size:12.5px; line-height:1.35; color:var(--faint); margin-top:10px; text-wrap:pretty; }
+  .about .h2{ margin:22px 0 clamp(20px,3vh,32px); }
+  .facts li{ display:grid; grid-template-columns:clamp(52px,5vw,76px) minmax(0,1fr); gap:0 12px; padding:clamp(14px,2vh,20px) 0; border-top:1px solid var(--hair); align-items:baseline; }
+  .facts li:last-child{ border-bottom:1px solid var(--hair); }
+  .facts b{ font-weight:500; font-size:clamp(24px,2.2vw,32px); letter-spacing:-.03em; line-height:1; }
+  .facts p{ font-size:clamp(17px,1.4vw,20px); line-height:1.35; letter-spacing:-.01em; text-wrap:pretty; }
+  .facts p span{ display:block; font-size:15px; color:var(--dim); margin-top:4px; letter-spacing:0; }
+
+  /* ---------- 03 что не так ---------- */
+  .probs .h2{ margin:22px 0 clamp(24px,4vh,44px); }
+  .plist li{ display:grid; grid-template-columns:clamp(64px,8vw,120px) minmax(0,4fr) minmax(0,6fr); gap:8px 24px; align-items:baseline; padding:clamp(12px,1.9vh,18px) 0; border-top:1px solid var(--hair); }
+  .plist li:last-child{ border-bottom:1px solid var(--hair); }
+  .plist b{ font-weight:500; font-size:clamp(26px,2.6vw,40px); letter-spacing:-.04em; line-height:1; }
+  .plist strong{ font-weight:600; font-size:clamp(17px,1.4vw,21px); letter-spacing:-.015em; line-height:1.2; }
+  .plist p{ font-size:16px; line-height:1.45; color:var(--dim); text-wrap:pretty; }
+
+  /* ---------- 04 как проверяю ---------- */
+  .how .cols{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); align-items:start; }
+  .how .h2{ margin:22px 0 clamp(24px,4vh,44px); }
+  .how .lede{ padding-top:10px; max-width:18em; }
+  .log{ border-top:1.5px solid var(--ink); padding-top:10px; font-variant-numeric:tabular-nums; }
+  .log .hd{ display:flex; justify-content:space-between; gap:16px; font-size:13px; font-weight:500; margin-bottom:10px; }
+  .log .hd span:last-child{ color:var(--red); }
+  .log ol li{ display:grid; grid-template-columns:52px minmax(0,1fr) auto; gap:16px; padding:11px 0; border-bottom:1px solid var(--hair); font-size:15px; }
+  .log .t{ color:var(--faint); }
+  .log .u{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .log .r{ color:var(--red); font-size:13px; font-weight:500; }
+  .log .ft{ font-size:12.5px; color:var(--faint); margin-top:12px; }
+
+  /* ---------- 05 что входит ---------- */
+  .inc .h2{ margin:22px 0 clamp(24px,4vh,44px); }
+  .ilist{ display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(24px,4vw,72px); }
+  .ilist li{ display:grid; grid-template-columns:clamp(40px,4vw,60px) minmax(0,1fr); gap:12px; padding:clamp(14px,2.1vh,20px) 0; border-top:1px solid var(--hair); font-size:clamp(17px,1.4vw,20px); line-height:1.3; letter-spacing:-.01em; text-wrap:pretty; }
+  .ilist li:nth-last-child(-n+2){ border-bottom:1px solid var(--hair); }
+  .ilist i{ font-style:normal; font-size:13px; color:var(--faint); padding-top:.3em; font-variant-numeric:tabular-nums; }
+
+  /* ---------- 06 цены ---------- */
+  .price .h2{ margin:22px 0 clamp(24px,4vh,44px); }
+  .prow{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:8px 24px; align-items:baseline; padding:clamp(16px,2.6vh,26px) 0; border-top:1px solid var(--hair); }
+  .prow:last-of-type{ border-bottom:1px solid var(--hair); }
+  .prow strong{ display:block; font-weight:600; font-size:clamp(18px,1.5vw,22px); letter-spacing:-.015em; }
+  .prow p{ font-size:15.5px; color:var(--dim); margin-top:6px; line-height:1.45; text-wrap:pretty; max-width:30em; }
+  .prow .n{ font-weight:500; font-size:clamp(44px,6.4vw,104px); letter-spacing:-.05em; line-height:.9; text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .prow.main .n{ color:var(--ink); }
+  .prow.sm .n{ font-size:clamp(30px,3.4vw,52px); }
+  .studio{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px 24px; margin-top:clamp(20px,3vh,32px); font-size:16px; }
+  .studio span{ color:var(--dim); }
+
+  /* ---------- 07 CTA ---------- */
+  .end{ background:var(--ink); color:#fff; padding:clamp(80px,13vh,140px) var(--pad) clamp(64px,10vh,110px); }
+  .sec.end{ padding-top:clamp(80px,13vh,140px); }
+  .end .rule{ border-top-color:#fff; }
+  .end .rule span:last-child{ color:rgba(255,255,255,.5); }
+  .end .h2{ font-size:clamp(46px,7.4vw,120px); line-height:.9; margin:clamp(28px,5vh,56px) 0 clamp(20px,3vh,28px); }
+  .end .lede{ color:rgba(255,255,255,.72); max-width:32em; }
+  .form{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px 24px; align-items:end; margin-top:clamp(28px,5vh,52px); max-width:960px; }
+  .form label{ display:block; font-size:13px; color:rgba(255,255,255,.5); margin-bottom:8px; }
+  .form input{ width:100%; background:none; border:0; border-bottom:1.5px solid rgba(255,255,255,.5); color:#fff; font-size:clamp(20px,1.8vw,26px); padding:6px 0 12px; border-radius:0; outline:none; }
+  .form input:focus{ border-bottom-color:#fff; }
+  .form input::placeholder{ color:rgba(255,255,255,.3); }
+  .end .btn{ background:#fff; color:var(--ink); }
+  .end .btn:hover{ background:#eee; }
+  .contacts{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 24px; margin-top:clamp(40px,7vh,80px); border-top:1px solid rgba(255,255,255,.2); padding-top:14px; font-size:15px; }
+  .contacts span{ display:block; font-size:12.5px; color:rgba(255,255,255,.5); margin-bottom:4px; }
+
+  .foot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px 30px; padding:26px var(--pad) 36px; font-size:13px; color:rgba(255,255,255,.5); background:var(--ink); border-top:1px solid rgba(255,255,255,.12); }
+  .foot .links{ display:flex; flex-wrap:wrap; gap:10px 28px; }
+  .foot a:hover{ color:#fff; }
+
+  /* ---------- появление ---------- */
+  .rv{ opacity:0; transform:translateY(16px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .rv.shown{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .rv{ opacity:1; transform:none; transition:none; } }
+
+  /* ---------- планшет ---------- */
+  @media (max-width:1100px){
+    .cover .bot{ grid-template-columns:1fr; }
+    .plist li{ grid-template-columns:clamp(56px,8vw,90px) minmax(0,1fr); }
+    .plist li p{ grid-column:2; }
+    .how .cols{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- телефон ---------- */
+  @media (max-width:760px){
+    .sec{ padding-top:56px; padding-bottom:56px; }
+    .rule{ font-size:12px; }
+    .rule span:nth-child(2):not(:last-child){ display:none; }
+    .h2{ font-size:clamp(34px,10vw,44px); }
+    .cover{ padding-top:64px; padding-bottom:40px; }
+    .cover .wrap{ display:flex; flex-direction:column; height:auto; min-height:0; gap:0; }
+    .cover figure{ order:-1; height:auto; margin:0 calc(var(--pad) * -1); }
+    .cover figure img{ height:auto; aspect-ratio:4/3; object-position:50% 16%; }
+    .cover .l .rule{ display:none; }
+    .cover h1{ font-size:clamp(50px,15vw,64px); margin-top:22px; }
+    .cover .who{ font-size:clamp(21px,6vw,25px); margin-top:12px; }
+    .cover .bot{ margin-top:18px; gap:18px; }
+    .cover .lede{ font-size:16px; }
+    .cover .meta{ margin-top:10px; }
+    .btn{ width:100%; justify-content:space-between; padding:18px 22px; }
+
+    .about .wrap{ display:flex; flex-direction:column-reverse; gap:24px; }
+    .about .h2{ margin:18px 0 18px; }
+    .about .pics .big img{ max-height:min(32svh,260px); }
+    .about .pics{ grid-template-columns:auto minmax(0,1fr); }
+    .facts li{ padding:12px 0; grid-template-columns:44px minmax(0,1fr); }
+    .facts b{ font-size:22px; }
+    .facts p{ font-size:16.5px; }
+    .facts p span{ font-size:14px; }
+
+    .probs .h2, .inc .h2, .price .h2{ margin:18px 0 20px; }
+    .plist li{ grid-template-columns:44px minmax(0,1fr); gap:4px 8px; padding:12px 0; }
+    .plist b{ font-size:22px; }
+    .plist strong{ font-size:17px; }
+    .plist p{ font-size:14.5px; line-height:1.4; }
+
+    .log ol li{ grid-template-columns:36px minmax(0,1fr) auto; gap:10px; font-size:13px; padding:10px 0; }
+    .log .r{ font-size:12px; }
+    .log .hd{ flex-direction:column; gap:2px; font-size:12px; }
+
+    .ilist{ grid-template-columns:1fr; }
+    .ilist li{ padding:11px 0; font-size:16px; grid-template-columns:36px minmax(0,1fr); }
+    .ilist li:nth-last-child(-n+2){ border-bottom:0; }
+    .ilist li:last-child{ border-bottom:1px solid var(--hair); }
+
+    .prow{ grid-template-columns:1fr; gap:10px; padding:18px 0; }
+    .prow .n{ text-align:left; font-size:56px; }
+    .prow.sm .n{ font-size:34px; }
+    .studio{ flex-direction:column; gap:6px; font-size:15px; }
+
+    .end{ padding-bottom:110px; }
+    .end .h2{ font-size:clamp(44px,13vw,56px); }
+    .form{ grid-template-columns:1fr; }
+    .contacts{ grid-template-columns:1fr; gap:12px; margin-top:36px; }
+    .end .h2{ margin-top:24px; }
+    .foot{ padding-bottom:100px; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","@id":"https://tinadigital.ru/zakon/#service","name":"Сайт по закону","serviceType":"Приведение сайта в соответствие с 152‑ФЗ и законом о рекламе","url":"https://tinadigital.ru/zakon/","description":"Юрист проверяет сайт на соответствие 152‑ФЗ о персональных данных и закону о рекламе и сама внедряет исправления: баннер cookie, который блокирует аналитику до согласия, политика обработки персональных данных, согласия для форм, реквизиты владельца, помощь с уведомлением в Роскомнадзор, для медицины предупреждение о противопоказаниях и сведения о лицензии. Срок 1–2 рабочих дня.","provider":{"@id":"https://tinadigital.ru/#studio"},"areaServed":{"@type":"Country","name":"Россия"},"offers":[{"@type":"Offer","name":"Сайт по закону","price":"12000","priceCurrency":"RUB","url":"https://tinadigital.ru/zakon/"},{"@type":"Offer","name":"Сайт по закону для медицины","price":"15000","priceCurrency":"RUB","url":"https://tinadigital.ru/zakon/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"TINA DIGITAL","item":"https://tinadigital.ru/"},{"@type":"ListItem","position":2,"name":"Сайт по закону","item":"https://tinadigital.ru/zakon/"}]}</script>
+</head>
+<body>
+
+<header class="top">
+  <a href="../">TINA DIGITAL</a>
+  <nav><a href="../projects/">Кейсы</a><a href="../turnkey/">Сайты под ключ</a><a href="../seo-geo/">SEO + GEO</a><a href="../direct/">Яндекс Директ</a><a class="on" href="./">Сайт по закону</a><a class="m" href="#check">Проверить сайт</a></nav>
+</header>
+
+<main>
+
+<!-- 01 обложка -->
+<section class="sec cover">
+  <div class="wrap">
+    <div class="l">
+      <div class="rule"><span>Сайт по&nbsp;закону</span><span>152‑ФЗ · закон о&nbsp;рекламе</span><span>Кристина Васильевна, юрист</span></div>
+      <div>
+        <h1>Сайт<br>по&nbsp;закону<span class="dot">.</span></h1>
+        <p class="who">Юрист, который сам внедряет.</p>
+      </div>
+      <div class="bot">
+        <div>
+          <p class="lede">Проверяю сайт на&nbsp;152‑ФЗ и&nbsp;закон о&nbsp;рекламе и&nbsp;сама исправляю: cookie, аналитику, политику, согласия, медицинские&nbsp;предупреждения.</p>
+          <p class="meta">12&nbsp;000&nbsp;₽ · срок 1–2 рабочих дня</p>
+        </div>
+        <a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Проверить мой сайт <i aria-hidden="true">→</i></a>
+      </div>
+    </div>
+    <figure>
+      <img src="../assets/zakon/portrait.jpg" srcset="../assets/zakon/portrait-800.jpg 800w, ../assets/zakon/portrait.jpg 1289w" sizes="(max-width:760px) 100vw, 42vw" width="1289" height="1600" alt="Кристина Васильевна, юрист и разработчик сайтов" fetchpriority="high" decoding="async" data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAUABADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDb8QgedaoGKGQMAwGcYGf6Vm6LcPd28qTYMsMhQkdx2NN1+d77xRZ2KvtSKVRleucZNZWlXv2TxLJaQENbzzMpyOeM4NKzuVpYbdyMvjmQqcEXK49uKyvD5MniW3Zjz5hP6GiitGQf/9k=)">
+    </figure>
+  </div>
+</section>
+
+<!-- 02 о себе -->
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="pics rv">
+      <figure class="big">
+        <img src="../assets/zakon/diploma.jpg" width="520" height="760" alt="Кристина на вручении диплома с отличием" loading="lazy" decoding="async" data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMAEAsMDgwKEA4NDhIREBMYKBoYFhYYMSMlHSg6Mz08OTM4N0BIXE5ARFdFNzhQbVFXX2JnaGc+TXF5cGR4XGVnY//bAEMBERISGBUYLxoaL2NCOEJjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY//AABEIABcAEAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AFutX+2WAjjQEuwBcdhn+dPfU/LgMawkIiEgg9R6VUjuJLaKOG3RC0YAkJXlj3xVu+1GO7a3EVttJGw7l7fhUNq5pFN+pHfGNEWTaCxBYHHOKntZF85iOjjgelFFKO5U17p//9k=)">
+        <figcaption class="cap">вручение диплома с&nbsp;отличием</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/zakon/uniform.jpg" width="750" height="1000" alt="Кристина в форменной одежде прокуратуры" loading="lazy" decoding="async" data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAVABADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDPS1a4v3s4Il84YZpWY4Qeh9TUkqlJRby+TGkJ2tIg5b6mjQrlbrWroiAuJssrf7tVdeu18+6hWMLghRjvxya5uWT0sa+7a5n2s8ltOksTbXXkH+Yp00v2nEhRVIyuF6YHT9OPwoor0zlP/9k=)">
+        <figcaption class="cap">в&nbsp;период работы в&nbsp;прокуратуре</figcaption>
+      </figure>
+    </div>
+    <div class="rv">
+      <div class="rule"><span>02</span><span>О себе</span></div>
+      <h2 class="h2">Юрист<br>и&nbsp;разработчик<span class="dot">.</span></h2>
+      <ol class="facts">
+        <li><b>01</b><p>Высшее юридическое образование<span>Диплом с&nbsp;отличием</span></p></li>
+        <li><b>02</b><p>Опыт работы в&nbsp;органах прокуратуры&nbsp;РФ</p></li>
+        <li><b>03</b><p>Сама делаю сайты<span>И&nbsp;сама внедряю правки, без переписки владельца сайта с&nbsp;юристом</span></p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 03 что не так -->
+<section class="sec probs">
+  <div class="wrap rv">
+    <div class="rule"><span>03</span><span>Что я&nbsp;регулярно нахожу при проверке</span></div>
+    <h2 class="h2">Что не&nbsp;так<br>почти на&nbsp;каждом&nbsp;сайте<span class="dot">.</span></h2>
+    <ol class="plist">
+      <li><b>01</b><strong>Аналитика до&nbsp;согласия</strong><p>Баннер cookie есть, но&nbsp;Метрика и&nbsp;Google Analytics стартуют раньше, чем посетитель нажал «Принять».</p></li>
+      <li><b>02</b><strong>Согласие по&#8209;старому</strong><p>Галочка «согласен с&nbsp;политикой» вместо отдельного согласия на&nbsp;обработку данных.</p></li>
+      <li><b>03</b><strong>Нет политики или она чужая</strong><p>Скачана из&nbsp;интернета: чужие цели обработки и&nbsp;сервисы, которых на&nbsp;сайте нет.</p></li>
+      <li><b>04</b><strong>Медицина без&nbsp;предупреждений</strong><p>Нет «Имеются противопоказания…» и&nbsp;сведений о&nbsp;лицензии. Директ такую рекламу не&nbsp;пропускает.</p></li>
+      <li><b>05</b><strong>Нет уведомления в&nbsp;РКН</strong><p>Обязанность есть у&nbsp;всех, кто собирает данные. Владельцу сайта об&nbsp;этом обычно не&nbsp;говорят.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 04 как проверяю -->
+<section class="sec how">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>04</span><span>Как я&nbsp;проверяю</span></div>
+      <h2 class="h2">Открываю сайт<br>как посетитель<span class="dot">.</span></h2>
+    </div>
+    <div class="cols">
+    <p class="lede rv">Смотрю, какие данные уходят в&nbsp;Метрику и&nbsp;Google до&nbsp;нажатия «Принять».</p>
+    <div class="log rv">
+      <div class="hd"><span>Пример проверки: первые секунды после открытия сайта</span><span>посетитель ещё ничего не&nbsp;нажал</span></div>
+      <ol>
+        <li><span class="t">0.1 s</span><span class="u">mc.yandex.ru/metrika/tag.js</span><span class="r">до&nbsp;согласия</span></li>
+        <li><span class="t">0.1 s</span><span class="u">www.googletagmanager.com/gtag/js?id=G‑••••••••</span><span class="r">до&nbsp;согласия</span></li>
+        <li><span class="t">0.4 s</span><span class="u">mc.yandex.ru/watch/••••••••?page-url=https://••••••.ru/</span><span class="r">до&nbsp;согласия</span></li>
+        <li><span class="t">0.6 s</span><span class="u">mc.yandex.ru/watch/••••••••/1?page-url=https://••••••.ru/</span><span class="r">до&nbsp;согласия</span></li>
+        <li><span class="t">0.8 s</span><span class="u">www.google-analytics.com/g/collect?v=2&amp;tid=G‑••••••••</span><span class="r">до&nbsp;согласия</span></li>
+        <li><span class="t">0.9 s</span><span class="u">mc.yandex.ru/metrika/match.html</span><span class="r">до&nbsp;согласия</span></li>
+      </ol>
+      <p class="ft">Пример на&nbsp;моём тестовом сайте: Метрика и&nbsp;Google Analytics подключены без блокировки, баннер cookie на&nbsp;месте.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 что входит -->
+<section class="sec inc">
+  <div class="wrap rv">
+    <div class="rule"><span>05</span><span>Что входит</span></div>
+    <h2 class="h2">Нахожу<br>и&nbsp;исправляю&nbsp;сама<span class="dot">.</span></h2>
+    <ol class="ilist">
+      <li><i>01</i>Проверка в&nbsp;браузере: какие данные уходят до&nbsp;согласия</li>
+      <li><i>05</i>Реквизиты владельца в&nbsp;подвале сайта</li>
+      <li><i>02</i>Баннер cookie, который реально блокирует аналитику</li>
+      <li><i>06</i>Помощь с&nbsp;уведомлением в&nbsp;Роскомнадзор</li>
+      <li><i>03</i>Политика обработки ПДн под&nbsp;конкретный сайт и&nbsp;владельца</li>
+      <li><i>07</i>Для медицины: предупреждение о&nbsp;противопоказаниях и&nbsp;лицензия</li>
+      <li><i>04</i>Отдельное согласие на&nbsp;обработку данных для&nbsp;каждой формы</li>
+      <li><i>08</i>Отчёт: что было и&nbsp;что исправлено</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 06 цены -->
+<section class="sec price" id="price">
+  <div class="wrap rv">
+    <div class="rule"><span>06</span><span>Цены</span></div>
+    <h2 class="h2">Одна цена<br>за&nbsp;всю работу<span class="dot">.</span></h2>
+    <div class="prow main"><div><strong>Сайт по&nbsp;закону</strong><p>Проверка, документы и&nbsp;внедрение на&nbsp;сайт.</p></div><div class="n">12&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Для медицины</strong><p>Плюс предупреждение о&nbsp;противопоказаниях и&nbsp;сведения о&nbsp;лицензии.</p></div><div class="n">15&nbsp;000&nbsp;₽</div></div>
+    <div class="prow sm"><div><strong>Срок</strong></div><div class="n">1–2 рабочих дня</div></div>
+    <p class="studio"><span>Для веб‑студий: партнёрские условия</span><a class="link" href="https://t.me/tina_digital" data-tg="studio" target="_blank" rel="noopener">Написать в&nbsp;Telegram →</a></p>
+  </div>
+</section>
+
+<!-- 07 CTA -->
+<section class="sec end" id="check">
+  <div class="wrap">
+    <div class="rule"><span>07</span><span>Telegram</span></div>
+    <h2 class="h2">Проверю ваш<br>сайт&nbsp;бесплатно<span class="dot">.</span></h2>
+    <p class="lede">Пришлите ссылку. Покажу, где вижу риски.</p>
+    <form class="form" id="checkForm" novalidate>
+      <div><label for="site">Адрес сайта</label><input id="site" name="site" type="text" inputmode="url" autocomplete="url" placeholder="example.ru"></div>
+      <button class="btn" type="submit">Проверить мой сайт <i aria-hidden="true">→</i></button>
+    </form>
+    <div class="contacts">
+      <div><span>Telegram</span><a href="https://t.me/tina_digital" target="_blank" rel="noopener">@tina_digital</a></div>
+      <div><span>Почта</span><a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></div>
+      <div><span>Сайт</span><a href="../">tinadigital.ru</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../privacy/">Политика конфиденциальности</a><a href="../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
+  <span>Сайт по&nbsp;закону / 152‑ФЗ и&nbsp;закон о&nbsp;рекламе</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var TG = 'https://t.me/tina_digital';
+  var MSG = {
+    check: function(u){ return 'Здравствуйте! Хочу проверить сайт по закону: ' + (u || '[ссылка]'); },
+    studio: function(){ return 'Здравствуйте! Я из веб-студии, хочу узнать партнёрские условия «Сайт по закону».'; }
+  };
+  function url(kind, u){ return TG + '?text=' + encodeURIComponent(MSG[kind](u)); }
+  document.querySelectorAll('[data-tg]').forEach(function(a){ a.href = url(a.getAttribute('data-tg') || 'check'); });
+
+  var f = document.getElementById('checkForm');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v = (f.site.value || '').trim();
+    if (window.tinaGoal) window.tinaGoal('telegram');
+    window.open(url('check', v), '_blank', 'noopener');
+  });
+
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px 20% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('shown'); });
+
+  /* LQIP убираем, когда картинка загрузилась */
+  document.querySelectorAll('img[data-lqip]').forEach(function(im){
+    function done(){ im.style.backgroundImage = 'none'; }
+    if (im.complete && im.naturalWidth) done(); else im.addEventListener('load', done);
+  });
+})();
+</script>
+<script src="../assets/nav/mobile-nav.js"></script>
+<script src="../assets/legal/legal.js"></script>
+</body>
+</html>

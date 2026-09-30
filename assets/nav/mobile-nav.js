@@ -5,9 +5,9 @@
   var me = document.currentScript;
   var root = me ? new URL('../../', me.src).href : '/';
   var path = location.pathname;
-  var sec = /\/(projects|cases)\//.test(path) ? 'cases' : /\/(turnkey|seo-geo|direct)\//.test(path) ? 'services' : '';
-  var cur = (path.match(/\/(turnkey|seo-geo|direct)\//) || [])[1] || '';
-  var TG = 'https://t.me/belovachristina';
+  var sec = /\/(projects|cases)\//.test(path) ? 'cases' : /\/(turnkey|seo-geo|direct|zakon)\//.test(path) ? 'services' : '';
+  var cur = (path.match(/\/(turnkey|seo-geo|direct|zakon)\//) || [])[1] || '';
+  var TG = 'https://t.me/tina_digital';
 
   var ICON = {
     cases: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="2.5" width="6.5" height="6.5" rx="1.2"/><rect x="11" y="2.5" width="6.5" height="6.5" rx="1.2"/><rect x="2.5" y="11" width="6.5" height="6.5" rx="1.2"/><rect x="11" y="11" width="6.5" height="6.5" rx="1.2"/></svg>',
@@ -17,7 +17,8 @@
   var SVC = [
     ['turnkey', 'Сайты под ключ', 'Стратегия, UX, дизайн, разработка и запуск на вашем домене', 'от 60 000 ₽'],
     ['seo-geo', 'SEO + GEO', 'Видимость в Яндексе, Google и нейросетях', 'от 40 000 ₽'],
-    ['direct', 'Яндекс Директ', 'Платный поисковый трафик на подготовленные посадочные', 'от 35 000 ₽']
+    ['direct', 'Яндекс Директ', 'Платный поисковый трафик на подготовленные посадочные', 'от 35 000 ₽'],
+    ['zakon', 'Сайт по закону', '152‑ФЗ и закон о рекламе: проверяю и сама внедряю', '12 000 ₽']
   ];
 
   function el(html){ var d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
