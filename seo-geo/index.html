@@ -241,6 +241,8 @@
   .mlist > div{ display:grid; grid-template-columns:40px 1fr auto; gap:14px; align-items:baseline; padding:18px 0; border-bottom:1px solid rgba(9,9,9,.2); }
   .mlist .n{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--wine); }
   .mlist b{ font-size:clamp(18px,1.7vw,24px); font-weight:600; letter-spacing:-.01em; }
+  .mlist .mnote{ margin:18px 0 0; font-size:14px; line-height:1.55; color:var(--d-dim); text-wrap:pretty; }
+  .mlist .mnote b{ font-size:inherit; font-weight:600; letter-spacing:0; color:var(--d-ink); }
   .mlist small{ font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--d-faint); }
   @media (max-width:760px){ .measure{ grid-template-columns:1fr; } }
 
@@ -342,7 +344,7 @@
   @media (prefers-reduced-motion: reduce){ .rv,.hs{ opacity:1; transform:none; animation:none; transition:none; } }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "SEO + GEO: продвижение сайта в поиске и нейросетях", "url": "https://tinadigital.ru/seo-geo/", "description": "SEO по реальному спросу в Яндексе и Google. GEO: видимость сайта как источника для AI-ответов. Изменения внедряются в сам сайт.", "provider": {"@id": "https://tinadigital.ru/#studio"}, "areaServed": "RU", "offers": [{"@type": "Offer", "name": "SEO + GEO существующего сайта (разовая работа)", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "40000", "priceCurrency": "RUB"}}, {"@type": "Offer", "name": "SEO-продвижение (в месяц, минимум 3 месяца)", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "20000", "priceCurrency": "RUB"}}, {"@type": "Offer", "name": "Сайт + SEO + GEO под ключ", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "90000", "priceCurrency": "RUB"}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что такое GEO?", "acceptedAnswer": {"@type": "Answer", "text": "GEO: работа над видимостью сайта в AI-поиске и ответах нейросетей. Задача: чтобы системе было легко понять бизнес, извлечь факты и использовать сайт как источник."}}, {"@type": "Question", "name": "Чем GEO отличается от SEO?", "acceptedAnswer": {"@type": "Answer", "text": "SEO помогает сайту появляться по реальному поисковому спросу в Яндексе и Google. GEO добавляет слой AI-поиска. Если поиск не понимает сайт, AI тоже не из чего его выбирать."}}, {"@type": "Question", "name": "Сколько стоит SEO + GEO?", "acceptedAnswer": {"@type": "Answer", "text": "Разовая настройка существующего сайта от 40 000 ₽. SEO-продвижение от 20 000 ₽ в месяц, минимум 3 месяца. Новый сайт сразу с SEO и GEO от 90 000 ₽."}}, {"@type": "Question", "name": "Что входит в работу?", "acceptedAnswer": {"@type": "Answer", "text": "Изменения в самом сайте, а не отчёт. Индексация, robots и sitemap, мета-данные, разметка, скорость, структура услуг и посадочные под спрос, контент с ценами, условиями, кейсами и FAQ."}}, {"@type": "Question", "name": "Кто вносит изменения на сайт?", "acceptedAnswer": {"@type": "Answer", "text": "Я сама, без SEO-ТЗ на 40 страниц. Если нужно создать посадочную, изменить структуру, переписать блок, поправить код, schema, скорость или mobile, внедряю это сама."}}, {"@type": "Question", "name": "Нужен ли новый сайт?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. Можно начать с разовой работы: найти слабые места существующего сайта и сразу внести изменения в структуру, техническую часть и ключевые страницы."}}, {"@type": "Question", "name": "Гарантируете, что сайт появится в ответах нейросетей?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Кнопки «добавить мой сайт в ChatGPT» не существует. Я работаю с тем, что можно контролировать: доступностью сайта, структурой, фактами, контентом и источниками."}}, {"@type": "Question", "name": "Как понять, что продвижение работает?", "acceptedAnswer": {"@type": "Answer", "text": "Главный показатель: визиты из поиска. Дополнительно смотрю показы, клики, топ-запросы, конверсии, AI visibility и переходы из AI-сервисов."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что такое GEO?", "acceptedAnswer": {"@type": "Answer", "text": "GEO: работа над видимостью сайта в AI-поиске и ответах нейросетей. Задача: чтобы системе было легко понять бизнес, извлечь факты и использовать сайт как источник."}}, {"@type": "Question", "name": "Чем GEO отличается от SEO?", "acceptedAnswer": {"@type": "Answer", "text": "SEO помогает сайту появляться по реальному поисковому спросу в Яндексе и Google. GEO добавляет слой AI-поиска. Если поиск не понимает сайт, AI тоже не из чего его выбирать."}}, {"@type": "Question", "name": "Сколько стоит SEO + GEO?", "acceptedAnswer": {"@type": "Answer", "text": "Разовая настройка существующего сайта от 40 000 ₽. SEO-продвижение от 20 000 ₽ в месяц, минимум 3 месяца. Новый сайт сразу с SEO и GEO от 90 000 ₽."}}, {"@type": "Question", "name": "Что входит в работу?", "acceptedAnswer": {"@type": "Answer", "text": "Изменения в самом сайте, а не отчёт. Индексация, robots и sitemap, мета-данные, разметка, скорость, структура услуг и посадочные под спрос, контент с ценами, условиями, кейсами и FAQ."}}, {"@type": "Question", "name": "Кто вносит изменения на сайт?", "acceptedAnswer": {"@type": "Answer", "text": "Я сама, без SEO-ТЗ на 40 страниц. Если нужно создать посадочную, изменить структуру, переписать блок, поправить код, schema, скорость или mobile, внедряю это сама."}}, {"@type": "Question", "name": "Нужен ли новый сайт?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. Можно начать с разовой работы: найти слабые места существующего сайта и сразу внести изменения в структуру, техническую часть и ключевые страницы."}}, {"@type": "Question", "name": "Гарантируете, что сайт появится в ответах нейросетей?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Кнопки «добавить мой сайт в ChatGPT» не существует. Я работаю с тем, что можно контролировать: доступностью сайта, структурой, фактами, контентом и источниками."}}, {"@type": "Question", "name": "Как понять, что продвижение работает?", "acceptedAnswer": {"@type": "Answer", "text": "Главное: целевой органический спрос. Дальше смотрю поисковый трафик, запросы и конверсии, а также AI visibility и переходы из AI-сервисов."}}]}</script>
 </head>
 <body>
 
@@ -460,7 +462,7 @@
 <!-- 05 кейс Enduro -->
 <section class="sec">
   <div class="wrap">
-    <div class="case-head"><b>Case 01 / Enduro Energy</b><span>SEO с&nbsp;этапа проектирования</span><span>Source / Yandex Metrica</span></div>
+    <div class="case-head"><b>Case / Enduro Energy</b><span>SEO с&nbsp;этапа проектирования</span><span>Source / Yandex Metrica</span></div>
     <div class="grid">
       <h2 class="h-l c7 rv">Органический трафик <em>без&nbsp;платной рекламы</em></h2>
       <p class="body o8 rv">SEO было заложено в&nbsp;сайт еще на&nbsp;этапе проектирования. Поэтому структура, страницы, география и&nbsp;контент работают как одна система, а&nbsp;не&nbsp;добавлены после запуска.</p>
@@ -544,7 +546,7 @@
 <!-- 08 кейс Ладога -->
 <section class="sec ink2">
   <div class="wrap">
-    <div class="case-head"><b>Case 02 / Лодки на&nbsp;Ладоге</b><span>Local search</span><span>Structure by&nbsp;queries</span></div>
+    <div class="case-head"><b>Case / Лодки на&nbsp;Ладоге</b><span>Local search</span><span>Structure by&nbsp;queries</span></div>
     <div class="grid">
       <h2 class="h-l c7 rv">Локальный бизнес ищут <em>не&nbsp;только по&nbsp;названию</em></h2>
       <p class="body o8 rv">Пользователь ищет конкретно: сколько стоит аренда, есть ли эхолот, нужен ли залог, можно ли выйти на&nbsp;воду сегодня и&nbsp;как добраться до&nbsp;пирса. Поэтому сайт строился вокруг реальных сценариев выбора, а&nbsp;не&nbsp;только брендового запроса.</p>
@@ -586,8 +588,8 @@
     <div class="measure">
       <div class="primary rv">
         <small class="mono">01 / primary metric</small>
-        <b>Organic traffic</b>
-        <p>Визиты из&nbsp;поиска. Это главный показатель, по&nbsp;которому видно, что изменилось.</p>
+        <b>Organic demand</b>
+        <p>Главное: целевой органический спрос. Дальше смотрю поисковый трафик, запросы и&nbsp;конверсии.</p>
       </div>
       <div class="mlist rv">
         <div><span class="n">02</span><b>Показы</b><small>search</small></div>
@@ -596,6 +598,7 @@
         <div><span class="n">05</span><b>Конверсии</b><small>business</small></div>
         <div><span class="n">06</span><b>AI visibility</b><small>AI layer</small></div>
         <div><span class="n">07</span><b>AI referrals</b><small>AI layer</small></div>
+        <p class="mnote"><b>AI visibility:</b> список запросов вашей ниши, которые я&nbsp;регулярно задаю ChatGPT, Алисе и&nbsp;Perplexity; фиксирую, упоминают&nbsp;ли вас и&nbsp;ссылаются&nbsp;ли на&nbsp;сайт, и&nbsp;смотрю переходы из&nbsp;<span style="white-space:nowrap">AI-сервисов</span> в&nbsp;Метрике.</p>
       </div>
     </div>
   </div>
@@ -633,7 +636,7 @@
       <details><summary><span class="n mono">05</span><h3>Кто вносит изменения на&nbsp;сайт?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Я&nbsp;сама, без&nbsp;<span style="white-space:nowrap">SEO-ТЗ</span> на&nbsp;40&nbsp;страниц. Если нужно создать посадочную, изменить структуру, переписать блок, поправить код, schema, скорость или mobile, внедряю это сама.</p></div></details>
       <details><summary><span class="n mono">06</span><h3>Нужен ли новый сайт?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Не&nbsp;обязательно. Можно начать с&nbsp;разовой работы: найти слабые места существующего сайта и&nbsp;сразу внести изменения в&nbsp;структуру, техническую часть и&nbsp;ключевые страницы.</p></div></details>
       <details><summary><span class="n mono">07</span><h3>Гарантируете, что сайт появится в&nbsp;ответах нейросетей?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Нет. Кнопки «добавить мой сайт в&nbsp;ChatGPT» не&nbsp;существует. Я&nbsp;работаю с&nbsp;тем, что можно контролировать: доступностью сайта, структурой, фактами, контентом и&nbsp;источниками.</p></div></details>
-      <details><summary><span class="n mono">08</span><h3>Как понять, что продвижение работает?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Главный показатель: визиты из&nbsp;поиска. Дополнительно смотрю показы, клики, <span style="white-space:nowrap">топ-запросы</span>, конверсии, AI visibility и&nbsp;переходы из&nbsp;<span style="white-space:nowrap">AI-сервисов</span>.</p></div></details>
+      <details><summary><span class="n mono">08</span><h3>Как понять, что продвижение работает?</h3><i aria-hidden="true">+</i></summary><div class="a"><p class="body">Главное: целевой органический спрос. Дальше смотрю поисковый трафик, запросы и&nbsp;конверсии, а&nbsp;также AI visibility и&nbsp;переходы из&nbsp;<span style="white-space:nowrap">AI-сервисов</span>.</p></div></details>
     </div>
   </div>
 </section>
