@@ -130,6 +130,110 @@
   .rv.in{ opacity:1; transform:none; }
   @media (prefers-reduced-motion:reduce){ .hs,.rv{ opacity:1; transform:none; animation:none; transition:none; } }
 
+  /* ===== ритм: разные композиции в одной системе ===== */
+  .scr{ min-height:100vh; min-height:100svh; position:relative; border-top:1px solid var(--line); }
+  .pad{ padding:clamp(40px,8vh,110px) var(--pad); }
+  .display{ margin:0; font-size:clamp(46px,min(8.6vw,16vh),168px); line-height:.94; font-weight:600; letter-spacing:-.045em; }
+
+  /* обложка с живым фото */
+  .cover{ position:relative; overflow:hidden; }
+  .cover-ph{ position:absolute; top:0; right:0; bottom:0; width:min(40vw, calc(100svh * .75)); margin:0; }
+  .cover-ph img{ width:100%; height:100%; object-fit:cover; }
+  .cover-ph::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, var(--bg) 0%, rgba(14,17,15,0) 35%); }
+  .cover > *:not(.cover-ph){ position:relative; z-index:2; }
+  .cover > *:not(.cover-ph){ max-width:calc(100% - min(40vw, calc(100svh * .75)) + 6vw); }
+
+  /* продукт на весь экран */
+  .full{ height:100vh; height:100svh; overflow:hidden; border-top:0; padding-top:60px; }
+  .full{ display:flex; align-items:center; justify-content:center; }
+  .full video{ width:min(100%, calc((100svh - 60px) * 1.77)); height:auto; }
+  .full .tagline{ position:absolute; left:var(--pad); bottom:clamp(20px,4vh,40px); margin:0; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.75); text-shadow:0 1px 12px rgba(0,0,0,.6); }
+
+  /* экран из одного крупного текста */
+  .statement{ display:flex; flex-direction:column; justify-content:center; }
+  .statement .under{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); margin-top:clamp(32px,6vh,72px); padding-top:24px; border-top:1px solid var(--line); }
+  .was{ margin:0; font-size:clamp(16px,1.25vw,19px); color:var(--faint); }
+  .was s{ display:block; margin-top:6px; font-size:clamp(20px,1.8vw,28px); color:var(--dim); text-decoration-thickness:2px; }
+  .statement .lead{ margin:0; }
+
+  /* экспонат уходит за край */
+  .offset{ display:grid; grid-template-columns:minmax(0,7.5fr) minmax(0,4.5fr); gap:clamp(28px,4vw,72px); align-items:center; padding-left:0; }
+  .offset .shot{ margin:0; border-radius:0 16px 16px 0; padding-left:0; width:min(100%, calc((100svh - 170px) * var(--ar))); }
+  .offset .shot img, .offset .shot video{ border-radius:0 8px 8px 0; }
+
+  /* коллаж внахлёст */
+  .collage{ --h:calc(100svh - 2 * clamp(40px,8vh,110px)); }
+  .collage .stagebox{ position:relative; height:var(--h); }
+  .collage .txt{ position:absolute; left:0; top:0; width:min(32%, 420px); z-index:3; }
+  .collage .a{ position:absolute; right:0; top:0; width:min(62%, calc(var(--h) * .66 * 1.6)); }
+  .collage .b{ position:absolute; left:min(24%, 30vw); bottom:0; width:min(48%, calc(var(--h) * .5 * 1.6)); z-index:2; box-shadow:0 40px 90px -20px rgba(0,0,0,.9); }
+
+  /* по центру: текст сверху, экспонат крупно */
+  .center{ display:flex; flex-direction:column; justify-content:center; text-align:center; }
+  .center .head{ max-width:760px; margin:0 auto clamp(20px,4vh,44px); }
+  .center .lead{ margin-left:auto; margin-right:auto; }
+  .center .shot{ width:min(100%, calc((100svh - 330px) * var(--ar))); }
+
+  /* разворот: живое фото на всю высоту + экспонат */
+  .split{ display:grid; grid-template-columns:min(42vw, calc(100svh * .75)) minmax(0,1fr); min-height:100svh; }
+  .split > figure{ margin:0; position:relative; }
+  .split > figure img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .split .side{ display:flex; flex-direction:column; justify-content:center; gap:clamp(20px,4vh,40px); padding:clamp(40px,8vh,110px) var(--pad); }
+  .split .side .shot{ margin:0; width:min(100%, calc((100svh - 400px) * var(--ar))); }
+
+  /* телефоны лесенкой */
+  .phones3{ display:flex; justify-content:center; align-items:center; gap:clamp(14px,2.2vw,40px); }
+  .phones3 .ph{ width:min(26%, calc((100svh - 330px) * .46)); }
+  .phones3 .ph:nth-child(2){ width:min(30%, calc((100svh - 290px) * .46)); }
+  .phones3 .ph:nth-child(1){ transform:translateY(7%); } .phones3 .ph:nth-child(3){ transform:translateY(-7%); }
+
+  /* SEO: запросы крупным текстом */
+  .seo{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(28px,4vw,72px); align-items:center; }
+  .queries{ list-style:none; margin:28px 0 0; padding:0; }
+  .queries li{ font-size:clamp(26px,min(3.4vw,6vh),58px); line-height:1.12; font-weight:600; letter-spacing:-.03em; color:var(--faint); }
+  .queries li:first-child{ color:var(--ink); }
+  .seo .shot{ width:100%; }
+
+  /* цифры в ряд + Метрика на всю ширину */
+  .data{ display:flex; flex-direction:column; justify-content:center; gap:clamp(24px,5vh,56px); }
+  .data .top2{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(28px,4vw,72px); align-items:end; }
+  .nums{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .nums b{ display:block; font-size:clamp(40px,min(5vw,9vh),84px); line-height:.9; font-weight:600; letter-spacing:-.04em; }
+  .nums span{ display:block; margin-top:10px; font-size:14px; line-height:1.4; color:var(--dim); }
+  .data .shot{ width:100%; }
+
+  /* отзыв: карточка + живое фото справа */
+  .split.rev{ grid-template-columns:minmax(0,1fr) min(42vw, calc(100svh * .75)); }
+  .split.rev .side{ align-items:flex-start; }
+  .split.rev .card{ max-width:720px; width:100%; }
+
+  @media (max-width:900px){
+    .cover-ph{ position:relative; width:100%; height:46svh; order:-1; margin:0 calc(-1 * var(--pad)) 20px; width:auto; }
+    .cover{ justify-content:flex-start; padding-top:0; }
+    .cover-ph::after{ background:linear-gradient(0deg, var(--bg) 0%, rgba(14,17,15,0) 45%); }
+    .cover > *:not(.cover-ph){ max-width:none; }
+    .full{ height:auto; } .full video{ height:auto; }
+    .scr{ min-height:0; }
+    .statement .under, .offset, .seo, .data .top2{ grid-template-columns:1fr; }
+    .offset{ padding-left:var(--pad); }
+    .offset .txt{ order:-1; }
+    .offset .shot{ border-radius:12px; padding:8px; width:100%; } .offset .shot img, .offset .shot video{ border-radius:8px; }
+    .collage .stagebox{ height:auto; display:flex; flex-direction:column; gap:20px; }
+    .collage .txt, .collage .a, .collage .b{ position:static; width:100%; }
+    .center .shot, .split .side .shot{ width:100%; }
+    .split, .split.rev{ grid-template-columns:1fr; }
+    .split.rev > figure{ order:-1; }
+    .full{ padding-top:56px; }
+    .split > figure{ height:62svh; }
+    .phones3 .ph, .phones3 .ph:nth-child(2){ width:31%; }
+    .nums b{ font-size:34px; }
+  }
+
+  .offset.r{ grid-template-columns:minmax(0,4.5fr) minmax(0,7.5fr); padding-left:var(--pad); padding-right:0; }
+  .offset.r .shot{ border-radius:16px 0 0 16px; padding-left:clamp(8px,1vw,16px); padding-right:0; justify-self:end; }
+  .offset.r .shot img, .offset.r .shot video{ border-radius:8px 0 0 8px; }
+  @media (max-width:900px){ .offset.r{ padding-right:var(--pad); } .offset.r .shot{ border-radius:12px; padding:8px; } .offset.r .shot img, .offset.r .shot video{ border-radius:8px; } }
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","@id":"https://tinadigital.ru/cases/enduro/#case","name":"Enduro Energy: сайт проката эндуро-мотоциклов","headline":"Enduro Energy: сайт проката эндуро-мотоциклов","description":"Кейс: сайт проката эндуро-мотоциклов Enduro Energy. Позиционирование «приключение, а не прокат», UX для новичка, интерактивный калькулятор, мобильная версия и SEO-архитектура. 94,7% визитов из поиска без рекламы за 1–23 сентября 2026 года (Яндекс Метрика).","url":"https://tinadigital.ru/cases/enduro/","image":"https://tinadigital.ru/assets/enduro/v-hero-d.jpg","inLanguage":"ru","genre":"Кейс","dateCreated":"2026","author":{"@id":"https://tinadigital.ru/#studio"},"creator":{"@id":"https://tinadigital.ru/#studio"},"about":{"@type":"WebSite","name":"Enduro Energy, прокат эндуро-мотоциклов рядом с Санкт-Петербургом","url":"https://enduro-energy.ru"},"isPartOf":{"@type":"CollectionPage","name":"Кейсы TINA DIGITAL","url":"https://tinadigital.ru/projects/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"TINA DIGITAL","item":"https://tinadigital.ru/"},{"@type":"ListItem","position":2,"name":"Кейсы","item":"https://tinadigital.ru/projects/"},{"@type":"ListItem","position":3,"name":"Enduro Energy: сайт проката эндуро-мотоциклов","item":"https://tinadigital.ru/cases/enduro/"}]}</script>
@@ -143,6 +247,7 @@
 
 <main>
 <section class="cover">
+  <figure class="cover-ph"><img src="../../assets/enduro/p-cover.jpg" alt="Райдер Enduro Energy на закате" style="background:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAgABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwB4tORtBOan+yHoKydZ1uze0eOyM6ysVw2cYGef8+9aMniLTY7VGiiuHk4BQ8EevNS6jWxSUeo9rUrRUQ8R6e5b93IoHTcPvflRVKZDsccWKsCfm29hxTjO/JyWz3IyRTCgPBPFG0IOM1PQQec/einZJHailZCP/9k=) center/cover"></figure>
   <p class="lbl hs hs1">Кейс · прокат эндуро · 2026</p>
   <h1 class="hs hs2">Enduro<br>Energy</h1>
   <p class="tag hs hs3">Сайт проката, который продаёт приключение, а&nbsp;не&nbsp;час аренды</p>
@@ -154,69 +259,53 @@
   </div>
 </section>
 
-<section class="stage"><figure class="shot rv" style="--ar:1.77"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABIAIAMBIgACEQEDEQH/xAAZAAACAwEAAAAAAAAAAAAAAAAAAgEEBQP/xAAiEAACAgEEAwADAAAAAAAAAAABAgADEQQSIVEFEzFhgZH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwDCGhZ82qybT2ZVbxVwbcm3n7zEouQ0gbrN2P1GTVtSDklm7mcq7MWKPGHThfc9Zc84LYxL1NaWK9QIBH0dzDOta6/c7HP5nWnXirU5DE5HMCZKMcfTFZj2f7CEokKeYZPsEIQJ/9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 814" src="../../assets/enduro/v-hero-d.mp4" poster="../../assets/enduro/v-hero-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></section>
+<section class="scr full"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABIAIAMBIgACEQEDEQH/xAAZAAACAwEAAAAAAAAAAAAAAAAAAgEEBQP/xAAiEAACAgEEAwADAAAAAAAAAAABAgADEQQSIVEFEzFhgZH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwDCGhZ82qybT2ZVbxVwbcm3n7zEouQ0gbrN2P1GTVtSDklm7mcq7MWKPGHThfc9Zc84LYxL1NaWK9QIBH0dzDOta6/c7HP5nWnXirU5DE5HMCZKMcfTFZj2f7CEokKeYZPsEIQJ/9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 814" src="../../assets/enduro/v-hero-d.mp4" poster="../../assets/enduro/v-hero-d.jpg" muted loop playsinline preload="none" data-auto></video></section>
 
-<section class="blk">
-  <div class="txt">
-    <p class="lbl">01 · Позиционирование</p>
-    <h2 class="h2 rv">Не&nbsp;прокат, а&nbsp;приключение</h2>
-    <p class="lead rv">Прокат сравнивают по&nbsp;цене за&nbsp;час, приключение по&nbsp;впечатлению. Первый экран продаёт день на&nbsp;маршруте и&nbsp;сразу снимает страх новичка: права не&nbsp;нужны, всё включено, научим с&nbsp;нуля.</p>
+<section class="scr pad statement">
+  <p class="lbl">01 · Позиционирование</p>
+  <p class="display rv">Не&nbsp;прокат,<br>а&nbsp;приключение</p>
+  <div class="under">
+    <p class="was">Было<s>Прокат мотоциклов</s></p>
+    <p class="lead rv">Прокат сравнивают по&nbsp;цене за&nbsp;час, приключение по&nbsp;впечатлению. Поэтому первый экран продаёт день на&nbsp;маршруте и&nbsp;сразу снимает страх новичка: права не&nbsp;нужны, всё включено, научим с&nbsp;нуля.</p>
   </div>
-  <div class="vis"><figure class="shot rv" style="--ar:1.6"><img src="../../assets/enduro/d-trust.jpg" alt="Блок «Не просто мотоцикл напрокат» на сайте Enduro Energy" loading="lazy"></figure></div>
 </section>
 
-<section class="blk">
-  <div class="txt">
-    <p class="lbl">02 · Путь к записи</p>
-    <h2 class="h2 rv">Каждый блок снимает одно сомнение</h2>
-    <p class="lead rv">Сначала обещание, потом маршруты, техника и&nbsp;цена. Дальше поводы для&nbsp;выезда, живые кадры, отзывы и&nbsp;ответы на&nbsp;вопросы. Кнопка записи в&nbsp;конце пути и&nbsp;всегда в&nbsp;шапке.</p>
-  </div>
-  <div class="vis"><figure class="shot rv" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAACAAEDBv/EACEQAAICAQQCAwAAAAAAAAAAAAABAgMSESExYRMyM5Gh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A8FXCqVacs9emWFK58n2jK/iW34Y9OiDLHUo6Qzy7CrrI1yrU3jLlBn7BKV3htSEiCBPkJEB//9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-faq-d.mp4" poster="../../assets/enduro/v-faq-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></div>
+<section class="scr pad offset">
+  <figure class="shot rv " style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAACAAEDBv/EACEQAAICAQQCAwAAAAAAAAAAAAABAgMSESExYRMyM5Gh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A8FXCqVacs9emWFK58n2jK/iW34Y9OiDLHUo6Qzy7CrrI1yrU3jLlBn7BKV3htSEiCBPkJEB//9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-faq-d.mp4" poster="../../assets/enduro/v-faq-d.jpg" muted loop playsinline preload="none" data-auto></video></figure>
+  <div class="txt"><p class="lbl">02 · Путь к записи</p><h2 class="h2 rv">Каждый блок снимает одно сомнение</h2><p class="lead rv">Сначала обещание, потом маршруты, техника и&nbsp;цена. Дальше поводы для&nbsp;выезда, живые кадры, отзывы и&nbsp;ответы на&nbsp;вопросы. Кнопка записи в&nbsp;конце пути и&nbsp;всегда в&nbsp;шапке.</p></div>
 </section>
 
-<section class="blk">
-  <div class="txt">
-    <p class="lbl">03 · Выбор</p>
-    <h2 class="h2 rv">Маршрут и&nbsp;мотоцикл под&nbsp;свой уровень</h2>
-    <p class="lead rv">У&nbsp;каждого маршрута длительность, уровень и&nbsp;цена. Мотопарк листается карточками, а&nbsp;кнопка «Выбрать в&nbsp;калькуляторе» переносит мотоцикл в&nbsp;расчёт.</p>
+<section class="scr pad collage">
+  <div class="stagebox">
+    <div class="txt"><p class="lbl">03 · Выбор</p><h2 class="h2 rv">Маршрут и&nbsp;мотоцикл под&nbsp;свой уровень</h2><p class="lead rv">У&nbsp;маршрута длительность, уровень и&nbsp;цена. Кнопка «Выбрать в&nbsp;калькуляторе» переносит мотоцикл в&nbsp;расчёт.</p></div>
+    <figure class="shot rv a" style="--ar:1.6"><img src="../../assets/enduro/d-routes.jpg" alt="Блок «Эндуро-маршруты для любого уровня»" loading="lazy"></figure>
+    <figure class="shot rv b" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAZAAEAAwEBAAAAAAAAAAAAAAAAAgMFAQf/xAAmEAACAgAFAQkAAAAAAAAAAAABAgADBBESITFRBRMjQUNSYYKS/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAECMf/aAAwDAQACEQMRAD8A8/rFJTxHcN8CSCYU+o/5i2lK02Oo+4cGVVgE7wLmTDDi1z9YexEpauq1yG5BHM0alwZ7PVHUCzUTn5mZhrR7NOpUHUyLxxcTaKu7DDT0ylIJziIkNW1PW2Q34kSTEQy//9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-fleet-d.mp4" poster="../../assets/enduro/v-fleet-d.jpg" muted loop playsinline preload="none" data-auto></video></figure>
   </div>
-  <div class="vis"><figure class="shot rv" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAZAAEAAwEBAAAAAAAAAAAAAAAAAgMFAQf/xAAmEAACAgAFAQkAAAAAAAAAAAABAgADBBESITFRBRMjQUNSYYKS/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAECMf/aAAwDAQACEQMRAD8A8/rFJTxHcN8CSCYU+o/5i2lK02Oo+4cGVVgE7wLmTDDi1z9YexEpauq1yG5BHM0alwZ7PVHUCzUTn5mZhrR7NOpUHUyLxxcTaKu7DDT0ylIJziIkNW1PW2Q34kSTEQy//9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-fleet-d.mp4" poster="../../assets/enduro/v-fleet-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></div>
 </section>
 
-<section class="blk">
-  <div class="txt">
-    <p class="lbl">04 · Калькулятор</p>
-    <h2 class="h2 rv">Цена без&nbsp;«уточните у&nbsp;менеджера»</h2>
-    <p class="lead rv">Человек сам собирает выезд: тип катания, мотоцикл, время. Итог и&nbsp;скидки видны сразу, кнопка бронирования повторяет сумму.</p>
-  </div>
-  <div class="vis"><figure class="shot rv" style="--ar:1.385"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABcAIAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAAAgMFAQQG/8QAJhAAAgEDAgUFAQAAAAAAAAAAAQMCAAQRITEFEhMUURYiQUJhcf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABkRAQEAAwEAAAAAAAAAAAAAAAABERIxQf/aAAwDAQACEQMRAD8A4hIsysdVbScbxNZMbInRbsf0U1uljbYCJjjPyQK3LDg11eIcxRWIrODmX5WM+Rdb2qx4tuQdGLBLP2qMTZFclgkRluPNX/pjiEpwgJJzIEj3VBe8AvbexZdtKunA8pAlrviqnFMJyAwDpUyrlq1yjFsog7gHeiihDd7c8wPcMyBjekZdOmowk6Zj4J0oooP/2Q==);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 1040" src="../../assets/enduro/v-calc-d.mp4" poster="../../assets/enduro/v-calc-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></div>
+<section class="scr pad offset r">
+  <div class="txt"><p class="lbl">04 · Калькулятор</p><h2 class="h2 rv">Цена без&nbsp;«уточните у&nbsp;менеджера»</h2><p class="lead rv">Человек сам собирает выезд: тип катания, мотоцикл, время. Итог и&nbsp;скидки видны сразу, кнопка бронирования повторяет сумму.</p></div>
+  <figure class="shot rv " style="--ar:1.385"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABcAIAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAAAgMFAQQG/8QAJhAAAgEDAgUFAQAAAAAAAAAAAQMCAAQRITEFEhMUURYiQUJhcf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABkRAQEAAwEAAAAAAAAAAAAAAAABERIxQf/aAAwDAQACEQMRAD8A4hIsysdVbScbxNZMbInRbsf0U1uljbYCJjjPyQK3LDg11eIcxRWIrODmX5WM+Rdb2qx4tuQdGLBLP2qMTZFclgkRluPNX/pjiEpwgJJzIEj3VBe8AvbexZdtKunA8pAlrviqnFMJyAwDpUyrlq1yjFsog7gHeiihDd7c8wPcMyBjekZdOmowk6Zj4J0oooP/2Q==);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 1040" src="../../assets/enduro/v-calc-d.mp4" poster="../../assets/enduro/v-calc-d.jpg" muted loop playsinline preload="none" data-auto></video></figure>
 </section>
 
-<section class="blk">
-  <div class="txt">
-    <p class="lbl">05 · Атмосфера</p>
-    <h2 class="h2 rv">Продаём эмоции, а&nbsp;не&nbsp;технику</h2>
-    <p class="lead rv">Под&nbsp;каждый повод свой сценарий: мальчишник, день рождения, семья, компания. При&nbsp;наведении фон меняется на&nbsp;кадр с&nbsp;такого выезда.</p>
+<section class="scr split">
+  <figure><img src="../../assets/enduro/p-sunset.jpg" alt="Выезд Enduro Energy на закате" style="background:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAgABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCVbUntT/snFL4guJNN00SRDDSNsD/3OOtX7J0l09Zp8KyL+8PUZA68VftEiOVmY1ofSil0TUv7Vlu4mQq0Tkr8uPk6DPvRRzoXKzjrrUbi8KxyyNIB0LHNacGq3I05IRM6hV24B6dqw40I5PbpVpeIwK55JM3i2Fnc3FpM4hmeIuOdp60VG4ywbIyKKdrgf//Z) center/cover" loading="lazy"></figure>
+  <div class="side">
+    <div class="txt"><p class="lbl">05 · Атмосфера</p><h2 class="h2 rv">Продаём эмоции, а&nbsp;не&nbsp;технику</h2><p class="lead rv">Живые кадры с&nbsp;выездов вместо стоковых фото. Под&nbsp;каждый повод свой сценарий, и&nbsp;при&nbsp;наведении фон меняется на&nbsp;кадр с&nbsp;такого выезда.</p></div>
+    <figure class="shot rv " style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAABAECAwUG/8QAHhAAAgMAAgMBAAAAAAAAAAAAAQIAAxEEIRJBUTH/xAAXAQEAAwAAAAAAAAAAAAAAAAAAAQME/8QAGhEBAQACAwAAAAAAAAAAAAAAAQADEQIhQf/aAAwDAQACEQMRAD8A4SoUGoF1ct9BlwONmBH37sVRj4QVm05uGJNeFQHYmWoBlNatlbfo+xdQTgI9ZGEVkUBRsbJ35IV9rJHREISJN1dgGbtuFQvDFoU+RUe4QlGRRLVhBOW7/9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-scen-d.mp4" poster="../../assets/enduro/v-scen-d.jpg" muted loop playsinline preload="none" data-auto></video></figure>
   </div>
-  <div class="vis"><figure class="shot rv" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAABAECAwUG/8QAHhAAAgMAAgMBAAAAAAAAAAAAAQIAAxEEIRJBUTH/xAAXAQEAAwAAAAAAAAAAAAAAAAAAAQME/8QAGhEBAQACAwAAAAAAAAAAAAAAAQADEQIhQf/aAAwDAQACEQMRAD8A4SoUGoF1ct9BlwONmBH37sVRj4QVm05uGJNeFQHYmWoBlNatlbfo+xdQTgI9ZGEVkUBRsbJ35IV9rJHREISJN1dgGbtuFQvDFoU+RUe4QlGRRLVhBOW7/9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-scen-d.mp4" poster="../../assets/enduro/v-scen-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></div>
 </section>
 
-<section class="blk">
-  <div class="txt">
-    <p class="lbl">06 · Мобильная версия</p>
-    <h2 class="h2 rv">Выезд собирается одним пальцем</h2>
-    <p class="lead rv">На&nbsp;телефоне маршруты идут карточками, мотопарк листается свайпом, калькулятор по&nbsp;шагам, а&nbsp;звонок и&nbsp;мессенджеры под&nbsp;большим пальцем.</p>
-  </div>
-  <div class="vis"><div class="phones rv"><div class="ph"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAEUAIAMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAADBAAFBgIB/8QAKhAAAgICAQMDAwQDAAAAAAAAAQIDEQAEIQUSMSJBYRQyUhMVI3GBkaH/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EABoRAAMBAQEBAAAAAAAAAAAAAAABEQIDBEH/2gAMAwEAAhEDEQA/AMCxHYAOCPOMQ9nbbE49H0wyyA/Tv2sPI8HDz9HYRkxxScfORS4imk8k2SM5SVVNkWD843L0vb/TtIZCT8YjPrTa7BJkKsRdHGiWanTZGgST0C192PGTYZZtT0StGTX2sbwI301wnZMDQrtVeMX2+obYdWidAKv7fGFAT3G3IFXtncovFg8430bWfZkaXZVnoektiqzySTd87K3cbIrNXrNG+urx1217e2KjaMYtqB3CuPnCxtJJYAJAHnnL/wDZ9EwIpUn3sHO4elaMPKxkn5N5i/Rg6V4+jXwqtLpxnidpCU/G7xrpibGosizyWpPpF5Y7KxxwWrUfFXla8lkgG8rPRaVRlvm+bjDrIAOVLf5zwzqAf4z/ALxX6p0Xg4F92T8soihJpXPNH+sEHKKSeLwTbkpP3f8AM4k2Xk4Y3igUcGy5RQVQ0K5XEJ3IdvHOTJlIQAsSbzwMbyZMYj//2Q==);background-size:cover;background-position:center;aspect-ratio:auto 390 / 844" src="../../assets/enduro/v-app-m.mp4" poster="../../assets/enduro/v-app-m.jpg" muted loop playsinline preload="none" data-auto></video></div><div class="ph"><img src="../../assets/enduro/app-calc.jpg" alt="Мобильная версия: калькулятор" loading="lazy"></div><div class="ph"><img src="../../assets/enduro/app-book.jpg" alt="Мобильная версия: контакты и запись" loading="lazy"></div></div></div>
+<section class="scr pad center">
+  <div class="head"><p class="lbl">06 · Мобильная версия</p><h2 class="h2 rv">Выезд собирается одним пальцем</h2></div>
+  <div class="phones3"><div class="ph rv"><img src="../../assets/enduro/app-calc.jpg" alt="Мобильная версия: калькулятор" loading="lazy"></div><div class="ph rv"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAEUAIAMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAADBAAFBgIB/8QAKhAAAgICAQMDAwQDAAAAAAAAAQIDEQAEIQUSMSJBYRQyUhMVI3GBkaH/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EABoRAAMBAQEBAAAAAAAAAAAAAAABEQIDBEH/2gAMAwEAAhEDEQA/AMCxHYAOCPOMQ9nbbE49H0wyyA/Tv2sPI8HDz9HYRkxxScfORS4imk8k2SM5SVVNkWD843L0vb/TtIZCT8YjPrTa7BJkKsRdHGiWanTZGgST0C192PGTYZZtT0StGTX2sbwI301wnZMDQrtVeMX2+obYdWidAKv7fGFAT3G3IFXtncovFg8430bWfZkaXZVnoektiqzySTd87K3cbIrNXrNG+urx1217e2KjaMYtqB3CuPnCxtJJYAJAHnnL/wDZ9EwIpUn3sHO4elaMPKxkn5N5i/Rg6V4+jXwqtLpxnidpCU/G7xrpibGosizyWpPpF5Y7KxxwWrUfFXla8lkgG8rPRaVRlvm+bjDrIAOVLf5zwzqAf4z/ALxX6p0Xg4F92T8soihJpXPNH+sEHKKSeLwTbkpP3f8AM4k2Xk4Y3igUcGy5RQVQ0K5XEJ3IdvHOTJlIQAsSbzwMbyZMYj//2Q==);background-size:cover;background-position:center;aspect-ratio:auto 390 / 844" src="../../assets/enduro/v-app-m.mp4" poster="../../assets/enduro/v-app-m.jpg" muted loop playsinline preload="none" data-auto></video></div><div class="ph rv"><img src="../../assets/enduro/app-book.jpg" alt="Мобильная версия: контакты и запись" loading="lazy"></div></div>
 </section>
 
-<section class="blk">
-  <div class="txt">
-    <p class="lbl">07 · SEO</p>
-    <h2 class="h2 rv">Поиск заложен в&nbsp;структуру</h2>
-    <p class="lead rv">Разделы собраны под&nbsp;запросы «прокат эндуро», «эндуро туры», «рядом с&nbsp;СПб». География в&nbsp;текстах и&nbsp;разметке, Schema.org, Метрика с&nbsp;целями на&nbsp;расчёт и&nbsp;запись.</p>
-  </div>
-  <div class="vis"><figure class="shot snip rv"><div class="serp"><small>enduro-energy.ru</small><b>Enduro Energy: прокат эндуро мотоциклов и&nbsp;выезды рядом с&nbsp;СПб</b><p>Прокат эндуро-мотоциклов, обучение новичков и&nbsp;выезды по&nbsp;маршрутам во&nbsp;Всеволожском районе, 30&nbsp;минут от&nbsp;м.&nbsp;ул.&nbsp;Дыбенко. Мотоцикл, экипировка и&nbsp;инструктор включены.</p></div></figure></div>
+<section class="scr pad seo">
+  <div class="txt"><p class="lbl">07 · SEO</p><h2 class="h2 rv">Сайт собран под&nbsp;то, как ищут</h2>
+    <ul class="queries rv"><li>прокат эндуро</li><li>эндуро туры</li><li>эндуро рядом с&nbsp;СПб</li><li>катание на&nbsp;эндуро для&nbsp;новичков</li></ul>
+    <p class="lead rv">География в&nbsp;текстах и&nbsp;разметке, Schema.org, Метрика с&nbsp;целями на&nbsp;расчёт и&nbsp;запись.</p></div>
+  <figure class="shot rv"><div class="serp"><small>enduro-energy.ru</small><b>Enduro Energy: прокат эндуро мотоциклов и&nbsp;выезды рядом с&nbsp;СПб</b><p>Прокат эндуро-мотоциклов, обучение новичков и&nbsp;выезды по&nbsp;маршрутам во&nbsp;Всеволожском районе, 30&nbsp;минут от&nbsp;м.&nbsp;ул.&nbsp;Дыбенко. Мотоцикл, экипировка и&nbsp;инструктор включены.</p></div></figure>
 </section>
 
 <section class="result">
@@ -228,40 +317,36 @@
   </div>
 </section>
 
-<section class="blk">
-  <div class="txt">
-    <p class="lbl">09 · Что делают посетители</p>
-    <h2 class="h2 rv">Выезд собирают до&nbsp;звонка</h2>
-    <p class="lead rv">Люди приходят из&nbsp;поиска, доводят расчёт до&nbsp;конца и&nbsp;переходят к&nbsp;записи.</p>
-    <div class="rows rv"><div><b>18</b><span>расчётов стоимости в&nbsp;калькуляторе</span></div><div><b>13</b><span>переходов в&nbsp;Telegram</span></div><div><b>11</b><span>кликов «Записаться»</span></div></div>
-    <p class="note">Яндекс Метрика, 1–23&nbsp;сентября 2026</p>
+<section class="scr pad data">
+  <div class="top2">
+    <div><p class="lbl">09 · Что делают посетители</p><h2 class="h2 rv">Выезд собирают до&nbsp;звонка</h2></div>
+    <div class="nums rv"><div><b>18</b><span>расчётов стоимости</span></div><div><b>13</b><span>переходов в&nbsp;Telegram</span></div><div><b>11</b><span>кликов «Записаться»</span></div></div>
   </div>
-  <div class="vis"><figure class="shot rv" style="--ar:4.45"><img src="../../assets/enduro/metrica-quarter.jpg" alt="Яндекс Метрика, Enduro Energy: источники трафика с 24 июня по 23 сентября 2026, переходы из поисковых систем 888 из 958 визитов"></figure></div>
+  <figure class="shot rv" style="--ar:4.45"><img src="../../assets/enduro/metrica-quarter.jpg" alt="Яндекс Метрика, Enduro Energy: источники трафика с 24 июня по 23 сентября 2026, переходы из поисковых систем 888 из 958 визитов" loading="lazy"></figure>
+  <p class="note">Яндекс Метрика: действия за&nbsp;1–23 сентября 2026, график источников за&nbsp;квартал</p>
 </section>
 
-<section class="blk review">
-  <div class="txt">
+<section class="scr split rev">
+  <div class="side">
+  <figure class="card rv">
     <p class="lbl">10 · Отзыв клиента</p>
-    <h2 class="h2 rv">Что сказали владельцы</h2>
-  </div>
-  <div class="vis">
-    <figure class="card rv">
-      <div class="who"><img src="../../assets/reviews/enduro.jpg" width="240" height="240" alt="Логотип Enduro Energy"><div><b>Анастасия и&nbsp;Владимир</b><span>основатели Enduro Energy</span></div></div>
-      <blockquote><p class="q1">«Нам до&nbsp;этого сайта ещё расти и&nbsp;расти»</p><p class="q2">«Все сделала быстро, постоянно на&nbsp;связи, разобралась в&nbsp;теме проката. Я&nbsp;счастлива!»</p></blockquote>
-      <p class="vlabel">Голосовой отзыв Анастасии</p>
-      <div class="voice" data-voice>
+    <div class="who"><img src="../../assets/reviews/enduro.jpg" width="240" height="240" alt="Логотип Enduro Energy"><div><b>Анастасия и&nbsp;Владимир</b><span>основатели Enduro Energy</span></div></div>
+    <blockquote><p class="q1">«Нам до&nbsp;этого сайта ещё расти и&nbsp;расти»</p><p class="q2">«Все сделала быстро, постоянно на&nbsp;связи, разобралась в&nbsp;теме проката. Я&nbsp;счастлива!»</p></blockquote>
+    <p class="vlabel">Голосовой отзыв Анастасии</p>
+    <div class="voice" data-voice>
           <button type="button" aria-label="Слушать голосовой отзыв Анастасии, основательницы Enduro Energy, 1:58"><svg class="p1" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg><svg class="p2" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
           <div data-wave aria-hidden="true"></div>
           <span data-time>1:58</span>
           <audio preload="none" src="../../assets/reviews/enduro.m4a"></audio>
       </div>
-    </figure>
+  </figure>
   </div>
+  <figure><img src="../../assets/enduro/p-group.jpg" alt="Группа райдеров Enduro Energy на выезде" style="background:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAcABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwChHZSzk+WAcdcnFadtpCQWoldfMmdOEIyAckYqEa1bq2yGOJoxEWJbgk+gH50Ra0i2myAKoMXmAs3IYnkD862dS+xkoWH3E6pa+TIoRuc/LkfSiqonk8xpLkrhH/dkjqKKFJdAatuURZxCFAdpbgHaOlW9PiB34RNu7aGHXgdM1XskCSmMfdB4z9KnsugP/TZxXC2daRZwpITpx90/560VXEjNq5Un5ViyB78UVLdh2P/Z) center/cover" loading="lazy"></figure>
 </section>
 
 <section class="stage live">
   <p class="lbl">11 · Сайт целиком</p>
-  <figure class="shot rv" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAaAAABBQEAAAAAAAAAAAAAAAAAAQIDBAUG/8QAIxAAAgICAgEEAwAAAAAAAAAAAQIAAwQREiETBRQxkTJBcf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/AOdqwLHoDoF4kddyvZ6ZeG5CsE/s8hJce5vbjjka0OlkleeakJsfb/2ZyrswmP6XZTWruEZm77P4iXsenmXoJAOt6HwZlWZr5N/IkHrWjJaMvx5gZmHxrQhpMhb3UDWvqNe+wk7I+oQlFTUdtk7ieRvIDuEIE//Z);background-size:cover;background-position:center;aspect-ratio:auto 1120 / 700" src="../../assets/enduro/v-scroll-d.mp4" poster="../../assets/enduro/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video></figure>
+  <figure class="shot rv " style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAaAAABBQEAAAAAAAAAAAAAAAAAAQIDBAUG/8QAIxAAAgICAgEEAwAAAAAAAAAAAQIAAwQREiETBRQxkTJBcf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/AOdqwLHoDoF4kddyvZ6ZeG5CsE/s8hJce5vbjjka0OlkleeakJsfb/2ZyrswmP6XZTWruEZm77P4iXsenmXoJAOt6HwZlWZr5N/IkHrWjJaMvx5gZmHxrQhpMhb3UDWvqNe+wk7I+oQlFTUdtk7ieRvIDuEIE//Z);background-size:cover;background-position:center;aspect-ratio:auto 1120 / 700" src="../../assets/enduro/v-scroll-d.mp4" poster="../../assets/enduro/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video></figure>
   <a class="golive" href="https://enduro-energy.ru" target="_blank" rel="noopener">Открыть enduro-energy.ru ↗</a>
 </section>
 
