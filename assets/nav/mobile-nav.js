@@ -5,7 +5,7 @@
   var me = document.currentScript;
   var root = me ? new URL('../../', me.src).href : '/';
   var path = location.pathname;
-  var sec = /\/(projects|cases)\//.test(path) ? 'cases' : /\/(turnkey|seo-geo|direct|zakon)\//.test(path) ? 'services' : '';
+  var sec = /\/(projects|cases)\//.test(path) ? 'cases' : /\/(turnkey|seo-geo|direct|zakon|sajt-dlya-vracha)\//.test(path) ? 'services' : '';
   var cur = (path.match(/\/(turnkey|seo-geo|direct|zakon)\//) || [])[1] || '';
   var TG = 'https://t.me/tina_digital';
 

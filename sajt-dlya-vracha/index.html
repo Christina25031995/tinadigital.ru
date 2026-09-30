@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт для врача и клиники под ключ | TINA DIGITAL</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="canonical" href="https://tinadigital.ru/sajt-dlya-vracha/">
+<meta name="description" content="Разработка сайта для частного врача, пластического хирурга и клиники: структура по вопросам пациента, путь от консультации до восстановления, запись без форм, SEO и GEO, 152‑ФЗ. От 60 000 ₽, срок не больше месяца. Санкт-Петербург и вся Россия.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="TINA DIGITAL">
+<meta property="og:title" content="Сайт для врача и клиники | TINA DIGITAL">
+<meta property="og:description" content="Сайт, который снимает страхи пациента и ведёт к записи без давления. Кейс: сайт пластического хирурга Филиппа Помазкова.">
+<meta property="og:image" content="https://tinadigital.ru/assets/og/vrach.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://tinadigital.ru/sajt-dlya-vracha/">
+<link rel="stylesheet" href="../assets/fonts/manrope.css">
+<link rel="stylesheet" href="../assets/legal/legal.css">
+<link rel="stylesheet" href="../assets/nav/mobile-nav.css">
+<style>
+  :root{
+    --ink:#111; --paper:#fff; --soft:#f4f2ee; --dim:#555; --faint:#8a8a8a; --hair:#dcdcdc; --red:#e0301e;
+    --pad:clamp(20px,4.45vw,88px);
+    --ease:cubic-bezier(.22,.8,.28,1);
+  }
+  *{ box-sizing:border-box; }
+  html{ background:var(--paper); -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:Manrope,system-ui,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  img, video{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,p,figure,ol,ul,blockquote{ margin:0; padding:0; }
+  ol,ul{ list-style:none; }
+  button{ font:inherit; }
+  .nw{ white-space:nowrap; }
+  .dot{ color:var(--red); }
+
+  /* ---------- шапка ---------- */
+  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px var(--pad); font-size:13px; font-weight:700; letter-spacing:.12em; mix-blend-mode:difference; color:#fff; }
+  .top nav{ display:flex; gap:clamp(16px,2.2vw,32px); }
+  .top nav a{ color:#fff; font-weight:500; letter-spacing:.02em; font-size:13px; opacity:.72; transition:opacity .3s; }
+  .top nav a:hover{ opacity:1; }
+  @media (max-width:760px){ .top nav > :not(.m){ display:none; } .top nav .m{ opacity:1; } }
+
+  /* ---------- общие ---------- */
+  .sec{ position:relative; background:var(--paper); padding:clamp(72px,10vh,120px) var(--pad); }
+  .sec + .sec{ padding-top:0; }
+  .sec.soft{ background:var(--soft); }
+  .sec.soft, .sec.dark, .sec.soft + .sec, .sec.dark + .sec{ padding-top:clamp(72px,10vh,120px); }
+  .wrap{ max-width:1440px; margin:0 auto; }
+  .rule{ display:flex; justify-content:space-between; gap:20px; border-top:1.5px solid var(--ink); padding-top:10px; font-size:13px; font-weight:500; letter-spacing:.01em; }
+  .rule span:last-child{ color:var(--faint); }
+  .h2{ font-weight:500; font-size:clamp(38px,5.2vw,80px); line-height:.96; letter-spacing:-.04em; text-wrap:balance; margin:22px 0 clamp(20px,3.4vh,36px); }
+  .lede{ font-size:clamp(17px,1.45vw,21px); line-height:1.42; letter-spacing:-.005em; text-wrap:pretty; }
+  .cap{ font-size:13px; line-height:1.4; color:var(--faint); margin-top:12px; text-wrap:pretty; }
+  .btn{ display:inline-flex; align-items:center; gap:28px; padding:20px 26px; background:var(--ink); color:#fff; font-size:15px; font-weight:600; letter-spacing:.01em; border:0; cursor:pointer; transition:background .25s; white-space:nowrap; }
+  .btn:hover{ background:#000; }
+  .btn i{ font-style:normal; color:var(--red); }
+  .link{ border-bottom:1.5px solid var(--red); padding-bottom:2px; }
+
+  /* окно браузера для скриншотов */
+  .browser{ border-radius:12px; overflow:hidden; background:#111113; box-shadow:0 40px 90px -40px rgba(20,16,10,.45), 0 0 0 1px rgba(0,0,0,.07); }
+  .browser .bar{ height:34px; display:flex; align-items:center; gap:7px; padding:0 14px; background:#1c1c1f; }
+  .browser .bar i{ width:10px; height:10px; border-radius:50%; background:#3a3a3e; flex:none; }
+  .browser .bar span{ margin:0 auto; font-size:11.5px; color:#8d8d93; background:#29292d; padding:3px 18px; border-radius:6px; transform:translateX(-20px); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:70%; }
+  .browser img, .browser video{ width:100%; height:auto; background-size:cover; background-position:center; }
+
+  /* ---------- 01 обложка ---------- */
+  .cover{ padding-top:clamp(84px,11vh,112px); padding-bottom:clamp(32px,5vh,56px); }
+  .cover .wrap{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,3.4vw,56px); height:min(calc(100svh - clamp(116px,16vh,168px)), 780px); min-height:560px; }
+  .cover .l{ display:flex; flex-direction:column; justify-content:space-between; min-width:0; }
+  .cover h1{ font-weight:500; font-size:clamp(48px,5.5vw,88px); line-height:.9; letter-spacing:-.05em; margin:auto 0 0 -.03em; }
+  .cover .lede{ margin-top:clamp(20px,3vh,32px); max-width:28em; }
+  .cover .meta{ font-size:13px; color:var(--faint); margin-top:14px; }
+  .cover .btn{ margin-top:clamp(24px,4vh,40px); align-self:flex-start; }
+  .cover figure{ align-self:end; min-width:0; }
+
+  /* ---------- 02 страхи ---------- */
+  .fears .wrap{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,4vw,72px); align-items:end; }
+  .fears .lede{ max-width:24em; }
+  .fears .h2{ font-size:clamp(38px,4.4vw,68px); }
+  .flist li{ padding:clamp(18px,3vh,30px) 0; border-top:1px solid var(--hair); }
+  .flist li:last-child{ border-bottom:1px solid var(--hair); }
+  .flist q{ display:block; font-weight:500; font-size:clamp(24px,2.5vw,38px); line-height:1.12; letter-spacing:-.03em; quotes:none; text-wrap:balance; }
+  .flist span{ display:block; font-size:13px; color:var(--faint); margin-top:8px; }
+
+  /* ---------- 03 12 вопросов ---------- */
+  .q12 .top-row{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,4vw,72px); align-items:end; }
+  .q12 .lede{ max-width:30em; padding-bottom:clamp(20px,3.4vh,36px); }
+  .qlist{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); column-gap:clamp(16px,2vw,32px); counter-reset:q; }
+  .qlist li{ counter-increment:q; padding:clamp(14px,2.2vh,22px) 0 clamp(18px,2.8vh,28px); border-top:1px solid var(--hair); font-size:clamp(17px,1.4vw,21px); line-height:1.25; letter-spacing:-.015em; text-wrap:pretty; }
+  .qlist li::before{ content:counter(q, decimal-leading-zero); display:block; font-size:12px; color:var(--faint); margin-bottom:8px; font-variant-numeric:tabular-nums; letter-spacing:0; }
+  .qlist li:nth-child(n+9){ border-bottom:1px solid var(--hair); }
+
+  /* ---------- 04 что делаю ---------- */
+  .plist li{ display:grid; grid-template-columns:clamp(64px,8vw,120px) minmax(0,4fr) minmax(0,6fr); gap:8px 24px; align-items:baseline; padding:clamp(14px,2.3vh,22px) 0; border-top:1px solid var(--hair); }
+  .plist li:last-child{ border-bottom:1px solid var(--hair); }
+  .plist b{ font-weight:500; font-size:clamp(26px,2.6vw,40px); letter-spacing:-.04em; line-height:1; }
+  .plist strong{ font-weight:600; font-size:clamp(18px,1.5vw,22px); letter-spacing:-.015em; line-height:1.2; }
+  .plist p{ font-size:16px; line-height:1.45; color:var(--dim); text-wrap:pretty; }
+
+  /* ---------- 05 поиск и закон ---------- */
+  .cards{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2vw,28px); }
+  .card{ display:flex; flex-direction:column; background:var(--soft); padding:clamp(24px,3vw,44px); min-height:clamp(300px,44vh,420px); transition:background .3s; }
+  .card:hover{ background:#ece9e3; }
+  .card i{ font-style:normal; font-size:13px; color:var(--faint); }
+  .card h3{ font-weight:500; font-size:clamp(28px,2.8vw,44px); line-height:1; letter-spacing:-.035em; margin-top:clamp(16px,3vh,32px); text-wrap:balance; }
+  .card p{ font-size:clamp(16px,1.25vw,18px); line-height:1.45; color:var(--dim); margin-top:16px; max-width:30em; text-wrap:pretty; }
+  .card .ft{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-top:auto; padding-top:24px; font-size:15px; }
+  .card .ft b{ font-weight:600; }
+
+  /* ---------- 06 кейс ---------- */
+  .case .wrap{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,64px); align-items:end; }
+  .case .lede{ max-width:22em; }
+  .kf{ margin-top:clamp(20px,3.4vh,36px); }
+  .kf li{ display:grid; grid-template-columns:clamp(52px,5vw,72px) minmax(0,1fr); gap:12px; align-items:baseline; padding:clamp(10px,1.6vh,14px) 0; border-top:1px solid var(--hair); font-size:15.5px; line-height:1.35; color:var(--dim); }
+  .kf li:last-child{ border-bottom:1px solid var(--hair); }
+  .kf b{ font-weight:500; font-size:clamp(22px,2vw,30px); letter-spacing:-.03em; color:var(--ink); line-height:1; }
+  .golinks{ display:flex; flex-wrap:wrap; gap:12px 28px; margin-top:clamp(20px,3.4vh,32px); font-size:16px; }
+  .golinks a:last-child{ color:var(--dim); }
+
+  /* ---------- 07 цена и запись ---------- */
+  .pair{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,2.6vw,40px); align-items:start; }
+  .pair figcaption{ font-size:clamp(15px,1.15vw,17px); line-height:1.45; color:var(--dim); margin-top:16px; max-width:30em; text-wrap:pretty; }
+  .pair figcaption b{ display:block; font-weight:600; color:var(--ink); font-size:clamp(17px,1.4vw,20px); letter-spacing:-.015em; margin-bottom:4px; }
+
+  /* ---------- 08 отзыв ---------- */
+  .dark{ background:var(--ink) !important; color:#fff; }
+  .dark .rule{ border-top-color:#fff; }
+  .dark .rule span:last-child{ color:rgba(255,255,255,.5); }
+  .rev .wrap{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); align-items:end; }
+  .rev .who{ display:flex; gap:16px; align-items:center; margin-top:clamp(24px,5vh,56px); }
+  .rev .who img{ width:72px; height:72px; border-radius:50%; object-fit:cover; }
+  .rev .who b{ display:block; font-weight:600; font-size:17px; }
+  .rev .who span{ display:block; font-size:14px; color:rgba(255,255,255,.55); margin-top:4px; }
+  .rev .who a{ border-bottom:1px solid rgba(255,255,255,.3); }
+  .rev blockquote p{ font-weight:500; font-size:clamp(30px,3.6vw,58px); line-height:1.08; letter-spacing:-.035em; text-wrap:pretty; }
+  .voice{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:16px; margin-top:clamp(28px,5vh,52px); padding:10px 18px 10px 10px; border-radius:999px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.18); max-width:620px; }
+  .voice button{ width:52px; height:52px; border-radius:50%; border:0; padding:0; cursor:pointer; background:#fff; display:grid; place-items:center; transition:transform .3s var(--ease); }
+  .voice button:hover{ transform:scale(1.05); }
+  .voice button:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+  .voice svg{ width:18px; height:18px; fill:var(--ink); }
+  .voice .p1{ margin-left:3px; }
+  .voice.is-on .p1, .voice:not(.is-on) .p2{ display:none; }
+  .voice [data-wave]{ display:flex; justify-content:space-between; gap:2px; align-items:center; height:30px; overflow:hidden; cursor:pointer; }
+  .voice [data-wave] i{ flex:0 0 3px; border-radius:2px; background:rgba(255,255,255,.28); transition:background .2s; }
+  .voice [data-wave] i.on{ background:var(--red); }
+  .voice [data-time]{ font-size:12px; color:rgba(255,255,255,.55); white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .voice-cap{ font-size:13px; color:rgba(255,255,255,.5); margin-top:12px; }
+
+  /* ---------- 09 цены ---------- */
+  .prow{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:8px 24px; align-items:baseline; padding:clamp(14px,2.2vh,22px) 0; border-top:1px solid var(--hair); }
+  .prow strong{ display:block; font-weight:600; font-size:clamp(18px,1.5vw,22px); letter-spacing:-.015em; }
+  .prow p{ font-size:15.5px; color:var(--dim); margin-top:6px; line-height:1.45; text-wrap:pretty; max-width:30em; }
+  .prow .n{ font-weight:500; font-size:clamp(38px,4.6vw,72px); letter-spacing:-.05em; line-height:.9; text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .prow .n small{ font-size:.42em; letter-spacing:-.02em; color:var(--faint); margin-right:.3em; }
+  .pextra{ display:grid; grid-template-columns:1fr 1fr; gap:0 clamp(24px,4vw,72px); border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+  .pextra > a{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 16px; align-items:baseline; padding:clamp(14px,2.2vh,22px) 0; }
+  .pextra strong{ font-weight:600; font-size:clamp(17px,1.35vw,20px); letter-spacing:-.015em; }
+  .pextra span{ grid-column:1; font-size:14.5px; color:var(--dim); }
+  .pextra em{ grid-row:1 / span 2; grid-column:2; font-style:normal; font-weight:500; font-size:clamp(26px,2.6vw,40px); letter-spacing:-.04em; white-space:nowrap; }
+  .pnote{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px 32px; margin-top:clamp(16px,2.6vh,26px); font-size:15.5px; line-height:1.45; color:var(--dim); }
+  .pnote b{ color:var(--ink); font-weight:600; }
+
+  /* ---------- 10 FAQ ---------- */
+  .faq .wrap{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); align-items:start; }
+  .faq details{ border-top:1px solid var(--hair); }
+  .faq details:last-child{ border-bottom:1px solid var(--hair); }
+  .faq summary{ list-style:none; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:20px; align-items:baseline; padding:clamp(16px,2.4vh,22px) 0; cursor:pointer; }
+  .faq summary::-webkit-details-marker{ display:none; }
+  .faq h3{ font-weight:500; font-size:clamp(19px,1.6vw,24px); letter-spacing:-.02em; line-height:1.2; text-wrap:balance; }
+  .faq summary i{ font-style:normal; font-size:24px; line-height:1; color:var(--red); transition:transform .3s var(--ease); }
+  .faq details[open] summary i{ transform:rotate(45deg); }
+  .faq .a{ font-size:16px; line-height:1.5; color:var(--dim); padding:0 clamp(0px,4vw,60px) clamp(18px,2.6vh,24px) 0; max-width:44em; text-wrap:pretty; }
+  .faq .a a{ color:var(--ink); }
+
+  /* ---------- 11 CTA ---------- */
+  .end{ padding-bottom:clamp(64px,10vh,110px); }
+  .end .h2{ font-size:clamp(46px,7.4vw,120px); line-height:.9; margin:clamp(28px,5vh,56px) 0 clamp(20px,3vh,28px); }
+  .end .lede{ color:rgba(255,255,255,.72); max-width:30em; }
+  .end .btn{ background:#fff; color:var(--ink); margin-top:clamp(28px,5vh,48px); }
+  .end .btn:hover{ background:#eee; }
+  .contacts{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 24px; margin-top:clamp(40px,7vh,80px); border-top:1px solid rgba(255,255,255,.2); padding-top:14px; font-size:15px; }
+  .contacts span{ display:block; font-size:12.5px; color:rgba(255,255,255,.5); margin-bottom:4px; }
+
+  .foot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px 30px; padding:26px var(--pad) 36px; font-size:13px; color:rgba(255,255,255,.5); background:var(--ink); border-top:1px solid rgba(255,255,255,.12); }
+  .foot .links{ display:flex; flex-wrap:wrap; gap:10px 28px; }
+  .foot a:hover{ color:#fff; }
+
+  /* ---------- появление ---------- */
+  .rv{ opacity:0; transform:translateY(16px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .rv.shown{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .rv{ opacity:1; transform:none; transition:none; } }
+
+  /* ---------- планшет ---------- */
+  @media (max-width:1100px){
+    .cover .wrap{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+    .plist li{ grid-template-columns:clamp(56px,8vw,90px) minmax(0,1fr); }
+    .plist li p{ grid-column:2; }
+    .qlist{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .qlist li:nth-child(n+9){ border-bottom:0; }
+    .qlist li:nth-child(n+10){ border-bottom:1px solid var(--hair); }
+    .case .wrap, .rev .wrap, .faq .wrap{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- телефон ---------- */
+  @media (max-width:760px){
+    .sec, .sec.soft, .sec.dark, .sec.soft + .sec, .sec.dark + .sec{ padding-top:56px; padding-bottom:56px; }
+    .sec + .sec{ padding-top:0; }
+    .rule{ font-size:12px; }
+    .rule span:nth-child(2):not(:last-child){ display:none; }
+    .h2{ font-size:clamp(34px,10vw,44px); margin:18px 0 18px; }
+    .lede{ font-size:16.5px; }
+    .btn{ width:100%; justify-content:space-between; padding:18px 22px; }
+
+    .cover{ padding-top:64px; padding-bottom:40px; }
+    .cover .wrap{ display:flex; flex-direction:column; height:auto; min-height:0; gap:0; }
+    .cover .l .rule{ display:none; }
+    .cover h1{ font-size:clamp(40px,11.4vw,50px); margin-top:22px; }
+    .cover .lede{ margin-top:16px; }
+    .cover .btn{ margin-top:20px; }
+    .cover figure{ margin-top:28px; }
+
+    .fears .wrap, .q12 .top-row{ display:block; }
+    .flist{ margin-top:22px; }
+    .flist li{ padding:14px 0; }
+    .flist q{ font-size:22px; }
+    .flist span{ font-size:12.5px; margin-top:6px; }
+
+    .q12 .lede{ padding-bottom:18px; }
+    .qlist{ grid-template-columns:1fr 1fr; column-gap:16px; }
+    .qlist li{ padding:10px 0 12px; font-size:15.5px; }
+    .qlist li::before{ margin-bottom:4px; font-size:11px; }
+    .qlist li:nth-child(n+9), .qlist li:nth-child(n+10){ border-bottom:0; }
+    .qlist li:nth-child(n+11){ border-bottom:1px solid var(--hair); }
+
+    .plist li{ grid-template-columns:40px minmax(0,1fr); gap:4px 8px; padding:12px 0; }
+    .plist b{ font-size:20px; }
+    .plist strong{ font-size:17px; }
+    .plist p{ font-size:14.5px; line-height:1.4; }
+
+    .cards{ grid-template-columns:1fr; gap:12px; }
+    .card{ min-height:0; padding:22px 20px; }
+    .card h3{ font-size:26px; margin-top:12px; }
+    .card p{ font-size:15px; margin-top:10px; }
+    .card .ft{ padding-top:16px; font-size:14.5px; }
+
+    .case .wrap{ display:flex; flex-direction:column; gap:24px; }
+    .kf{ margin-top:18px; }
+    .kf li{ grid-template-columns:44px minmax(0,1fr); font-size:14.5px; padding:9px 0; }
+    .kf b{ font-size:21px; }
+    .golinks{ margin-top:18px; font-size:15px; }
+
+    .pair{ grid-template-columns:1fr; gap:22px; }
+    .pair figcaption{ font-size:14.5px; margin-top:10px; }
+    .pair figcaption b{ font-size:16.5px; }
+
+    .rev .wrap{ display:flex; flex-direction:column; gap:22px; }
+    .rev .who{ margin-top:22px; }
+    .rev .who img{ width:56px; height:56px; }
+    .rev blockquote p{ font-size:clamp(25px,7.2vw,30px); }
+    .voice{ gap:12px; padding:8px 14px 8px 8px; margin-top:26px; }
+    .voice button{ width:46px; height:46px; }
+
+    .prow{ grid-template-columns:minmax(0,1fr) auto; gap:4px 12px; padding:14px 0; align-items:end; }
+    .prow p{ font-size:14px; margin-top:4px; }
+    .prow strong{ font-size:17px; }
+    .prow .n{ font-size:30px; }
+    .prow .n small{ display:block; font-size:12px; margin:0 0 4px; letter-spacing:0; }
+    .pextra{ grid-template-columns:1fr; }
+    .pextra > a + a{ border-top:1px solid var(--hair); }
+    .pextra > a{ padding:14px 0; }
+    .pextra strong{ font-size:16.5px; }
+    .pextra span{ font-size:13.5px; }
+    .pextra em{ font-size:24px; }
+    .pnote{ font-size:14px; flex-direction:column; gap:6px; }
+
+    .faq summary{ padding:14px 0; gap:14px; }
+    .faq h3{ font-size:17.5px; }
+    .faq .a{ font-size:15px; padding-right:0; }
+
+    .end .h2{ font-size:clamp(44px,13vw,56px); margin-top:24px; }
+    .contacts{ grid-template-columns:1fr; gap:12px; margin-top:36px; }
+    .foot{ padding-bottom:100px; }
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "@id": "https://tinadigital.ru/sajt-dlya-vracha/#service", "name": "Сайт для врача и клиники под ключ", "serviceType": "Разработка медицинского сайта", "url": "https://tinadigital.ru/sajt-dlya-vracha/", "description": "Разработка сайта для частного врача, пластического хирурга и клиники: структура по вопросам пациента, путь от консультации до восстановления, честный блок о цене, запись без форм, мобильная версия, SEO и GEO под медицинские запросы, юридическая часть (152-ФЗ, предупреждение о противопоказаниях, сведения о лицензии). Срок разработки не больше месяца.", "provider": {"@id": "https://tinadigital.ru/#studio"}, "areaServed": [{"@type": "Country", "name": "Россия"}, {"@type": "City", "name": "Санкт-Петербург"}], "audience": {"@type": "Audience", "audienceType": "Частные врачи, пластические хирурги, медицинские клиники"}, "offers": [{"@type": "Offer", "name": "Одностраничный сайт для врача", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "60000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/#price"}, {"@type": "Offer", "name": "Многостраничный сайт для врача или клиники", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "80000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/#price"}, {"@type": "Offer", "name": "Сложные сценарии и отдельная мобильная версия", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "150000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/#price"}, {"@type": "Offer", "name": "Сайт по закону для медицины", "price": "15000", "priceCurrency": "RUB", "url": "https://tinadigital.ru/zakon/"}, {"@type": "Offer", "name": "Юридическая часть при заказе сайта", "price": "5000", "priceCurrency": "RUB", "url": "https://tinadigital.ru/sajt-dlya-vracha/#price"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"TINA DIGITAL","item":"https://tinadigital.ru/"},{"@type":"ListItem","position":2,"name":"Сайты под ключ","item":"https://tinadigital.ru/turnkey/"},{"@type":"ListItem","position":3,"name":"Сайт для врача и клиники","item":"https://tinadigital.ru/sajt-dlya-vracha/"}]}</script>
+<script type="application/ld+json" id="faq-ld">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит сайт для врача?", "acceptedAnswer": {"@type": "Answer", "text": "Одностраничный сайт от 60 000 ₽, многостраничный от 80 000 ₽, сложные сценарии и отдельная мобильная версия от 150 000 ₽. Финальная стоимость зависит от структуры, количества страниц, контента и сложности механики."}}, {"@type": "Question", "name": "Сколько времени займёт разработка?", "acceptedAnswer": {"@type": "Answer", "text": "Не больше месяца. Точный срок называю после того, как посмотрю задачу и объём работы."}}, {"@type": "Question", "name": "Чем сайт врача отличается от обычного сайта услуг?", "acceptedAnswer": {"@type": "Answer", "text": "Пациент принимает личное решение с риском, и прайс его не убеждает. Сайт отвечает на его вопросы по порядку, объясняет путь от консультации до восстановления и только потом предлагает запись."}}, {"@type": "Question", "name": "Нужна ли на сайте врача форма записи?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. На сайте пластического хирурга Филиппа Помазкова пациент выбирает дату, время и тему разговора, а сайт открывает Telegram с готовым сообщением. Сайт при этом не собирает персональных и медицинских данных."}}, {"@type": "Question", "name": "Что нужно по закону на сайте врача или клиники?", "acceptedAnswer": {"@type": "Answer", "text": "Политика обработки персональных данных, отдельное согласие для форм, баннер cookie, который включает аналитику только после согласия, предупреждение «Имеются противопоказания» и сведения о лицензии. При заказе сайта у меня это стоит 5 000 ₽. Для готового сайта это услуга «Сайт по закону», для медицины 15 000 ₽."}}, {"@type": "Question", "name": "Будет ли сайт виден в Яндексе и нейросетях?", "acceptedAnswer": {"@type": "Answer", "text": "Базу для поиска закладываю при разработке: title, description, robots, sitemap. Продвижение под медицинские запросы идёт отдельно: настройка SEO + GEO от 40 000 ₽, ведение от 20 000 ₽ в месяц."}}]}</script>
+</head>
+<body>
+
+<header class="top">
+  <a href="../">TINA DIGITAL</a>
+  <nav><a href="../projects/">Кейсы</a><a href="../turnkey/">Сайты под ключ</a><a href="../seo-geo/">SEO + GEO</a><a href="../direct/">Яндекс Директ</a><a href="../zakon/">Сайт по закону</a><a class="m" href="#cta">Обсудить</a></nav>
+</header>
+
+<main>
+
+<!-- 01 обложка -->
+<section class="sec cover">
+  <div class="wrap">
+    <div class="l">
+      <div class="rule"><span>Медицинские сайты</span><span>Санкт‑Петербург и&nbsp;вся Россия</span></div>
+      <div>
+        <h1>Сайт для&nbsp;врача<br>и&nbsp;клиники<span class="dot">.</span></h1>
+        <p class="lede">Пациент выбирает врача не&nbsp;по&nbsp;прайсу. Сайт&nbsp;должен вызвать доверие, показать путь от&nbsp;консультации до&nbsp;восстановления и&nbsp;довести до&nbsp;записи без&nbsp;давления.</p>
+        <p class="meta">от&nbsp;60&nbsp;000&nbsp;₽ · срок не&nbsp;больше месяца</p>
+        <a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Обсудить сайт в&nbsp;Telegram <i aria-hidden="true">→</i></a>
+      </div>
+    </div>
+    <figure>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru</span></div>
+        <img src="../assets/pomazkov/d-hero.jpg" width="2400" height="1500" alt="Первый экран сайта пластического хирурга Филиппа Помазкова" fetchpriority="high" decoding="async" data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAA0AFAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOU0+2SR0FxDG8eM8thmPYCnapZwFkS2tmiLYJ3MOCe1UvtUkN+gj4UhRtOGx06Zp2o6jMk8saBNucAlQWHHrigCN7e8diwSIjseeaKrRQs8YYyHn6/40UCP/9k=)">
+      </div>
+      <figcaption class="cap">Сайт пластического хирурга Филиппа Помазкова, Санкт‑Петербург</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 02 страхи -->
+<section class="sec fears">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>02</span><span>Почему красоты мало</span></div>
+      <h2 class="h2">Красивого&nbsp;сайта<br>врачу мало<span class="dot">.</span></h2>
+      <p class="lede">Перед операцией пациент принимает личное решение с&nbsp;риском. Сайт&nbsp;продаёт не&nbsp;услугу, а&nbsp;снижение неопределённости. Сначала&nbsp;он&nbsp;снимает страхи, которые пациент называет сам.</p>
+    </div>
+    <div class="rv">
+      <ol class="flist">
+        <li><q>«Результат не&nbsp;совпадёт с&nbsp;тем, что в&nbsp;голове»</q><span>страх пациента</span></li>
+        <li><q>«Долгая реабилитация. Наркоз»</q><span>страх пациента</span></li>
+        <li><q>«Молодой возраст»</q><span>почему не&nbsp;выбирают врача</span></li>
+      </ol>
+      <p class="cap">Из&nbsp;досье бренда, которое я&nbsp;собрала до&nbsp;дизайна сайта Филиппа Помазкова.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 12 вопросов -->
+<section class="sec soft q12">
+  <div class="wrap rv">
+    <div class="rule"><span>03</span><span>Структура</span></div>
+    <div class="top-row">
+      <h2 class="h2">12&nbsp;вопросов<br>пациента<span class="dot">.</span></h2>
+      <p class="lede">Обычный медицинский сайт отвечает на&nbsp;вопросы клиники: услуги, о&nbsp;враче, отзывы, форма. Я&nbsp;строю сайт на&nbsp;вопросах, которые пациент задаёт себе сам, по&nbsp;порядку.</p>
+    </div>
+    <ol class="qlist">
+      <li>Куда я&nbsp;попал?</li><li>Что вы&nbsp;хотите изменить?</li><li>Какого результата можно добиться?</li><li>Сделает&nbsp;ли он&nbsp;именно то, что&nbsp;нужно?</li>
+      <li>Какой он&nbsp;хирург?</li><li>Почему доверять именно&nbsp;ему?</li><li>Что будет происходить со&nbsp;мной?</li><li>После операции я&nbsp;останусь один?</li>
+      <li>Сколько это&nbsp;стоит?</li><li>Что говорят другие&nbsp;пациенты?</li><li>Хочу понять ещё&nbsp;больше</li><li>Хорошо. Что&nbsp;делать&nbsp;дальше?</li>
+    </ol>
+    <p class="cap">Структура сайта пластического хирурга Филиппа Помазкова: каждый блок отвечает на&nbsp;один вопрос.</p>
+  </div>
+</section>
+
+<!-- 04 что делаю -->
+<section class="sec do">
+  <div class="wrap rv">
+    <div class="rule"><span>04</span><span>Что я&nbsp;делаю</span></div>
+    <h2 class="h2">Что я&nbsp;делаю<br>на&nbsp;сайте врача<span class="dot">.</span></h2>
+    <ol class="plist">
+      <li><b>01</b><strong>Структура по&nbsp;вопросам пациента</strong><p>Блоки идут в&nbsp;том порядке, в&nbsp;котором думает пациент: от&nbsp;«куда я&nbsp;попал?» до&nbsp;«что делать дальше?»</p></li>
+      <li><b>02</b><strong>Путь пациента</strong><p>От&nbsp;консультации до&nbsp;восстановления и&nbsp;контроля результата. Процесс&nbsp;на&nbsp;сайте не&nbsp;скрыт, а&nbsp;объяснён.</p></li>
+      <li><b>03</b><strong>Честный блок о&nbsp;цене</strong><p>Если цену нельзя назвать заранее, сайт так и&nbsp;говорит. И&nbsp;объясняет, из&nbsp;чего складывается стоимость.</p></li>
+      <li><b>04</b><strong>Запись без&nbsp;форм</strong><p>Пациент выбирает дату и&nbsp;тему, сайт открывает Telegram с&nbsp;готовым сообщением. Не&nbsp;нужно звонить и&nbsp;объяснять вслух личный вопрос.</p></li>
+      <li><b>05</b><strong>Мобильная версия</strong><p>Не&nbsp;сжатый десктоп. Навигация,&nbsp;путь пациента и&nbsp;запись собраны заново под&nbsp;телефон.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 05 поиск и закон -->
+<section class="sec after">
+  <div class="wrap rv">
+    <div class="rule"><span>05</span><span>Поиск и&nbsp;закон</span></div>
+    <h2 class="h2">Поиск<br>и&nbsp;закон<span class="dot">.</span></h2>
+    <div class="cards">
+      <a class="card" href="../seo-geo/">
+        <i>Поиск</i>
+        <h3>SEO и&nbsp;GEO<br>для&nbsp;медицины</h3>
+        <p>Страницы под&nbsp;то, как пациенты ищут врача, чтобы сайт находили в&nbsp;Яндексе, Google и&nbsp;в&nbsp;ответах нейросетей. Базу&nbsp;закладываю ещё при&nbsp;разработке.</p>
+        <div class="ft"><b>настройка от&nbsp;40&nbsp;000&nbsp;₽</b><span class="link">SEO + GEO →</span></div>
+      </a>
+      <a class="card" href="../zakon/">
+        <i>Закон</i>
+        <h3>Юридическая часть</h3>
+        <p>152‑ФЗ, баннер cookie, который включает аналитику только после согласия, «Имеются противопоказания» и&nbsp;сведения о&nbsp;лицензии. Проверяю&nbsp;и&nbsp;внедряю сама: я&nbsp;юрист.</p>
+        <div class="ft"><b>к&nbsp;новому сайту 5&nbsp;000&nbsp;₽ · готовый сайт 15&nbsp;000&nbsp;₽</b><span class="link">Сайт по&nbsp;закону →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 06 кейс -->
+<section class="sec soft case" id="case">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>06</span><span>Кейс</span></div>
+      <h2 class="h2">Сайт<br>хирурга<span class="dot">.</span></h2>
+      <p class="lede">Филипп Помазков, пластический хирург из&nbsp;Санкт‑Петербурга. До&nbsp;первого макета: досье бренда, исследование воронки медицинских сайтов и&nbsp;структура из&nbsp;12&nbsp;блоков.</p>
+      <ul class="kf">
+        <li><b>5</b><span>направлений через язык пациента, а&nbsp;не&nbsp;медицинские термины</span></li>
+        <li><b>7</b><span>точек пути пациента: от&nbsp;консультации до&nbsp;контроля</span></li>
+        <li><b>0</b><span>форм и&nbsp;хранимых данных: запись через&nbsp;Telegram</span></li>
+      </ul>
+      <p class="golinks"><a class="link" href="../cases/pomazkov/">Смотреть кейс целиком →</a><a href="https://drpomazkov.ru" target="_blank" rel="noopener">drpomazkov.ru ↗</a></p>
+    </div>
+    <figure class="rv">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · путь пациента</span></div>
+        <video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAA0AFAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APQdpLkeYwHX/PFABVvvMcep/wDrUbsT7cdRSt9/NSMeOlFCnIooA//Z);aspect-ratio:auto 1440 / 900" src="../assets/pomazkov/v-journey-d.mp4" poster="../assets/pomazkov/v-journey-d.jpg" width="1440" height="900" muted loop playsinline preload="none" data-auto aria-label="Блок «Путь пациента» на сайте Филиппа Помазкова"></video>
+      </div>
+      <figcaption class="cap">Путь пациента: семь шагов от&nbsp;консультации до&nbsp;контроля результата</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 07 цена и запись -->
+<section class="sec shots">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>07</span><span>Кейс: цена и&nbsp;запись</span></div>
+      <h2 class="h2">Честная цена.<br>Запись без&nbsp;форм<span class="dot">.</span></h2>
+    </div>
+    <div class="pair">
+      <figure class="rv">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · стоимость</span></div>
+          <img src="../assets/pomazkov/d-price.jpg" width="1600" height="777" alt="Блок стоимости на сайте хирурга" loading="lazy" decoding="async" data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAAoAFAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AO7RJTI5M5254XaOPxqbJJ46UYpagYUUUUAf/9k=)">
+        </div>
+        <figcaption><b>Стоимость</b>Цену операции нельзя назвать заранее, и&nbsp;сайт этого не&nbsp;скрывает. Он&nbsp;объясняет, из&nbsp;чего она складывается.</figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru · консультация</span></div>
+          <img src="../assets/pomazkov/d-consultation.jpg" width="1600" height="784" alt="Запись на консультацию с выбором даты" loading="lazy" decoding="async" data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAAoAFAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AO8jWbzmLSBkycDGCKsqgPJPFVwT607c3qfzqBkjAA8UVEWPqfzooA//2Q==)">
+        </div>
+        <figcaption><b>Запись</b>Дата, время и&nbsp;тема разговора. Дальше&nbsp;Telegram с&nbsp;готовым сообщением, данные остаются в&nbsp;личной переписке.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 08 отзыв -->
+<section class="sec dark rev">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>08</span><span>Отзыв</span></div>
+      <div class="who">
+        <img src="../assets/reviews/pomazkov.jpg" width="240" height="240" alt="Филипп Помазков" loading="lazy" decoding="async">
+        <div><b>Филипп Помазков</b><span>Пластический хирург · <a href="https://drpomazkov.ru" target="_blank" rel="noopener">drpomazkov.ru</a></span></div>
+      </div>
+    </div>
+    <div class="rv">
+      <blockquote><p>«Колоссальную работу ты&nbsp;проделала, прям реально титаническую. Получилось&nbsp;всё даже лучше, чем я&nbsp;себе это&nbsp;представлял.»</p></blockquote>
+      <div class="voice" data-voice>
+        <button type="button" aria-label="Слушать голосовой отзыв Филиппа Помазкова, 0:37"><svg class="p1" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg><svg class="p2" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+        <div data-wave aria-hidden="true"></div>
+        <span data-time>0:37</span>
+        <audio preload="none" src="../assets/pomazkov/review.m4a"></audio>
+      </div>
+      <p class="voice-cap">Голосовой отзыв после запуска сайта</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 цены -->
+<section class="sec price" id="price">
+  <div class="wrap rv">
+    <div class="rule"><span>09</span><span>Цены и&nbsp;сроки</span></div>
+    <h2 class="h2">Цены<br>и&nbsp;сроки<span class="dot">.</span></h2>
+    <div class="prow"><div><strong>Одностраничный сайт</strong><p>Одна страница: о&nbsp;враче, услуги, цены, запись.</p></div><div class="n"><small>от</small>60&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Многостраничный сайт</strong><p>Отдельные страницы для&nbsp;услуг, направлений и&nbsp;врачей клиники.</p></div><div class="n"><small>от</small>80&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Сложные сценарии</strong><p>Нестандартная механика, отдельная мобильная версия.</p></div><div class="n"><small>от</small>150&nbsp;000&nbsp;₽</div></div>
+    <div class="pextra">
+      <a href="../zakon/"><strong>Юридическая часть к&nbsp;новому сайту&nbsp;→</strong><span>152‑ФЗ, противопоказания, лицензия. Для&nbsp;готового сайта 15&nbsp;000&nbsp;₽</span><em>5&nbsp;000&nbsp;₽</em></a>
+      <a href="../seo-geo/"><strong>SEO + GEO&nbsp;→</strong><span>ведение от&nbsp;20&nbsp;000&nbsp;₽ в&nbsp;месяц</span><em>от&nbsp;40&nbsp;000&nbsp;₽</em></a>
+    </div>
+    <p class="pnote"><span><b>Срок разработки не&nbsp;больше месяца.</b></span><span>Итог зависит от&nbsp;структуры, числа страниц, контента и&nbsp;сложности механики.</span></p>
+  </div>
+</section>
+
+<!-- 10 FAQ -->
+<section class="sec soft faq" id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>10</span><span>Вопросы</span></div>
+      <h2 class="h2">Частые<br>вопросы<span class="dot">.</span></h2>
+    </div>
+    <div class="rv" id="faqList">
+      <details open><summary><h3>Сколько стоит сайт для&nbsp;врача?</h3><i aria-hidden="true">+</i></summary><p class="a">Одностраничный сайт от&nbsp;60&nbsp;000&nbsp;₽, многостраничный от&nbsp;80&nbsp;000&nbsp;₽, сложные сценарии и&nbsp;отдельная мобильная версия от&nbsp;150&nbsp;000&nbsp;₽. Финальная&nbsp;стоимость зависит от&nbsp;структуры, количества страниц, контента и&nbsp;сложности механики.</p></details>
+      <details><summary><h3>Сколько времени займёт разработка?</h3><i aria-hidden="true">+</i></summary><p class="a">Не&nbsp;больше месяца. Точный&nbsp;срок называю после того, как посмотрю задачу и&nbsp;объём работы.</p></details>
+      <details><summary><h3>Чем сайт врача отличается от&nbsp;обычного сайта услуг?</h3><i aria-hidden="true">+</i></summary><p class="a">Пациент принимает личное решение с&nbsp;риском, и&nbsp;прайс его не&nbsp;убеждает. Сайт&nbsp;отвечает на&nbsp;его вопросы по&nbsp;порядку, объясняет путь от&nbsp;консультации до&nbsp;восстановления и&nbsp;только потом предлагает запись.</p></details>
+      <details><summary><h3>Нужна&nbsp;ли на&nbsp;сайте врача форма записи?</h3><i aria-hidden="true">+</i></summary><p class="a">Не&nbsp;обязательно. На&nbsp;сайте пластического хирурга Филиппа Помазкова пациент выбирает дату, время и&nbsp;тему разговора, а&nbsp;сайт открывает Telegram с&nbsp;готовым сообщением. Сайт&nbsp;при&nbsp;этом не&nbsp;собирает персональных и&nbsp;медицинских данных.</p></details>
+      <details><summary><h3>Что нужно по&nbsp;закону на&nbsp;сайте врача или клиники?</h3><i aria-hidden="true">+</i></summary><p class="a">Политика обработки персональных данных, отдельное согласие для&nbsp;форм, баннер cookie, который включает аналитику только после согласия, предупреждение «Имеются противопоказания» и&nbsp;сведения о&nbsp;лицензии. При заказе сайта у&nbsp;меня это&nbsp;стоит 5&nbsp;000&nbsp;₽. Для&nbsp;готового сайта это&nbsp;услуга <a class="link" href="../zakon/">«Сайт по&nbsp;закону»</a>, для&nbsp;медицины 15&nbsp;000&nbsp;₽.</p></details>
+      <details><summary><h3>Будет&nbsp;ли сайт виден в&nbsp;Яндексе и&nbsp;нейросетях?</h3><i aria-hidden="true">+</i></summary><p class="a">Базу для&nbsp;поиска закладываю при&nbsp;разработке: title, description, robots, sitemap. Продвижение&nbsp;под&nbsp;медицинские запросы идёт отдельно: настройка <a class="link" href="../seo-geo/">SEO + GEO</a> от&nbsp;40&nbsp;000&nbsp;₽, ведение от&nbsp;20&nbsp;000&nbsp;₽ в&nbsp;месяц.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 11 CTA -->
+<section class="sec dark end" id="cta">
+  <div class="wrap">
+    <div class="rule"><span>11</span><span>Telegram</span></div>
+    <h2 class="h2">Расскажите<br>о&nbsp;практике<span class="dot">.</span></h2>
+    <p class="lede">Кто вы, с&nbsp;какими запросами приходят пациенты и&nbsp;есть&nbsp;ли сайт сейчас. Отвечу&nbsp;сама и&nbsp;скажу, с&nbsp;чего начать.</p>
+    <a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Написать в&nbsp;Telegram <i aria-hidden="true">→</i></a>
+    <div class="contacts">
+      <div><span>Telegram</span><a href="https://t.me/tina_digital" target="_blank" rel="noopener">@tina_digital</a></div>
+      <div><span>Почта</span><a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></div>
+      <div><span>Сайты под&nbsp;ключ</span><a href="../turnkey/">tinadigital.ru/turnkey</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../privacy/">Политика конфиденциальности</a><a href="../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
+  <span>Сайт для&nbsp;врача и&nbsp;клиники</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var TG = 'https://t.me/tina_digital';
+  var MSG = 'Здравствуйте! Нужен сайт для врача или клиники.';
+  document.querySelectorAll('[data-tg]').forEach(function(a){
+    a.href = TG + '?text=' + encodeURIComponent(MSG);
+    a.addEventListener('click', function(){ if (window.tinaGoal) window.tinaGoal('telegram'); });
+  });
+
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px 20% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('shown'); });
+
+  /* LQIP убираем, когда картинка или видео загрузились */
+  document.querySelectorAll('img[data-lqip]').forEach(function(im){
+    function done(){ im.style.backgroundImage = 'none'; }
+    if (im.complete && im.naturalWidth) done(); else im.addEventListener('load', done);
+  });
+  document.querySelectorAll('video[data-lqip]').forEach(function(v){
+    v.addEventListener('loadeddata', function(){ v.style.backgroundImage = 'none'; });
+  });
+
+  /* видео играют только когда видны */
+  var vids = document.querySelectorAll('video[data-auto]');
+  if ('IntersectionObserver' in window){
+    var pre = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting){ var v = e.target; if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } pre.unobserve(v); }
+    }); }, { rootMargin:'100% 0px 100% 0px' });
+    var vo = new IntersectionObserver(function(es){ es.forEach(function(e){
+      var v = e.target; v._vis = e.isIntersecting;
+      if (e.isIntersecting) v.play().catch(function(){}); else v.pause();
+    }); }, { threshold:.05 });
+    vids.forEach(function(v){
+      v.addEventListener('canplay', function(){ if (v._vis && v.paused) v.play().catch(function(){}); });
+      pre.observe(v); vo.observe(v);
+    });
+  }
+
+  /* FAQ: открыт один вопрос за раз */
+  var ds = document.querySelectorAll('#faqList details');
+  ds.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) ds.forEach(function(o){ if (o !== d) o.open = false; }); }); });
+})();
+</script>
+<script src="../assets/reviews/voice.js"></script>
+<script src="../assets/nav/mobile-nav.js"></script>
+<script src="../assets/legal/legal.js"></script>
+</body>
+</html>
