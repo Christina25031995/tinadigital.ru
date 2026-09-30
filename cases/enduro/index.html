@@ -241,6 +241,26 @@
   .browser.rv, .phone.rv, .metrica.rv{ transform:none; transition:opacity .45s ease; }
   .rv.in{ opacity:1; transform:none; }
   @media (prefers-reduced-motion: reduce){ .hs{ animation:none; opacity:1; transform:none; } .rv{ opacity:1; transform:none; transition:none; } }
+
+  /* v2: скрин сайта клиента = окно со светлой рамкой; кейс = бумага */
+  .browser{ background:#fff; border-radius:12px; box-shadow:0 40px 90px -40px rgba(20,23,18,.5), 0 0 0 1px rgba(20,23,18,.12) !important; }
+  .browser .bar{ background:#ECE9E2; border-bottom:1px solid rgba(20,23,18,.1); }
+  .browser .bar i{ background:#C9C4B9; }
+  .browser .bar span{ background:#fff; color:#5d625c; box-shadow:0 0 0 1px rgba(20,23,18,.08); }
+  .hero-shot{ background:var(--light); padding-top:clamp(60px,7vw,110px); }
+  .hero-shot .cap-line{ color:var(--t-dark); }
+  .light, .light2{ --l-ink:var(--t-dark); --l-dim:var(--t-dim); --l-faint:var(--t-faint); }
+  .light .swap div, .light2 .swap div, .light .answers li, .light2 .answers li, .light .flow span, .light2 .flow span, .light .rows, .light .rows > div{ border-color:rgba(20,23,18,.16); }
+  .light .flow span.on, .light2 .flow span.on{ background:var(--t-dark); border-color:var(--t-dark); color:var(--light); }
+  .light .swatches div, .light2 .swatches div{ box-shadow:inset 0 0 0 1px rgba(20,23,18,.12); }
+  /* один акцент: курсив в заголовках без цвета, оранжевый только у результата */
+  .h-xl em, .h-l em, .big-quote em, .cover .tag em{ color:inherit !important; }
+  .label b, .answers li::before, .objections li::before, .ann b, .layers b, .offer b, .swap .now small, .live span{ color:inherit !important; }
+  .result{ min-height:100vh; min-height:100svh; display:flex; align-items:center; background:var(--forest); color:var(--l-ink); padding:100px var(--pad); }
+  .result .wrap{ width:100%; }
+  .r-num{ margin:0; font-weight:600; letter-spacing:-.06em; line-height:.8; font-size:clamp(120px,26vw,420px); color:var(--orange); white-space:nowrap; }
+  .r-line{ margin:clamp(20px,2.4vw,40px) 0 0; font-size:clamp(26px,3.4vw,56px); line-height:1.08; font-weight:600; letter-spacing:-.03em; }
+  .r-src{ margin:clamp(22px,2.6vw,40px) 0 0; font-size:13px; line-height:1.5; color:var(--l-faint); }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","@id":"https://tinadigital.ru/cases/enduro/#case","name":"Enduro Energy: сайт проката эндуро-мотоциклов","headline":"Enduro Energy: сайт проката эндуро-мотоциклов","description":"Кейс: сайт проката эндуро-мотоциклов Enduro Energy. Позиционирование «приключение, а не прокат», UX для новичка, интерактивный калькулятор, мобильная версия и SEO-архитектура. 94,7% визитов из поиска без рекламы за 1–23 сентября 2026 года (Яндекс Метрика).","url":"https://tinadigital.ru/cases/enduro/","image":"https://tinadigital.ru/assets/enduro/v-hero-d.jpg","inLanguage":"ru","genre":"Кейс","dateCreated":"2026","author":{"@id":"https://tinadigital.ru/#studio"},"creator":{"@id":"https://tinadigital.ru/#studio"},"about":{"@type":"WebSite","name":"Enduro Energy, прокат эндуро-мотоциклов рядом с Санкт-Петербургом","url":"https://enduro-energy.ru"},"isPartOf":{"@type":"CollectionPage","name":"Кейсы TINA DIGITAL","url":"https://tinadigital.ru/projects/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"TINA DIGITAL","item":"https://tinadigital.ru/"},{"@type":"ListItem","position":2,"name":"Кейсы","item":"https://tinadigital.ru/projects/"},{"@type":"ListItem","position":3,"name":"Enduro Energy: сайт проката эндуро-мотоциклов","item":"https://tinadigital.ru/cases/enduro/"}]}</script>
@@ -275,7 +295,7 @@
 </section>
 
 <!-- 01 бизнес -->
-<section class="sec light">
+<section class="sec light2">
   <div class="wrap grid-2">
     <div class="c-6">
       <p class="label"><b>01</b> бизнес</p>
@@ -297,7 +317,7 @@
 </section>
 
 <!-- 02 позиционирование -->
-<section class="sec dark">
+<section class="sec light">
   <div class="wrap grid-2">
     <div class="c-6">
       <p class="label"><b>02</b> strategy · позиционирование</p>
@@ -371,7 +391,7 @@
 </section>
 
 <!-- 04 маршрут и мотоцикл -->
-<section class="sec dark">
+<section class="sec light">
   <div class="wrap grid-2 blk-head">
     <div class="c-6">
       <p class="label"><b>04</b> ux · выбор</p>
@@ -397,7 +417,7 @@
 </section>
 
 <!-- 05 калькулятор -->
-<section class="sec moss">
+<section class="sec light2">
   <div class="wrap grid-2 blk-head">
     <div class="c-6">
       <p class="label"><b>05</b> interaction · калькулятор</p>
@@ -417,7 +437,7 @@
 </section>
 
 <!-- 06 форматы и доверие -->
-<section class="sec dark">
+<section class="sec light">
   <div class="wrap grid-2 blk-head">
     <div class="c-6">
       <p class="label"><b>06</b> visual · атмосфера</p>
@@ -450,7 +470,7 @@
 </section>
 
 <!-- 07 мобильная версия -->
-<section class="sec moss">
+<section class="sec light2">
   <div class="wrap grid-2">
     <div class="c-6">
       <p class="label"><b>07</b> responsive · мобильная версия</p>
@@ -497,40 +517,34 @@
   </div>
 </section>
 
-<!-- 09 реальные данные Метрики -->
-<section class="sec dark">
+<!-- 09 результат: главный акцент кейса, один экран -->
+<section class="result">
+  <div class="wrap">
+    <p class="label"><b>09</b> результат · яндекс метрика</p>
+    <p class="r-num rv">94,7%</p>
+    <p class="r-line rv">визитов пришли из&nbsp;поиска.<br>На&nbsp;рекламу&nbsp;0&nbsp;₽.</p>
+    <p class="r-src">881 переход из&nbsp;поисковых систем из&nbsp;930 визитов · 1–23 сентября 2026</p>
+  </div>
+</section>
+
+<!-- 10 данные -->
+<section class="sec light">
   <div class="wrap grid-2">
     <div class="c-6">
-      <p class="label"><b>09</b> data · яндекс метрика</p>
-      <h2 class="h-l rv">Клиенты приходят <em>из&nbsp;поиска</em></h2>
+      <p class="label"><b>10</b> что делают посетители</p>
+      <h2 class="h-l rv">Выезд собирают <em>до&nbsp;звонка</em></h2>
     </div>
-    <div class="c-5 off-7">
-      <p class="body rv">Платная реклама на&nbsp;сайт не&nbsp;запускалась. Почти все визиты пришли из&nbsp;органической выдачи, то&nbsp;есть по&nbsp;запросам, под&nbsp;которые сайт проектировался.</p>
-      <span class="src">Яндекс Метрика · 1–23 сентября 2026</span>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="proof">
-      <div class="rv on"><b>94,7%</b><span>визитов пришли из&nbsp;поиска</span></div>
-      <div class="rv"><b>881</b><span>переход из&nbsp;поисковых систем из&nbsp;930 визитов</span></div>
-      <div class="rv"><b>0&nbsp;₽</b><span>на&nbsp;платную рекламу</span></div>
-    </div>
-    <div class="grid-2" style="margin-top:clamp(50px,6vw,90px)">
-      <div class="c-6 rv">
-        <p class="label"><b>целевые действия</b> 1–23 сентября 2026</p>
-        <div class="rows">
+    <div class="c-5 off-7 rv">
+      <p class="body">Платная реклама не&nbsp;запускалась: люди приходят по&nbsp;запросам, под&nbsp;которые сайт проектировался. Дальше доводят расчёт в&nbsp;калькуляторе до&nbsp;конца и&nbsp;переходят к&nbsp;записи.</p>
+      <div class="rows">
           <div><b>18</b><span>завершений расчёта стоимости в&nbsp;калькуляторе</span></div>
           <div><b>13</b><span>переходов в&nbsp;Telegram</span></div>
           <div><b>11</b><span>кликов «Записаться»</span></div>
         </div>
-        <p class="fine">Действия не&nbsp;суммируются: один человек мог совершить несколько.</p>
-      </div>
-      <div class="c-5 off-7 rv">
-        <p class="label"><b>что это значит</b></p>
-        <p class="body">Посетители доводят расчёт до&nbsp;конца и&nbsp;переходят к&nbsp;записи. Калькулятор стал первым шагом к&nbsp;записи.</p>
-      </div>
+        <p class="fine">1–23 сентября 2026. Действия не&nbsp;суммируются: один человек мог совершить несколько.</p>
     </div>
-    <div style="margin-top:clamp(50px,6vw,90px)">
+  </div>
+  <div class="wrap" style="margin-top:clamp(50px,6vw,90px)">
       <figure class="metrica rv">
         <p class="label"><b>квартал</b> 24 июня – 23 сентября 2026</p>
         <div class="browser"><div class="bar"><i></i><i></i><i></i><span>metrika.yandex.ru · по&nbsp;источникам трафика</span></div>
@@ -538,20 +552,6 @@
         </div>
         <p class="fine">Отчёт «По&nbsp;источникам трафика»: рост переходов из&nbsp;поиска с&nbsp;начала сентября. Отдельный период, с&nbsp;данными сентября не&nbsp;смешивается.</p>
       </figure>
-    </div>
-  </div>
-</section>
-
-<!-- 10 результат -->
-<section class="sec moss pause">
-  <div class="wrap">
-    <p class="label"><b>10</b> результат</p>
-    <p class="statement rv">Выезд продан <em>ещё до&nbsp;звонка</em></p>
-    <div class="ann" style="max-width:1200px">
-      <div class="rv"><b>позиционирование</b>Первый экран продаёт приключение и&nbsp;сразу снимает страх новичка.</div>
-      <div class="rv"><b>калькулятор</b>Стоимость видна до&nbsp;разговора с&nbsp;менеджером, выезд собирается на&nbsp;сайте.</div>
-      <div class="rv"><b>поиск</b>Трафик идёт из&nbsp;органической выдачи, без&nbsp;бюджета на&nbsp;рекламу.</div>
-    </div>
   </div>
 </section>
 
