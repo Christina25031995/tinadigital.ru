@@ -16,251 +16,120 @@
 <link rel="stylesheet" href="../../assets/legal/legal.css">
 <link rel="stylesheet" href="../../assets/nav/mobile-nav.css">
 <style>
-  /* акцентный курсив, как в Behance-сете кейса: второй и последний шрифт страницы */
-  @font-face{ font-family:'Cormorant Garamond'; font-style:italic; font-weight:300 700; font-display:swap; src:url("../../assets/fonts/CormorantGaramond-cyrillic-italic.woff2") format("woff2"); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
-  @font-face{ font-family:'Cormorant Garamond'; font-style:italic; font-weight:300 700; font-display:swap; src:url("../../assets/fonts/CormorantGaramond-latin-italic.woff2") format("woff2"); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  /* Система кейса: один шрифт (Manrope), четыре размера, один акцент.
+     display: обложка · h2: заголовок блока · lead: текст · lbl/note: подписи.
+     Оранжевый только у главной цифры результата. Скрины клиента лежат на паспарту. */
   :root{
-    /* палитра сайта enduro-energy.ru */
-    --orange:#FF6B2C; --sunset:#FFAB7A; --forest:#0C0F0D; --forest-2:#13170F; --moss:#181D18; --light:#F5F2EA; --light-2:#ECE7DC;
-    --t-dark:#141712; --t-dim:rgba(20,23,18,.64); --t-faint:rgba(20,23,18,.42);
-    --l-ink:#F5F2EA; --l-dim:rgba(245,242,234,.66); --l-faint:rgba(245,242,234,.4);
-    --sans:'Manrope', system-ui, -apple-system, sans-serif; --it:'Cormorant Garamond', Georgia, serif;
+    --bg:#0E110F; --mat:#1E2320; --ink:#F2EFE8; --dim:rgba(242,239,232,.64); --faint:rgba(242,239,232,.4); --line:rgba(242,239,232,.12);
+    --accent:#FF6B2C;
+    --sans:'Manrope', system-ui, -apple-system, sans-serif;
     --ease:cubic-bezier(.22,.8,.28,1);
     --pad:clamp(20px,5vw,88px);
+    --forest:var(--bg);
   }
   *{ box-sizing:border-box; }
   html{ -webkit-text-size-adjust:100%; }
-  body{ margin:0; background:var(--forest); color:var(--l-ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   img,video{ display:block; max-width:100%; }
   a{ color:inherit; }
-  .nw{ white-space:nowrap; }
 
-  /* ---------- шапка ---------- */
-  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center;
-    padding:20px var(--pad); font-size:13px; font-weight:700; letter-spacing:.12em; mix-blend-mode:difference; color:#fff; }
+  .top{ position:fixed; inset:0 0 auto 0; z-index:50; display:flex; justify-content:space-between; align-items:center; padding:20px var(--pad); font-size:13px; font-weight:700; letter-spacing:.12em; mix-blend-mode:difference; color:#fff; }
   .top a{ text-decoration:none; }
   .top .back{ font-weight:600; letter-spacing:.02em; }
 
-  /* ---------- общие ---------- */
-  .sec{ position:relative; padding:clamp(90px,11vw,170px) var(--pad); }
-  .sec.dark{ background:var(--forest); color:var(--l-ink); }
-  .sec.moss{ background:var(--forest-2); color:var(--l-ink); }
-  .sec.light{ background:var(--light); color:var(--t-dark); }
-  .sec.light2{ background:var(--light-2); color:var(--t-dark); }
-  .wrap{ max-width:1500px; margin:0 auto; }
-  .label{ font-size:11.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--l-faint); display:flex; gap:6px 14px; flex-wrap:wrap; align-items:center; margin:0 0 26px; }
-  .label b{ font-weight:700; color:var(--orange); }
-  .light .label, .light2 .label{ color:var(--t-faint); }
-  .light .label b, .light2 .label b{ color:#D8521A; }
-  .h-xl, .h-l{ font-weight:600; margin:0; letter-spacing:-.03em; text-wrap:balance; }
-  .h-xl{ line-height:.98; font-size:clamp(42px,7vw,118px); }
-  .h-l{ line-height:1.02; font-size:clamp(32px,4.4vw,70px); }
-  .h-xl em, .h-l em, .statement em, .big-quote em, .cover .tag em{ font-family:var(--it); font-style:italic; font-weight:500; letter-spacing:-.01em; color:var(--sunset); font-size:1.14em; line-height:.9; }
-  .light .h-l em, .light2 .h-l em, .light .statement em{ color:#D8521A; }
-  .lede{ font-size:clamp(18px,1.55vw,23px); line-height:1.5; margin:0; text-wrap:pretty; }
-  .body{ font-size:16.5px; line-height:1.65; margin:0 0 14px; text-wrap:pretty; }
-  .dark .body, .dark .lede, .moss .body, .moss .lede{ color:rgba(245,242,234,.8); }
-  .light .body, .light2 .body, .light .lede, .light2 .lede{ color:var(--t-dim); }
-  .src{ display:block; margin-top:14px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; opacity:.5; }
-  .grid-2{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(20px,3vw,48px); align-items:start; }
-  .c-5{ grid-column:span 5; } .c-6{ grid-column:span 6; } .c-7{ grid-column:span 7; }
-  .c-5.off-7{ grid-column:7 / span 5; } .c-6.off-7{ grid-column:7 / span 6; }
-  @media (max-width: 900px){ .grid-2 > *{ grid-column:1 / -1 !important; } }
-  .blk-head{ margin-bottom:clamp(36px,5vw,70px); }
+  /* типографика: 4 уровня */
+  .lbl{ margin:0 0 20px; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); }
+  .h2{ margin:0; font-size:clamp(30px,3.3vw,52px); line-height:1.06; font-weight:600; letter-spacing:-.03em; text-wrap:balance; }
+  .lead{ margin:22px 0 0; font-size:clamp(16px,1.25vw,19px); line-height:1.55; color:var(--dim); text-wrap:pretty; max-width:34em; }
+  .note{ margin:16px 0 0; font-size:13px; line-height:1.5; color:var(--faint); }
 
-  /* ---------- устройства ---------- */
-  .browser{ border-radius:14px; overflow:hidden; background:#0c0f0d; box-shadow:0 60px 120px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.07); }
-  .light .browser, .light2 .browser{ box-shadow:0 60px 120px -40px rgba(20,23,18,.45), 0 0 0 1px rgba(0,0,0,.06); }
-  .browser .bar{ height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; background:#1b1f1b; }
-  .browser .bar i{ width:11px; height:11px; border-radius:50%; background:#3a3f3a; flex:none; }
-  .browser .bar span{ margin:0 auto; font-size:12px; color:#8f958f; background:#262b26; padding:4px 22px; border-radius:7px; transform:translateX(-24px); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:70%; }
-  .browser video, .browser img{ width:100%; height:auto; }
-  .cap-line{ margin:16px 0 0; font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; opacity:.55; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  /* обложка: один экран */
+  .cover{ min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(70px,12vh,120px) var(--pad) clamp(28px,6vh,56px); }
+  .cover h1{ margin:0; font-weight:800; line-height:.84; letter-spacing:-.055em; font-size:clamp(56px,min(14vw,21vh),250px); text-transform:uppercase; }
+  .cover .tag{ margin:clamp(18px,2vw,28px) 0 0; font-size:clamp(18px,1.8vw,26px); line-height:1.35; color:var(--dim); max-width:28em; }
+  .meta{ display:grid; grid-template-columns:2fr 1.4fr .6fr 1fr; gap:24px; margin-top:clamp(28px,4vh,56px); padding-top:20px; border-top:1px solid var(--line); font-size:14px; line-height:1.5; }
+  .meta small{ display:block; margin-bottom:6px; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); }
+  .meta a{ text-decoration:none; border-bottom:1px solid var(--line); }
+  @media (max-width:760px){ .meta{ grid-template-columns:1fr 1fr; gap:16px; } }
 
-  .phone{ width:clamp(200px,19vw,300px); aspect-ratio:390/873; border-radius:calc(clamp(200px,19vw,300px) * .15); background:#0a0a0b; padding:clamp(7px,.7vw,10px);
-    box-shadow:0 50px 100px -30px rgba(0,0,0,.6), inset 0 0 0 1.5px #2a2a2e; position:relative; flex:none; }
-  .phone .scr{ width:100%; height:100%; border-radius:calc(clamp(200px,19vw,300px) * .125); overflow:hidden; background:#000; padding-top:17%; }
-  .phone .scr img, .phone .scr video{ width:100%; height:100%; object-fit:cover; object-position:top; }
-  .phone::before{ content:''; position:absolute; top:clamp(14px,1.4vw,20px); left:50%; transform:translateX(-50%); width:30%; height:clamp(18px,1.9vw,26px); background:#000; border-radius:20px; z-index:2; }
+  /* экспонат: скрин клиента на паспарту, всегда целиком в экране */
+  .shot{ margin:0 auto; width:min(100%, calc((100vh - 170px) * var(--ar))); width:min(100%, calc((100svh - 170px) * var(--ar))); padding:clamp(8px,1vw,16px); background:var(--mat); border-radius:16px; box-shadow:0 30px 80px -40px rgba(0,0,0,.8); }
+  .shot img, .shot video{ width:100%; height:auto; border-radius:8px; }
 
-  /* ---------- обложка ---------- */
-  .cover{ min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:140px var(--pad) 60px; position:relative; overflow:hidden;
-    background:radial-gradient(70% 60% at 85% 10%, rgba(255,107,44,.16), transparent 60%), var(--forest); }
-  .cover .kicker{ font-size:11.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--l-dim); display:flex; justify-content:space-between; gap:20px; margin-bottom:3vw; }
-  .cover h1{ font-weight:800; margin:0; line-height:.84; letter-spacing:-.055em; font-size:clamp(60px,14.6vw,270px); text-transform:uppercase; }
-  .cover .tag{ margin:clamp(14px,1.6vw,24px) 0 0; font-size:clamp(26px,3.4vw,58px); line-height:1.05; }
-  .cover .tag em{ font-size:1em; }
-  .meta{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:clamp(40px,6vw,90px); padding-top:22px; border-top:1px solid rgba(245,242,234,.18); }
-  .meta div{ font-size:15px; line-height:1.45; }
-  .meta small{ display:block; font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); margin-bottom:8px; }
-  .meta a{ text-decoration:none; border-bottom:1px solid var(--orange); }
-  @media (max-width: 760px){ .meta{ grid-template-columns:1fr 1fr; } }
-  .hero-shot{ background:var(--forest); padding:0 var(--pad) clamp(90px,11vw,170px); }
-  .hero-shot .browser, .hero-shot .cap-line{ max-width:1500px; margin-left:auto; margin-right:auto; }
+  /* блок = один экран: текст слева, экспонат справа */
+  .blk{ min-height:100vh; min-height:100svh; display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(28px,4vw,72px); align-items:center; padding:clamp(40px,8vh,110px) var(--pad); border-top:1px solid var(--line); }
+  .vis{ min-width:0; }
+  .stage{ min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,6vh,80px) var(--pad); }
+  .stage .lbl{ text-align:center; }
+  .golive{ display:block; margin:24px auto 0; text-align:center; font-size:16px; font-weight:600; text-decoration:none; }
+  .golive:hover{ color:var(--dim); }
+  @media (max-width:900px){
+    .blk{ grid-template-columns:1fr; min-height:0; align-items:start; gap:28px; padding:72px var(--pad); }
+    .stage{ min-height:0; padding:24px var(--pad) 56px; }
+    .shot{ width:100%; padding:8px; border-radius:12px; }
+  }
 
-  /* ---------- бизнес ---------- */
-  .offer{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(20,23,18,.14); border:1px solid rgba(20,23,18,.14); margin-top:clamp(44px,5vw,80px); }
-  .offer div{ background:var(--light); padding:24px 22px 28px; }
-  .offer b{ display:block; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#D8521A; margin-bottom:12px; }
-  .offer p{ margin:0; font-size:16.5px; line-height:1.45; }
-  .offer .on{ background:var(--forest); color:var(--l-ink); }
-  .offer .on b{ color:var(--orange); }
-  @media (max-width: 900px){ .offer{ grid-template-columns:1fr 1fr; } }
-  @media (max-width: 520px){ .offer{ grid-template-columns:1fr; } }
+  /* телефоны */
+  .phones{ display:flex; justify-content:center; gap:clamp(12px,1.6vw,26px); }
+  .ph{ width:min(30%, calc((100svh - 170px) * .46)); aspect-ratio:390/844; padding:7px; background:var(--mat); border-radius:28px; }
+  .ph img, .ph video{ width:100%; height:100%; object-fit:cover; object-position:top; border-radius:22px; }
 
-  /* ---------- позиционирование ---------- */
-  .swap{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(20px,3vw,44px); margin-top:clamp(40px,5vw,70px); }
-  .swap div{ border-top:1px solid rgba(245,242,234,.2); padding-top:18px; }
-  .swap small{ display:block; font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--l-faint); margin-bottom:12px; }
-  .swap s{ font-size:clamp(20px,2vw,30px); color:var(--l-faint); text-decoration-color:var(--orange); }
-  .swap p{ margin:0; font-size:clamp(22px,2.3vw,34px); line-height:1.15; font-weight:600; letter-spacing:-.02em; }
-  .swap .now small{ color:var(--orange); }
-  @media (max-width: 700px){ .swap{ grid-template-columns:1fr; } }
-  .answers{ list-style:none; margin:clamp(30px,4vw,50px) 0 0; padding:0; counter-reset:a; }
-  .answers li{ counter-increment:a; display:grid; grid-template-columns:52px 1fr; gap:8px; padding:15px 0; border-top:1px solid rgba(245,242,234,.16); font-size:clamp(17px,1.4vw,20px); line-height:1.35; font-weight:600; }
-  .answers li::before{ content:counter(a, decimal-leading-zero); font-size:11px; font-weight:700; letter-spacing:.12em; color:var(--orange); padding-top:5px; }
-  .answers li span{ display:block; margin-top:4px; font-size:14.5px; font-weight:400; color:var(--l-dim); }
+  /* поисковая выдача */
+  .snip{ --ar:1.9; }
+  .serp{ background:#fff; color:#1a1a1a; border-radius:8px; padding:clamp(20px,2.6vw,40px); font-family:Arial, sans-serif; }
+  .serp small{ display:block; font-size:14px; color:#1a7a3a; margin-bottom:6px; }
+  .serp b{ display:block; font-size:clamp(18px,1.7vw,24px); line-height:1.25; font-weight:400; color:#1a0dab; }
+  .serp p{ margin:8px 0 0; font-size:15px; line-height:1.5; color:#4d5156; }
 
-  /* ---------- UX ---------- */
-  .route{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); row-gap:34px; }
-  .route li{ padding:20px 16px 0 0; position:relative; border-top:1px solid rgba(20,23,18,.22); }
-  .route li::before{ content:''; position:absolute; top:-5px; left:0; width:9px; height:9px; border-radius:50%; background:var(--t-dark); }
-  .route li.hot::before{ background:var(--orange); box-shadow:0 0 0 5px rgba(255,107,44,.2); }
-  .route b{ display:block; font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--t-faint); margin-bottom:8px; }
-  .route strong{ display:block; font-size:clamp(17px,1.4vw,21px); font-weight:700; line-height:1.15; letter-spacing:-.01em; margin-bottom:6px; }
-  .route span{ display:block; font-size:14.5px; line-height:1.45; color:var(--t-dim); }
-  @media (max-width: 900px){ .route{ grid-template-columns:1fr 1fr; } }
-  .objections{ list-style:none; margin:0; padding:0; counter-reset:o; }
-  .objections li{ counter-increment:o; padding:15px 0; border-top:1px solid rgba(20,23,18,.14); display:grid; grid-template-columns:52px 1fr; gap:8px; }
-  .objections li::before{ content:counter(o, decimal-leading-zero); font-size:11px; font-weight:700; letter-spacing:.12em; color:#D8521A; padding-top:6px; }
-  .objections b{ display:block; font-size:clamp(17px,1.4vw,20px); line-height:1.3; font-weight:600; }
-  .objections span{ display:block; font-size:14.5px; line-height:1.5; color:var(--t-dim); margin-top:4px; }
+  /* результат: единственный акцент */
+  .result{ min-height:100vh; min-height:100svh; display:flex; align-items:center; padding:80px var(--pad); border-top:1px solid var(--line); }
+  .r-num{ margin:0; font-weight:600; letter-spacing:-.06em; line-height:.8; font-size:clamp(110px,min(26vw,48vh),440px); color:var(--accent); white-space:nowrap; }
+  .r-line{ margin:clamp(20px,3vh,36px) 0 0; font-size:clamp(24px,3vw,48px); line-height:1.1; font-weight:600; letter-spacing:-.03em; }
 
-  .ann{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:34px; }
-  .ann div{ border-top:1px solid rgba(245,242,234,.22); padding-top:16px; font-size:16px; line-height:1.55; color:rgba(245,242,234,.82); }
-  .ann b{ display:block; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin-bottom:8px; }
-  .light .ann div, .light2 .ann div{ border-color:rgba(20,23,18,.18); color:var(--t-dim); }
-  .light .ann b, .light2 .ann b{ color:#D8521A; }
-  @media (max-width: 760px){ .ann{ grid-template-columns:1fr; } }
-  .pair{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(20px,3vw,44px); align-items:start; }
-  @media (max-width: 900px){ .pair{ grid-template-columns:minmax(0,1fr); } }
+  .rows{ margin-top:28px; border-top:1px solid var(--line); }
+  .rows > div{ display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--line); }
+  .rows b{ font-size:28px; font-weight:600; letter-spacing:-.03em; }
+  .rows span{ font-size:15px; color:var(--dim); }
 
-  /* ---------- калькулятор ---------- */
-  .flow{ display:flex; flex-wrap:wrap; gap:10px 8px; align-items:center; margin-top:26px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-  .flow span{ padding:9px 13px; border:1px solid rgba(245,242,234,.24); color:var(--l-dim); }
-  .flow span.on{ background:var(--orange); color:#140c07; border-color:var(--orange); }
-  .flow i{ font-style:normal; color:var(--l-faint); }
-
-  /* ---------- атмосфера ---------- */
-  .swatches{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:clamp(40px,5vw,70px); }
-  .swatches div{ height:clamp(96px,9vw,140px); border-radius:6px; padding:12px; display:flex; flex-direction:column; justify-content:flex-end; font-size:11px; font-weight:600; letter-spacing:.06em; line-height:1.4; box-shadow:inset 0 0 0 1px rgba(255,255,255,.08); }
-  @media (max-width: 520px){ .swatches{ grid-template-columns:1fr 1fr; } }
-
-  /* ---------- мобайл ---------- */
-  .phones{ display:flex; justify-content:center; align-items:flex-start; gap:clamp(14px,2vw,34px); margin-top:clamp(50px,6vw,100px); padding-bottom:40px; }
-  .phones .phone{ width:clamp(170px,15.5vw,260px); border-radius:calc(clamp(170px,15.5vw,260px) * .15); }
-  .phones .phone .scr{ border-radius:calc(clamp(170px,15.5vw,260px) * .125); }
-  .phones .phone:nth-child(2){ margin-top:clamp(40px,6vw,110px); }
-  .phones .phone:nth-child(3){ margin-top:clamp(0px,1vw,20px); }
-  .phones .phone:nth-child(4){ margin-top:clamp(60px,8vw,150px); }
-  .phones .phone:nth-child(5){ margin-top:clamp(20px,3vw,50px); }
-  .phone .cap{ position:absolute; left:0; right:0; bottom:-36px; margin:0; text-align:center; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--l-faint); }
-  @media (max-width: 900px){ .phones{ overflow-x:auto; justify-content:flex-start; padding:0 4px 40px; scroll-snap-type:x mandatory; } .phones .phone{ scroll-snap-align:center; margin-top:0 !important; } }
-
-  /* ---------- SEO ---------- */
-  .snippet{ background:#fff; color:#1b1b1b; border-radius:14px; padding:clamp(22px,2.6vw,34px); box-shadow:0 50px 100px -40px rgba(20,23,18,.4), 0 0 0 1px rgba(0,0,0,.06); }
-  .snippet small{ display:block; font-size:13px; color:#3b7a3b; margin-bottom:8px; }
-  .snippet b{ display:block; font-size:clamp(18px,1.6vw,22px); font-weight:600; line-height:1.3; color:#1a0dab; margin-bottom:8px; }
-  .snippet p{ margin:0; font-size:15px; line-height:1.55; color:#4d5156; }
-  .snippet-cap{ margin:14px 0 0; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--t-faint); }
-  .layers{ list-style:none; margin:0; padding:0; border-top:1px solid rgba(20,23,18,.18); }
-  .layers li{ display:grid; grid-template-columns:minmax(0,180px) 1fr; gap:18px; padding:16px 0; border-bottom:1px solid rgba(20,23,18,.12); align-items:baseline; }
-  .layers b{ font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#D8521A; }
-  .layers span{ font-size:16px; line-height:1.5; color:var(--t-dim); }
-  @media (max-width: 600px){ .layers li{ grid-template-columns:1fr; gap:6px; } }
-  .ticker{ display:flex; flex-wrap:wrap; gap:8px; margin-top:26px; }
-  .ticker span{ font-size:12px; font-weight:600; letter-spacing:.06em; padding:8px 12px; border:1px solid rgba(20,23,18,.2); color:var(--t-dim); border-radius:999px; }
-
-  /* ---------- метрика ---------- */
-  .proof{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,48px); margin-top:clamp(40px,5vw,70px); padding-top:26px; border-top:1px solid rgba(245,242,234,.2); }
-  .proof b{ display:block; font-size:clamp(56px,8.4vw,150px); line-height:.86; font-weight:600; letter-spacing:-.055em; white-space:nowrap; }
-  .proof .on b{ color:var(--orange); }
-  .proof span{ display:block; margin-top:14px; font-size:15px; line-height:1.45; color:var(--l-dim); }
-  @media (max-width: 760px){ .proof{ grid-template-columns:1fr; gap:30px; } }
-  .rows{ border-top:1px solid rgba(245,242,234,.2); }
-  .rows > div{ display:grid; grid-template-columns:minmax(64px,auto) 1fr; gap:18px; align-items:baseline; padding:15px 0; border-bottom:1px solid rgba(245,242,234,.14); }
-  .rows > div b{ font-size:clamp(28px,2.6vw,40px); font-weight:600; letter-spacing:-.03em; }
-  .rows > div span{ font-size:15.5px; line-height:1.4; color:var(--l-dim); }
-  .fine{ margin-top:12px; font-size:13px; line-height:1.5; color:var(--l-faint); }
-  .metrica{ margin:0; }
-  .metrica .browser img{ background:#fff; }
-
-  /* ---------- отзыв ---------- */
-  .review{ display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:clamp(30px,5vw,90px); align-items:end; }
-  @media (max-width: 900px){ .review{ grid-template-columns:1fr; } }
-  .big-quote{ font-size:clamp(34px,4.8vw,80px); line-height:1.02; font-weight:600; margin:0; letter-spacing:-.035em; text-wrap:balance; }
-  .quote2{ margin:clamp(24px,3vw,40px) 0 0; font-family:var(--it); font-style:italic; font-size:clamp(24px,2.3vw,36px); line-height:1.25; color:var(--l-ink); max-width:760px; }
-  .who{ display:flex; align-items:center; gap:16px; margin-top:28px; }
-  .who img{ width:64px; height:64px; border-radius:50%; object-fit:cover; box-shadow:0 0 0 1px rgba(255,171,122,.45), 0 0 0 5px var(--forest-2); }
-  .who b{ display:block; font-size:17px; font-weight:600; }
-  .who span{ display:block; margin-top:4px; font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--l-faint); }
-  .voice{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:16px; padding:12px 18px 12px 12px; border-radius:999px; background:rgba(245,242,234,.04); box-shadow:inset 0 0 0 1px rgba(255,171,122,.28); }
-  .voice button{ width:56px; height:56px; border-radius:50%; border:0; padding:0; cursor:pointer; background:var(--orange); display:grid; place-items:center; transition:background .3s, transform .3s var(--ease); }
-  .voice button:hover{ background:var(--sunset); transform:scale(1.05); }
-  .voice button:focus-visible{ outline:2px solid var(--sunset); outline-offset:3px; }
-  .voice button svg{ width:18px; height:18px; fill:#140c07; }
+  /* отзыв: карточка сообщения */
+  .card{ margin:0; max-width:760px; padding:clamp(24px,3vw,44px); background:var(--mat); border-radius:20px; }
+  .who{ display:flex; align-items:center; gap:16px; }
+  .who img{ width:56px; height:56px; border-radius:50%; object-fit:cover; }
+  .who b{ display:block; font-size:17px; }
+  .who span{ display:block; margin-top:2px; font-size:14px; color:var(--dim); }
+  .card blockquote{ margin:26px 0 0; }
+  .q1{ margin:0; font-size:clamp(26px,2.7vw,42px); line-height:1.12; font-weight:600; letter-spacing:-.025em; }
+  .q2{ margin:14px 0 0; font-size:clamp(16px,1.25vw,19px); line-height:1.55; color:var(--dim); }
+  .vlabel{ margin:28px 0 10px; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); }
+  .voice{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:16px; padding:10px 18px 10px 10px; border-radius:999px; background:rgba(242,239,232,.06); }
+  .voice button{ width:52px; height:52px; border-radius:50%; border:0; padding:0; cursor:pointer; background:var(--ink); display:grid; place-items:center; transition:transform .3s var(--ease); }
+  .voice button:hover{ transform:scale(1.05); }
+  .voice button:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
+  .voice button svg{ width:18px; height:18px; fill:var(--bg); }
   .voice .p1{ margin-left:3px; }
   .voice.is-on .p1, .voice:not(.is-on) .p2{ display:none; }
-  .voice [data-wave]{ display:flex; justify-content:space-between; gap:2px; align-items:center; height:32px; overflow:hidden; cursor:pointer; }
-  .voice [data-wave] i{ flex:0 0 3px; border-radius:2px; background:rgba(255,171,122,.35); transition:background .2s; }
-  .voice [data-wave] i.on{ background:var(--orange); }
-  .voice [data-time]{ font-size:12px; font-weight:600; letter-spacing:.06em; color:var(--l-faint); white-space:nowrap; font-variant-numeric:tabular-nums; }
-  .voice-cap{ margin:14px 0 0 12px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--l-faint); }
-  @media (max-width: 600px){ .voice{ gap:12px; padding:10px 14px 10px 10px; } .voice button{ width:48px; height:48px; } }
+  .voice [data-wave]{ display:flex; justify-content:space-between; gap:2px; align-items:center; height:30px; overflow:hidden; cursor:pointer; }
+  .voice [data-wave] i{ flex:0 0 3px; border-radius:2px; background:rgba(242,239,232,.25); transition:background .2s; }
+  .voice [data-wave] i.on{ background:var(--ink); }
+  .voice [data-time]{ font-size:13px; font-weight:600; color:var(--dim); white-space:nowrap; font-variant-numeric:tabular-nums; }
 
-  .pause{ padding-top:clamp(130px,16vw,250px); padding-bottom:clamp(130px,16vw,250px); }
-  .statement{ font-weight:600; letter-spacing:-.04em; line-height:.98; font-size:clamp(40px,6.6vw,112px); margin:0 0 clamp(30px,4vw,50px); text-wrap:balance; }
-  .live{ display:inline-flex; gap:14px; align-items:baseline; margin-top:26px; font-size:15px; font-weight:700; text-decoration:none; color:var(--t-dark); border-bottom:1px solid var(--orange); padding-bottom:3px; }
-  .live span{ font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#D8521A; }
-  .breath{ height:clamp(120px,16vw,240px); background:var(--forest); }
-
-  /* ---------- следующий кейс ---------- */
+  /* следующий кейс и подвал */
   .next{ display:block; position:relative; min-height:70vh; overflow:hidden; text-decoration:none; color:#fff; background:#0c0c0d; }
-  .next video, .next img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.5; transition:opacity .6s, transform 1.4s var(--ease); }
-  .next:hover video, .next:hover img{ opacity:.7; transform:scale(1.03); }
+  .next img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.5; transition:opacity .6s, transform 1.4s var(--ease); }
+  .next:hover img{ opacity:.7; transform:scale(1.03); }
   .next .in{ position:relative; min-height:70vh; display:flex; flex-direction:column; justify-content:flex-end; padding:60px var(--pad); }
-  .next small{ font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; opacity:.75; }
+  .next small{ font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; opacity:.75; }
   .next b{ font-weight:800; text-transform:uppercase; font-size:clamp(42px,8.6vw,150px); line-height:.9; letter-spacing:-.045em; }
-  .foot{ background:var(--forest); padding:30px var(--pad) 40px; }
+  .foot{ background:var(--bg); padding:30px var(--pad) 40px; }
 
-  /* ---------- анимация ---------- */
-  .hs{ opacity:0; transform:translateY(14px); animation:hsIn 1.3s var(--ease) forwards; }
-  .hs1{ animation-delay:.15s; } .hs2{ animation-delay:.45s; } .hs3{ animation-delay:1.05s; } .hs4{ animation-delay:1.45s; }
+  /* появление */
+  .hs{ opacity:0; transform:translateY(14px); animation:hsIn 1.1s var(--ease) forwards; }
+  .hs2{ animation-delay:.1s; } .hs3{ animation-delay:.2s; } .hs4{ animation-delay:.3s; }
   @keyframes hsIn{ to{ opacity:1; transform:none; } }
   .rv{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
-  .browser.rv, .phone.rv, .metrica.rv{ transform:none; transition:opacity .45s ease; }
   .rv.in{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){ .hs{ animation:none; opacity:1; transform:none; } .rv{ opacity:1; transform:none; transition:none; } }
+  @media (prefers-reduced-motion:reduce){ .hs,.rv{ opacity:1; transform:none; animation:none; transition:none; } }
 
-  /* v2: скрин сайта клиента = окно со светлой рамкой; кейс = бумага */
-  .browser{ background:#fff; border-radius:12px; box-shadow:0 40px 90px -40px rgba(20,23,18,.5), 0 0 0 1px rgba(20,23,18,.12) !important; }
-  .browser .bar{ background:#ECE9E2; border-bottom:1px solid rgba(20,23,18,.1); }
-  .browser .bar i{ background:#C9C4B9; }
-  .browser .bar span{ background:#fff; color:#5d625c; box-shadow:0 0 0 1px rgba(20,23,18,.08); }
-  .hero-shot{ background:var(--light); padding-top:clamp(60px,7vw,110px); }
-  .hero-shot .cap-line{ color:var(--t-dark); }
-  .light, .light2{ --l-ink:var(--t-dark); --l-dim:var(--t-dim); --l-faint:var(--t-faint); }
-  .light .swap div, .light2 .swap div, .light .answers li, .light2 .answers li, .light .flow span, .light2 .flow span, .light .rows, .light .rows > div{ border-color:rgba(20,23,18,.16); }
-  .light .flow span.on, .light2 .flow span.on{ background:var(--t-dark); border-color:var(--t-dark); color:var(--light); }
-  .light .swatches div, .light2 .swatches div{ box-shadow:inset 0 0 0 1px rgba(20,23,18,.12); }
-  /* один акцент: курсив в заголовках без цвета, оранжевый только у результата */
-  .h-xl em, .h-l em, .big-quote em, .cover .tag em{ color:inherit !important; }
-  .label b, .answers li::before, .objections li::before, .ann b, .layers b, .offer b, .swap .now small, .live span{ color:inherit !important; }
-  .result{ min-height:100vh; min-height:100svh; display:flex; align-items:center; background:var(--forest); color:var(--l-ink); padding:100px var(--pad); }
-  .result .wrap{ width:100%; }
-  .r-num{ margin:0; font-weight:600; letter-spacing:-.06em; line-height:.8; font-size:clamp(120px,26vw,420px); color:var(--orange); white-space:nowrap; }
-  .r-line{ margin:clamp(20px,2.4vw,40px) 0 0; font-size:clamp(26px,3.4vw,56px); line-height:1.08; font-weight:600; letter-spacing:-.03em; }
-  .r-src{ margin:clamp(22px,2.6vw,40px) 0 0; font-size:13px; line-height:1.5; color:var(--l-faint); }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","@id":"https://tinadigital.ru/cases/enduro/#case","name":"Enduro Energy: сайт проката эндуро-мотоциклов","headline":"Enduro Energy: сайт проката эндуро-мотоциклов","description":"Кейс: сайт проката эндуро-мотоциклов Enduro Energy. Позиционирование «приключение, а не прокат», UX для новичка, интерактивный калькулятор, мобильная версия и SEO-архитектура. 94,7% визитов из поиска без рекламы за 1–23 сентября 2026 года (Яндекс Метрика).","url":"https://tinadigital.ru/cases/enduro/","image":"https://tinadigital.ru/assets/enduro/v-hero-d.jpg","inLanguage":"ru","genre":"Кейс","dateCreated":"2026","author":{"@id":"https://tinadigital.ru/#studio"},"creator":{"@id":"https://tinadigital.ru/#studio"},"about":{"@type":"WebSite","name":"Enduro Energy, прокат эндуро-мотоциклов рядом с Санкт-Петербургом","url":"https://enduro-energy.ru"},"isPartOf":{"@type":"CollectionPage","name":"Кейсы TINA DIGITAL","url":"https://tinadigital.ru/projects/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"TINA DIGITAL","item":"https://tinadigital.ru/"},{"@type":"ListItem","position":2,"name":"Кейсы","item":"https://tinadigital.ru/projects/"},{"@type":"ListItem","position":3,"name":"Enduro Energy: сайт проката эндуро-мотоциклов","item":"https://tinadigital.ru/cases/enduro/"}]}</script>
@@ -273,12 +142,10 @@
 </header>
 
 <main>
-
-<!-- 00 обложка -->
 <section class="cover">
-  <div class="kicker hs hs1"><span>Case / Rental / 2026</span><span>Enduro rental website</span></div>
+  <p class="lbl hs hs1">Кейс · прокат эндуро · 2026</p>
   <h1 class="hs hs2">Enduro<br>Energy</h1>
-  <p class="tag hs hs3"><em>приключения ближе, чем ты&nbsp;думаешь</em></p>
+  <p class="tag hs hs3">Сайт проката, который продаёт приключение, а&nbsp;не&nbsp;час аренды</p>
   <div class="meta hs hs4">
     <div><small>Клиент</small>Анастасия и&nbsp;Владимир, прокат эндуро-мотоциклов во&nbsp;Всеволожском районе рядом с&nbsp;Петербургом</div>
     <div><small>Роль</small>Стратегия, UX/UI, дизайн, разработка, SEO</div>
@@ -287,309 +154,116 @@
   </div>
 </section>
 
-<section class="hero-shot">
-  <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru</span></div>
-    <video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABIAIAMBIgACEQEDEQH/xAAZAAACAwEAAAAAAAAAAAAAAAAAAgEEBQP/xAAiEAACAgEEAwADAAAAAAAAAAABAgADEQQSIVEFEzFhgZH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwDCGhZ82qybT2ZVbxVwbcm3n7zEouQ0gbrN2P1GTVtSDklm7mcq7MWKPGHThfc9Zc84LYxL1NaWK9QIBH0dzDOta6/c7HP5nWnXirU5DE5HMCZKMcfTFZj2f7CEokKeYZPsEIQJ/9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 814" src="../../assets/enduro/v-hero-d.mp4" poster="../../assets/enduro/v-hero-d.jpg" muted loop playsinline preload="none" data-auto></video>
+<section class="stage"><figure class="shot rv" style="--ar:1.77"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABIAIAMBIgACEQEDEQH/xAAZAAACAwEAAAAAAAAAAAAAAAAAAgEEBQP/xAAiEAACAgEEAwADAAAAAAAAAAABAgADEQQSIVEFEzFhgZH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwDCGhZ82qybT2ZVbxVwbcm3n7zEouQ0gbrN2P1GTVtSDklm7mcq7MWKPGHThfc9Zc84LYxL1NaWK9QIBH0dzDOta6/c7HP5nWnXirU5DE5HMCZKMcfTFZj2f7CEokKeYZPsEIQJ/9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 814" src="../../assets/enduro/v-hero-d.mp4" poster="../../assets/enduro/v-hero-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></section>
+
+<section class="blk">
+  <div class="txt">
+    <p class="lbl">01 · Позиционирование</p>
+    <h2 class="h2 rv">Не&nbsp;прокат, а&nbsp;приключение</h2>
+    <p class="lead rv">Прокат сравнивают по&nbsp;цене за&nbsp;час, приключение по&nbsp;впечатлению. Первый экран продаёт день на&nbsp;маршруте и&nbsp;сразу снимает страх новичка: права не&nbsp;нужны, всё включено, научим с&nbsp;нуля.</p>
   </div>
-  <p class="cap-line">первый экран · видео с&nbsp;выезда, обещание и&nbsp;кнопка записи</p>
+  <div class="vis"><figure class="shot rv" style="--ar:1.6"><img src="../../assets/enduro/d-trust.jpg" alt="Блок «Не просто мотоцикл напрокат» на сайте Enduro Energy" loading="lazy"></figure></div>
 </section>
 
-<!-- 01 бизнес -->
-<section class="sec light2">
-  <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>01</b> бизнес</p>
-      <h2 class="h-l rv">Прокат, который выбирают <em>до&nbsp;звонка</em></h2>
-    </div>
-    <div class="c-5 off-7">
-      <p class="lede rv">Enduro Energy возит новичков и&nbsp;опытных райдеров по&nbsp;лесным маршрутам рядом с&nbsp;Петербургом. Человек впервые думает об&nbsp;эндуро, открывает несколько сайтов проката и&nbsp;решает, куда звонить. Сайт должен был выиграть этот выбор сам: объяснить, что будет, сколько стоит и&nbsp;почему не&nbsp;страшно.</p>
-    </div>
+<section class="blk">
+  <div class="txt">
+    <p class="lbl">02 · Путь к записи</p>
+    <h2 class="h2 rv">Каждый блок снимает одно сомнение</h2>
+    <p class="lead rv">Сначала обещание, потом маршруты, техника и&nbsp;цена. Дальше поводы для&nbsp;выезда, живые кадры, отзывы и&nbsp;ответы на&nbsp;вопросы. Кнопка записи в&nbsp;конце пути и&nbsp;всегда в&nbsp;шапке.</p>
   </div>
-  <div class="wrap">
-    <div class="offer rv">
-      <div class="on"><b>прокат</b><p>Мотоцикл по&nbsp;часам с&nbsp;экипировкой и&nbsp;инструктором</p></div>
-      <div><b>прохваты</b><p>Готовые маршруты для&nbsp;новичков и&nbsp;опытных</p></div>
-      <div><b>форматы</b><p>Выезд под&nbsp;повод: мальчишник, день рождения, компания</p></div>
-      <div><b>обучение</b><p>С&nbsp;нуля до&nbsp;уверенной езды с&nbsp;инструктором</p></div>
-    </div>
-    <p class="src">Всё это продаётся на&nbsp;одной странице: каждый продукт получил свой блок и&nbsp;свой путь к&nbsp;записи</p>
-  </div>
+  <div class="vis"><figure class="shot rv" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAACAAEDBv/EACEQAAICAQQCAwAAAAAAAAAAAAABAgMSESExYRMyM5Gh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A8FXCqVacs9emWFK58n2jK/iW34Y9OiDLHUo6Qzy7CrrI1yrU3jLlBn7BKV3htSEiCBPkJEB//9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-faq-d.mp4" poster="../../assets/enduro/v-faq-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></div>
 </section>
 
-<!-- 02 позиционирование -->
-<section class="sec light">
-  <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>02</b> strategy · позиционирование</p>
-      <h2 class="h-xl rv">Не&nbsp;прокат, <em>а&nbsp;приключение</em></h2>
-      <div class="swap rv">
-        <div><small>было</small><s>Прокат мотоциклов</s></div>
-        <div class="now"><small>стало</small><p>«Приключения ближе, чем ты&nbsp;думаешь»</p></div>
-      </div>
-    </div>
-    <div class="c-5 off-7">
-      <p class="body rv">Прокат техники сравнивают по&nbsp;цене за&nbsp;час. Приключение сравнивают по&nbsp;впечатлению, и&nbsp;здесь у&nbsp;Enduro Energy есть что показать: лес, карьеры, выезд к&nbsp;Неве. Поэтому первый экран продаёт день на&nbsp;маршруте, а&nbsp;мотоцикл становится частью этого дня.</p>
-      <p class="body rv">Главное возражение новичка «я&nbsp;не&nbsp;умею» закрыто сразу, прямо на&nbsp;первом экране, тремя ответами:</p>
-      <ol class="answers rv">
-        <li><div>Права не&nbsp;нужны<span>эндуро считается спортивным инвентарём</span></div></li>
-        <li><div>Всё включено<span>мотоцикл, экипировка, маршрут и&nbsp;инструктор</span></div></li>
-        <li><div>С&nbsp;нуля научим<span>инструктаж перед выездом, поедете уверенно</span></div></li>
-      </ol>
-    </div>
+<section class="blk">
+  <div class="txt">
+    <p class="lbl">03 · Выбор</p>
+    <h2 class="h2 rv">Маршрут и&nbsp;мотоцикл под&nbsp;свой уровень</h2>
+    <p class="lead rv">У&nbsp;каждого маршрута длительность, уровень и&nbsp;цена. Мотопарк листается карточками, а&nbsp;кнопка «Выбрать в&nbsp;калькуляторе» переносит мотоцикл в&nbsp;расчёт.</p>
   </div>
-  <div class="wrap" style="margin-top:clamp(56px,7vw,110px)">
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · почему мы</span></div>
-      <img src="../../assets/enduro/d-trust.jpg" alt="Блок «Не просто мотоцикл напрокат» на сайте Enduro Energy" loading="lazy">
-    </div>
-  </div>
+  <div class="vis"><figure class="shot rv" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAZAAEAAwEBAAAAAAAAAAAAAAAAAgMFAQf/xAAmEAACAgAFAQkAAAAAAAAAAAABAgADBBESITFRBRMjQUNSYYKS/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAECMf/aAAwDAQACEQMRAD8A8/rFJTxHcN8CSCYU+o/5i2lK02Oo+4cGVVgE7wLmTDDi1z9YexEpauq1yG5BHM0alwZ7PVHUCzUTn5mZhrR7NOpUHUyLxxcTaKu7DDT0ylIJziIkNW1PW2Q34kSTEQy//9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-fleet-d.mp4" poster="../../assets/enduro/v-fleet-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></div>
 </section>
 
-<!-- 03 UX -->
-<section class="sec light2">
-  <div class="wrap grid-2 blk-head">
-    <div class="c-6">
-      <p class="label"><b>03</b> ux · сценарий</p>
-      <h2 class="h-l rv">Порядок блоков <em>как&nbsp;ход решения</em></h2>
-    </div>
-    <div class="c-5 off-7">
-      <p class="body rv">Сначала эмоция и&nbsp;обещание, потом маршруты и&nbsp;техника, затем цена в&nbsp;калькуляторе. Дальше поводы для&nbsp;выезда, живые кадры, отзывы и&nbsp;ответы на&nbsp;последние сомнения. Запись стоит в&nbsp;конце пути и&nbsp;в&nbsp;шапке, чтобы решившийся раньше не&nbsp;искал кнопку.</p>
-    </div>
+<section class="blk">
+  <div class="txt">
+    <p class="lbl">04 · Калькулятор</p>
+    <h2 class="h2 rv">Цена без&nbsp;«уточните у&nbsp;менеджера»</h2>
+    <p class="lead rv">Человек сам собирает выезд: тип катания, мотоцикл, время. Итог и&nbsp;скидки видны сразу, кнопка бронирования повторяет сумму.</p>
   </div>
-  <div class="wrap">
-    <ol class="route rv">
-      <li class="hot"><b>01</b><strong>Первый экран</strong><span>обещание и&nbsp;запись</span></li>
-      <li><b>02</b><strong>Почему мы</strong><span>не&nbsp;просто мотоцикл</span></li>
-      <li><b>03</b><strong>Маршруты</strong><span>готовые выезды</span></li>
-      <li><b>04</b><strong>Мотопарк</strong><span>техника под&nbsp;уровень</span></li>
-      <li class="hot"><b>05</b><strong>Калькулятор</strong><span>цена сразу</span></li>
-      <li><b>06</b><strong>Форматы</strong><span>повод для&nbsp;выезда</span></li>
-      <li><b>07</b><strong>Фото</strong><span>живые кадры</span></li>
-      <li><b>08</b><strong>Отзывы</strong><span>опыт райдеров</span></li>
-      <li><b>09</b><strong>Вопросы</strong><span>последние сомнения</span></li>
-      <li class="hot"><b>10</b><strong>Запись</strong><span>телефон и&nbsp;мессенджеры</span></li>
-    </ol>
-  </div>
-  <div class="wrap grid-2" style="margin-top:clamp(70px,8vw,130px)">
-    <div class="c-5">
-      <p class="label"><b>возражения</b></p>
-      <h3 class="h-l rv" style="font-size:clamp(28px,3.2vw,50px)">Причин не&nbsp;записаться <em>не&nbsp;остаётся</em></h3>
-      <ol class="objections rv" style="margin-top:34px">
-        <li><div><b>«Я&nbsp;ни&nbsp;разу не&nbsp;ездил»</b><span>Можно без&nbsp;опыта: инструктаж и&nbsp;обучение перед выездом</span></div></li>
-        <li><div><b>«Страшно одному в&nbsp;лесу»</b><span>Инструктор рядом весь маршрут</span></div></li>
-        <li><div><b>«Нет экипировки»</b><span>Шлем, джерси и&nbsp;защита уже в&nbsp;цене</span></div></li>
-        <li><div><b>«Хочу с&nbsp;ребёнком»</b><span>Лёгкий питбайк для&nbsp;детей и&nbsp;подростков</span></div></li>
-        <li><div><b>«Дорого на&nbsp;компанию»</b><span>Скидки на&nbsp;будни, дни рождения и&nbsp;мальчишники</span></div></li>
-      </ol>
-    </div>
-    <div class="c-6 off-7">
-      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · вопросы</span></div>
-        <video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAACAAEDBv/EACEQAAICAQQCAwAAAAAAAAAAAAABAgMSESExYRMyM5Gh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A8FXCqVacs9emWFK58n2jK/iW34Y9OiDLHUo6Qzy7CrrI1yrU3jLlBn7BKV3htSEiCBPkJEB//9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-faq-d.mp4" poster="../../assets/enduro/v-faq-d.jpg" muted loop playsinline preload="none" data-auto></video>
-      </div>
-      <p class="cap-line">частые вопросы: права, опыт, стоимость, дорога, возраст</p>
-    </div>
-  </div>
+  <div class="vis"><figure class="shot rv" style="--ar:1.385"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABcAIAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAAAgMFAQQG/8QAJhAAAgEDAgUFAQAAAAAAAAAAAQMCAAQRITEFEhMUURYiQUJhcf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABkRAQEAAwEAAAAAAAAAAAAAAAABERIxQf/aAAwDAQACEQMRAD8A4hIsysdVbScbxNZMbInRbsf0U1uljbYCJjjPyQK3LDg11eIcxRWIrODmX5WM+Rdb2qx4tuQdGLBLP2qMTZFclgkRluPNX/pjiEpwgJJzIEj3VBe8AvbexZdtKunA8pAlrviqnFMJyAwDpUyrlq1yjFsog7gHeiihDd7c8wPcMyBjekZdOmowk6Zj4J0oooP/2Q==);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 1040" src="../../assets/enduro/v-calc-d.mp4" poster="../../assets/enduro/v-calc-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></div>
 </section>
 
-<!-- 04 маршрут и мотоцикл -->
-<section class="sec light">
-  <div class="wrap grid-2 blk-head">
-    <div class="c-6">
-      <p class="label"><b>04</b> ux · выбор</p>
-      <h2 class="h-l rv">Маршрут и&nbsp;мотоцикл <em>под&nbsp;свой уровень</em></h2>
-    </div>
-    <div class="c-5 off-7">
-      <p class="body rv">Маршруты подписаны длительностью и&nbsp;уровнем, чтобы новичок сразу видел свой. Мотопарк листается каруселью, у&nbsp;каждой модели понятно, кому она подходит. Кнопка «Выбрать в&nbsp;калькуляторе» переносит мотоцикл в&nbsp;расчёт: человек не&nbsp;ищет его заново и&nbsp;не&nbsp;теряет решение.</p>
-    </div>
+<section class="blk">
+  <div class="txt">
+    <p class="lbl">05 · Атмосфера</p>
+    <h2 class="h2 rv">Продаём эмоции, а&nbsp;не&nbsp;технику</h2>
+    <p class="lead rv">Под&nbsp;каждый повод свой сценарий: мальчишник, день рождения, семья, компания. При&nbsp;наведении фон меняется на&nbsp;кадр с&nbsp;такого выезда.</p>
   </div>
-  <div class="wrap pair">
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · прохваты</span></div>
-      <img src="../../assets/enduro/d-routes.jpg" alt="Блок «Эндуро-маршруты для любого уровня»" loading="lazy">
-    </div>
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · мотопарк</span></div>
-      <video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAZAAEAAwEBAAAAAAAAAAAAAAAAAgMFAQf/xAAmEAACAgAFAQkAAAAAAAAAAAABAgADBBESITFRBRMjQUNSYYKS/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAECMf/aAAwDAQACEQMRAD8A8/rFJTxHcN8CSCYU+o/5i2lK02Oo+4cGVVgE7wLmTDDi1z9YexEpauq1yG5BHM0alwZ7PVHUCzUTn5mZhrR7NOpUHUyLxxcTaKu7DDT0ylIJziIkNW1PW2Q34kSTEQy//9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-fleet-d.mp4" poster="../../assets/enduro/v-fleet-d.jpg" muted loop playsinline preload="none" data-auto></video>
-    </div>
-  </div>
-  <div class="wrap ann">
-    <div class="rv"><b>маршруты</b>Готовые выезды вместо абстрактной аренды: у&nbsp;каждого своя длительность, уровень и&nbsp;цена.</div>
-    <div class="rv"><b>мотопарк</b>Модель, класс и&nbsp;уровень райдера на&nbsp;одной карточке, без&nbsp;технических таблиц.</div>
-    <div class="rv"><b>связка</b>Выбор из&nbsp;мотопарка сразу попадает в&nbsp;калькулятор на&nbsp;следующем экране.</div>
-  </div>
+  <div class="vis"><figure class="shot rv" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAABAECAwUG/8QAHhAAAgMAAgMBAAAAAAAAAAAAAQIAAxEEIRJBUTH/xAAXAQEAAwAAAAAAAAAAAAAAAAAAAQME/8QAGhEBAQACAwAAAAAAAAAAAAAAAQADEQIhQf/aAAwDAQACEQMRAD8A4SoUGoF1ct9BlwONmBH37sVRj4QVm05uGJNeFQHYmWoBlNatlbfo+xdQTgI9ZGEVkUBRsbJ35IV9rJHREISJN1dgGbtuFQvDFoU+RUe4QlGRRLVhBOW7/9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-scen-d.mp4" poster="../../assets/enduro/v-scen-d.jpg" muted loop playsinline preload="none" data-auto></video></figure></div>
 </section>
 
-<!-- 05 калькулятор -->
-<section class="sec light2">
-  <div class="wrap grid-2 blk-head">
-    <div class="c-6">
-      <p class="label"><b>05</b> interaction · калькулятор</p>
-      <h2 class="h-l rv">Цена без&nbsp;<em>«уточните у&nbsp;менеджера»</em></h2>
-    </div>
-    <div class="c-5 off-7">
-      <p class="body rv">Пользователь сам собирает выезд и&nbsp;сразу видит итог. Для&nbsp;проката выбирает мотоцикл и&nbsp;время, для&nbsp;готового маршрута цена фиксирована. Скидки показаны рядом с&nbsp;суммой, а&nbsp;кнопка бронирования повторяет её, чтобы итог не&nbsp;потерялся по&nbsp;пути к&nbsp;записи. Калькулятор, его состояния и&nbsp;анимации написаны в&nbsp;коде вместе с&nbsp;дизайном.</p>
-      <div class="flow rv"><span>Тип катания</span><i>→</i><span>Мотоцикл</span><i>→</i><span>Время</span><i>→</i><span class="on">Стоимость</span></div>
-    </div>
+<section class="blk">
+  <div class="txt">
+    <p class="lbl">06 · Мобильная версия</p>
+    <h2 class="h2 rv">Выезд собирается одним пальцем</h2>
+    <p class="lead rv">На&nbsp;телефоне маршруты идут карточками, мотопарк листается свайпом, калькулятор по&nbsp;шагам, а&nbsp;звонок и&nbsp;мессенджеры под&nbsp;большим пальцем.</p>
   </div>
-  <div class="wrap">
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · стоимость</span></div>
-      <video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABcAIAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAAAgMFAQQG/8QAJhAAAgEDAgUFAQAAAAAAAAAAAQMCAAQRITEFEhMUURYiQUJhcf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABkRAQEAAwEAAAAAAAAAAAAAAAABERIxQf/aAAwDAQACEQMRAD8A4hIsysdVbScbxNZMbInRbsf0U1uljbYCJjjPyQK3LDg11eIcxRWIrODmX5WM+Rdb2qx4tuQdGLBLP2qMTZFclgkRluPNX/pjiEpwgJJzIEj3VBe8AvbexZdtKunA8pAlrviqnFMJyAwDpUyrlq1yjFsog7gHeiihDd7c8wPcMyBjekZdOmowk6Zj4J0oooP/2Q==);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 1040" src="../../assets/enduro/v-calc-d.mp4" poster="../../assets/enduro/v-calc-d.jpg" muted loop playsinline preload="none" data-auto></video>
-    </div>
-    <p class="cap-line">запись с&nbsp;живого сайта: тип катания, мотоцикл, время, итог обновляется мгновенно</p>
-  </div>
+  <div class="vis"><div class="phones rv"><div class="ph"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAEUAIAMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAADBAAFBgIB/8QAKhAAAgICAQMDAwQDAAAAAAAAAQIDEQAEIQUSMSJBYRQyUhMVI3GBkaH/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EABoRAAMBAQEBAAAAAAAAAAAAAAABEQIDBEH/2gAMAwEAAhEDEQA/AMCxHYAOCPOMQ9nbbE49H0wyyA/Tv2sPI8HDz9HYRkxxScfORS4imk8k2SM5SVVNkWD843L0vb/TtIZCT8YjPrTa7BJkKsRdHGiWanTZGgST0C192PGTYZZtT0StGTX2sbwI301wnZMDQrtVeMX2+obYdWidAKv7fGFAT3G3IFXtncovFg8430bWfZkaXZVnoektiqzySTd87K3cbIrNXrNG+urx1217e2KjaMYtqB3CuPnCxtJJYAJAHnnL/wDZ9EwIpUn3sHO4elaMPKxkn5N5i/Rg6V4+jXwqtLpxnidpCU/G7xrpibGosizyWpPpF5Y7KxxwWrUfFXla8lkgG8rPRaVRlvm+bjDrIAOVLf5zwzqAf4z/ALxX6p0Xg4F92T8soihJpXPNH+sEHKKSeLwTbkpP3f8AM4k2Xk4Y3igUcGy5RQVQ0K5XEJ3IdvHOTJlIQAsSbzwMbyZMYj//2Q==);background-size:cover;background-position:center;aspect-ratio:auto 390 / 844" src="../../assets/enduro/v-app-m.mp4" poster="../../assets/enduro/v-app-m.jpg" muted loop playsinline preload="none" data-auto></video></div><div class="ph"><img src="../../assets/enduro/app-calc.jpg" alt="Мобильная версия: калькулятор" loading="lazy"></div><div class="ph"><img src="../../assets/enduro/app-book.jpg" alt="Мобильная версия: контакты и запись" loading="lazy"></div></div></div>
 </section>
 
-<!-- 06 форматы и доверие -->
-<section class="sec light">
-  <div class="wrap grid-2 blk-head">
-    <div class="c-6">
-      <p class="label"><b>06</b> visual · атмосфера</p>
-      <h2 class="h-l rv">Продаём эмоции, <em>не&nbsp;мотоциклы</em></h2>
-    </div>
-    <div class="c-5 off-7">
-      <p class="body rv">Под&nbsp;каждый повод свой сценарий: мальчишник, день рождения, семейный день, компания, свидание. При&nbsp;наведении фон меняется на&nbsp;кадр с&nbsp;такого выезда. Дальше живые фотографии с&nbsp;маршрутов, рейтинг в&nbsp;Яндекс Картах и&nbsp;отзывы райдеров: сначала увидеть людей, потом решиться самому.</p>
-    </div>
+<section class="blk">
+  <div class="txt">
+    <p class="lbl">07 · SEO</p>
+    <h2 class="h2 rv">Поиск заложен в&nbsp;структуру</h2>
+    <p class="lead rv">Разделы собраны под&nbsp;запросы «прокат эндуро», «эндуро туры», «рядом с&nbsp;СПб». География в&nbsp;текстах и&nbsp;разметке, Schema.org, Метрика с&nbsp;целями на&nbsp;расчёт и&nbsp;запись.</p>
   </div>
-  <div class="wrap">
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · форматы выездов</span></div>
-      <video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAABAECAwUG/8QAHhAAAgMAAgMBAAAAAAAAAAAAAQIAAxEEIRJBUTH/xAAXAQEAAwAAAAAAAAAAAAAAAAAAAQME/8QAGhEBAQACAwAAAAAAAAAAAAAAAQADEQIhQf/aAAwDAQACEQMRAD8A4SoUGoF1ct9BlwONmBH37sVRj4QVm05uGJNeFQHYmWoBlNatlbfo+xdQTgI9ZGEVkUBRsbJ35IV9rJHREISJN1dgGbtuFQvDFoU+RUe4QlGRRLVhBOW7/9k=);background-size:cover;background-position:center;aspect-ratio:auto 1440 / 900" src="../../assets/enduro/v-scen-d.mp4" poster="../../assets/enduro/v-scen-d.jpg" muted loop playsinline preload="none" data-auto></video>
-    </div>
-    <div class="pair" style="margin-top:clamp(24px,3vw,44px)">
-      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · фото</span></div>
-        <img src="../../assets/enduro/d-gallery.jpg" alt="Фотографии с выездов Enduro Energy" loading="lazy">
-      </div>
-      <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru · отзывы</span></div>
-        <img src="../../assets/enduro/d-reviews.jpg" alt="Блок «Что говорят райдеры» с рейтингом в Яндекс Картах" loading="lazy">
-      </div>
-    </div>
-    <div class="swatches rv">
-      <div style="background:#FF6B2C;color:#140c07">#FF6B2C<br>адреналин</div>
-      <div style="background:#FFAB7A;color:#140c07">#FFAB7A<br>закат</div>
-      <div style="background:#0C0F0D;color:#F5F2EA;box-shadow:inset 0 0 0 1px rgba(245,242,234,.2)">#0C0F0D<br>ночной лес</div>
-      <div style="background:#F5F2EA;color:#141712">#F5F2EA<br>свет фары</div>
-    </div>
-    <p class="cap-line">палитра сайта: тёмный фон, оранжевый адреналин и&nbsp;тёплый свет заката</p>
-  </div>
+  <div class="vis"><figure class="shot snip rv"><div class="serp"><small>enduro-energy.ru</small><b>Enduro Energy: прокат эндуро мотоциклов и&nbsp;выезды рядом с&nbsp;СПб</b><p>Прокат эндуро-мотоциклов, обучение новичков и&nbsp;выезды по&nbsp;маршрутам во&nbsp;Всеволожском районе, 30&nbsp;минут от&nbsp;м.&nbsp;ул.&nbsp;Дыбенко. Мотоцикл, экипировка и&nbsp;инструктор включены.</p></div></figure></div>
 </section>
 
-<!-- 07 мобильная версия -->
-<section class="sec light2">
-  <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>07</b> responsive · мобильная версия</p>
-      <h2 class="h-l rv">Выезд собирается <em>одним пальцем</em></h2>
-    </div>
-    <div class="c-5 off-7">
-      <p class="body rv">На&nbsp;телефоне каждый блок встаёт в&nbsp;одну колонку: маршруты карточками, мотопарк свайпом, калькулятор по&nbsp;шагам, телефон и&nbsp;мессенджеры крупными кнопками. Путь до&nbsp;записи на&nbsp;телефоне такой&nbsp;же&nbsp;короткий, как на&nbsp;компьютере.</p>
-    </div>
-  </div>
-  <div class="phones">
-    <div class="phone rv"><div class="scr"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAEUAIAMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAADBAAFBgIB/8QAKhAAAgICAQMDAwQDAAAAAAAAAQIDEQAEIQUSMSJBYRQyUhMVI3GBkaH/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EABoRAAMBAQEBAAAAAAAAAAAAAAABEQIDBEH/2gAMAwEAAhEDEQA/AMCxHYAOCPOMQ9nbbE49H0wyyA/Tv2sPI8HDz9HYRkxxScfORS4imk8k2SM5SVVNkWD843L0vb/TtIZCT8YjPrTa7BJkKsRdHGiWanTZGgST0C192PGTYZZtT0StGTX2sbwI301wnZMDQrtVeMX2+obYdWidAKv7fGFAT3G3IFXtncovFg8430bWfZkaXZVnoektiqzySTd87K3cbIrNXrNG+urx1217e2KjaMYtqB3CuPnCxtJJYAJAHnnL/wDZ9EwIpUn3sHO4elaMPKxkn5N5i/Rg6V4+jXwqtLpxnidpCU/G7xrpibGosizyWpPpF5Y7KxxwWrUfFXla8lkgG8rPRaVRlvm+bjDrIAOVLf5zwzqAf4z/ALxX6p0Xg4F92T8soihJpXPNH+sEHKKSeLwTbkpP3f8AM4k2Xk4Y3igUcGy5RQVQ0K5XEJ3IdvHOTJlIQAsSbzwMbyZMYj//2Q==);background-size:cover;background-position:center;aspect-ratio:auto 390 / 844" src="../../assets/enduro/v-app-m.mp4" poster="../../assets/enduro/v-app-m.jpg" muted loop playsinline preload="none" data-auto></video></div><p class="cap">прокрутка</p></div>
-    <div class="phone rv"><div class="scr"><img src="../../assets/enduro/app-routes.jpg" alt="Мобильная версия: маршруты" loading="lazy"></div><p class="cap">маршруты</p></div>
-    <div class="phone rv"><div class="scr"><img src="../../assets/enduro/app-fleet.jpg" alt="Мобильная версия: мотопарк" loading="lazy"></div><p class="cap">мотопарк</p></div>
-    <div class="phone rv"><div class="scr"><img src="../../assets/enduro/app-calc.jpg" alt="Мобильная версия: калькулятор" loading="lazy"></div><p class="cap">калькулятор</p></div>
-    <div class="phone rv"><div class="scr"><img src="../../assets/enduro/app-book.jpg" alt="Мобильная версия: контакты и запись" loading="lazy"></div><p class="cap">запись</p></div>
-  </div>
-</section>
-
-<!-- 08 SEO-архитектура -->
-<section class="sec light">
-  <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>08</b> seo · архитектура</p>
-      <h2 class="h-l rv">SEO заложено <em>в&nbsp;проект,</em> а&nbsp;не&nbsp;добавлено после</h2>
-      <p class="body rv" style="margin-top:28px">Структура, тексты и&nbsp;география собирались под&nbsp;то, как люди ищут прокат: «прокат эндуро», «эндуро туры», «рядом с&nbsp;СПб». Каждый блок страницы отвечает на&nbsp;свой запрос и&nbsp;доступен по&nbsp;отдельному якорю.</p>
-      <div class="snippet rv" style="margin-top:36px">
-        <small>enduro-energy.ru</small>
-        <b>Enduro Energy: прокат эндуро мотоциклов и&nbsp;выезды рядом с&nbsp;СПб</b>
-        <p>Прокат эндуро-мотоциклов, обучение новичков и&nbsp;выезды по&nbsp;маршрутам во&nbsp;Всеволожском районе, 30&nbsp;минут от&nbsp;м.&nbsp;ул.&nbsp;Дыбенко. Мотоцикл, экипировка и&nbsp;инструктор включены.</p>
-      </div>
-      <p class="snippet-cap">title и&nbsp;description сайта</p>
-    </div>
-    <div class="c-5 off-7">
-      <ul class="layers rv">
-        <li><b>структура</b><span>Блоки-разделы с&nbsp;якорями: маршруты, мотопарк, цены, форматы, вопросы, запись.</span></li>
-        <li><b>гео</b><span>Всеволожский район, Санкт-Петербург и&nbsp;Ленинградская область в&nbsp;текстах и&nbsp;разметке.</span></li>
-        <li><b>разметка</b><span>Schema.org: SportsActivityLocation с&nbsp;часами работы и&nbsp;соцсетями, FAQPage для&nbsp;блока вопросов.</span></li>
-        <li><b>индексация</b><span>Canonical, sitemap.xml, robots.txt, подтверждение в&nbsp;Яндекс Вебмастере.</span></li>
-        <li><b>аналитика</b><span>Яндекс Метрика с&nbsp;целями на&nbsp;расчёт стоимости, Telegram и&nbsp;кнопку записи.</span></li>
-      </ul>
-      <div class="ticker rv"><span>Прокат эндуро</span><span>Маршруты на&nbsp;любой уровень</span><span>Лесные трассы</span><span>Карьеры</span><span>Прохваты</span><span>Обучение с&nbsp;нуля</span><span>Права не&nbsp;нужны</span></div>
-      <p class="snippet-cap">бегущая строка на&nbsp;сайте: поисковые фразы, написанные для&nbsp;людей</p>
-    </div>
-  </div>
-</section>
-
-<!-- 09 результат: главный акцент кейса, один экран -->
 <section class="result">
-  <div class="wrap">
-    <p class="label"><b>09</b> результат · яндекс метрика</p>
+  <div>
+    <p class="lbl">08 · Результат</p>
     <p class="r-num rv">94,7%</p>
-    <p class="r-line rv">визитов пришли из&nbsp;поиска.<br>На&nbsp;рекламу&nbsp;0&nbsp;₽.</p>
-    <p class="r-src">881 переход из&nbsp;поисковых систем из&nbsp;930 визитов · 1–23 сентября 2026</p>
+    <p class="r-line rv">визитов пришли из&nbsp;поиска. На&nbsp;рекламу 0&nbsp;₽.</p>
+    <p class="note">881 из&nbsp;930 визитов, Яндекс Метрика, 1–23&nbsp;сентября 2026</p>
   </div>
 </section>
 
-<!-- 10 данные -->
-<section class="sec light">
-  <div class="wrap grid-2">
-    <div class="c-6">
-      <p class="label"><b>10</b> что делают посетители</p>
-      <h2 class="h-l rv">Выезд собирают <em>до&nbsp;звонка</em></h2>
-    </div>
-    <div class="c-5 off-7 rv">
-      <p class="body">Платная реклама не&nbsp;запускалась: люди приходят по&nbsp;запросам, под&nbsp;которые сайт проектировался. Дальше доводят расчёт в&nbsp;калькуляторе до&nbsp;конца и&nbsp;переходят к&nbsp;записи.</p>
-      <div class="rows">
-          <div><b>18</b><span>завершений расчёта стоимости в&nbsp;калькуляторе</span></div>
-          <div><b>13</b><span>переходов в&nbsp;Telegram</span></div>
-          <div><b>11</b><span>кликов «Записаться»</span></div>
-        </div>
-        <p class="fine">1–23 сентября 2026. Действия не&nbsp;суммируются: один человек мог совершить несколько.</p>
-    </div>
+<section class="blk">
+  <div class="txt">
+    <p class="lbl">09 · Что делают посетители</p>
+    <h2 class="h2 rv">Выезд собирают до&nbsp;звонка</h2>
+    <p class="lead rv">Люди приходят из&nbsp;поиска, доводят расчёт до&nbsp;конца и&nbsp;переходят к&nbsp;записи.</p>
+    <div class="rows rv"><div><b>18</b><span>расчётов стоимости в&nbsp;калькуляторе</span></div><div><b>13</b><span>переходов в&nbsp;Telegram</span></div><div><b>11</b><span>кликов «Записаться»</span></div></div>
+    <p class="note">Яндекс Метрика, 1–23&nbsp;сентября 2026</p>
   </div>
-  <div class="wrap" style="margin-top:clamp(50px,6vw,90px)">
-      <figure class="metrica rv">
-        <p class="label"><b>квартал</b> 24 июня – 23 сентября 2026</p>
-        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>metrika.yandex.ru · по&nbsp;источникам трафика</span></div>
-          <img src="../../assets/enduro/metrica-quarter.jpg" alt="Яндекс Метрика, Enduro Energy: источники трафика с 24 июня по 23 сентября 2026, переходы из поисковых систем 888 из 958 визитов" loading="lazy">
-        </div>
-        <p class="fine">Отчёт «По&nbsp;источникам трафика»: рост переходов из&nbsp;поиска с&nbsp;начала сентября. Отдельный период, с&nbsp;данными сентября не&nbsp;смешивается.</p>
-      </figure>
-  </div>
+  <div class="vis"><figure class="shot rv" style="--ar:4.45"><img src="../../assets/enduro/metrica-quarter.jpg" alt="Яндекс Метрика, Enduro Energy: источники трафика с 24 июня по 23 сентября 2026, переходы из поисковых систем 888 из 958 визитов"></figure></div>
 </section>
 
-<!-- 11 отзыв -->
-<section class="sec dark">
-  <div class="wrap">
-    <p class="label"><b>11</b> отзыв клиента</p>
-    <div class="review">
-      <div>
-        <p class="big-quote rv">«Нам до&nbsp;этого сайта ещё <em>расти и&nbsp;расти</em>»</p>
-        <p class="quote2 rv">«Все сделала быстро, постоянно на&nbsp;связи, разобралась в&nbsp;теме проката. Я&nbsp;счастлива!»</p>
-        <div class="who rv"><img src="../../assets/reviews/enduro.jpg" width="240" height="240" alt="Логотип Enduro Energy" loading="lazy"><div><b>Анастасия и&nbsp;Владимир</b><span>основатели Enduro Energy</span></div></div>
-      </div>
-      <div class="rv">
-        <div class="voice" data-voice>
+<section class="blk review">
+  <div class="txt">
+    <p class="lbl">10 · Отзыв клиента</p>
+    <h2 class="h2 rv">Что сказали владельцы</h2>
+  </div>
+  <div class="vis">
+    <figure class="card rv">
+      <div class="who"><img src="../../assets/reviews/enduro.jpg" width="240" height="240" alt="Логотип Enduro Energy"><div><b>Анастасия и&nbsp;Владимир</b><span>основатели Enduro Energy</span></div></div>
+      <blockquote><p class="q1">«Нам до&nbsp;этого сайта ещё расти и&nbsp;расти»</p><p class="q2">«Все сделала быстро, постоянно на&nbsp;связи, разобралась в&nbsp;теме проката. Я&nbsp;счастлива!»</p></blockquote>
+      <p class="vlabel">Голосовой отзыв Анастасии</p>
+      <div class="voice" data-voice>
           <button type="button" aria-label="Слушать голосовой отзыв Анастасии, основательницы Enduro Energy, 1:58"><svg class="p1" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg><svg class="p2" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
           <div data-wave aria-hidden="true"></div>
           <span data-time>1:58</span>
           <audio preload="none" src="../../assets/reviews/enduro.m4a"></audio>
-        </div>
-        <p class="voice-cap">голосовой отзыв Анастасии</p>
       </div>
-    </div>
+    </figure>
   </div>
 </section>
 
-<!-- 12 сайт целиком -->
-<section class="sec light">
-  <div class="wrap">
-    <p class="label"><b>12</b> live product · сайт целиком</p>
-    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>enduro-energy.ru</span></div>
-      <video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAaAAABBQEAAAAAAAAAAAAAAAAAAQIDBAUG/8QAIxAAAgICAgEEAwAAAAAAAAAAAQIAAwQREiETBRQxkTJBcf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/AOdqwLHoDoF4kddyvZ6ZeG5CsE/s8hJce5vbjjka0OlkleeakJsfb/2ZyrswmP6XZTWruEZm77P4iXsenmXoJAOt6HwZlWZr5N/IkHrWjJaMvx5gZmHxrQhpMhb3UDWvqNe+wk7I+oQlFTUdtk7ieRvIDuEIE//Z);background-size:cover;background-position:center;aspect-ratio:auto 1120 / 700" src="../../assets/enduro/v-scroll-d.mp4" poster="../../assets/enduro/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video>
-    </div>
-    <a class="live" href="https://enduro-energy.ru" target="_blank" rel="noopener"><span>view live ↗</span>enduro-energy.ru</a>
-  </div>
+<section class="stage live">
+  <p class="lbl">11 · Сайт целиком</p>
+  <figure class="shot rv" style="--ar:1.6"><video data-lqip style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAPTGF2YzYzLjEuMTAxAP/bAEMADQkKCwoIDQsKCw4ODQ8TIBUTEhITJxweFyAuKTEwLiktLDM6Sj4zNkY3LC1AV0FGTE5SU1IyPlphWlBgSlFST//bAEMBDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIABQAIAMBIgACEQEDEQH/xAAaAAABBQEAAAAAAAAAAAAAAAAAAQIDBAUG/8QAIxAAAgICAgEEAwAAAAAAAAAAAQIAAwQREiETBRQxkTJBcf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/AOdqwLHoDoF4kddyvZ6ZeG5CsE/s8hJce5vbjjka0OlkleeakJsfb/2ZyrswmP6XZTWruEZm77P4iXsenmXoJAOt6HwZlWZr5N/IkHrWjJaMvx5gZmHxrQhpMhb3UDWvqNe+wk7I+oQlFTUdtk7ieRvIDuEIE//Z);background-size:cover;background-position:center;aspect-ratio:auto 1120 / 700" src="../../assets/enduro/v-scroll-d.mp4" poster="../../assets/enduro/v-scroll-d.jpg" muted loop playsinline preload="none" data-auto></video></figure>
+  <a class="golive" href="https://enduro-energy.ru" target="_blank" rel="noopener">Открыть enduro-energy.ru ↗</a>
 </section>
-
-<div class="breath" aria-hidden="true"></div>
 
 <a class="next" href="../ladoga/">
   <img src="../../assets/ladoga/ai-hero.jpg" width="1280" height="720" alt="" loading="lazy">
