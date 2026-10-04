@@ -76,6 +76,15 @@
   .cover .btn{ margin-top:clamp(24px,4vh,40px); align-self:flex-start; }
   .cover figure{ align-self:end; min-width:0; }
 
+  /* ---------- для вашей специализации ---------- */
+  .sec.specs{ padding-top:0; padding-bottom:clamp(40px,6vh,72px); }
+  .spec{ display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 32px; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); padding:16px 0; font-size:clamp(17px,1.45vw,21px); }
+  .spec b{ font-weight:500; color:var(--faint); font-size:13px; margin-right:auto; }
+  .spec a{ font-weight:600; transition:color .25s; }
+  .spec a::after{ content:" →"; color:var(--red); }
+  .spec a:hover{ color:var(--red); }
+  .specs + .sec{ padding-top:clamp(32px,6vh,72px); }
+
   /* ---------- 02 страхи ---------- */
   .fears .wrap{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,4vw,72px); align-items:end; }
   .fears .lede{ max-width:24em; }
@@ -221,6 +230,9 @@
     .cover .lede{ margin-top:16px; }
     .cover .btn{ margin-top:20px; }
     .cover figure{ margin-top:28px; }
+    .sec.specs{ padding-top:0; padding-bottom:40px; }
+    .spec{ gap:8px 20px; font-size:16px; }
+    .spec b{ width:100%; }
 
     .fears .wrap, .q12 .top-row{ display:block; }
     .flist{ margin-top:22px; }
@@ -318,6 +330,11 @@
     </figure>
   </div>
 </section>
+
+<!-- для вашей специализации -->
+<nav class="sec specs" aria-label="Сайт для вашей специализации">
+  <div class="wrap spec"><b>Для вашей специализации</b><a href="stomatologiya/">Стоматология</a><a href="kosmetologiya/">Косметология</a><a href="plasticheskij-hirurg/">Пластический хирург</a></div>
+</nav>
 
 <!-- 02 страхи -->
 <section class="sec fears">

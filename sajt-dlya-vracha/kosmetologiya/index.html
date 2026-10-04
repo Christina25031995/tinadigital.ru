@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт для косметолога и косметологической клиники | TINA DIGITAL</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="canonical" href="https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/">
+<meta name="description" content="Сайт для косметолога или клиники косметологии: процедуры по запросу клиента, кому нельзя, курс и восстановление, лицензия и противопоказания по закону, запись через Telegram. От 60 000 ₽, срок до месяца.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="TINA DIGITAL">
+<meta property="og:title" content="Сайт для косметолога и клиники косметологии | TINA DIGITAL">
+<meta property="og:description" content="Клиент приходит с запросом, а не с названием процедуры. Сайт переводит запрос в процедуру, честно говорит, кому она не подходит, и ведёт к записи.">
+<meta property="og:image" content="https://tinadigital.ru/assets/og/vrach.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/">
+<link rel="stylesheet" href="../../assets/fonts/manrope.css">
+<link rel="stylesheet" href="../../assets/legal/legal.css">
+<link rel="stylesheet" href="../../assets/nav/mobile-nav.css">
+<link rel="stylesheet" href="../niche.css">
+<style>
+  .cover h1{ font-size:clamp(48px,8vw,124px); }
+  .cover .row{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(24px,4vw,72px); align-items:end; margin-top:clamp(22px,4.4vh,44px); padding-top:clamp(16px,2.6vh,24px); border-top:1px solid var(--hair); }
+  .cover .row .acts{ margin-top:0; justify-content:flex-end; }
+  .cover .rule{ margin-bottom:clamp(28px,7vh,72px); }
+  .fears .wrap{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); align-items:start; }
+  .qrows li{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:6px clamp(16px,2.4vw,40px); align-items:baseline; padding:clamp(10px,1.9vh,18px) 0; border-top:1px solid var(--hair); }
+  .qrows li:last-child{ border-bottom:1px solid var(--hair); }
+  .qrows q{ quotes:none; font-weight:500; font-size:var(--fs-l); line-height:1.3; letter-spacing:-.01em; }
+  .card-sec .wrap{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,4vw,72px); align-items:center; }
+  .pcard{ background:var(--paper); padding:clamp(18px,2.6vw,36px); box-shadow:0 30px 70px -40px rgba(20,16,10,.35); }
+  .pcard h3{ font-weight:500; font-size:var(--fs-h); letter-spacing:-.035em; line-height:1; padding-bottom:clamp(10px,1.8vh,18px); }
+  .pcard dl{ margin:0; display:grid; grid-template-columns:minmax(0,4fr) minmax(0,7fr); }
+  .pcard dt, .pcard dd{ margin:0; padding:clamp(8px,1.4vh,12px) 0; border-top:1px solid var(--hair); font-size:var(--fs-s); line-height:1.4; }
+  .pcard dt{ font-weight:600; padding-right:16px; }
+  .pcard dd{ color:var(--dim); }
+  .pcard dt.no, .pcard dt.no + dd{ color:var(--red); }
+  .four{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(16px,2vw,32px); counter-reset:n; }
+  .four li{ counter-increment:n; border-top:1.5px solid var(--ink); padding-top:14px; }
+  .four li::before{ content:counter(n, decimal-leading-zero); display:block; font-size:var(--fs-s); color:var(--faint); margin-bottom:clamp(18px,4vh,40px); }
+  .four strong{ display:block; font-weight:600; font-size:var(--fs-l); line-height:1.3; }
+  .four p{ font-size:var(--fs-s); line-height:1.45; color:var(--dim); margin-top:8px; text-wrap:pretty; }
+  .proof .wrap{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,4vw,64px); align-items:center; }
+  .proof .lede + .lede{ margin-top:12px; }
+  .proof .acts{ margin-top:clamp(16px,3vh,28px); }
+  @media (max-width:1100px){ .four{ grid-template-columns:1fr 1fr; row-gap:24px; } .four li::before{ margin-bottom:10px; } }
+  @media (max-width:760px){
+    .cover h1{ font-size:clamp(38px,10.8vw,46px); }
+    .cover .rule{ margin-bottom:24px; }
+    .cover .row{ display:block; }
+    .cover .row .acts{ margin-top:18px; }
+    .fears .wrap, .card-sec .wrap{ display:block; }
+    .qrows li{ grid-template-columns:1fr; padding:10px 0; gap:2px; }
+    .qrows{ margin-top:4px; }
+    .pcard{ margin-top:18px; padding:16px; }
+    .pcard dt, .pcard dd{ padding:7px 0; }
+    .four{ grid-template-columns:1fr; row-gap:0; }
+    .four li{ border-top:1px solid var(--hair); padding:11px 0; display:grid; grid-template-columns:32px minmax(0,1fr); }
+    .four li::before{ grid-row:1 / span 2; margin:3px 0 0; }
+    .four p{ margin-top:3px; }
+    .four li:last-child{ border-bottom:1px solid var(--hair); }
+    .proof .wrap{ display:flex; flex-direction:column; gap:22px; }
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "@id": "https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/#service", "name": "Сайт для косметолога и косметологической клиники под ключ", "serviceType": "Разработка сайта косметолога и клиники косметологии", "url": "https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/", "description": "Разработка сайта для косметолога или косметологической клиники: навигация по запросу клиента, карточка каждой процедуры (как проходит, курс, восстановление, кому нельзя, цена), страница врача, запись через Telegram без анкет, мобильная версия, юридическая часть (152-ФЗ, сведения о лицензии для медицинских процедур, предупреждение о противопоказаниях). Срок разработки до месяца.", "provider": {"@id": "https://tinadigital.ru/#studio"}, "areaServed": [{"@type": "Country", "name": "Россия"}, {"@type": "City", "name": "Санкт-Петербург"}], "audience": {"@type": "Audience", "audienceType": "Косметологи и косметологические клиники"}, "isRelatedTo": {"@id": "https://tinadigital.ru/sajt-dlya-vracha/#service"}, "offers": [{"@type": "Offer", "name": "Одностраничный сайт косметолога", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "60000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/#price"}, {"@type": "Offer", "name": "Многостраничный сайт косметолога", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "80000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/#price"}, {"@type": "Offer", "name": "Сложные сценарии и отдельная мобильная версия", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "150000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/#price"}, {"@type": "Offer", "name": "Юридическая часть при заказе сайта", "price": "5000", "priceCurrency": "RUB", "url": "https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/#law"}, {"@type": "Offer", "name": "Сайт по закону для медицины (готовый сайт)", "price": "15000", "priceCurrency": "RUB", "url": "https://tinadigital.ru/zakon/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TINA DIGITAL", "item": "https://tinadigital.ru/"}, {"@type": "ListItem", "position": 2, "name": "Сайты под ключ", "item": "https://tinadigital.ru/turnkey/"}, {"@type": "ListItem", "position": 3, "name": "Сайт для врача и клиники", "item": "https://tinadigital.ru/sajt-dlya-vracha/"}, {"@type": "ListItem", "position": 4, "name": "Сайт для косметолога", "item": "https://tinadigital.ru/sajt-dlya-vracha/kosmetologiya/"}]}</script>
+<script type="application/ld+json" id="faq-ld">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит сайт для косметолога?", "acceptedAnswer": {"@type": "Answer", "text": "Одностраничный сайт от 60 000 ₽, многостраничный сайт клиники косметологии от 80 000 ₽, сложные сценарии и отдельная мобильная версия от 150 000 ₽. Юридическая часть к новому сайту 5 000 ₽."}}, {"@type": "Question", "name": "Сколько времени займёт разработка?", "acceptedAnswer": {"@type": "Answer", "text": "До месяца. Точный срок называю после того, как посмотрю задачу и число процедур."}}, {"@type": "Question", "name": "Зачем сайт, если клиенты пишут в соцсетях?", "acceptedAnswer": {"@type": "Answer", "text": "Соцсети видят те, кто уже подписан. Сайт находят люди, которые ищут процедуру в Яндексе или спрашивают нейросеть. Там же клиент спокойно читает, кому процедура не подходит и сколько длится восстановление."}}, {"@type": "Question", "name": "Можно ли показывать фото «до и после»?", "acceptedAnswer": {"@type": "Answer", "text": "В рекламе медицинских услуг закон запрещает ссылки на конкретные случаи улучшения и благодарности клиентов (ст. 24 закона «О рекламе»). Для фото лица нужно согласие человека. Поэтому решаем вместе, где и в каком виде показывать работы."}}, {"@type": "Question", "name": "У вас есть сайты косметологов в портфолио?", "acceptedAnswer": {"@type": "Answer", "text": "Пока нет. В медицине мой кейс: сайт пластического хирурга Филиппа Помазкова, с входом через запрос пациента и записью через Telegram."}}, {"@type": "Question", "name": "Можете проверить сайт, который уже есть?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Пришлите ссылку на странице проверки, и я бесплатно покажу, где вижу риски. Полная проверка и исправление для медицины 15 000 ₽, срок 1–2 рабочих дня."}}]}</script>
+</head>
+<body>
+<!-- Источники для юридического блока (проверено 04.10.2026): Постановление Правительства РФ от 01.06.2021 N 852, Перечень работ (услуг), составляющих медицинскую деятельность: косметология: https://www.consultant.ru/document/cons_doc_LAW_385633/05b53ab8b8003b02ed994dbc0a7902b962eeab5a/ ; ФЗ N 38-ФЗ «О рекламе», ст. 24 ч. 1 п. 2 и 3, ч. 3, ч. 7: https://www.consultant.ru/document/cons_doc_LAW_58968/8fbc3d05dbc778e17bfc1b45fb7339df525c1985/ ; ГК РФ ст. 152.1 (согласие на использование изображения); ФЗ N 152-ФЗ ст. 10. -->
+
+<header class="top">
+  <a href="../../">TINA DIGITAL</a>
+  <nav><a href="../../projects/">Кейсы</a><a href="../../turnkey/">Сайты под ключ</a><a href="../../seo-geo/">SEO + GEO</a><a href="../../direct/">Яндекс Директ</a><a href="../../zakon/">Сайт по закону</a><a class="m" href="#cta">Обсудить</a></nav>
+</header>
+
+<main>
+
+<!-- 01 обложка -->
+<section class="sec cover">
+  <div class="wrap">
+    <div class="rule"><span><a href="../">Сайт для&nbsp;врача</a> / Косметология</span><span>Санкт‑Петербург и&nbsp;вся Россия</span></div>
+    <h1>Сайт для&nbsp;косметолога<span class="dot">.</span></h1>
+    <div class="row">
+      <p class="lede">Делаю сайт косметолога или&nbsp;косметологической клиники под&nbsp;ключ: одностраничный от&nbsp;60&nbsp;000&nbsp;₽, многостраничный от&nbsp;80&nbsp;000&nbsp;₽, срок до&nbsp;месяца. Клиент приходит с&nbsp;запросом «хочу выглядеть свежее», а&nbsp;не&nbsp;с&nbsp;названием процедуры. Сайт переводит запрос в&nbsp;процедуру, честно говорит, кому она&nbsp;не&nbsp;подходит, и&nbsp;ведёт к&nbsp;записи.</p>
+      <div class="acts"><a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Обсудить сайт в&nbsp;Telegram <i aria-hidden="true">→</i></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 страхи -->
+<section class="sec fears">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>02</span><span>Страхи клиента</span></div>
+      <h2 class="h2">Чего боится<br>клиент<span class="dot">.</span></h2>
+      <p class="lede dim">Каждый страх закрывается конкретным блоком сайта, а&nbsp;не&nbsp;обещанием.</p>
+    </div>
+    <ul class="qrows rv">
+      <li><q>«Будет неестественно, все&nbsp;заметят»</q><span class="small">Подход врача словами врача и&nbsp;реальные работы с&nbsp;согласия клиентов.</span></li>
+      <li><q>«Отёк или&nbsp;синяк перед важным днём»</q><span class="small">Сколько длится восстановление и&nbsp;за&nbsp;сколько дней до&nbsp;события приходить.</span></li>
+      <li><q>«Процедур десятки, какая нужна мне?»</q><span class="small">Вход через запрос: сначала задача клиента, потом процедура.</span></li>
+      <li><q>«А&nbsp;это делает врач?»</q><span class="small">Кто&nbsp;проводит процедуру: образование, специализация, лицензия клиники.</span></li>
+      <li><q>«Сколько раз&nbsp;придётся приходить?»</q><span class="small">Курс и&nbsp;цена курса, а&nbsp;не&nbsp;только одной процедуры.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 03 карточка процедуры -->
+<section class="sec soft card-sec">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>03</span><span>Карточка процедуры</span></div>
+      <h2 class="h2">У&nbsp;каждой процедуры<br>шесть ответов<span class="dot">.</span></h2>
+      <p class="lede dim">Карточка одинаковая для&nbsp;всех процедур, поэтому их&nbsp;легко сравнить. Строка «кому нельзя» обязательна, даже если её&nbsp;хочется спрятать.</p>
+    </div>
+    <div class="pcard rv" aria-label="Схема карточки процедуры">
+      <h3>Процедура</h3>
+      <dl>
+        <dt>Для&nbsp;какого запроса</dt><dd>Фраза клиента, а&nbsp;не&nbsp;термин</dd>
+        <dt>Как&nbsp;проходит</dt><dd>Сколько длится, больно&nbsp;ли, что&nbsp;чувствуешь</dd>
+        <dt>Курс</dt><dd>Сколько процедур и&nbsp;с&nbsp;каким перерывом</dd>
+        <dt>После</dt><dd>Восстановление и&nbsp;что нельзя в&nbsp;первые дни</dd>
+        <dt class="no">Кому нельзя</dt><dd>Противопоказания и&nbsp;предупреждение о&nbsp;них</dd>
+        <dt>Цена</dt><dd>За&nbsp;процедуру и&nbsp;за&nbsp;курс</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- 04 структура -->
+<section class="sec">
+  <div class="wrap rv">
+    <div class="rule"><span>04</span><span>Структура</span></div>
+    <h2 class="h2">Что&nbsp;ещё<br>будет на&nbsp;сайте<span class="dot">.</span></h2>
+    <ol class="four">
+      <li><strong>Вход через запрос</strong><p>«Морщины», «тон кожи», «овал лица». Под&nbsp;каждой задачей процедуры, которые её&nbsp;решают.</p></li>
+      <li><strong>Кто&nbsp;проводит</strong><p>Страница врача: образование, специализация, подход к&nbsp;результату.</p></li>
+      <li><strong>Памятка до&nbsp;и&nbsp;после</strong><p>Как&nbsp;подготовиться и&nbsp;что делать после процедуры. Меньше одинаковых вопросов в&nbsp;переписке.</p></li>
+      <li><strong>Запись без&nbsp;анкет</strong><p>Клиент выбирает процедуру и&nbsp;время, сайт открывает Telegram с&nbsp;готовым сообщением.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 05 закон -->
+<section class="sec soft" id="law">
+  <div class="wrap rv">
+    <div class="rule"><span>05</span><span>Закон</span></div>
+    <h2 class="h2">Юридическая часть<br>сайта косметолога<span class="dot">.</span></h2>
+    <ul class="law">
+      <li><strong>Лицензия</strong><p>Косметология входит в&nbsp;перечень работ медицинской деятельности (Постановление Правительства РФ&nbsp;№&nbsp;852). Есть такие процедуры: нужны сведения о&nbsp;лицензии.</p></li>
+      <li><strong>«Имеются противопоказания»</strong><p>Обязательны в&nbsp;рекламе медицинских услуг (ч.&nbsp;7 ст.&nbsp;24 закона «О&nbsp;рекламе»). На&nbsp;сайте стоят в&nbsp;карточке каждой процедуры.</p></li>
+      <li><strong>Фото «до&nbsp;и&nbsp;после» и&nbsp;отзывы</strong><p>В&nbsp;рекламе медуслуг нельзя ссылаться на&nbsp;случаи улучшения и&nbsp;благодарности клиентов (п.&nbsp;2, 3 ч.&nbsp;1 и&nbsp;ч.&nbsp;3 ст.&nbsp;24). Для&nbsp;фото лица нужно согласие человека (ст.&nbsp;152.1 ГК&nbsp;РФ).</p></li>
+      <li><strong>Данные клиентов</strong><p>Политика, согласие, Метрика только после согласия на&nbsp;cookie. Запись через Telegram, сайт не&nbsp;хранит анкет.</p></li>
+    </ul>
+    <p class="lawfoot"><span><b>К&nbsp;новому сайту 5&nbsp;000&nbsp;₽ · готовый сайт 15&nbsp;000&nbsp;₽.</b> Проверяю и&nbsp;внедряю сама: я&nbsp;юрист.</span><a class="link" href="../../zakon/#check">Проверить текущий сайт бесплатно →</a></p>
+  </div>
+</section>
+
+<!-- 06 опыт -->
+<section class="sec proof">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>06</span><span>Опыт</span></div>
+      <h2 class="h2">Работаю<br>с&nbsp;медициной<span class="dot">.</span></h2>
+      <p class="lede">Сайтов косметологов в&nbsp;моём портфолио пока нет. Мой медицинский кейс: сайт пластического хирурга Филиппа Помазкова.</p>
+      <p class="lede dim">Там пациент выбирает не&nbsp;операцию, а&nbsp;свою фразу: «Хочу омолодить лицо, но&nbsp;остаться собой». Тот&nbsp;же&nbsp;вход через запрос я&nbsp;делаю для&nbsp;косметологии.</p>
+      <div class="acts"><a class="link" href="../../cases/pomazkov/">Смотреть кейс →</a></div>
+    </div>
+    <figure class="rv">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru&nbsp;· ваш запрос</span></div>
+        <video src="../../assets/pomazkov/v-directions-d.mp4" poster="../../assets/pomazkov/v-directions-d.jpg" width="1440" height="900" muted loop playsinline preload="none" data-auto aria-label="Блок «Что вы хотите изменить?» на сайте Филиппа Помазкова"></video>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="sec price" id="price">
+  <div class="wrap rv">
+    <div class="rule"><span>07</span><span>Цены и&nbsp;сроки</span></div>
+    <h2 class="h2">Цены и&nbsp;сроки<span class="dot">.</span></h2>
+    <div class="prow"><div><strong>Одностраничный сайт</strong><p>Сайт частного косметолога: о&nbsp;враче, процедуры, цены, запись.</p></div><div class="n"><small>от</small>60&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Многостраничный сайт</strong><p>Сайт клиники: страницы процедур, направлений и&nbsp;врачей.</p></div><div class="n"><small>от</small>80&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Сложные сценарии</strong><p>Нестандартная механика, отдельная мобильная версия.</p></div><div class="n"><small>от</small>150&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Юридическая часть к&nbsp;новому сайту</strong><p>Для&nbsp;готового сайта: <a class="link" href="../../zakon/">«Сайт по&nbsp;закону»</a>, для&nbsp;медицины 15&nbsp;000&nbsp;₽.</p></div><div class="n">5&nbsp;000&nbsp;₽</div></div>
+    <p class="pnote"><span><b>Срок разработки до&nbsp;месяца.</b></span><span>Итог зависит от&nbsp;структуры, числа страниц, контента и&nbsp;сложности механики.</span></p>
+  </div>
+</section>
+<section class="sec soft faq" id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>08</span><span>Вопросы</span></div>
+      <h2 class="h2">Частые<br>вопросы<span class="dot">.</span></h2>
+    </div>
+    <div class="rv faqlist">
+      <details open><summary><h3>Сколько стоит сайт для&nbsp;косметолога?</h3><i aria-hidden="true">+</i></summary><p class="a">Одностраничный сайт от&nbsp;60&nbsp;000&nbsp;₽, многостраничный сайт клиники косметологии от&nbsp;80&nbsp;000&nbsp;₽, сложные сценарии и&nbsp;отдельная мобильная версия от&nbsp;150&nbsp;000&nbsp;₽. Юридическая часть к&nbsp;новому сайту 5&nbsp;000&nbsp;₽.</p></details>
+      <details><summary><h3>Сколько времени займёт разработка?</h3><i aria-hidden="true">+</i></summary><p class="a">До&nbsp;месяца. Точный срок называю после того, как&nbsp;посмотрю задачу и&nbsp;число процедур.</p></details>
+      <details><summary><h3>Зачем сайт, если клиенты пишут в&nbsp;соцсетях?</h3><i aria-hidden="true">+</i></summary><p class="a">Соцсети видят те, кто&nbsp;уже&nbsp;подписан. Сайт находят люди, которые ищут процедуру в&nbsp;Яндексе или&nbsp;спрашивают нейросеть. Там&nbsp;же&nbsp;клиент спокойно читает, кому процедура не&nbsp;подходит и&nbsp;сколько длится восстановление.</p></details>
+      <details><summary><h3>Можно&nbsp;ли&nbsp;показывать фото «до&nbsp;и&nbsp;после»?</h3><i aria-hidden="true">+</i></summary><p class="a">В&nbsp;рекламе медицинских услуг закон запрещает ссылки на&nbsp;конкретные случаи улучшения и&nbsp;благодарности клиентов (ст.&nbsp;24 закона «О&nbsp;рекламе»). Для&nbsp;фото лица нужно согласие человека. Поэтому решаем вместе, где&nbsp;и&nbsp;в&nbsp;каком виде показывать работы.</p></details>
+      <details><summary><h3>У&nbsp;вас есть сайты косметологов в&nbsp;портфолио?</h3><i aria-hidden="true">+</i></summary><p class="a">Пока нет. В&nbsp;медицине мой кейс: <a class="link" href="../../cases/pomazkov/">сайт пластического хирурга Филиппа Помазкова</a>, с&nbsp;входом через запрос пациента и&nbsp;записью через Telegram.</p></details>
+      <details><summary><h3>Можете проверить сайт, который уже&nbsp;есть?</h3><i aria-hidden="true">+</i></summary><p class="a">Да. Пришлите ссылку на <a class="link" href="../../zakon/#check">странице проверки</a>, и&nbsp;я&nbsp;бесплатно покажу, где&nbsp;вижу риски. Полная проверка и&nbsp;исправление для&nbsp;медицины 15&nbsp;000&nbsp;₽, срок 1–2 рабочих дня.</p></details>
+    </div>
+  </div>
+</section>
+<section class="sec dark end" id="cta">
+  <div class="wrap">
+    <div class="rule"><span>09</span><span>Telegram</span></div>
+    <h2 class="h2">Расскажите<br>о&nbsp;практике<span class="dot">.</span></h2>
+    <p class="lede">Кабинет или&nbsp;клиника, какие процедуры главные и&nbsp;есть&nbsp;ли&nbsp;сайт сейчас. Отвечу сама и&nbsp;скажу, с&nbsp;чего начать.</p>
+    <div class="acts">
+      <a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Написать в&nbsp;Telegram <i aria-hidden="true">→</i></a>
+      <a class="link" href="../../zakon/#check">Бесплатно проверить текущий сайт →</a>
+    </div>
+    <div class="contacts">
+      <div><span>Telegram</span><a href="https://t.me/tina_digital" target="_blank" rel="noopener">@tina_digital</a></div>
+      <div><span>Почта</span><a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></div>
+      <div><span>Сайт</span><a href="../../">tinadigital.ru</a></div>
+    </div>
+    <div class="spec"><b>Другие специализации</b><a href="../stomatologiya/">Стоматология</a><a href="../plasticheskij-hirurg/">Пластический хирург</a><a href="../">Все&nbsp;врачи и&nbsp;клиники</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../../privacy/">Политика конфиденциальности</a><a href="../../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
+  <span>Сайт для косметолога</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var TG = 'https://t.me/tina_digital';
+  var MSG = "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435! \u041d\u0443\u0436\u0435\u043d \u0441\u0430\u0439\u0442 \u0434\u043b\u044f \u043a\u043e\u0441\u043c\u0435\u0442\u043e\u043b\u043e\u0433\u0430.";
+  document.querySelectorAll('[data-tg]').forEach(function(a){
+    a.href = TG + '?text=' + encodeURIComponent(MSG);
+    a.addEventListener('click', function(){ if (window.tinaGoal) window.tinaGoal('telegram'); });
+  });
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px 20% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('shown'); });
+  /* видео грузятся и играют только когда видны */
+  var vids = document.querySelectorAll('video[data-auto]');
+  if ('IntersectionObserver' in window){
+    var pre = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting){ var v = e.target; if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } pre.unobserve(v); }
+    }); }, { rootMargin:'100% 0px 100% 0px' });
+    var vo = new IntersectionObserver(function(es){ es.forEach(function(e){
+      var v = e.target; v._vis = e.isIntersecting;
+      if (e.isIntersecting) v.play().catch(function(){}); else v.pause();
+    }); }, { threshold:.05 });
+    vids.forEach(function(v){
+      v.addEventListener('canplay', function(){ if (v._vis && v.paused) v.play().catch(function(){}); });
+      pre.observe(v); vo.observe(v);
+    });
+  }
+  /* FAQ: открыт один вопрос за раз */
+  var ds = document.querySelectorAll('.faqlist details');
+  ds.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) ds.forEach(function(o){ if (o !== d) o.open = false; }); }); });
+})();
+</script>
+<script src="../../assets/nav/mobile-nav.js"></script>
+<script src="../../assets/legal/legal.js"></script>
+</body>
+</html>
