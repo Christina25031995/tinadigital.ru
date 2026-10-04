@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт пластического хирурга под ключ: кейс drpomazkov.ru | TINA DIGITAL</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="canonical" href="https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/">
+<meta name="description" content="Сайт пластического хирурга: исследование до дизайна, структура на 12 вопросах пациента, путь от консультации до контроля результата, честная цена, запись без форм. Кейс Филиппа Помазкова. От 60 000 ₽, срок до месяца.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="TINA DIGITAL">
+<meta property="og:title" content="Сайт пластического хирурга | TINA DIGITAL">
+<meta property="og:description" content="Кейс drpomazkov.ru: досье бренда, 12 вопросов пациента, семь точек пути, запись через Telegram без форм.">
+<meta property="og:image" content="https://tinadigital.ru/assets/og/vrach.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/">
+<link rel="stylesheet" href="../../assets/fonts/manrope.css">
+<link rel="stylesheet" href="../../assets/legal/legal.css">
+<link rel="stylesheet" href="../../assets/nav/mobile-nav.css">
+<link rel="stylesheet" href="../niche.css">
+<style>
+  .cover.dark{ padding-bottom:var(--vpad); }
+  .cover .wrap{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(24px,4vw,64px); align-items:end; }
+  .cover .rule{ grid-column:1 / -1; }
+  .cover .lede{ margin-top:clamp(16px,3vh,28px); color:rgba(255,255,255,.78); }
+  .cover .browser{ box-shadow:0 0 0 1px rgba(255,255,255,.1); }
+  .cover .acts a.link{ color:#fff; }
+  .nums{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.4vw,40px); }
+  .nums li{ border-top:1.5px solid var(--ink); padding-top:12px; }
+  .nums b{ display:block; font-weight:500; font-size:var(--fs-d); letter-spacing:-.05em; line-height:1; font-variant-numeric:tabular-nums; }
+  .nums span{ display:block; margin-top:10px; font-size:var(--fs-s); color:var(--dim); line-height:1.45; max-width:22em; }
+  .concl{ margin-top:clamp(24px,5vh,52px); max-width:40em; }
+  .concl b{ font-weight:600; }
+  .trio{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.4vw,40px); }
+  .trio li{ display:flex; flex-direction:column; border-top:1px solid var(--hair); padding-top:clamp(14px,2.4vh,22px); }
+  .trio q{ quotes:none; font-weight:500; font-size:var(--fs-h); line-height:1.04; letter-spacing:-.035em; text-wrap:balance; }
+  .trio p{ margin-top:clamp(12px,2.4vh,24px); }
+  .pos .wrap{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(24px,4vw,72px); align-items:end; }
+  .pos .big{ margin-bottom:0; font-weight:500; font-size:var(--fs-d); line-height:.95; letter-spacing:-.05em; margin-top:18px; }
+  .pos .lede{ margin-top:clamp(14px,2.6vh,24px); max-width:28em; }
+  .journey .wrap{ display:grid; grid-template-columns:minmax(0,8fr) minmax(0,4fr); gap:clamp(24px,4vw,64px); align-items:center; }
+  .steps{ counter-reset:s; margin-top:clamp(10px,2vh,18px); }
+  .steps li{ counter-increment:s; display:grid; grid-template-columns:32px minmax(0,1fr); padding:clamp(5px,1vh,9px) 0; border-top:1px solid var(--hair); font-size:var(--fs-l); }
+  .steps li::before{ content:counter(s, decimal-leading-zero); font-size:var(--fs-s); color:var(--faint); padding-top:3px; }
+  .steps li:last-child{ border-bottom:1px solid var(--hair); }
+  .book .wrap{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:clamp(28px,6vw,110px); align-items:center; }
+  .book .cols{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(18px,3vw,48px); margin-top:4px; }
+  .book .cols div{ border-top:1px solid var(--hair); padding-top:12px; }
+  .book .cols strong{ display:block; font-weight:600; font-size:var(--fs-l); margin-bottom:6px; }
+  .rev .wrap{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); align-items:end; }
+  .rev .who{ display:flex; gap:16px; align-items:center; margin-top:clamp(20px,4vh,48px); }
+  .rev .who img{ width:64px; height:64px; border-radius:50%; object-fit:cover; }
+  .rev .who b{ display:block; font-weight:600; font-size:var(--fs-l); }
+  .rev .who a{ border-bottom:1px solid rgba(255,255,255,.3); }
+  .rev blockquote p{ font-weight:500; font-size:var(--fs-h); line-height:1.1; letter-spacing:-.035em; text-wrap:pretty; }
+  .voice{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:16px; margin-top:clamp(22px,4vh,44px); padding:10px 18px 10px 10px; border-radius:999px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.18); max-width:620px; }
+  .voice button{ width:50px; height:50px; border-radius:50%; border:0; padding:0; cursor:pointer; background:#fff; display:grid; place-items:center; transition:transform .3s var(--ease); }
+  .voice button:hover{ transform:scale(1.05); }
+  .voice button:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+  .voice svg{ width:18px; height:18px; fill:var(--ink); }
+  .voice .p1{ margin-left:3px; }
+  .voice.is-on .p1, .voice:not(.is-on) .p2{ display:none; }
+  .voice [data-wave]{ display:flex; justify-content:space-between; gap:2px; align-items:center; height:30px; overflow:hidden; cursor:pointer; }
+  .voice [data-wave] i{ flex:0 0 3px; border-radius:2px; background:rgba(255,255,255,.28); transition:background .2s; }
+  .voice [data-wave] i.on{ background:var(--red); }
+  .voice [data-time]{ font-size:12px; color:rgba(255,255,255,.55); white-space:nowrap; font-variant-numeric:tabular-nums; }
+  @media (max-width:1100px){ .rev .wrap{ grid-template-columns:1fr; } }
+  @media (max-width:760px){
+    .cover .wrap{ display:flex; flex-direction:column; align-items:stretch; gap:0; }
+    .cover h1{ margin-top:22px; }
+    .cover figure{ margin-top:26px; }
+    .nums{ grid-template-columns:1fr; gap:0; }
+    .nums li{ display:grid; grid-template-columns:132px minmax(0,1fr); align-items:baseline; padding:10px 0; border-top:1px solid var(--hair); }
+    .nums b{ font-size:30px; }
+    .nums span{ margin-top:0; }
+    .concl{ margin-top:20px; }
+    .trio{ grid-template-columns:1fr; gap:0; }
+    .trio li{ padding:12px 0; }
+    .trio q{ font-size:24px; }
+    .trio p{ margin-top:6px; }
+    .pos .wrap{ display:block; }
+    .journey .wrap{ display:flex; flex-direction:column-reverse; gap:24px; }
+    .steps li{ padding:5px 0; }
+    .book .wrap{ display:flex; flex-direction:column-reverse; gap:24px; }
+    .book .phone{ display:none; }
+    .book .cols{ grid-template-columns:1fr; gap:12px; }
+    .rev .wrap{ display:flex; flex-direction:column; gap:20px; }
+    .rev blockquote p{ font-size:26px; }
+    .voice{ gap:12px; padding:8px 14px 8px 8px; }
+    .voice button{ width:44px; height:44px; }
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "@id": "https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/#service", "name": "Сайт пластического хирурга под ключ", "serviceType": "Разработка сайта пластического хирурга", "url": "https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/", "description": "Разработка сайта пластического хирурга: досье бренда и исследование до дизайна, структура на вопросах пациента, вход через запрос пациента вместо медицинских терминов, кейсы как история решения, путь пациента от консультации до контроля результата, честный блок о цене, запись через Telegram без форм, отдельная мобильная версия, юридическая часть (152-ФЗ, сведения о лицензии клиники, предупреждение о противопоказаниях). Пример: сайт Филиппа Помазкова drpomazkov.ru. Срок разработки до месяца.", "provider": {"@id": "https://tinadigital.ru/#studio"}, "areaServed": [{"@type": "Country", "name": "Россия"}, {"@type": "City", "name": "Санкт-Петербург"}], "audience": {"@type": "Audience", "audienceType": "Пластические хирурги и клиники пластической хирургии"}, "isRelatedTo": {"@id": "https://tinadigital.ru/sajt-dlya-vracha/#service"}, "offers": [{"@type": "Offer", "name": "Одностраничный сайт пластического хирурга", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "60000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/#price"}, {"@type": "Offer", "name": "Многостраничный сайт пластического хирурга", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "80000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/#price"}, {"@type": "Offer", "name": "Сложные сценарии и отдельная мобильная версия", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "150000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/#price"}, {"@type": "Offer", "name": "Юридическая часть при заказе сайта", "price": "5000", "priceCurrency": "RUB", "url": "https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/#law"}, {"@type": "Offer", "name": "Сайт по закону для медицины (готовый сайт)", "price": "15000", "priceCurrency": "RUB", "url": "https://tinadigital.ru/zakon/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TINA DIGITAL", "item": "https://tinadigital.ru/"}, {"@type": "ListItem", "position": 2, "name": "Сайты под ключ", "item": "https://tinadigital.ru/turnkey/"}, {"@type": "ListItem", "position": 3, "name": "Сайт для врача и клиники", "item": "https://tinadigital.ru/sajt-dlya-vracha/"}, {"@type": "ListItem", "position": 4, "name": "Сайт пластического хирурга", "item": "https://tinadigital.ru/sajt-dlya-vracha/plasticheskij-hirurg/"}]}</script>
+<script type="application/ld+json" id="faq-ld">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит сайт пластического хирурга?", "acceptedAnswer": {"@type": "Answer", "text": "Одностраничный сайт от 60 000 ₽, многостраничный от 80 000 ₽, сложные сценарии и отдельная мобильная версия от 150 000 ₽. Юридическая часть к новому сайту 5 000 ₽."}}, {"@type": "Question", "name": "Сколько времени займёт разработка?", "acceptedAnswer": {"@type": "Answer", "text": "До месяца. Точный срок называю после того, как посмотрю задачу и объём работы."}}, {"@type": "Question", "name": "Зачем личный сайт, если я оперирую в клинике?", "acceptedAnswer": {"@type": "Answer", "text": "Пациент выбирает хирурга, а не клинику. Личный сайт показывает ваш подход, кейсы и путь пациента, а запись ведёт напрямую к вам. Сведения о лицензии клиники, в которой вы оперируете, на сайте тоже есть."}}, {"@type": "Question", "name": "Как показать фото «до и после»?", "acceptedAnswer": {"@type": "Answer", "text": "Как историю решения: с чем пришёл пациент, какие были варианты, почему выбрали этот путь. Только реальные фото и только с письменного согласия пациента. В рекламе медицинских услуг ссылки на конкретные случаи улучшения запрещены (ст. 24 закона «О рекламе»)."}}, {"@type": "Question", "name": "Что делать, если цену операции нельзя назвать заранее?", "acceptedAnswer": {"@type": "Answer", "text": "Сказать это прямо. На сайте Филиппа Помазкова блок о цене объясняет, из чего складывается стоимость, и обещает, что итоговая смета обсуждается до операции и не меняется задним числом."}}, {"@type": "Question", "name": "Нужна ли форма записи на сайте хирурга?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. На сайте Филиппа Помазкова пациент выбирает дату, время и тему разговора, а сайт открывает Telegram с готовым сообщением. Персональных и медицинских данных сайт при этом не собирает."}}]}</script>
+</head>
+<body>
+<!-- Факты кейса: /cases/pomazkov/ и /projects/ (отзыв Филиппа Помазкова, голосовой, 0:37). Источники для юридического блока (проверено 04.10.2026): ФЗ N 38-ФЗ «О рекламе», ст. 24 ч. 1 п. 2 и 3, ч. 3, ч. 7: https://www.consultant.ru/document/cons_doc_LAW_58968/8fbc3d05dbc778e17bfc1b45fb7339df525c1985/ ; ФЗ N 323-ФЗ ст. 13 ч. 3 (разглашение врачебной тайны с письменного согласия): https://www.consultant.ru/document/cons_doc_LAW_121895/9f906d460f9454a8a0d290738d9fc2798c1e865a/ ; ГК РФ ст. 152.1 (изображение гражданина). -->
+
+<header class="top">
+  <a href="../../">TINA DIGITAL</a>
+  <nav><a href="../../projects/">Кейсы</a><a href="../../turnkey/">Сайты под ключ</a><a href="../../seo-geo/">SEO + GEO</a><a href="../../direct/">Яндекс Директ</a><a href="../../zakon/">Сайт по закону</a><a class="m" href="#cta">Обсудить</a></nav>
+</header>
+
+<main>
+
+<!-- 01 обложка -->
+<section class="sec dark cover">
+  <div class="wrap">
+    <div class="rule"><span><a href="../">Сайт для&nbsp;врача</a> / Пластическая хирургия</span><span>Санкт‑Петербург и&nbsp;вся Россия</span></div>
+    <div>
+      <h1>Сайт<br>пластического<br>хирурга<span class="dot">.</span></h1>
+      <p class="lede">Делаю сайт пластического хирурга под&nbsp;ключ: от&nbsp;60&nbsp;000&nbsp;₽, срок до&nbsp;месяца. Пример: сайт Филиппа Помазкова, который начался с&nbsp;досье бренда и&nbsp;исследования, а&nbsp;не&nbsp;с&nbsp;макета.</p>
+      <div class="acts"><a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Обсудить сайт в&nbsp;Telegram <i aria-hidden="true">→</i></a></div>
+    </div>
+    <figure>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru&nbsp;· подход</span></div>
+        <img src="../../assets/pomazkov/d-approach.jpg" width="1600" height="1001" alt="Блок «Не только форма. Чувство меры» на сайте пластического хирурга Филиппа Помазкова" fetchpriority="high" decoding="async">
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- 02 исследование -->
+<section class="sec">
+  <div class="wrap rv">
+    <div class="rule"><span>02</span><span>Исследование до&nbsp;дизайна</span></div>
+    <h2 class="h2">Сначала<br>исследование<span class="dot">.</span></h2>
+    <ul class="nums">
+      <li><b>10</b><span>страниц досье бренда по&nbsp;открытым источникам: соцсети, Telegram, ПроДокторов</span></li>
+      <li><b>85&nbsp;000+</b><span>знаков исследования воронки медицинских сайтов и&nbsp;архитектуры</span></li>
+      <li><b>12</b><span>блоков структуры: каждый отвечает на&nbsp;один вопрос пациента</span></li>
+    </ul>
+    <p class="lede concl">Вывод исследования: сайт хирурга продаёт не&nbsp;операцию и&nbsp;даже не&nbsp;врача, а <b>снижение неопределённости</b> перед личным решением с&nbsp;риском.</p>
+  </div>
+</section>
+
+<!-- 03 страхи -->
+<section class="sec soft">
+  <div class="wrap rv">
+    <div class="rule"><span>03</span><span>Страхи из&nbsp;досье</span></div>
+    <h2 class="h2">Что&nbsp;пациенты<br>говорят сами<span class="dot">.</span></h2>
+    <ul class="trio">
+      <li><q>«Результат не&nbsp;совпадёт с&nbsp;тем, что&nbsp;в&nbsp;голове»</q><p class="small">Кейсы как&nbsp;история решения: с&nbsp;чем пришла пациентка, какие были варианты, почему выбрали этот путь.</p></li>
+      <li><q>«Долгая реабилитация. Наркоз»</q><p class="small">Путь пациента из&nbsp;семи точек с&nbsp;живыми деталями. Например, что&nbsp;список анализов действует 10&nbsp;дней.</p></li>
+      <li><q>«Молодой возраст»</q><p class="small">Не&nbsp;оправдываться и&nbsp;не&nbsp;выносить в&nbsp;заголовок, а&nbsp;закрыть образованием, путём врача и&nbsp;сопровождением после операции.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 позиционирование -->
+<section class="sec pos">
+  <div class="wrap rv">
+    <div>
+      <div class="rule"><span>04</span><span>Позиционирование</span></div>
+      <h2 class="big">Естественный<br>результат<span class="dot">.</span></h2>
+    </div>
+    <div>
+      <p class="lede">Главный оффер сайта не&nbsp;«сделаем больше и&nbsp;ярче», а&nbsp;естественный результат. В&nbsp;досье зафиксировано, что&nbsp;Филипп открыто допускает менее инвазивный вариант вместо максимального вмешательства.</p>
+      <p class="lede dim">Стажем не&nbsp;соревнуемся. Авторская фраза «Скульптор твоего тела» идёт вторым планом: для&nbsp;операций на&nbsp;лице главный оффер должен звучать серьёзнее.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 путь пациента -->
+<section class="sec soft journey">
+  <div class="wrap">
+    <figure class="rv">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>drpomazkov.ru&nbsp;· путь пациента</span></div>
+        <video src="../../assets/pomazkov/v-journey-d.mp4" poster="../../assets/pomazkov/v-journey-d.jpg" width="1440" height="900" muted loop playsinline preload="none" data-auto aria-label="Блок «Путь пациента» на сайте Филиппа Помазкова"></video>
+      </div>
+    </figure>
+    <div class="rv">
+      <div class="rule"><span>05</span><span>Путь пациента</span></div>
+      <h2 class="h2">Семь точек<br>пути пациента<span class="dot">.</span></h2>
+      <ol class="steps"><li>Консультация</li><li>Решение</li><li>Подготовка</li><li>Операция</li><li>Первые дни</li><li>Восстановление</li><li>Контроль результата</li></ol>
+    </div>
+  </div>
+</section>
+
+<!-- 06 цена и запись -->
+<section class="sec book">
+  <div class="wrap">
+    <figure class="phone rv">
+      <video src="../../assets/pomazkov/v-app-m.mp4" poster="../../assets/pomazkov/v-app-m.jpg" width="390" height="844" muted loop playsinline preload="none" data-auto aria-label="Мобильная версия сайта Филиппа Помазкова"></video>
+    </figure>
+    <div class="rv">
+      <div class="rule"><span>06</span><span>Цена, запись, телефон</span></div>
+      <h2 class="h2">Честная цена.<br>Запись без&nbsp;форм<span class="dot">.</span></h2>
+      <div class="cols">
+        <div><strong>Цена «по&nbsp;консультации»</strong><p class="small">Цену операции нельзя назвать заранее, и&nbsp;сайт этого не&nbsp;скрывает. Он&nbsp;объясняет, из&nbsp;чего она&nbsp;складывается, и&nbsp;обещает: итоговая смета обсуждается до&nbsp;операции и&nbsp;не&nbsp;меняется задним числом.</p></div>
+        <div><strong>Запись через Telegram</strong><p class="small">Пациент выбирает дату, время и&nbsp;тему разговора, сайт открывает Telegram с&nbsp;готовым сообщением. Не&nbsp;нужно звонить и&nbsp;объяснять вслух интимный вопрос.</p></div>
+      </div>
+      <p class="small" style="margin-top:16px">На&nbsp;телефоне: нижнее меню из&nbsp;пяти разделов, длинные блоки разбиты на&nbsp;экраны, запись открывается шторкой с&nbsp;выбором даты.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 до/после и закон -->
+<section class="sec soft" id="law">
+  <div class="wrap rv">
+    <div class="rule"><span>07</span><span>Фото «до&nbsp;и&nbsp;после» и&nbsp;закон</span></div>
+    <h2 class="h2">Не&nbsp;витрина «до&nbsp;и&nbsp;после»,<br>а&nbsp;ход мысли<span class="dot">.</span></h2>
+    <ul class="law">
+      <li><strong>Реальные материалы</strong><p>Результаты только на&nbsp;реальных фото. AI‑визуалы создают атмосферу и&nbsp;не&nbsp;выдаются за&nbsp;документальную съёмку.</p></li>
+      <li><strong>Согласие пациента</strong><p>Письменное согласие на&nbsp;разглашение врачебной тайны (ч.&nbsp;3 ст.&nbsp;13&nbsp;323‑ФЗ) и&nbsp;на&nbsp;использование изображения (ст.&nbsp;152.1 ГК&nbsp;РФ).</p></li>
+      <li><strong>Реклама</strong><p>В&nbsp;рекламе медуслуг нельзя ссылаться на&nbsp;случаи улучшения здоровья и&nbsp;благодарности пациентов (п.&nbsp;2, 3 ч.&nbsp;1 и&nbsp;ч.&nbsp;3 ст.&nbsp;24 закона «О&nbsp;рекламе»).</p></li>
+      <li><strong>Лицензия и&nbsp;противопоказания</strong><p>Сведения о&nbsp;лицензии клиники, «Имеются противопоказания» (ч.&nbsp;7 ст.&nbsp;24), Метрика только после согласия на&nbsp;cookie.</p></li>
+    </ul>
+    <p class="lawfoot"><span><b>К&nbsp;новому сайту 5&nbsp;000&nbsp;₽ · готовый сайт 15&nbsp;000&nbsp;₽.</b> Проверяю и&nbsp;внедряю сама: я&nbsp;юрист.</span><a class="link" href="../../zakon/#check">Проверить текущий сайт бесплатно →</a></p>
+  </div>
+</section>
+
+<!-- 08 отзыв -->
+<section class="sec dark rev">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>08</span><span>Отзыв</span></div>
+      <div class="who">
+        <img src="../../assets/reviews/pomazkov.jpg" width="240" height="240" alt="Филипп Помазков" loading="lazy" decoding="async">
+        <div><b>Филипп Помазков</b><span class="small">Пластический хирург · <a href="https://drpomazkov.ru" target="_blank" rel="noopener">drpomazkov.ru</a></span></div>
+      </div>
+    </div>
+    <div class="rv">
+      <blockquote><p>«Колоссальную работу ты&nbsp;проделала, прям реально титаническую. Получилось всё даже лучше, чем&nbsp;я&nbsp;себе это&nbsp;представлял.»</p></blockquote>
+      <div class="voice" data-voice>
+        <button type="button" aria-label="Слушать голосовой отзыв Филиппа Помазкова, 0:37"><svg class="p1" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg><svg class="p2" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+        <div data-wave aria-hidden="true"></div>
+        <span data-time>0:37</span>
+        <audio preload="none" src="../../assets/pomazkov/review.m4a"></audio>
+      </div>
+      <p class="small" style="margin-top:12px"><a class="link" href="../../cases/pomazkov/">Смотреть кейс целиком →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec price" id="price">
+  <div class="wrap rv">
+    <div class="rule"><span>09</span><span>Цены и&nbsp;сроки</span></div>
+    <h2 class="h2">Цены и&nbsp;сроки<span class="dot">.</span></h2>
+    <div class="prow"><div><strong>Одностраничный сайт</strong><p>Сайт хирурга: подход, направления, путь пациента, запись.</p></div><div class="n"><small>от</small>60&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Многостраничный сайт</strong><p>Отдельные страницы направлений, кейсов и&nbsp;пути пациента.</p></div><div class="n"><small>от</small>80&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Сложные сценарии</strong><p>Нестандартная механика, отдельная мобильная версия.</p></div><div class="n"><small>от</small>150&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Юридическая часть к&nbsp;новому сайту</strong><p>Для&nbsp;готового сайта: <a class="link" href="../../zakon/">«Сайт по&nbsp;закону»</a>, для&nbsp;медицины 15&nbsp;000&nbsp;₽.</p></div><div class="n">5&nbsp;000&nbsp;₽</div></div>
+    <p class="pnote"><span><b>Срок разработки до&nbsp;месяца.</b></span><span>Итог зависит от&nbsp;структуры, числа страниц, контента и&nbsp;сложности механики.</span></p>
+  </div>
+</section>
+<section class="sec soft faq" id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>10</span><span>Вопросы</span></div>
+      <h2 class="h2">Частые<br>вопросы<span class="dot">.</span></h2>
+    </div>
+    <div class="rv faqlist">
+      <details open><summary><h3>Сколько стоит сайт пластического хирурга?</h3><i aria-hidden="true">+</i></summary><p class="a">Одностраничный сайт от&nbsp;60&nbsp;000&nbsp;₽, многостраничный от&nbsp;80&nbsp;000&nbsp;₽, сложные сценарии и&nbsp;отдельная мобильная версия от&nbsp;150&nbsp;000&nbsp;₽. Юридическая часть к&nbsp;новому сайту 5&nbsp;000&nbsp;₽.</p></details>
+      <details><summary><h3>Сколько времени займёт разработка?</h3><i aria-hidden="true">+</i></summary><p class="a">До&nbsp;месяца. Точный срок называю после того, как&nbsp;посмотрю задачу и&nbsp;объём работы.</p></details>
+      <details><summary><h3>Зачем личный сайт, если я&nbsp;оперирую в&nbsp;клинике?</h3><i aria-hidden="true">+</i></summary><p class="a">Пациент выбирает хирурга, а&nbsp;не&nbsp;клинику. Личный сайт показывает ваш подход, кейсы и&nbsp;путь пациента, а&nbsp;запись ведёт напрямую к&nbsp;вам. Сведения о&nbsp;лицензии клиники, в&nbsp;которой вы&nbsp;оперируете, на&nbsp;сайте тоже есть.</p></details>
+      <details><summary><h3>Как&nbsp;показать фото «до&nbsp;и&nbsp;после»?</h3><i aria-hidden="true">+</i></summary><p class="a">Как&nbsp;историю решения: с&nbsp;чем пришёл пациент, какие были варианты, почему выбрали этот путь. Только реальные фото и&nbsp;только с&nbsp;письменного согласия пациента. В&nbsp;рекламе медицинских услуг ссылки на&nbsp;конкретные случаи улучшения запрещены (ст.&nbsp;24 закона «О&nbsp;рекламе»).</p></details>
+      <details><summary><h3>Что&nbsp;делать, если цену операции нельзя назвать заранее?</h3><i aria-hidden="true">+</i></summary><p class="a">Сказать это&nbsp;прямо. На&nbsp;сайте Филиппа Помазкова блок о&nbsp;цене объясняет, из&nbsp;чего складывается стоимость, и&nbsp;обещает, что&nbsp;итоговая смета обсуждается до&nbsp;операции и&nbsp;не&nbsp;меняется задним числом.</p></details>
+      <details><summary><h3>Нужна&nbsp;ли&nbsp;форма записи на&nbsp;сайте хирурга?</h3><i aria-hidden="true">+</i></summary><p class="a">Не&nbsp;обязательно. На&nbsp;сайте Филиппа Помазкова пациент выбирает дату, время и&nbsp;тему разговора, а&nbsp;сайт открывает Telegram с&nbsp;готовым сообщением. Персональных и&nbsp;медицинских данных сайт при&nbsp;этом не&nbsp;собирает.</p></details>
+    </div>
+  </div>
+</section>
+<section class="sec dark end" id="cta">
+  <div class="wrap">
+    <div class="rule"><span>11</span><span>Telegram</span></div>
+    <h2 class="h2">Расскажите<br>о&nbsp;практике<span class="dot">.</span></h2>
+    <p class="lede">Где&nbsp;оперируете, какие направления главные и&nbsp;есть&nbsp;ли&nbsp;сайт сейчас. Отвечу сама и&nbsp;скажу, с&nbsp;чего начать.</p>
+    <div class="acts">
+      <a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Написать в&nbsp;Telegram <i aria-hidden="true">→</i></a>
+      <a class="link" href="../../zakon/#check">Бесплатно проверить текущий сайт →</a>
+    </div>
+    <div class="contacts">
+      <div><span>Telegram</span><a href="https://t.me/tina_digital" target="_blank" rel="noopener">@tina_digital</a></div>
+      <div><span>Почта</span><a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></div>
+      <div><span>Сайт</span><a href="../../">tinadigital.ru</a></div>
+    </div>
+    <div class="spec"><b>Другие специализации</b><a href="../stomatologiya/">Стоматология</a><a href="../kosmetologiya/">Косметология</a><a href="../">Все&nbsp;врачи и&nbsp;клиники</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../../privacy/">Политика конфиденциальности</a><a href="../../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
+  <span>Сайт пластического хирурга</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var TG = 'https://t.me/tina_digital';
+  var MSG = "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435! \u041d\u0443\u0436\u0435\u043d \u0441\u0430\u0439\u0442 \u043f\u043b\u0430\u0441\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0445\u0438\u0440\u0443\u0440\u0433\u0430.";
+  document.querySelectorAll('[data-tg]').forEach(function(a){
+    a.href = TG + '?text=' + encodeURIComponent(MSG);
+    a.addEventListener('click', function(){ if (window.tinaGoal) window.tinaGoal('telegram'); });
+  });
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px 20% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('shown'); });
+  /* видео грузятся и играют только когда видны */
+  var vids = document.querySelectorAll('video[data-auto]');
+  if ('IntersectionObserver' in window){
+    var pre = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting){ var v = e.target; if (v.preload !== 'auto'){ v.preload = 'auto'; v.load(); } pre.unobserve(v); }
+    }); }, { rootMargin:'100% 0px 100% 0px' });
+    var vo = new IntersectionObserver(function(es){ es.forEach(function(e){
+      var v = e.target; v._vis = e.isIntersecting;
+      if (e.isIntersecting) v.play().catch(function(){}); else v.pause();
+    }); }, { threshold:.05 });
+    vids.forEach(function(v){
+      v.addEventListener('canplay', function(){ if (v._vis && v.paused) v.play().catch(function(){}); });
+      pre.observe(v); vo.observe(v);
+    });
+  }
+  /* FAQ: открыт один вопрос за раз */
+  var ds = document.querySelectorAll('.faqlist details');
+  ds.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) ds.forEach(function(o){ if (o !== d) o.open = false; }); }); });
+})();
+</script>
+<script src="../../assets/reviews/voice.js"></script>
+<script src="../../assets/nav/mobile-nav.js"></script>
+<script src="../../assets/legal/legal.js"></script>
+</body>
+</html>
