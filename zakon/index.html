@@ -133,6 +133,7 @@
   .form label{ display:block; font-size:13px; color:rgba(255,255,255,.5); margin-bottom:8px; }
   .form input{ width:100%; background:none; border:0; border-bottom:1.5px solid rgba(255,255,255,.5); color:#fff; font-size:clamp(20px,1.8vw,26px); padding:6px 0 12px; border-radius:0; outline:none; }
   .form input:focus{ border-bottom-color:#fff; }
+  .hint{ margin:16px 0 0; font-size:15px; color:rgba(255,255,255,.6); max-width:640px; }
   .form input::placeholder{ color:rgba(255,255,255,.3); }
   .end .btn{ background:#fff; color:var(--ink); }
   .end .btn:hover{ background:#eee; }
@@ -352,6 +353,7 @@
       <div><label for="site">Адрес сайта</label><input id="site" name="site" type="text" inputmode="url" autocomplete="url" placeholder="example.ru"></div>
       <button class="btn" type="submit">Проверить мой сайт <i aria-hidden="true">→</i></button>
     </form>
+    <p class="hint" id="checkHint" hidden>Открыла Telegram. Если текст не&nbsp;подставился, он уже скопирован: просто вставьте его в&nbsp;чат.</p>
     <div class="contacts">
       <div><span>Telegram</span><a href="https://t.me/tina_digital" target="_blank" rel="noopener">@tina_digital</a></div>
       <div><span>Почта</span><a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></div>
@@ -383,7 +385,10 @@
     e.preventDefault();
     var v = (f.site.value || '').trim();
     if (window.tinaGoal) window.tinaGoal('telegram');
+    try { navigator.clipboard && navigator.clipboard.writeText(MSG.check(v)); } catch (err) {}
     window.open(url('check', v), '_blank', 'noopener');
+    var h = document.getElementById('checkHint');
+    if (h) h.hidden = false;
   });
 
   var rv = document.querySelectorAll('.rv');
