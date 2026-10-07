@@ -1662,8 +1662,13 @@
 
         if (tileData.src && tileData.type === 'video'){
           /* пока видео грузится, на плитке стоит его первый кадр */
-          loadTileTexture(loader, tileData.src.replace(/\.mp4$/, '-poster.jpg'), tw, th, mesh, tileData.focalPointX, tileData.focalPointY);
-          loadTileVideo(tileData.src, tw, th, mesh, tileData.focalPointX, tileData.focalPointY);
+          /* сначала картинка-заглушка, видео грузим после неё, чтобы не делили канал */
+          (function(src, mesh, fx, fy){
+            var started = false;
+            function startVideo(){ if (started) return; started = true; loadTileVideo(src, tw, th, mesh, fx, fy); }
+            loadTileTexture(loader, src.replace(/\.mp4$/, '-poster.jpg'), tw, th, mesh, fx, fy, startVideo);
+            setTimeout(startVideo, 4000); /* если заглушка застряла, видео всё равно стартует */
+          })(tileData.src, mesh, tileData.focalPointX, tileData.focalPointY);
         } else if (tileData.src){
           loadTileTexture(loader, tileData.src, tw, th, mesh, tileData.focalPointX, tileData.focalPointY);
         } else {
@@ -1765,8 +1770,9 @@
       return true;
     }
 
-    function loadTileTexture(loader, src, w, h, mesh, fx, fy){
+    function loadTileTexture(loader, src, w, h, mesh, fx, fy, done){
       loader.load(src, function(tex){
+        if (done) done();
         if (mesh.userData.videoReady) return;
         if ('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
         fitCover(tex, w, h, fx, fy);
@@ -1777,7 +1783,8 @@
       }, undefined, function(){
         /* CDN недоступен — тот же файл с сайта */
         var local = window.cdnLocal && window.cdnLocal(src);
-        if (local) loadTileTexture(loader, local, w, h, mesh, fx, fy);
+        if (local) loadTileTexture(loader, local, w, h, mesh, fx, fy, done);
+        else if (done) done();
       });
     }
 
@@ -1799,8 +1806,11 @@
       video.crossOrigin = 'anonymous';
       video.src = src;
 
-      video.addEventListener('loadeddata', function(){
-        if (mesh.userData.videoReady) return;
+      /* переключаем грань на видео только когда оно реально идёт:
+         на iPhone в энергосбережении видео не стартует, и вместо заглушки был бы чёрный кадр */
+      function onFrame(){
+        if (mesh.userData.videoReady || video.paused || video.currentTime <= 0) return;
+        video.removeEventListener('timeupdate', onFrame);
         mesh.userData.videoReady = true;
         var tex = new THREE.VideoTexture(video);
         if ('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
@@ -1811,11 +1821,13 @@
         mesh.material.color.set(0xffffff);
         glow(mesh, tex);
         mesh.material.needsUpdate = true;
-      });
+      }
+      video.addEventListener('timeupdate', onFrame);
       video.addEventListener('error', function(){
         var local = window.cdnLocal && window.cdnLocal(video.src);
         if (local){ video.src = local; video.play().catch(function(){}); return; }
-        applyEmptyPlaceholder(mesh, {}, w, h);
+        /* видео не загрузилось: на грани остаётся картинка-заглушка */
+        if (!mesh.material.map) applyEmptyPlaceholder(mesh, {}, w, h);
       });
 
       video.play().catch(function(){});
