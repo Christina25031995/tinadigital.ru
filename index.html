@@ -1258,12 +1258,26 @@
     });
     return layout;
   }
+  /* TOP — same six sizes as BACK_LAYOUT_CUSTOM / RIGHT_LAYOUT_CUSTOM
+     (Christina: every face uses the same container formats — 16:9-ish
+     screens plus one phone window), rearranged: screens row on top,
+     phone + anchor in the middle, two strips at the bottom. */
+  var TOP_LAYOUT_CUSTOM = [
+    { x: 0.2288, y: 0.288,  w: 0.7712, h: 0.4983, role: 'anchor' },
+    { x: 0,      y: 0.288,  w: 0.2288, h: 0.4983, role: 'narrow' },
+    { x: 0,      y: 0,      w: 0,      h: 0,      role: 'detail' },
+    { x: 0,      y: 0,      w: 0.5124, h: 0.288,  role: 'accent' },
+    { x: 0.5124, y: 0,      w: 0.4876, h: 0.288,  role: 'wide'   },
+    { x: 0,      y: 0.7863, w: 0.5048, h: 0.2138, role: 'detail' },
+    { x: 0.5048, y: 0.7863, w: 0.4952, h: 0.2138, role: 'detail' },
+    { x: 0,      y: 0,      w: 0,      h: 0,      role: 'detail' }
+  ];
   var BASE_LAYOUT = {
     front:  buildLayout(FRONT_POSITIONS),
     right:  RIGHT_LAYOUT_CUSTOM,
     back:   BACK_LAYOUT_CUSTOM,
     left:   LEFT_LAYOUT_CUSTOM,
-    top:    mergeStructuralPairs(buildLayout(TOP_POSITIONS)),
+    top:    TOP_LAYOUT_CUSTOM,
     bottom: mergeStructuralPairs(buildLayout(BOTTOM_POSITIONS))
   };
 
@@ -1508,6 +1522,9 @@
   setTile('back',  6, { src: 'assets/cube/back-7-tyaga-hero.jpg', type: 'image', project: 'tyaga', label: 'Tyaga', category: 'Offroad rental website', aspectRatio: 2.361, focalPointX: 65, focalPointY: 45 , projectGroup: 'tyaga'});
   setTile('back',  1, { src: 'assets/cube/back-9-clinic-mobile.jpg', type: 'image', project: 'pomazkov-mobile', label: 'Philipp Pomazkov', category: 'Mobile adaptation', aspectRatio: 0.470, focalPointX: 50, focalPointY: 50 , projectGroup: 'pomazkov'});
   setTile('back',  4, { src: 'assets/cube/back-1-blepharoplasty-full.jpg', type: 'image', project: 'pomazkov-eyes', label: 'Philipp Pomazkov', category: 'Medical website', aspectRatio: 1.547, focalPointX: 50, focalPointY: 20 , projectGroup: 'pomazkov'});
+  setTile('top',   0, { src: 'assets/cube/top-0-unikate.mp4', type: 'video', project: 'unikate', label: 'UniKate', category: 'Marketing agency website', aspectRatio: 1.547, focalPointX: 50, focalPointY: 50 , projectGroup: 'arapov'});
+  setTile('top',   3, { src: 'assets/cube/top-3-arapov-corp-hero.jpg', type: 'image', project: 'arapov-corp', label: 'Timofey Arapov', category: 'Corporate host website', aspectRatio: 1.778, focalPointX: 50, focalPointY: 50 , projectGroup: 'unikate'});
+  setTile('top',   4, { src: 'assets/cube/top-4-arapov-showreel.jpg', type: 'image', project: 'arapov-wedding', label: 'Timofey Arapov', category: 'Wedding host website', aspectRatio: 1.69, focalPointX: 50, focalPointY: 50 , projectGroup: 'arapov'});
 
   var canvas = document.getElementById('cxCanvas');
   var cubeWrap = document.getElementById('cxCubeWrap');
