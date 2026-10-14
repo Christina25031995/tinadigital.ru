@@ -202,6 +202,16 @@
   .nums span{ display:block; margin-top:10px; font-size:14px; line-height:1.4; color:var(--dim); }
   .data .shot{ width:100%; }
 
+  /* видеоотзыв */
+  .vrev-in{ display:grid; grid-template-columns:minmax(220px,340px) minmax(0,1fr); gap:clamp(28px,5vw,88px); align-items:center; max-width:1240px; }
+  .vrev-frame{ aspect-ratio:9/16; border-radius:22px; overflow:hidden; background:#000; box-shadow:0 0 0 1px var(--line), 0 30px 80px rgba(0,0,0,.45); }
+  .vrev-frame video{ width:100%; height:100%; object-fit:cover; display:block; }
+  .vrev blockquote{ margin:0; }
+  .vrev .q1{ margin:0; font-size:clamp(26px,2.9vw,46px); line-height:1.12; font-weight:600; letter-spacing:-.02em; text-wrap:pretty; }
+  .vrev .q2{ margin:22px 0 0; font-size:clamp(18px,1.6vw,24px); line-height:1.4; color:var(--dim); text-wrap:pretty; }
+  .vrev-src{ margin:24px 0 0; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
+  @media (max-width:900px){ .vrev-in{ grid-template-columns:1fr; } .vrev-frame{ max-width:300px; } }
+
   /* отзыв: карточка + живое фото справа */
   .split.rev{ grid-template-columns:minmax(0,1fr) min(42vw, calc(100svh * .75)); }
   .split.rev .side{ align-items:flex-start; }
@@ -342,6 +352,20 @@
   </figure>
   </div>
   <figure><img src="../../assets/enduro/p-group.jpg" alt="Группа райдеров Enduro Energy на выезде" style="background:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAcABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwChHZSzk+WAcdcnFadtpCQWoldfMmdOEIyAckYqEa1bq2yGOJoxEWJbgk+gH50Ra0i2myAKoMXmAs3IYnkD862dS+xkoWH3E6pa+TIoRuc/LkfSiqonk8xpLkrhH/dkjqKKFJdAatuURZxCFAdpbgHaOlW9PiB34RNu7aGHXgdM1XskCSmMfdB4z9KnsugP/TZxXC2daRZwpITpx90/560VXEjNq5Un5ViyB78UVLdh2P/Z) center/cover" loading="lazy"></figure>
+</section>
+
+<section class="scr pad vrev">
+  <div class="vrev-in">
+    <div class="vrev-frame rv"><video src="../../assets/enduro/video-review.mp4" poster="../../assets/enduro/video-review.jpg" controls playsinline preload="none"></video></div>
+    <div class="vrev-text">
+      <p class="lbl">Видеоотзыв Анастасии</p>
+      <blockquote class="rv">
+        <p class="q1">«Кристина настолько разобралась в&nbsp;прокате, что как будто бы она сама им&nbsp;занимается»</p>
+        <p class="q2">«Настроила Гео, Сео, что пошли заявки от&nbsp;сайта, хотя я&nbsp;изначально на&nbsp;это не&nbsp;возлагала никаких надежд»</p>
+      </blockquote>
+      <p class="vrev-src">Анастасия · основательница Enduro Energy · 1:40</p>
+    </div>
+  </div>
 </section>
 
 <section class="stage live">
