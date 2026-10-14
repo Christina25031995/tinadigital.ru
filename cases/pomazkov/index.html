@@ -227,6 +227,14 @@
   .facts b{ display:block; font-family:var(--serif); font-weight:600; font-size:clamp(34px,4vw,60px); line-height:1; margin-bottom:10px; }
   .facts span{ font-size:15px; line-height:1.45; color:var(--l-dim); }
   @media (max-width: 900px){ .facts{ grid-template-columns:1fr 1fr; } }
+  .vreview{ margin-top:clamp(50px,7vw,100px); display:grid; grid-template-columns:minmax(220px,320px) 1fr; gap:clamp(28px,5vw,80px); align-items:center; }
+  .vreview-frame{ border-radius:22px; overflow:hidden; background:#000; box-shadow:0 0 0 1px rgba(184,150,96,.3), 0 30px 80px rgba(0,0,0,.45); aspect-ratio:9/16; }
+  .vreview-frame video{ width:100%; height:100%; object-fit:cover; display:block; }
+  .vreview-kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); margin:0 0 18px; }
+  .vreview q{ display:block; font-style:italic; font-size:clamp(24px,2.8vw,42px); line-height:1.25; quotes:'«' '»'; text-wrap:pretty; }
+  .vreview q.vreview-second{ margin-top:18px; font-size:clamp(18px,1.6vw,24px); color:var(--l-faint, rgba(244,244,243,.7)); }
+  .vreview small{ display:block; margin-top:20px; font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--l-faint); }
+  @media (max-width: 700px){ .vreview{ grid-template-columns:1fr; } .vreview-frame{ max-width:300px; } }
   .voice{ margin-top:clamp(50px,7vw,100px); display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; padding:clamp(24px,3vw,40px); border-radius:18px; background:linear-gradient(135deg,#1b1a18,#111); box-shadow:inset 0 0 0 1px rgba(184,150,96,.25); }
   .voice .play{ width:84px; height:84px; border-radius:50%; background:var(--gold-2); border:0; cursor:pointer; display:grid; place-items:center; }
   .voice .play svg{ width:28px; height:28px; fill:#111; margin-left:4px; }
@@ -572,6 +580,17 @@
       <div class="rv"><b>152-ФЗ</b><span>юридический блок: политики, cookie, лицензия клиники</span></div>
     </div>
     <p class="quote rv" style="max-width:900px;margin-top:clamp(50px,7vw,100px)">«Когда увидел сайт Насти, я&nbsp;понял, что да, вот этот человек должен и&nbsp;мне делать сайт однозначно. И&nbsp;не&nbsp;прогадал».</p>
+    <div class="vreview rv">
+      <div class="vreview-frame">
+        <video src="../../assets/pomazkov/video-review.mp4" poster="../../assets/pomazkov/video-review.jpg" controls playsinline preload="none"></video>
+      </div>
+      <div class="vreview-text">
+        <p class="vreview-kicker">видеоотзыв</p>
+        <q>Ты&nbsp;воплотила в&nbsp;жизнь все мои пожелания и&nbsp;сделала всё даже краше, чем я&nbsp;себе это всё представлял.</q>
+        <q class="vreview-second">Всем, кто захочет себе роскошнейший сайт, буду тебя советовать.</q>
+        <small>Филипп Помазков · пластический хирург · 0:22</small>
+      </div>
+    </div>
     <div class="voice rv" id="voice">
       <button class="play" type="button" aria-label="Слушать отзыв">
         <svg class="p1" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
