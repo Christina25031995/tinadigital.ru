@@ -1,0 +1,14 @@
+# Не даёт бесплатному проекту Supabase (Tina CRM) уснуть: раз в 3 дня один запрос к базе.
+# Ключ публикуемый (publishable), он и так виден в crm.tinadigital.ru.
+name: CRM keep-alive
+on:
+  schedule:
+    - cron: '17 6 */3 * *'
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" "https://fyxvsvxyyekdutndkwwo.supabase.co/rest/v1/workspaces?select=id&limit=1" -H "apikey: sb_publishable_dIjJSWBG2GxO2GCSUzYLhw_H7IIr9V9"
