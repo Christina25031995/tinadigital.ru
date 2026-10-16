@@ -1,0 +1,9 @@
+# SEO (16.10.2026): одно главное зеркало https://tinadigital.ru/ и постоянные 301 со старых адресов
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.tinadigital\.ru$ [NC]
+RewriteRule ^(.*)$ https://tinadigital.ru/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]
+RewriteRule ^index\.html$ https://tinadigital.ru/ [R=301,L]
+RewriteRule ^case-(pomazkov|liana|liberman|ladoga|enduro)\.html$ https://tinadigital.ru/cases/$1/ [R=301,L]
+</IfModule>
