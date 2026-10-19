@@ -31,3 +31,5 @@
 - [Согласие на обработку персональных данных на сайте с 1 сентября 2025](https://tinadigital.ru/blog/soglasie-na-obrabotku-dannyh-na-sajte/): согласие отдельно от политики (ч. 1 ст. 9 152‑ФЗ в ред. 156‑ФЗ), галочка, письменное согласие, отзывы.
 - [Политика обработки персональных данных для сайта](https://tinadigital.ru/blog/politika-konfidencialnosti-dlya-sajta/): обязанность по ч. 2 ст. 18.1 152‑ФЗ, почему шаблон не работает, штрафы.
 - [Шаблон политики конфиденциальности для сайта (2026)](https://tinadigital.ru/blog/shablon-politiki-konfidencialnosti/): бесплатный шаблон по 152‑ФЗ с полями для замены, скачивание в Word.
+- [Шаблон согласия на обработку персональных данных для сайта (2026)](https://tinadigital.ru/blog/shablon-soglasiya-na-obrabotku-dannyh/): текст согласия для формы и галочки, скачивание в Word.
+- [Шаблон cookie-баннера и политики cookie (2026)](https://tinadigital.ru/blog/shablon-cookie-bannera/): текст уведомления, правила для разработчика, шаблон политики cookie.
