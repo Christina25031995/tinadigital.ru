@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#eef0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<title>Tina CRM</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f54eb'/%3E%3Cpath d='M9 10h14M16 10v13' stroke='white' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=20261019">
+<script>try{var t=localStorage.getItem("crmTheme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+
+<!-- Загрузка -->
+<div class="center" id="bootScreen"><p class="note">Загружаю…</p></div>
+
+<!-- Вход -->
+<div class="center" id="authScreen" hidden>
+  <form class="card" id="authForm" novalidate>
+    <div>
+      <h1>Tina <span>CRM</span></h1>
+      <div class="sub">Лиды, клиенты и кому писать сегодня</div>
+    </div>
+    <div class="seg authtabs" role="tablist" aria-label="Вход или регистрация">
+      <button type="button" role="tab" class="tab" id="tabLogin" data-mode="login" aria-selected="true">Войти</button>
+      <button type="button" role="tab" class="tab" id="tabSignup" data-mode="signup" aria-selected="false">Регистрация</button>
+    </div>
+    <div id="authAsk" style="display:grid;gap:14px">
+      <label>Email<input id="authEmail" type="email" autocomplete="email" inputmode="email" placeholder="you@example.ru" required></label>
+      <label>Пароль<input id="authPass" type="password" autocomplete="current-password" minlength="8" required></label>
+      <label id="authPass2Wrap" hidden>Повторите пароль<input id="authPass2" type="password" autocomplete="new-password" minlength="8"></label>
+      <button class="btn primary" type="submit" id="authBtn">Войти</button>
+      <p class="note" id="authHint">Забыли пароль? Напишите владельцу пространства.</p>
+    </div>
+    <div id="authSent" hidden style="display:grid;gap:12px">
+      <p><b>Проверьте почту.</b> На <span id="authSentTo"></span> отправлено письмо для подтверждения регистрации.</p>
+      <p class="note">После подтверждения вернитесь сюда и войдите с паролем.</p>
+      <button class="btn" type="button" id="authAgain">Ко входу</button>
+    </div>
+    <p class="status" id="authStatus" role="status" aria-live="polite"></p>
+  </form>
+</div>
+
+<!-- Создание пространства -->
+<div class="center" id="wsScreen" hidden>
+  <form class="card" id="wsForm">
+    <div>
+      <h1>Создайте рабочее <span>пространство</span></h1>
+      <div class="sub" id="wsSub">Здесь будут лиды, скрипты, бриф и доход. Позже можно пригласить людей.</div>
+    </div>
+    <label>Название<input id="wsName" required maxlength="80" placeholder="Например, TinaDigital"></label>
+    <div style="display:grid;gap:6px">
+      <span class="role">Как называть лидов</span>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="wsLabel" value="Лиды" checked>Лиды</label>
+        <label><input type="radio" name="wsLabel" value="Клиенты">Клиенты</label>
+        <label><input type="radio" name="wsLabel" value="Заявки">Заявки</label>
+      </div>
+    </div>
+    <div class="btns">
+      <button class="btn primary" type="submit" id="wsCreateBtn">Создать</button>
+      <button class="btn" type="button" id="wsCancel" hidden>Отмена</button>
+      <button class="btn" type="button" data-signout>Выйти</button>
+    </div>
+    <p class="note">Если вас пригласили, а пространства нет — проверьте, что вошли с тем email, на который пришло приглашение.</p>
+    <p class="status" id="wsStatus" role="status" aria-live="polite"></p>
+  </form>
+</div>
+
+<!-- Приложение -->
+<div class="wrap" id="app" hidden>
+  <header class="top">
+    <div class="brand">
+      <h1>Tina <span>CRM</span></h1>
+      <div class="wsline">
+        <select id="wsSelect" aria-label="Рабочее пространство"></select>
+        <span class="role" id="myRole"></span>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="addBtn" type="button">+ Добавить</button>
+      <details class="menu" id="menu">
+        <summary class="btn" role="button">Меню</summary>
+        <div class="pop">
+          <div class="who-am-i" id="whoami"></div>
+          <button type="button" data-open="membersSheet" data-owner>Участники</button>
+          <button type="button" data-open="importSheet" data-owner>Импорт JSON</button>
+          <button type="button" id="exportBtn">Экспорт JSON</button>
+          <button type="button" id="themeBtn">Тема: авто</button>
+          <button type="button" data-signout>Выйти</button>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <nav class="jump" aria-label="Разделы">
+    <a href="#brief">Бриф</a><a href="#todaySec">Сегодня</a><a href="#listSec" id="jumpLeads">Лиды</a><a href="#funnelsSec">Воронки</a><a href="#scriptsSec">Скрипты</a><a href="#incomeSec">Доход</a>
+  </nav>
+
+  <!-- Участники -->
+  <section class="sheet" id="membersSheet" hidden aria-labelledby="membersH">
+    <div class="row"><h2 id="membersH" style="margin:0">Участники</h2><button class="btn small" type="button" data-close>Закрыть</button></div>
+    <ul class="people" id="membersList"></ul>
+    <div id="invitesBox" hidden>
+      <h3 class="role" style="margin:4px 0 6px">Ждут входа</h3>
+      <ul class="people" id="invitesList"></ul>
+    </div>
+    <form id="inviteForm" class="grid" style="align-items:end">
+      <label>Пригласить по email<input id="inviteEmail" type="email" inputmode="email" required placeholder="colleague@mail.ru"></label>
+      <label>Роль<select id="inviteRole"><option value="member">Участник</option><option value="owner">Владелец</option></select></label>
+      <button class="btn primary" type="submit">Пригласить</button>
+    </form>
+    <p class="note">После приглашения попросите человека зарегистрироваться на crm.tinadigital.ru с этим email — пространство появится у него автоматически. Если он уже зарегистрирован — просто войти заново.</p>
+    <p class="status" id="membersStatus" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- Импорт -->
+  <section class="sheet" id="importSheet" hidden aria-labelledby="importH">
+    <div class="row"><h2 id="importH" style="margin:0">Импорт JSON</h2><button class="btn small" type="button" data-close>Закрыть</button></div>
+    <p class="note">Файл формата <code>{"leads":[…],"scripts":[…],"brief":{…},"income":[…]}</code> — как выгружает старая CRM или кнопка «Экспорт JSON». Лиды с тем же именем и городом, что уже есть, пропускаются.</p>
+    <label>Файл<input id="importFile" type="file" accept=".json,application/json"></label>
+    <div id="importPreview" hidden class="msg"></div>
+    <div class="btns"><button class="btn primary" type="button" id="importGo" disabled>Импортировать</button></div>
+    <p class="status" id="importStatus" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- Добавление лида -->
+  <form class="sheet" id="addForm" hidden>
+    <h2 id="addH">Новый лид</h2>
+    <div class="grid">
+      <label>Имя / компания<input id="f_name" required></label>
+      <label>Тип контакта<select id="f_ctype"><option value="lead">Лид</option><option value="referrer">Рекомендатель</option></select></label>
+      <label>Воронка *<select id="f_funnel"></select></label>
+      <label>Кто ведёт<input id="f_owner" list="teamList" placeholder="Катя"></label>
+    </div>
+    <div class="grid">
+      <label>Следующее касание *<input id="f_next" type="date" required></label>
+      <label class="wide">Что сделать *<input id="f_action" required placeholder="Написать в Telegram: имя + кейс + вопрос"></label>
+    </div>
+    <div class="grid">
+      <label>Город<input id="f_city"></label>
+      <label>Ниша<input id="f_niche" list="nicheList" placeholder="пластический хирург"></label>
+      <label>Тип<select id="f_type"><option value="cold">Холодный</option><option value="warm">Тёплый</option></select></label>
+      <label>Тип клиента<select id="f_kind"><option value="new">Новый</option><option value="former">Бывший</option><option value="subscriber">Абонент</option></select></label>
+      <label>Горячесть 1–5<input id="f_hot" type="number" min="1" max="5" value="3" inputmode="numeric"></label>
+      <label>Сайт<input id="f_site" placeholder="нет или ссылка"></label>
+      <label>Instagram<input id="f_insta" placeholder="ссылка на профиль"></label>
+      <label>Контакт<input id="f_contact" placeholder="Telegram, телефон, почта"></label>
+      <label>ЛПР<input id="f_dm" placeholder="имя + контакт"></label>
+      <label id="f_refWrap">Кто привёл<select id="f_ref"></select></label>
+    </div>
+    <label>Зацепка для первого сообщения<textarea id="f_hook"></textarea></label>
+    <label>Готовое сообщение<textarea id="f_message" placeholder="Необязательно"></textarea></label>
+    <div class="row"><span class="status" id="addStatus"></span><span class="btns"><button class="btn" type="button" id="addCancel">Отмена</button><button class="btn primary" type="submit">Сохранить</button></span></div>
+  </form>
+  <datalist id="nicheList"></datalist>
+  <datalist id="teamList"></datalist>
+  <datalist id="channelList"><option value="Telegram"><option value="WhatsApp"><option value="Instagram"><option value="Почта"><option value="Звонок"><option value="Встреча"><option value="VK"><option value="Max"></datalist>
+
+  <!-- Бриф -->
+  <section class="brief" id="brief" aria-labelledby="briefH">
+    <div class="row"><h2 id="briefH" style="margin:0">Утренний бриф</h2><span class="btns"><span class="note" id="briefDate"></span><button class="btn small" type="button" id="briefEditBtn" data-owner>Изменить</button></span></div>
+    <div class="money" id="money"></div>
+    <div class="briefgrid" id="briefLists">
+      <div><h3>Итоги вчера</h3><ul id="briefYesterday"></ul></div>
+      <div><h3>План на сегодня</h3><ol id="briefPlan"></ol>
+        <div id="briefAutoWrap" hidden><h3 style="margin-top:12px">По воронкам</h3><ul id="briefAuto" class="auto"></ul></div></div>
+    </div>
+    <form id="briefForm" hidden style="display:grid;gap:10px">
+      <div class="grid">
+        <label>Дата брифа<input id="b_date" placeholder="29 сентября, вторник"></label>
+        <label>Цель на месяц, ₽<input id="b_goal" type="number" min="0" step="1000" inputmode="numeric"></label>
+      </div>
+      <label>Итоги вчера — по пункту в строке<textarea id="b_yesterday" rows="4"></textarea></label>
+      <label>План на сегодня — по пункту в строке<textarea id="b_plan" rows="5"></textarea></label>
+      <div class="row"><span class="status" id="briefStatus"></span><span class="btns"><button class="btn" type="button" id="briefCancel">Отмена</button><button class="btn primary" type="submit">Сохранить бриф</button></span></div>
+    </form>
+  </section>
+
+  <section class="today" id="todaySec" aria-labelledby="todayH">
+    <h2 id="todayH">Кому написать сегодня</h2>
+    <ul id="todayList"><li class="empty">Загружаю…</li></ul>
+  </section>
+
+  <section aria-labelledby="funnelH">
+    <h2 id="funnelH">Этапы</h2>
+    <div class="funnel" id="funnel"></div>
+  </section>
+
+  <section aria-labelledby="listH" id="listSec">
+    <div class="row" style="margin-bottom:10px"><h2 id="listH" style="margin:0">Все лиды</h2><span class="note" id="count"></span></div>
+    <div class="tabs" id="nicheTabs" role="tablist" aria-label="Ниши"></div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Поиск по имени, городу, нише" aria-label="Поиск">
+      <select id="fFunnel" aria-label="Воронка"><option value="">Все воронки</option></select>
+      <select id="fOwner" aria-label="Кто ведёт"><option value="">Все ведущие</option></select>
+      <select id="fCtype" aria-label="Тип контакта"><option value="">Лиды и рекомендатели</option><option value="lead">Только лиды</option><option value="referrer">Только рекомендатели</option></select>
+      <select id="fType" aria-label="Тип"><option value="">Все типы</option><option value="cold">Холодные</option><option value="warm">Тёплые</option></select>
+      <select id="fCity" aria-label="Город"><option value="">Все города</option></select>
+      <select id="fSort" aria-label="Сортировка"><option value="hot">Сначала горячие</option><option value="next">По дате касания</option><option value="new">Сначала новые</option></select>
+    </div>
+    <div class="list" id="list" style="margin-top:10px"></div>
+  </section>
+
+  <section id="funnelsSec" aria-labelledby="funnelsH">
+    <div class="row" style="margin-bottom:10px"><h2 id="funnelsH" style="margin:0">Воронки привлечения</h2>
+      <span class="btns">
+        <span class="seg period" id="periodSeg" role="radiogroup" aria-label="Период">
+          <button type="button" class="tab" data-period="month">Месяц</button><button type="button" class="tab" data-period="30">30 дней</button><button type="button" class="tab" data-period="all">Всё время</button>
+        </span>
+        <select id="fOwnerF" class="plain" aria-label="Кто ведёт"><option value="">Все ведущие</option></select>
+        <button class="btn small" type="button" id="funnelAddBtn">+ Воронка</button>
+      </span>
+    </div>
+    <form class="sheet" id="funnelForm" hidden style="margin-bottom:10px">
+      <h2 style="margin:0">Новая воронка</h2>
+      <div class="grid">
+        <label>Шаблон задач<select id="fn_preset"></select></label>
+        <label>Название<input id="fn_name" required maxlength="80"></label>
+        <label>Уточнение<input id="fn_sub" maxlength="120" placeholder="например, Косметологии, Израиль"></label>
+      </div>
+      <div class="row"><span class="status" id="funnelStatus"></span><span class="btns"><button class="btn" type="button" id="funnelCancel">Отмена</button><button class="btn primary" type="submit">Создать</button></span></div>
+    </form>
+    <div id="funnelHome">
+      <div class="fgrid" id="funnelGrid"></div>
+      <div id="funnelSummary" style="margin-top:14px"></div>
+    </div>
+    <div id="funnelScreen" hidden></div>
+  </section>
+
+  <section aria-labelledby="scriptsH" id="scriptsSec">
+    <div class="row" style="margin-bottom:10px"><h2 id="scriptsH" style="margin:0">Скрипты сообщений</h2><span class="btns"><span class="note" id="scriptsNote">для выбранной ниши</span><button class="btn small" type="button" id="scriptAddBtn">+ Скрипт</button></span></div>
+    <form class="sheet" id="scriptForm" hidden style="margin-bottom:10px">
+      <h2 id="scriptFormH" style="margin:0">Новый скрипт</h2>
+      <div class="grid">
+        <label>Ниша<input id="s_niche" list="nicheList"></label>
+        <label>Порядок<input id="s_ord" type="number" step="1" value="1" inputmode="numeric"></label>
+        <label>Название<input id="s_title" required></label>
+        <label>Воронка<select id="s_funnel"></select></label>
+      </div>
+      <label>Когда использовать<input id="s_when"></label>
+      <label>Текст<textarea id="s_text" rows="6" required></textarea></label>
+      <div class="row"><span class="status" id="scriptStatus"></span><span class="btns"><button class="btn" type="button" id="scriptCancel">Отмена</button><button class="btn primary" type="submit">Сохранить</button></span></div>
+    </form>
+    <div class="list" id="scripts"></div>
+  </section>
+
+  <section class="income" id="incomeSec" aria-labelledby="incomeH">
+    <div class="row"><h2 id="incomeH" style="margin:0">Доход</h2><button class="btn small" type="button" id="incAddBtn">+ Строка</button></div>
+    <div class="money" id="incMoney"></div>
+    <form id="incForm" hidden style="display:grid;gap:10px">
+      <div class="grid">
+        <label>Вид<select id="i_kind"><option value="received">Получено</option><option value="expected">Ожидается</option></select></label>
+        <label>Дата<input id="i_date" type="date"></label>
+        <label>Клиент<input id="i_client"></label>
+        <label>За что<input id="i_what"></label>
+        <label>Сумма, ₽<input id="i_amount" type="number" min="0" step="1" inputmode="numeric" required></label>
+        <label>Лид (для среза по воронкам)<select id="i_lead"></select></label>
+      </div>
+      <div class="row"><span class="status" id="incStatus"></span><span class="btns"><button class="btn" type="button" id="incCancel">Отмена</button><button class="btn primary" type="submit">Добавить</button></span></div>
+    </form>
+    <ul class="inc-list" id="incList"></ul>
+  </section>
+
+  <p class="note" id="dbNote"></p>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+<script src="app.js?v=20261019"></script>
+</body>
+</html>

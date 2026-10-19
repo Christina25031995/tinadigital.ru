@@ -57,3 +57,4 @@ jobs:
             CNAME
             .nojekyll
             README*
+            crm-app/**

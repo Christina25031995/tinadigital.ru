@@ -1,0 +1,29 @@
+# Выгрузка Tina CRM (папка crm-app/) на crm.tinadigital.ru при изменениях в ней.
+# Исходники CRM: ~/Desktop/Сайты/tina-crm-app (сюда копируются только index.html, app.js, styles.css).
+name: Deploy CRM
+
+on:
+  push:
+    branches: [main]
+    paths: ["crm-app/**", ".github/workflows/deploy-crm.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hosting
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload CRM via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: server287.hosting.reg.ru
+          protocol: ftps
+          port: 21
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./crm-app/
+          server-dir: ./crm.tinadigital.ru/
