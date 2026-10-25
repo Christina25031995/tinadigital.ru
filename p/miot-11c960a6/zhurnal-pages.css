@@ -84,7 +84,7 @@
 .req{grid-column:2/13;grid-row:2;margin:5vh 0 0;display:grid;grid-template-columns:repeat(2,1fr);column-gap:24px;border-top:1px solid var(--ink)}
 .req>div{display:grid;grid-template-columns:2fr 3fr;column-gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:baseline}
 .req dt{font-size:14px;color:var(--mut)}.req dd{margin:0;font:400 var(--f-lead)/1.35 "Literata",Georgia,serif}
-@media(max-width:900px){.req{grid-template-columns:1fr}}
+@media(max-width:900px){.pains{grid-template-columns:minmax(0,1fr)}.pains li>*{min-width:0;overflow-wrap:break-word}.runin{overflow-wrap:break-word}.req{grid-template-columns:1fr}.req>div{grid-template-columns:1fr;row-gap:4px}}
 /* статья: один редакционный шаблон */
 .art-h{padding-top:5vh;padding-bottom:5vh}
 .art-h .kick{grid-column:3/11;grid-row:1}
@@ -103,7 +103,8 @@
 .art .side{grid-column:10/13;grid-row:1;align-self:start;position:sticky;top:calc(var(--hh,70px) + 24px);font-size:15px}
 .art .side .lbl{display:block;margin-bottom:8px}.art .side .tt{display:block;font:400 17px/1.35 "Literata",Georgia,serif;margin:0 0 10px}
 .art table{border-collapse:collapse;width:100%;max-width:38em;font-size:15px;margin:0 0 18px}.art td,.art th{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}.art th{font-weight:500;border-bottom-color:var(--ink)}
-@media(max-width:900px){.art>*,.art-h>*{grid-column:1/13!important;grid-row:auto!important}.art .toc2,.art .side{position:static}.art .toc2{margin-bottom:4vh}.art .side{margin-top:6vh}}
+@media(max-width:900px){.art table,.art tbody,.art tr,.art td{display:block;width:100%}.art tr:first-child{display:none}.art tr{padding:12px 0;border-bottom:1px solid var(--rule)}.art td{border:0;padding:2px 0}.art td:first-child{font-weight:500;padding-bottom:4px}.art td:before{content:attr(data-l) ": ";color:var(--mut)}.art td:first-child:before{content:none}
+ .art>*,.art-h>*{grid-column:1/13!important;grid-row:auto!important}.art .toc2,.art .side{position:static}.art .toc2{margin-bottom:4vh}.art .side{margin-top:6vh}}
 /* ===== v1.1 · 24.10: уникальные композиции программ (первый экран, факты, программа) из содержания каждой ===== */
 .hx{position:relative;padding-top:4vh;padding-bottom:8vh;align-items:end}
 .hx .kick{grid-column:1/8;grid-row:1;margin-top:4vh}
