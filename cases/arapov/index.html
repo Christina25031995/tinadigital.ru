@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Многостраничный сайт ведущего свадеб и корпоративов: кейс Тимофея Арапова | TINA DIGITAL</title>
+<link rel="canonical" href="https://tinadigital.ru/cases/arapov/">
+<meta name="description" content="Кейс: многостраничный сайт ведущего свадеб и корпоративов Тимофея Арапова. Интервью с клиентом, прототип по воронке, позиционирование, анализ конкурентов, дизайн и мобильная версия. TINA DIGITAL.">
+<meta property="og:title" content="Тимофей Арапов | кейс TINA DIGITAL">
+<meta property="og:description" content="Многостраничный сайт ведущего: свадьбы и корпоративы, позиционирование и анализ конкурентов.">
+<meta property="og:image" content="https://tinadigital.ru/assets/arapov/w-hero.jpg">
+<meta property="og:url" content="https://tinadigital.ru/cases/arapov/">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="stylesheet" href="../../assets/fonts/manrope.css">
+<style>
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 700;font-display:swap;src:url(../../assets/arapov/fonts/PlayfairDisplay-normal-cyrillic-4.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 700;font-display:swap;src:url(../../assets/arapov/fonts/PlayfairDisplay-normal-latin-5.woff2) format('woff2')}
+:root{
+  --ink:#111; --paper:#efece6; --dim:#6b6761; --night:#0c0c0b; --soft:#a8a39b; --hair:rgba(255,255,255,.16); --hair-d:rgba(0,0,0,.14); --acc:#d2632f;
+  --m:clamp(20px,5.5vw,80px); --gap:clamp(12px,1.7vw,24px); --pad:clamp(56px,10vh,110px);
+  --serif:'Playfair Display',Georgia,serif; --sans:Manrope,system-ui,sans-serif;
+  --t-label:12px; --t-text:clamp(16px,1.15vw,18px); --t-h2:clamp(36px,3.8vw,60px);
+}
+*{box-sizing:border-box}
+html{background:var(--night);overflow-x:hidden}
+body{margin:0;overflow-x:clip;color:var(--ink);font-family:var(--sans);font-size:var(--t-text);line-height:1.55;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:0 var(--m);width:100%}
+.label{font-size:var(--t-label);letter-spacing:.16em;text-transform:uppercase;margin:0}
+h1,h2,.serif{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em;text-wrap:balance}
+h2{font-size:var(--t-h2);line-height:1.04;margin-top:24px}
+p{margin:0}
+.lead{margin-top:24px;max-width:30em;text-wrap:pretty}
+.dark{background:var(--night);color:#f2efe9}
+.dark .label,.dark .lead{color:var(--soft)}
+.paper{background:var(--paper)}
+.paper .label{color:var(--dim)}
+.paper .lead{color:#3b3935}
+.sec{min-height:100svh;padding:var(--pad) 0;display:flex;align-items:center}
+.shot{box-shadow:0 30px 80px -30px rgba(0,0,0,.35);border-radius:6px}
+.dark .shot{box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.fit{width:min(100%, calc((100svh - var(--h, 260px)) * var(--ar)))}
+
+/* 00 cover */
+.cover{position:relative;height:100svh;min-height:600px;overflow:hidden}
+.cover .photo{position:absolute;top:0;right:0;bottom:0;width:52%}
+.cover .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05)}
+.cover .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--night) 0%,rgba(12,12,11,0) 38%)}
+.cover .grid{position:relative;height:100%;grid-template-rows:auto 1fr auto auto auto;padding-top:clamp(28px,5vh,48px);padding-bottom:clamp(28px,5vh,48px)}
+.cover .top{grid-column:1 / -1;display:flex;gap:32px;position:relative;z-index:2}
+.cover h1{grid-column:1 / -1;grid-row:3;font-size:clamp(84px,15.5vw,250px);line-height:.82;letter-spacing:-.02em;text-transform:uppercase;margin-left:-.04em}
+.cover .sub{grid-column:1 / span 5;grid-row:4;margin-top:clamp(20px,3.5vh,36px);font-size:clamp(18px,1.5vw,22px);line-height:1.4}
+.cover .meta{grid-column:1 / span 6;grid-row:5;display:flex;gap:clamp(20px,3vw,48px);margin-top:clamp(18px,3vh,30px);padding-top:16px;border-top:1px solid var(--hair)}
+.cover .meta div{font-size:13px;line-height:1.4}
+.cover .meta b{display:block;font-weight:500}
+.cover .meta span{color:var(--soft)}
+
+/* 01 task */
+.task .txt{grid-column:1 / span 7}
+.task h2{font-size:clamp(44px,5vw,80px)}
+.task .lead{max-width:34em}
+.task .fear{grid-column:9 / -1;align-self:end;border-top:1px solid var(--hair-d);padding-top:18px}
+.task .fear p+p{font-family:var(--serif);font-size:clamp(22px,1.8vw,28px);line-height:1.3;margin-top:14px}
+
+/* 02 meeting */
+.meet .grid{row-gap:clamp(28px,5vh,56px)}
+.meet .txt{grid-column:1 / span 5}
+.meet .side{grid-column:8 / -1;align-self:end}
+.meet .vid{grid-column:1 / -1}
+.meet video{width:100%;border-radius:6px}
+
+/* 03 insight + docs */
+.ins .txt{grid-column:1 / span 5;align-self:center}
+.ins .quote{font-family:var(--serif);font-size:clamp(26px,2.4vw,38px);line-height:1.2;margin-top:28px}
+.ins .docs{grid-column:7 / -1;position:relative;height:min(74svh,700px);margin:0}
+.ins .docs img{position:absolute;width:58%;border-radius:3px;box-shadow:0 24px 60px -24px rgba(0,0,0,.35)}
+.ins .docs .d1{left:0;top:6%;transform:rotate(-3deg)}
+.ins .docs .d2{right:0;top:0;transform:rotate(2.5deg)}
+
+/* 04 funnel */
+.fun .grid{row-gap:clamp(48px,9vh,96px)}
+.fun .txt{grid-column:1 / span 5}
+.fun .side{grid-column:8 / -1;align-self:end}
+.fun .path{grid-column:1 / -1;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:var(--gap);position:relative}
+.fun .path::before{content:"";position:absolute;left:0;right:0;top:calc(4.6em + 6px);height:1px;background:var(--hair)}
+.fun .path li{display:flex;flex-direction:column}
+.fun .path .q{font-family:var(--serif);font-size:clamp(17px,1.35vw,22px);line-height:1.25;min-height:4.6em;display:flex;align-items:flex-end;color:#f2efe9;padding-right:8px;overflow-wrap:break-word;text-wrap:balance}
+.fun .path i{width:13px;height:13px;border-radius:50%;background:#f2efe9;margin:0 0 18px;position:relative;top:0}
+.fun .path b{font-weight:500;font-size:14px;line-height:1.4;color:var(--soft);letter-spacing:.02em}
+.fun .path li:last-child i{background:var(--night);border:1px solid #f2efe9}
+.slogan{font-family:var(--serif);font-size:clamp(26px,2.4vw,38px);line-height:1.2;margin-top:22px}
+/* 05 positioning */
+.pos{position:relative;min-height:100svh;display:flex}
+.pos .photo{position:absolute;top:0;left:0;bottom:0;width:50%}
+.pos .photo img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;filter:grayscale(1)}
+.pos .grid{position:relative;align-content:center;padding-top:10vh;padding-bottom:10vh}
+.pos .txt{grid-column:8 / -1}
+.pos h2{font-size:clamp(38px,3.8vw,60px);line-height:1.02;margin-top:28px}
+.pos .not{margin-top:40px;padding-top:20px;border-top:1px solid var(--hair-d);display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:15px;line-height:1.5}
+.pos .not span{display:block;font-size:var(--t-label);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.pos .not s{color:var(--dim);text-decoration-thickness:1px}
+
+/* 06 video block, 10 price */
+.reel .grid,.price .grid{row-gap:clamp(24px,4vh,40px)}
+.reel .txt,.price .txt{grid-column:1 / span 5}
+.reel .side,.price .side{grid-column:8 / -1;align-self:end}
+.reel .pic{grid-column:2 / -1;justify-self:end}
+.price .pic{grid-column:1 / span 11}
+
+/* 07 fears, 09 standout */
+.fears .txt,.out .txt{grid-column:1 / span 4}
+.fears .facts{margin-top:36px;display:grid;gap:18px}
+.fears .facts div{border-top:1px solid var(--hair-d);padding-top:12px}
+.fears .facts b{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.2vw,34px);line-height:1.1;display:block}
+.fears .facts span{font-size:15px;color:var(--dim)}
+.fears .pic,.out .pic{grid-column:6 / -1;align-self:center}
+.out ul{list-style:none;margin:32px 0 0;padding:0}
+.out li{padding:14px 0;border-top:1px solid var(--hair);font-size:16px;line-height:1.45}
+.out li b{display:block;font-weight:500;color:#f2efe9}
+.out li span{color:var(--soft)}
+
+/* 08 two clients */
+.two .grid{row-gap:0}
+.two .head{grid-column:1 / span 5;grid-row:1}
+.two .map{grid-column:8 / -1;grid-row:1;align-self:end;font-size:15px;color:var(--soft);line-height:1.6}
+.two figure{margin:0}
+.two .a{grid-column:1 / span 5;grid-row:2;margin-top:clamp(28px,5vh,56px)}
+.two .b{grid-column:7 / -1;grid-row:2;margin-top:clamp(64px,12vh,140px)}
+.two .a img{width:100%;height:min(42svh,420px);object-fit:cover;object-position:50% 40%;filter:grayscale(1)}
+.two .b img{width:100%;height:min(34svh,360px);object-fit:cover}
+.two figcaption{display:flex;gap:18px;align-items:baseline;margin-top:16px;padding-top:14px;border-top:1px solid var(--hair)}
+.two figcaption b{font-family:var(--serif);font-weight:400;font-size:clamp(22px,1.9vw,30px)}
+.two figcaption span{color:var(--soft);font-size:15px}
+
+/* 09 audit */
+.audit .txt{grid-column:1 / span 5}
+.audit .nums{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid var(--hair-d);padding-top:16px}
+.audit .nums b{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.8vw,46px);line-height:1;display:block}
+.audit .nums span{font-size:14px;color:var(--dim);line-height:1.4;display:block;margin-top:8px}
+.audit .pages{grid-column:7 / -1;position:relative;height:min(66svh,620px);margin:0}
+.audit .pages img{position:absolute;width:82%;border-radius:3px;box-shadow:0 24px 60px -24px rgba(0,0,0,.35)}
+.audit .pages .p1{left:0;top:0}
+.audit .pages .p2{left:9%;top:14%}
+.audit .pages .p3{right:0;top:28%}
+
+/* 11 mobile */
+.mob .txt{grid-column:1 / span 3;align-self:start}
+.mob .phones{grid-column:5 / -1;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);align-items:start}
+.mob .phones img{border-radius:22px;box-shadow:0 30px 70px -30px rgba(0,0,0,.8);width:100%;max-height:72svh;object-fit:cover;object-position:top}
+.mob .phones img:nth-child(2){margin-top:8vh}
+.mob .phones img:nth-child(3){margin-top:3vh}
+.mob .phones img:nth-child(4){margin-top:11vh}
+
+/* 12 result */
+.res .num{grid-column:1 / span 5;font-family:var(--serif);color:var(--acc);font-size:clamp(260px,36vw,560px);line-height:.75;align-self:center;margin-left:-.05em}
+.res .txt{grid-column:6 / -1;align-self:center}
+.res h2{margin-top:16px}
+.res ul{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:24px}
+.res li{padding:12px 0;border-top:1px solid var(--hair);font-size:15px;color:#f2efe9}
+
+/* next */
+.next{min-height:50svh}
+.next a{grid-column:1 / -1;text-decoration:none;display:flex;justify-content:space-between;align-items:end;border-top:1px solid var(--hair-d);padding-top:24px}
+.next a b{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,80px);line-height:1}
+
+@media (max-width:820px){
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grid>*{grid-column:1 / -1 !important;grid-row:auto !important}
+  .sec{min-height:0;padding:64px 0}
+  .cover .photo{width:100%;opacity:.55}
+  .cover .photo::after{background:linear-gradient(0deg,var(--night) 10%,rgba(12,12,11,.2) 70%)}
+  .cover .meta{flex-wrap:wrap}
+  .task .fear,.meet .side,.reel .side,.price .side{margin-top:28px}
+  .ins .docs{height:110vw;margin-top:36px}
+  .pos{display:block}.pos .photo{position:relative;width:100%;height:52svh}
+  .pos .grid{padding-top:48px;padding-bottom:64px}.pos .not{grid-template-columns:1fr}
+  .fun .path{grid-template-columns:1fr;gap:0}.fun .path::before{display:none}.fun .path li{display:block;padding:12px 0;border-top:1px solid var(--hair)}.fun .path .q{min-height:0;display:block}.fun .path i{display:none}.fun .path b{display:block;margin-top:6px}.fun .side{margin-top:24px}
+  .fears .pic,.out .pic,.audit .pages{margin-top:32px}
+  .audit .pages{height:90vw}
+  .two .a,.two .b{margin-top:36px}.two .map{margin-top:20px}
+  .mob .phones{grid-template-columns:repeat(2,1fr);margin-top:32px}
+  .mob .phones img{margin-top:0 !important}
+  .res .num{font-size:52vw}.res ul{grid-template-columns:1fr}
+  .fit{width:100%}
+}
+</style>
+</head>
+<body>
+
+<section class="dark cover">
+  <div class="photo"><img src="../../assets/arapov/p-curtain.jpg" width="1201" height="1800" alt="Тимофей Арапов, ведущий"></div>
+  <div class="grid">
+    <div class="top"><a class="label" href="../../" style="text-decoration:none">TINA DIGITAL</a><a class="label" href="../../projects/" style="text-decoration:none;color:var(--soft)">← Все кейсы</a></div>
+    <h1>Арапов</h1>
+    <p class="sub">Многостраничный сайт ведущего свадеб и&nbsp;корпоративов · arapovtimofey.ru</p>
+    <div class="meta">
+      <div><b>Позиционирование</b><span>и&nbsp;анализ конкурентов</span></div>
+      <div><b>Свадьбы · Корпоративы</b><span>две аудитории</span></div>
+      <div><b>КП и&nbsp;документы</b><span>2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec paper task">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">01</p>
+      <h2>Задача</h2>
+      <p class="lead">Сделать сайт свадебного ведущего, который за&nbsp;несколько секунд объясняет, чем Тимофей отличается от&nbsp;других ведущих, и&nbsp;доводит пару до&nbsp;заявки.</p>
+    </div>
+    <div class="fear">
+      <p class="label">Главный страх пары, который нужно снять</p>
+      <p>«Наймём яркого ведущего с&nbsp;микрофоном, и&nbsp;свадьба будет про&nbsp;него».</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark meet">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">02</p>
+      <h2>Интервью с&nbsp;клиентом</h2>
+    </div>
+    <p class="side lead">Провела созвон, на&nbsp;котором Тимофей прошёл по&nbsp;каждому блоку будущего сайта. Записала его правки, ценности и&nbsp;реальные истории с&nbsp;мероприятий.</p>
+    <div class="vid"><video src="../../assets/arapov/meeting.mp4" poster="../../assets/arapov/meeting.jpg" muted playsinline loop autoplay preload="metadata" width="1440" height="400" aria-label="Фрагмент созвона с Тимофеем"></video></div>
+  </div>
+</section>
+
+<section class="sec paper ins">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">03</p>
+      <h2>Прототип по&nbsp;воронке</h2>
+      <p class="lead">Разрозненные правки со&nbsp;встречи я&nbsp;разложила в&nbsp;прототип: порядок блоков, задача каждого блока и&nbsp;черновые тексты. Дизайн начался только после структуры.</p>
+    </div>
+    <figure class="docs">
+      <img class="d1" src="../../assets/arapov/doc-notes-1.jpg" width="1100" height="1556" alt="Правки клиента со встречи" loading="lazy">
+      <img class="d2" src="../../assets/arapov/doc-struct-1.jpg" width="1100" height="1556" alt="Прототип сайта по воронке" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="sec dark fun">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">04</p>
+      <h2>Воронка</h2>
+    </div>
+    <p class="side lead">Обычный сайт ведущего идёт так: фото, программа, конкурсы, цена. Я&nbsp;построила страницу на&nbsp;вопросах, которые пара задаёт себе сама: от&nbsp;первого взгляда до&nbsp;заявки.</p>
+    <ol class="path"><li><span class="q">«Кто это и&nbsp;чем он&nbsp;отличается?»</span><i></i><b>Можно быть собой</b></li><li><span class="q">«Какой он в&nbsp;работе?»</span><i></i><b>Видео сразу</b></li><li><span class="q">«Он нам подходит?»</span><i></i><b>Ценности</b></li><li><span class="q">«Будет живо или по&nbsp;сценарию?»</span><i></i><b>Разговор вместо программы</b></li><li><span class="q">«Не затмит ли&nbsp;он нас?»</span><i></i><b>Ведущий не&nbsp;в центре</b></li><li><span class="q">«А если что‑то сорвётся?»</span><i></i><b>Реальные истории</b></li><li><span class="q">«Как с&nbsp;ним работать?»</span><i></i><b>Встреча, договор, заявка</b></li></ol>
+  </div>
+</section>
+
+<section class="paper pos">
+  <div class="photo"><img src="../../assets/arapov/p-table.jpg" width="1800" height="1200" alt="Тимофей разговаривает с гостями за столом" loading="lazy"></div>
+  <div class="grid">
+    <div class="txt">
+      <p class="label">05</p>
+      <h2>Позиционирование</h2>
+      <p class="slogan">«Ведущий, с&nbsp;которым можно быть собой»</p>
+      <p class="lead">Конкуренты обещают «весело» и&nbsp;«сто программ». Я&nbsp;отстроила Тимофея от&nbsp;них через живой разговор вместо конкурсов, юмор без&nbsp;пошлости и&nbsp;ведущего, который не&nbsp;в&nbsp;центре внимания.</p>
+      <div class="not">
+        <div><span>У конкурентов</span><s>шоумен на&nbsp;любой формат</s><br><s>конкурсы и&nbsp;переодевания</s><br><s>«недорого»</s></div>
+        <div><span>У Тимофея</span>искренность и&nbsp;душевность<br>разговор с&nbsp;каждым гостем<br>ведущий не&nbsp;в&nbsp;центре</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec paper reel">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">06</p>
+      <h2>Видео в&nbsp;начале страницы</h2>
+    </div>
+    <p class="side lead">Ведущего нужно увидеть в&nbsp;работе раньше, чем прочитать о&nbsp;нём. Поэтому шоурил стоит вторым блоком, сразу после первого экрана.</p>
+    <img class="pic shot fit" style="--ar:1.78;--h:330px" src="../../assets/arapov/w-showreel.jpg" width="2000" height="1124" alt="Блок с шоурилом на сайте" loading="lazy">
+  </div>
+</section>
+
+<section class="sec paper fears">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">07</p>
+      <h2>Блок доверия</h2>
+      <p class="lead" style="margin-top:18px">Истории из&nbsp;практики Тимофея я&nbsp;превратила в&nbsp;ответ на&nbsp;вопрос «а&nbsp;если что-то пойдёт не&nbsp;по&nbsp;плану?».</p>
+      <div class="facts">
+        <div><b>Свадьба без&nbsp;жениха</b><span>и&nbsp;она прошла</span></div>
+        <div><b>5 раз за&nbsp;вечер</b><span>выключался свет</span></div>
+        <div><b>20 минут</b><span>держал зал до&nbsp;выхода артиста</span></div>
+      </div>
+    </div>
+    <img class="pic shot fit" style="--ar:2.17;--h:240px" src="../../assets/arapov/w-faq.jpg" width="2000" height="920" alt="Блок вопросов пары на сайте" loading="lazy">
+  </div>
+</section>
+
+<section class="sec dark two">
+  <div class="grid">
+    <div class="head">
+      <p class="label">08</p>
+      <h2>Вторая страница: корпоративы</h2>
+    </div>
+    <p class="map">После свадебного сайта Тимофей вернулся со&nbsp;вторым заказом. Паре и&nbsp;компании нужны разные доводы, поэтому я&nbsp;сделала для&nbsp;компаний отдельную страницу, а&nbsp;не&nbsp;блок на&nbsp;главной.</p>
+    <figure class="a"><img src="../../assets/arapov/p-wedding.jpg" width="900" height="1200" alt="Свадьба: Тимофей и гости у торта" loading="lazy"><figcaption><b>Пара</b><span>ищет эмоции и&nbsp;атмосферу</span></figcaption></figure>
+    <figure class="b"><img src="../../assets/arapov/p-corp.jpg" width="1280" height="720" alt="Корпоратив: Тимофей ведёт вечер на сцене" loading="lazy"><figcaption><b>Компания</b><span>ищет надёжность, чтобы ничего не&nbsp;сорвалось</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="sec paper audit">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">09</p>
+      <h2>Анализ конкурентов</h2>
+      <p class="lead">Разобрала 11 сайтов ведущих и&nbsp;агентств из&nbsp;выдачи: первый экран, доказательства, цена, кнопки. Верх выдачи занимают каталоги, где ведущих сравнивают по&nbsp;цене. Личной странице нужно за&nbsp;секунды объяснить, чем&nbsp;она лучше карточки в&nbsp;каталоге, и&nbsp;ответить на&nbsp;вопросы компании, о&nbsp;которых молчат конкуренты.</p>
+      <div class="nums">
+        <div><b>2 из&nbsp;10</b><span>упоминают договор</span></div>
+        <div><b>1 из&nbsp;10</b><span>пишет про&nbsp;безнал и&nbsp;документы</span></div>
+        <div><b>0</b><span>говорят о&nbsp;форс-мажорах</span></div>
+      </div>
+    </div>
+    <figure class="pages">
+      <img class="p1" src="../../assets/arapov/audit-1.jpg" width="1287" height="909" alt="Анализ конкурентов, страница 1" loading="lazy">
+      <img class="p2" src="../../assets/arapov/audit-2.jpg" width="1287" height="909" alt="Анализ конкурентов, страница 2" loading="lazy">
+      <img class="p3" src="../../assets/arapov/audit-3.jpg" width="1287" height="909" alt="Анализ конкурентов, страница 3" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="sec dark out">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">10</p>
+      <h2>Отстройка от&nbsp;конкурентов</h2>
+      <p class="slogan" style="color:#f2efe9">«Вечер, за&nbsp;который HR не&nbsp;будет неловко»</p>
+      <ul>
+        <li><b>Форс-мажоры как доказательство</b><span>Про&nbsp;сорванный тайминг не&nbsp;пишет никто, а&nbsp;это главный страх ивент-менеджера</span></li>
+        <li><b>КП в&nbsp;тот же день</b><span>Этого не&nbsp;обещает никто из&nbsp;конкурентов</span></li>
+        <li><b>Договор, безнал, чек</b><span>Ответ офис-менеджеру и&nbsp;бухгалтерии</span></li>
+      </ul>
+    </div>
+    <img class="pic shot fit" style="--ar:1.79;--h:220px" src="../../assets/arapov/c-risks.jpg" width="2000" height="1118" alt="Блок про форс-мажоры на странице корпоративов" loading="lazy">
+  </div>
+</section>
+
+<section class="sec paper price">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">11</p>
+      <h2>Цена и&nbsp;документы</h2>
+    </div>
+    <p class="side lead">Без&nbsp;«недорого» и&nbsp;цен за&nbsp;человека, как&nbsp;у&nbsp;конкурентов. Вилка цены, от&nbsp;чего она зависит, договор, предоплата и&nbsp;чек: всё, что&nbsp;компании нужно для&nbsp;согласования.</p>
+    <img class="pic shot fit" style="--ar:1.61;--h:330px" src="../../assets/arapov/c-price.jpg" width="2000" height="1240" alt="Блок стоимости на странице корпоративов" loading="lazy">
+  </div>
+</section>
+
+<section class="sec dark mob">
+  <div class="grid">
+    <div class="txt">
+      <p class="label">12</p>
+      <h2>Мобильная версия</h2>
+      <p class="lead">Обе страницы собраны отдельно под&nbsp;телефон: крупный текст и&nbsp;нижнее меню, кнопка связи всегда под&nbsp;рукой.</p>
+    </div>
+    <div class="phones">
+      <img src="../../assets/arapov/w-m-hero.jpg" width="780" height="1688" alt="Свадебная страница на телефоне" loading="lazy">
+      <img src="../../assets/arapov/w-m-videos.jpg" width="780" height="1688" alt="Блок видео на телефоне" loading="lazy">
+      <img src="../../assets/arapov/c-m-hero.jpg" width="780" height="1688" alt="Страница корпоративов на телефоне" loading="lazy">
+      <img src="../../assets/arapov/c-m-price.jpg" width="780" height="1688" alt="Стоимость корпоратива на телефоне" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec dark res">
+  <div class="grid">
+    <div class="num">2</div>
+    <div class="txt">
+      <p class="label">Результат</p>
+      <h2>сайта для&nbsp;одного клиента</h2>
+      <p class="lead">После свадебного сайта Тимофей вернулся и&nbsp;заказал страницу для&nbsp;корпоративов.</p>
+      <ul>
+        <li>Свадебная страница</li>
+        <li>Страница корпоративов</li>
+        <li>Шаблон КП</li>
+        <li>Политика и&nbsp;согласия</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec paper next">
+  <div class="grid">
+    <a href="../pomazkov/"><span class="label">Следующий кейс</span><b>Помазков</b></a>
+  </div>
+</section>
+
+</body>
+</html>
