@@ -275,6 +275,7 @@ div.ask{display:block;width:fit-content}
 .s07 .ls .cl{margin:0;padding:14px 0;color:var(--mut);font-size:var(--f-cap);border-bottom:1px solid var(--rule)}
 .s07 .ls .er{display:grid;grid-template-columns:84px 1fr;column-gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule)}
 .s07 .ls .dd{font:400 var(--f-h4)/1 "Literata",Georgia,serif;color:var(--soft)}.s07 .ls .dd .lbl{font-size:var(--f-cap);margin-left:4px}
+.s07 .ls .er{grid-template-columns:108px 1fr}.s07 .ls .dd{white-space:nowrap}
 .s07 .ls .er b{display:block;font-weight:500;margin:0}.s07 .ls .er span.f{font-size:var(--f-cap);color:var(--mut)}
 .s07 .ls .er:hover b{text-decoration:underline;text-underline-offset:4px}
 /* ‹09› кейс выпускника: один раскрыт */
