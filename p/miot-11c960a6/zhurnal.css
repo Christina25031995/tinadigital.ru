@@ -148,7 +148,14 @@ div.ask{display:block;width:fit-content}
 @media(max-width:860px){.oleg .p1,.oleg .p2,.oleg .p3{position:relative;left:auto;top:auto;right:auto;grid-column:1/13}.oleg .p1{width:70%;margin:-40px 0 0 auto}.oleg .p2{width:45%;margin-top:-60px}.oleg .p3{display:none}.oleg .name{white-space:normal}.oleg .facts>div{grid-column:1/13!important;margin-top:24px!important}.oleg .q{grid-column:1/13}.oleg .first{grid-column:1/13}.oleg .vert{display:none}}
 .after{padding-top:4vh;padding-bottom:8vh;align-items:start}.after .a1{grid-column:2/6}.after .a2{grid-column:7/12}.after .ask{margin-top:0}
 /* ‹07› ОЛЕГ АГАПЭ В СМИ — горизонтальная лента изданий + выбранная публикация + одна врезка (grid-map-home.html) */
-.media{padding-top:10vh;padding-bottom:12vh}
+/* 12.11: единый вид незаполненного места прототипа: серая плашка «уточняется» и серые полосы */
+.tbd,.om,.skc{display:inline-block!important;width:auto!important;font:500 12px/1.35 Onest,system-ui,sans-serif!important;letter-spacing:.02em!important;text-transform:none!important;font-style:normal!important;color:#8a867d!important;background:#e5e3de!important;border-radius:3px;padding:3px 8px!important;margin:6px 0 0!important;vertical-align:middle}
+.band .tbd,.band .om,.band .skc{background:#d9d6cf!important}.sk{display:block;height:.55em;background:#e5e3de;margin:.42em 0}
+.oleg .q .ph-q .sk{height:.5em;background:#dcd9d2}
+.media{padding-top:8vh;padding-bottom:8vh}
+.media .mlogos{grid-column:2/13;grid-row:3;display:flex;flex-wrap:wrap;align-items:center;gap:28px 56px;margin-top:4vh}
+.media .ml{display:inline-flex;align-items:center;filter:grayscale(1);opacity:.7;transition:opacity .2s}.media .ml:hover{opacity:1}.media .ml img{display:block;width:auto;max-width:240px}
+@media(max-width:900px){.media .mlogos{grid-column:1/13;gap:22px 34px}.media .ml img{max-height:46px}}
 .media .lb{grid-column:2/7;grid-row:1}.media h2{grid-column:2/9;grid-row:2;margin:14px 0 0;font:400 var(--f-h2)/1.1 "Literata",Georgia,serif;letter-spacing:-.015em}
 .strip{grid-column:1/13;grid-row:3;margin:7vh -6vw 0;overflow-x:auto;scrollbar-width:none;cursor:grab;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
 .strip::-webkit-scrollbar{display:none}.strip.drag{cursor:grabbing}
@@ -213,6 +220,7 @@ div.ask{display:block;width:fit-content}
 .foot{padding:9vh 6vw 6vh;border-top:1px solid var(--ink);font-size:var(--f-cap)}
 .foot .f1{grid-column:1/4}.foot .f2{grid-column:5/7}.foot .f3{grid-column:8/10}.foot .f4{grid-column:11/13}
 .foot ul{list-style:none;margin:10px 0 0;padding:0}.foot li{padding:3px 0}.foot li a:hover{border-bottom:1px solid var(--ink)}
+.foot summary{display:block;list-style:none;pointer-events:none}.foot summary::-webkit-details-marker{display:none}.foot .f5{display:none}
 .foot .wmf{font:500 26px/1 "Literata",Georgia,serif;letter-spacing:.12em;display:block;margin-bottom:12px}
 .pnote{padding:5vh 6vw 7vh;color:var(--mut);font-size:var(--f-cap);border-top:1px solid var(--rule)}.pnote p{max-width:62em;margin:0 0 6px}
 @media(max-width:900px){
@@ -225,7 +233,7 @@ div.ask{display:block;width:fit-content}
  .s11 .ix a{grid-template-columns:1fr}
  .s12 form{margin-top:5vh}
  .after .a2{margin-top:20px}
- .foot>div{grid-column:1/13!important;margin-bottom:24px}
+ .foot>div,.foot>details{grid-column:1/13!important;margin-bottom:24px}.foot>details{margin-bottom:0;border-top:1px solid var(--rule)}.foot>details:last-of-type{border-bottom:1px solid var(--rule)}.foot summary{pointer-events:auto;cursor:pointer;display:flex;justify-content:space-between;padding:14px 0}.foot summary:after{content:"+";font:300 20px/1 Onest;color:var(--mut)}.foot details[open] summary:after{content:"–"}.foot details ul{margin:0 0 14px}.foot .fdesk{display:none}.foot .f5{display:block;margin:20px 0 0}
 }
 
 /* режимы прототипа: INTERNAL REVIEW показывает вопросы МИОТ, LEGAL REVIEW и SEO/UX; CLIENT CLEAN их скрывает */

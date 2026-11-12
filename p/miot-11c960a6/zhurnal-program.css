@@ -251,6 +251,8 @@ button.stop{cursor:pointer}button.stop .st{text-decoration:underline;text-decora
 .who .pw{grid-row:2;margin-top:6vh}.who .yes{grid-column:1/9;grid-row:3;margin-top:4vh}
 .appr .th{grid-row:2;margin-top:8vh}.appr .cmpw{grid-row:3}.cnote{margin:18px 0 0;font:400 var(--f-lead)/1.4 "Literata",Georgia,serif;color:var(--mut)}
 .mdq .faqx{grid-row:2}
+.ocm{display:none}
+@media(max-width:900px){.outc .ol>.two,.outc .chg{display:none}.ocm{display:block;list-style:none;margin:0;padding:0}.ocm li{display:block;border-left:1px solid var(--ink);padding:10px 0 14px 16px;margin-bottom:6px}.ocm .vb{font:400 var(--f-lead)/1.25 "Literata",Georgia,serif}.ocm .rest{font-size:15px}.ocm .to{display:block;margin-top:8px;font-size:15px;color:var(--ink)}.ocm .to:before{content:"→ ";color:var(--gold)}.ocm .to i{display:block;font-style:normal;color:var(--mut);font-size:14px;margin-top:2px}}
 .chg{margin-top:7vh}.chg ol{list-style:none;margin:12px 0 0;padding:0;columns:2;column-gap:5vw}.chg li{break-inside:avoid;padding:10px 0;border-top:1px solid var(--rule)}
 .chg b{display:block;font:400 var(--f-lead)/1.3 "Literata",Georgia,serif}.chg span{font-size:var(--f-cap);color:var(--mut)}
 .t3{display:grid;grid-template-columns:130px 1fr;column-gap:20px;padding:16px 0;border-top:1px solid var(--rule)}.t3:first-of-type{margin-top:14px}
