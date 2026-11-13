@@ -291,6 +291,18 @@
   .seosum .c p{ margin:0; font-size:15px; line-height:1.5; color:var(--l-dim); }
   .seosum .src{ margin-top:clamp(24px,3.4vh,40px); padding-top:16px; border-top:1px solid rgba(242,239,232,.18); font-size:13px; line-height:1.5; color:var(--l-faint); }
   @media(max-width:860px){ .seosum .row{ grid-template-columns:1fr; } }
+
+  .seomap{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(20px,3vw,44px); margin-top:clamp(26px,3vw,40px); }
+  .seomap small{ display:block; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#C98A97; margin-bottom:12px; }
+  .seomap ul{ list-style:none; margin:0; padding:0; }
+  .seomap li{ padding:11px 0; border-top:1px solid rgba(242,239,232,.16); font-size:clamp(16px,1.3vw,19px); line-height:1.3; font-weight:600; }
+  .seomap li span{ display:block; margin-top:3px; font-size:13px; font-weight:400; color:var(--l-faint); }
+  .seogeo{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,44px); margin-top:clamp(26px,3vw,40px); }
+  .seogeo div{ border-top:1px solid rgba(242,239,232,.2); padding-top:16px; }
+  .seogeo b{ display:block; font-size:clamp(18px,1.6vw,23px); line-height:1.15; text-transform:uppercase; margin-bottom:10px; }
+  .seogeo span{ font-size:15.5px; line-height:1.55; color:var(--l-dim); }
+  @media(min-width:861px){ .facts.f5{ grid-template-columns:repeat(5,minmax(0,1fr)); } }
+  @media(max-width:860px){ .seomap{ grid-template-columns:1fr 1fr; } .seogeo{ grid-template-columns:1fr; } }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","@id":"https://tinadigital.ru/cases/liana/#case","name":"Liana Gini: сайт производства в Китае","headline":"Liana Gini: сайт производства в Китае","description":"Кейс: сайт Лианы Гини о производстве одежды, обуви и аксессуаров в Китае. Исследование, UX, дизайн, разработка, SEO и GEO: 15 коммерческих страниц. TINA DIGITAL.","url":"https://tinadigital.ru/cases/liana/","image":"https://tinadigital.ru/assets/liana/v-hero-d.jpg","inLanguage":"ru","genre":"Кейс","author":{"@id":"https://tinadigital.ru/#studio"},"creator":{"@id":"https://tinadigital.ru/#studio"},"about":{"@type":"WebSite","name":"Лиана Гини, производство одежды, обуви и аксессуаров в Китае","url":"https://lianagini.ru"},"isPartOf":{"@type":"CollectionPage","name":"Кейсы TINA DIGITAL","url":"https://tinadigital.ru/projects/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"TINA DIGITAL","item":"https://tinadigital.ru/"},{"@type":"ListItem","position":2,"name":"Кейсы","item":"https://tinadigital.ru/projects/"},{"@type":"ListItem","position":3,"name":"Liana Gini: сайт производства в Китае","item":"https://tinadigital.ru/cases/liana/"}]}</script>
@@ -714,15 +726,82 @@
 </section>
 
 <!-- 16 результат -->
+<!-- 16 SEO и GEO -->
+<section class="sec bordo" id="seo">
+  <div class="wrap grid-2">
+    <div class="c-6">
+      <p class="label"><b>16</b> seo · geo</p>
+      <h2 class="h-xl rv">306 запросов → <span class="ac">15&nbsp;страниц</span></h2>
+    </div>
+    <div class="c-5 off-7">
+      <p class="lede rv">Сайт был витриной: одна страница о&nbsp;Лиане и&nbsp;услугах, и&nbsp;поиск его&nbsp;не&nbsp;видел. Вторым этапом мы&nbsp;сделали его&nbsp;понятным Яндексу и&nbsp;нейросетям. Сначала спрос и&nbsp;выдача, потом страницы, потом замер.</p>
+      <div class="art-stats rv">
+        <div><b>306</b><span>запросов спроса: 93 прямых коммерческих, 109 смежных, 60 информационных, 44 отсеяны</span></div>
+        <div><b>67</b><span>рыночных запросов в&nbsp;контрольной выдаче Яндекса</span></div>
+        <div><b>34</b><span>ответа Алисы и&nbsp;ChatGPT на&nbsp;вопросы клиентов Лианы</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap grid-2" style="margin-top:clamp(60px,8vw,120px)">
+    <div class="c-5">
+      <p class="label"><b>0 из&nbsp;67</b> точка А</p>
+      <p class="body rv">До начала работ сайта не&nbsp;было в&nbsp;первой десятке Яндекса ни&nbsp;по&nbsp;одному рыночному запросу, а&nbsp;нейросети ни&nbsp;в&nbsp;одном из&nbsp;34 ответов не&nbsp;советовали Лиану. Каждую находку исследования мы&nbsp;закрыли решением на&nbsp;сайте.</p>
+    </div>
+    <ol class="c-6 off-7 pains rv">
+      <li><div><b>Первую десятку делят каталоги фабрик, оптовые магазины и&nbsp;статьи-гиды</b><span>→ Отдельная страница под&nbsp;каждое намерение, а&nbsp;не&nbsp;одна главная на&nbsp;всё.</span></div></li>
+      <li><div><b>Нейросети называют фабрики, а&nbsp;не&nbsp;организатора производства</b><span>→ Единое описание Лианы и&nbsp;команды, страница эксперта, ответ на&nbsp;главный вопрос в&nbsp;первых строках.</span></div></li>
+      <li><div><b>Узкие ниши почти не&nbsp;описаны</b><span>→ Свои страницы под&nbsp;бельё, детскую и&nbsp;спортивную одежду, ткани и&nbsp;фурнитуру.</span></div></li>
+      <li><div><b>По имени «Лиана Гини» сайта нет в&nbsp;первой десятке</b><span>→ Страница «О Лиане Гини»: опыт, образование, команда в&nbsp;Гуанчжоу.</span></div></li>
+    </ol>
+  </div>
+  <div class="wrap" style="margin-top:clamp(60px,8vw,120px)">
+    <p class="label"><b>15</b> страниц, каждая под&nbsp;своё намерение</p>
+    <div class="seomap rv">
+      <div><small>Направления</small><ul><li>Детская одежда<span>сертификация, размерные сетки</span></li><li>Нижнее бельё<span>под&nbsp;заказ, большими партиями</span></li><li>Спорт и&nbsp;йога<span>леггинсы, топы, бесшовное</span></li><li>Готовые коллекции<span>модели под&nbsp;логотип бренда</span></li></ul></div>
+      <div><small>Услуги</small><ul><li>Байер одежды в&nbsp;Китае<span>агентские услуги</span></li><li>Контроль качества<span>проверка до&nbsp;отгрузки</span></li><li>Сопровождение в&nbsp;Гуанчжоу<span>фабрики и&nbsp;рынки</span></li><li>Консультация<span>30–60 минут, 15 000 ₽</span></li></ul></div>
+      <div><small>Материалы</small><ul><li>Ткани<span>подбор и&nbsp;закупка</span></li><li>Фурнитура и&nbsp;кружево<span>для&nbsp;брендов и&nbsp;цехов</span></li><li>Фурнитура с&nbsp;логотипом<span>пуговицы, бирки, этикетки</span></li></ul></div>
+      <div><small>Экспертиза</small><ul><li>О Лиане Гини<span>страница эксперта</span></li><li>Свой бренд одежды<span>статья, 7 шагов</span></li><li>Рынки Гуанчжоу<span>статья, 45 рынков</span></li><li>Как найти фабрику<span>статья, 9 шагов проверки</span></li></ul></div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(60px,8vw,120px)">
+    <div class="browser rv"><div class="bar"><i></i><i></i><i></i><span>lianagini.ru/detskaya-odezhda/</span></div>
+      <img src="../../assets/liana/seo-detskaya-d.jpg" width="1440" height="900" alt="Посадочная страница «Производство детской одежды» на lianagini.ru" loading="lazy">
+    </div>
+  </div>
+  <div class="phones">
+    <div class="phone rv"><div class="scr"><img src="../../assets/liana/seo-detskaya-m.jpg" alt="Детская одежда, мобильная версия" loading="lazy"></div><p class="cap">направление</p></div>
+    <div class="phone rv"><div class="scr"><img src="../../assets/liana/seo-tkani-m.jpg" alt="Ткани, мобильная версия" loading="lazy"></div><p class="cap">материалы</p></div>
+    <div class="phone rv"><div class="scr"><img src="../../assets/liana/seo-fabrika-m.jpg" alt="Как найти фабрику, мобильная версия" loading="lazy"></div><p class="cap">статья</p></div>
+    <div class="phone rv"><div class="scr"><img src="../../assets/liana/seo-konsultaciya-m.jpg" alt="Консультация, мобильная версия" loading="lazy"></div><p class="cap">вход</p></div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(40px,6vw,90px)">
+    <p class="label"><b>geo</b> чтобы нейросети называли Лиану</p>
+    <div class="seogeo">
+      <div class="rv"><b>Ответ сразу</b><span>Первые два предложения каждой страницы отвечают на&nbsp;главный вопрос. Такой ответ нейросетям проще процитировать.</span></div>
+      <div class="rv"><b>Разметка Schema.org</b><span>Организация, эксперт, услуга или статья и&nbsp;хлебные крошки на&nbsp;каждой из&nbsp;15 страниц, одно описание компании везде.</span></div>
+      <div class="rv"><b>Вопросы клиентов</b><span>Вопросы, которые клиенты задают перед заказом, отдельным блоком: минимальная партия, сроки, сертификация, оплата.</span></div>
+      <div class="rv"><b>Перелинковка</b><span>Подвал по&nbsp;группам и&nbsp;«Смотрите также»: на&nbsp;каждую страницу ведут ссылки минимум с&nbsp;двух других.</span></div>
+      <div class="rv"><b>Один адрес</b><span>Текст доступен роботам без&nbsp;JavaScript, у&nbsp;каждой страницы один адрес: /index.html, www и&nbsp;http перенаправлены.</span></div>
+      <div class="rv"><b>Замер</b><span>Каждый месяц те же&nbsp;67 запросов в&nbsp;Яндексе и&nbsp;34 вопроса к&nbsp;нейросетям, к&nbsp;одной точке отсчёта.</span></div>
+    </div>
+  </div>
+  <div class="wrap insight rv">
+    <p class="label"><b>что&nbsp;обещаем клиенту</b></p>
+    <p class="big-quote">Не позиции, а&nbsp;замер: <span class="ac">те же&nbsp;запросы и&nbsp;вопросы каждый месяц, к&nbsp;одной точке отсчёта.</span></p>
+    <span class="src">Источник цифр: Яндекс Вордстат, выдача Яндекса и&nbsp;ответы Алисы и&nbsp;ChatGPT за&nbsp;5–6 ноября 2026.</span>
+  </div>
+</section>
+
 <section class="sec dark">
   <div class="wrap">
-    <p class="label"><b>16</b> результат</p>
+    <p class="label"><b>17</b> результат</p>
     <h2 class="h-xl rv">Производство, <span class="ac">которое видно</span></h2>
-    <div class="facts">
+    <div class="facts f5">
       <div class="rv"><b>5&nbsp;из&nbsp;23</b><span>болей из&nbsp;исследования вынесены на&nbsp;первый план, у&nbsp;каждой свой ответ</span></div>
       <div class="rv"><b>6</b><span>этапов от&nbsp;идеи до&nbsp;отгрузки вместо списка услуг</span></div>
       <div class="rv"><b>4</b><span>платные точки входа: 390&nbsp;₽, 490&nbsp;₽, 15&nbsp;000&nbsp;₽, от&nbsp;50&nbsp;000&nbsp;₽ в&nbsp;месяц</span></div>
       <div class="rv"><b>2</b><span>версии: десктоп и&nbsp;отдельная мобильная с&nbsp;нижней навигацией</span></div>
+      <div class="rv"><b>15</b><span>страниц под&nbsp;поиск и&nbsp;нейросети из&nbsp;306 запросов спроса</span></div>
     </div>
   </div>
 </section>
