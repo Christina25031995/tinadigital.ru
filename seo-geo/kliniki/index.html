@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Продвижение клиники в нейросетях и Яндексе | TINA DIGITAL</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="canonical" href="https://tinadigital.ru/seo-geo/kliniki/">
+<meta name="description" content="GEO и SEO для частной клиники и врача: замер того, кого Алиса и ChatGPT советуют пациентам, страницы под вопросы пациентов, врачи и цены, понятные роботу, карточки и медицинские каталоги, упоминания, еженедельный отчёт. Запуск от 40 000 ₽.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="TINA DIGITAL">
+<meta property="og:title" content="Продвижение клиники в нейросетях | TINA DIGITAL">
+<meta property="og:description" content="Пациент спрашивает Алису, к кому сходить. Делаю так, чтобы в ответе была ваша клиника.">
+<meta property="og:image" content="https://tinadigital.ru/assets/og/vrach.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://tinadigital.ru/seo-geo/kliniki/">
+<link rel="stylesheet" href="../../assets/fonts/manrope.css">
+<link rel="stylesheet" href="../../assets/fonts/seo-extra.css">
+<link rel="stylesheet" href="../../assets/legal/legal.css">
+<link rel="stylesheet" href="../../assets/nav/mobile-nav.css">
+<link rel="stylesheet" href="../../sajt-dlya-vracha/niche.css">
+<style>
+  .cover .wrap{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(24px,4vw,72px); align-items:end; min-height:min(calc(100svh - 300px), 520px); }
+  .cover .rule{ grid-column:1 / -1; align-self:start; }
+  .cover .r{ padding-bottom:6px; }
+  .facts{ grid-column:1 / -1; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,3vw,48px); border-top:1px solid var(--hair); padding-top:14px; margin-top:clamp(24px,5vh,56px); }
+  .facts b{ display:block; font-weight:500; font-size:clamp(22px,2.2vw,34px); letter-spacing:-.03em; line-height:1.05; }
+  .facts span{ display:block; margin-top:6px; font-size:var(--fs-s); color:var(--dim); line-height:1.4; }
+  .qgrid{ display:grid; grid-template-columns:1fr 1fr; gap:0 clamp(24px,4vw,72px); }
+  .qgrid li{ padding:clamp(14px,2.4vh,24px) 0; border-top:1px solid var(--hair); }
+  .qgrid q{ display:block; quotes:none; font-weight:500; font-size:var(--fs-h); line-height:1.05; letter-spacing:-.035em; text-wrap:balance; }
+  .qgrid p{ margin-top:10px; max-width:30em; }
+  .qhead{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(24px,4vw,72px); align-items:end; margin-bottom:clamp(14px,2.4vh,26px); }
+  .qhead .h2{ margin-bottom:0; }
+  .src4{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0 clamp(16px,2.4vw,40px); }
+  .src4 li{ border-top:1.5px solid var(--ink); padding-top:12px; }
+  .src4 em{ font-style:normal; font-size:13px; color:var(--faint); }
+  .src4 strong{ display:block; margin-top:8px; font-weight:500; font-size:clamp(20px,1.8vw,28px); letter-spacing:-.03em; line-height:1.1; }
+  .src4 p{ margin-top:10px; }
+  .srcnote{ margin-top:clamp(18px,3vh,30px); max-width:44em; }
+  .rep{ width:100%; border-collapse:collapse; font-size:var(--fs-s); line-height:1.4; margin-top:6px; }
+  .rep th{ text-align:left; font-weight:500; color:var(--faint); padding:0 12px 10px 0; border-bottom:1.5px solid var(--ink); }
+  .rep td{ padding:12px 12px 12px 0; border-bottom:1px solid var(--hair); vertical-align:top; }
+  .rep td:first-child{ font-weight:500; font-size:15px; width:34%; }
+  .rep .y{ color:var(--ink); font-weight:600; }
+  .rep .n{ color:var(--red); font-weight:600; }
+  .repnote{ margin-top:12px; }
+  .layers{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,4vh,44px) clamp(24px,4vw,72px); }
+  .layers h3{ font-weight:500; font-size:clamp(22px,2vw,30px); letter-spacing:-.03em; line-height:1.1; border-top:1.5px solid var(--ink); padding-top:12px; }
+  .layers h3 em{ font-style:normal; color:var(--faint); font-size:13px; margin-right:10px; letter-spacing:0; vertical-align:middle; }
+  .layers ul{ margin-top:10px; }
+  .layers li{ padding:9px 0 9px 18px; border-bottom:1px solid var(--hair); position:relative; font-size:15px; line-height:1.45; }
+  .layers li::before{ content:""; position:absolute; left:0; top:17px; width:7px; height:1.5px; background:var(--red); }
+  .proofgrid{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(24px,4vw,72px); align-items:start; }
+  .nums{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; margin-top:8px; }
+  .nums div{ border-top:1px solid var(--hair); padding:12px 0; }
+  .nums b{ display:block; font-weight:500; font-size:clamp(30px,3vw,48px); letter-spacing:-.04em; line-height:1; }
+  .nums span{ display:block; margin-top:6px; font-size:var(--fs-s); color:var(--dim); line-height:1.4; }
+  .pairs li{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:6px 24px; padding:10px 0; border-top:1px solid var(--hair); font-size:15px; line-height:1.45; }
+  .pairs li span:first-child{ color:var(--dim); }
+  .pairs li span:last-child::before{ content:"→ "; color:var(--red); }
+  .quote{ margin-top:clamp(20px,3vh,32px); border-top:1.5px solid var(--ink); padding-top:14px; }
+  .quote p{ font-size:var(--fs-l); line-height:1.45; }
+  .quote cite{ display:block; margin-top:10px; font-style:normal; font-size:var(--fs-s); color:var(--faint); }
+  .rlist{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(24px,4vw,72px); }
+  .rlist li{ padding:12px 0; border-top:1px solid var(--hair); }
+  .rlist strong{ font-weight:600; font-size:15px; }
+  .rlist p{ margin-top:4px; }
+  @media (max-width:900px){
+    .src4{ grid-template-columns:1fr 1fr; gap:22px 20px; }
+    .layers, .proofgrid, .rlist{ grid-template-columns:1fr; }
+  }
+  @media (max-width:760px){
+    .cover .wrap{ display:block; min-height:0; }
+    .cover h1{ margin-top:22px; }
+    .cover .r{ margin-top:16px; }
+    .facts{ grid-template-columns:1fr; gap:12px; }
+    .qhead{ display:block; }
+    .qhead p{ margin-top:12px; }
+    .qgrid{ grid-template-columns:1fr; }
+    .qgrid li{ padding:12px 0; }
+    .qgrid q{ font-size:24px; }
+    .qgrid p{ margin-top:6px; }
+    .src4{ grid-template-columns:1fr; }
+    .rep th:nth-child(4), .rep td:nth-child(4){ display:none; }
+    .rep td:first-child{ width:auto; font-size:14px; }
+    .pairs li{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- тема страницы SEO + GEO (не красно-белая «по закону») ---------- */
+  :root{ --paper:#090909; --ink:#EEEAE2; --soft:#141413; --dim:rgba(238,234,226,.64); --faint:rgba(238,234,226,.4); --hair:rgba(238,234,226,.16); --red:#9E4F61; --wine:#9E4F61; --wine-2:#8E4556; --bronze:#B29A78; --fs-d:clamp(40px,5.4vw,88px); }
+  html, body{ background:#090909; color:#EEEAE2; }
+  .dot{ color:var(--bronze); }
+  .rule{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:400; border-top:1px solid var(--hair); color:var(--faint); }
+  .rule span:first-child{ color:var(--bronze); }
+  .rule a{ border-bottom-color:var(--wine); color:var(--ink); }
+  .cover h1, .h2, .end .h2{ font-weight:600; text-transform:uppercase; letter-spacing:-.04em; line-height:.92; }
+  .btn, .dark .btn{ background:var(--wine); color:#EEEAE2; text-transform:uppercase; letter-spacing:.1em; font-size:13px; padding:20px 28px; }
+  .btn:hover, .dark .btn:hover{ background:var(--wine-2); }
+  .btn i{ color:#EEEAE2; }
+  .link{ border-bottom:1px solid var(--wine); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+  p .link, .pnote .link{ font-family:inherit; font-size:inherit; letter-spacing:0; text-transform:none; }
+  .sec.dark{ background:#1A1A18; }
+  .foot{ background:#090909; }
+  .facts b, .nums b{ color:#EEEAE2; }
+  .src4 li, .layers h3, .quote, .rep th{ border-color:var(--bronze); }
+  .src4 em, .layers h3 em{ font-family:'JetBrains Mono',monospace; color:var(--bronze); }
+  .rep .y{ color:var(--bronze); }
+  .rep .n{ color:#C9788A; }
+  .layers li::before{ background:var(--wine); }
+  .pairs li span:last-child::before{ color:var(--bronze); }
+  .faq summary i{ color:var(--bronze); }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "@id": "https://tinadigital.ru/seo-geo/kliniki/#service", "name": "Продвижение клиники в нейросетях и Яндексе (GEO и SEO)", "serviceType": "GEO и SEO для медицинской клиники", "url": "https://tinadigital.ru/seo-geo/kliniki/", "description": "Замер того, каких врачей и клиники Алиса и ChatGPT советуют пациентам; страницы сайта под вопросы пациентов с ответом в начале; страницы врачей, цены и адреса, понятные роботу; медицинская разметка Schema.org; согласованные данные в Яндекс Бизнесе, 2ГИС и медицинских каталогах; честный сбор отзывов; упоминания на площадках, которые цитируют нейросети; еженедельный повторный замер и ежемесячный отчёт.", "provider": {"@id": "https://tinadigital.ru/#studio"}, "areaServed": [{"@type": "Country", "name": "Россия"}, {"@type": "City", "name": "Санкт-Петербург"}], "audience": {"@type": "Audience", "audienceType": "Частные клиники, медицинские центры и врачи"}, "isRelatedTo": {"@id": "https://tinadigital.ru/seo-geo/#service"}, "offers": [{"@type": "Offer", "name": "Запуск SEO и GEO для клиники", "priceCurrency": "RUB", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "40000", "priceCurrency": "RUB"}, "url": "https://tinadigital.ru/seo-geo/kliniki/#price"}, {"@type": "Offer", "name": "Ведение SEO и GEO", "priceCurrency": "RUB", "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": "20000", "priceCurrency": "RUB", "unitText": "месяц"}, "url": "https://tinadigital.ru/seo-geo/kliniki/#price"}, {"@type": "Offer", "name": "Сайт по закону для медицины", "price": "15000", "priceCurrency": "RUB", "url": "https://tinadigital.ru/zakon/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TINA DIGITAL", "item": "https://tinadigital.ru/"}, {"@type": "ListItem", "position": 2, "name": "SEO + GEO", "item": "https://tinadigital.ru/seo-geo/"}, {"@type": "ListItem", "position": 3, "name": "Продвижение клиники в нейросетях", "item": "https://tinadigital.ru/seo-geo/kliniki/"}]}</script>
+<script type="application/ld+json" id="faq-ld">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно гарантировать, что Алиса будет советовать мою клинику?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Кнопки «добавить клинику в Алису» не существует, и честный подрядчик такого не обещает. Я убираю причины, по которым нейросеть вас не называет, и каждую неделю показываю замер: в каких ответах клиника появилась, а в каких пока нет."}}, {"@type": "Question", "name": "Чем GEO отличается от обычного SEO?", "acceptedAnswer": {"@type": "Answer", "text": "SEO отвечает за место сайта в поиске Яндекса. GEO за то, назовёт ли клинику нейросеть, когда пациент просит совета. Нейросети опираются на поиск, каталоги и упоминания, поэтому делаю всё вместе."}}, {"@type": "Question", "name": "Какие нейросети вы проверяете?", "acceptedAnswer": {"@type": "Answer", "text": "Алису, потому что в России ей пользуются чаще всего, и ChatGPT. По вашему желанию добавляю GigaChat и Perplexity."}}, {"@type": "Question", "name": "Когда будет видно изменения?", "acceptedAnswer": {"@type": "Answer", "text": "Сроков не обещаю: новые страницы попадают в индекс от нескольких дней до нескольких недель, а нейросети обновляют источники в своём темпе. Поэтому каждую неделю повторяю один и тот же замер и раз в месяц сравниваю его с точкой отсчёта."}}, {"@type": "Question", "name": "Нужно ли переделывать сайт клиники?", "acceptedAnswer": {"@type": "Answer", "text": "Обычно нет. Чаще не хватает отдельных страниц под вопросы пациентов, данных о врачах и цен, которые видит робот. Если сайт устроен так, что робот не видит текст, скажу об этом после проверки."}}, {"@type": "Question", "name": "Сколько стоит продвижение клиники в нейросетях?", "acceptedAnswer": {"@type": "Answer", "text": "Запуск SEO и GEO от 40 000 ₽, ведение от 20 000 ₽ в месяц, минимум 3 месяца. Проверка медицинского сайта по закону 15 000 ₽."}}, {"@type": "Question", "name": "Работаете с клиниками не из Петербурга?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Работа идёт удалённо, замер делаю по вашему городу."}}]}</script>
+</head>
+<body>
+
+<header class="top">
+  <a href="../../">TINA DIGITAL</a>
+  <nav><a href="../../projects/">Кейсы</a><a href="../../turnkey/">Сайты под ключ</a><a href="../">SEO + GEO</a><a href="../../direct/">Яндекс Директ</a><a href="../../zakon/">Сайт по закону</a><a class="m" href="#cta">Обсудить</a></nav>
+</header>
+
+<main>
+
+<!-- 01 обложка -->
+<section class="sec cover">
+  <div class="wrap">
+    <div class="rule"><span><a href="../">SEO + GEO</a> / Клиники</span><span>Санкт‑Петербург и&nbsp;вся Россия</span></div>
+    <h1>Продвижение клиники<br>в&nbsp;нейросетях<span class="dot">.</span></h1>
+    <div class="r">
+      <p class="lede">Пациент всё&nbsp;чаще спрашивает не&nbsp;поиск, а&nbsp;Алису: «посоветуй, куда сходить». Проверяю, кого нейросети называют вместо вашей клиники и&nbsp;почему, и&nbsp;меняю то, что&nbsp;на&nbsp;это влияет: сайт, карточки, каталоги и&nbsp;упоминания. Запуск от&nbsp;40&nbsp;000&nbsp;₽.</p>
+      <div class="acts"><a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Обсудить в&nbsp;Telegram <i aria-hidden="true">→</i></a></div>
+    </div>
+    <div class="facts">
+      <div><b>20–30 вопросов</b><span>пациентов вашего профиля в&nbsp;каждом замере</span></div>
+      <div><b>4 источника</b><span>сайт, карточки, медицинские каталоги, упоминания</span></div>
+      <div><b>Каждую неделю</b><span>тот&nbsp;же замер к&nbsp;одной точке отсчёта</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 вопросы пациента -->
+<section class="sec soft">
+  <div class="wrap rv">
+    <div class="rule"><span>02</span><span>Как ищут</span></div>
+    <div class="qhead">
+      <h2 class="h2">Пациент просит<br>совета<span class="dot">.</span></h2>
+      <p class="lede dim">Нейросеть отвечает двумя-тремя названиями и&nbsp;объясняет выбор. Пациент часто дальше не&nbsp;ищет: решение принято до&nbsp;перехода на&nbsp;сайт.</p>
+    </div>
+    <ul class="qgrid">
+      <li><q>«Посоветуй стоматологию на&nbsp;Васильевском»</q><p class="small">Короткий список вместо десяти сайтов в&nbsp;выдаче.</p></li>
+      <li><q>«К&nbsp;кому сходить с&nbsp;болью в&nbsp;спине?»</q><p class="small">Нейросеть называет врачей и&nbsp;клиники по&nbsp;профилю, а&nbsp;не&nbsp;по&nbsp;рекламе.</p></li>
+      <li><q>«Где сделать МРТ без&nbsp;очереди?»</q><p class="small">В&nbsp;ответ попадают те, у&nbsp;кого цены, адрес и&nbsp;часы понятны роботу.</p></li>
+      <li><q>«Хороший ли&nbsp;врач такой‑то?»</q><p class="small">Ответ собирается из&nbsp;сайта, карточек, каталогов и&nbsp;упоминаний о&nbsp;враче.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 03 откуда ответ -->
+<section class="sec">
+  <div class="wrap rv">
+    <div class="rule"><span>03</span><span>Откуда ответ</span></div>
+    <h2 class="h2">Нейросеть читает<br>четыре места<span class="dot">.</span></h2>
+    <ul class="src4">
+      <li><em>01</em><strong>Сайт клиники</strong><p class="small">Услуги, врачи, цены, адреса. Если робот не&nbsp;видит текст или&nbsp;страницы под&nbsp;вопрос нет, сайт не&nbsp;станет источником.</p></li>
+      <li><em>02</em><strong>Карточки на&nbsp;картах</strong><p class="small">Яндекс Бизнес и&nbsp;2ГИС: рубрики, услуги, часы, рейтинг, ответы на&nbsp;отзывы.</p></li>
+      <li><em>03</em><strong>Медицинские каталоги</strong><p class="small">Профили клиники и&nbsp;врачей на&nbsp;площадках с&nbsp;отзывами пациентов.</p></li>
+      <li><em>04</em><strong>Упоминания</strong><p class="small">Статьи, подборки, СМИ, комментарии врачей. Нейросеть доверяет тому, о&nbsp;ком пишут другие.</p></li>
+    </ul>
+    <p class="lede dim srcnote">Если в&nbsp;этих местах данные расходятся (старый адрес, другое название, нет врачей), нейросеть выбирает тех, о&nbsp;ком информация сходится.</p>
+  </div>
+</section>
+
+<!-- 04 замер -->
+<section class="sec soft">
+  <div class="wrap rv">
+    <div class="rule"><span>04</span><span>Замер</span></div>
+    <div class="qhead">
+      <h2 class="h2">Сначала смотрю,<br>кого советуют<span class="dot">.</span></h2>
+      <p class="lede dim">Составляю вопросы, которые задают пациенты вашего профиля и&nbsp;района, и&nbsp;задаю их&nbsp;Алисе и&nbsp;ChatGPT. Фиксирую, названа&nbsp;ли клиника, кого назвали вместо неё и&nbsp;на&nbsp;какие источники сослались.</p>
+    </div>
+    <table class="rep">
+      <thead><tr><th>Вопрос пациента</th><th>Алиса</th><th>ChatGPT</th><th>На&nbsp;кого сослались</th></tr></thead>
+      <tbody>
+        <tr><td>Посоветуй остеопата в&nbsp;Приморском районе</td><td><span class="n">нет</span>, клиники А&nbsp;и&nbsp;Б</td><td><span class="y">да</span>, третьей</td><td>каталог врачей, сайт клиники А</td></tr>
+        <tr><td>Сколько стоит приём остеопата в&nbsp;Петербурге</td><td><span class="n">нет</span></td><td><span class="n">нет</span></td><td>сайты с&nbsp;ценами в&nbsp;тексте</td></tr>
+        <tr><td>Остеопат для&nbsp;ребёнка: к&nbsp;кому идти</td><td><span class="y">да</span></td><td><span class="n">нет</span>, клиника В</td><td>статья в&nbsp;городском СМИ</td></tr>
+      </tbody>
+    </table>
+    <p class="small repnote">Пример формата отчёта, а&nbsp;не&nbsp;данные реальной клиники. Строк в&nbsp;настоящем замере 20–30.</p>
+  </div>
+</section>
+
+<!-- 05 что меняю -->
+<section class="sec">
+  <div class="wrap rv">
+    <div class="rule"><span>05</span><span>Что меняю</span></div>
+    <h2 class="h2">Каждую находку<br>закрываю решением<span class="dot">.</span></h2>
+    <div class="layers">
+      <div>
+        <h3><em>01</em>Сайт</h3>
+        <ul>
+          <li>Отдельная страница под&nbsp;каждый частый вопрос и&nbsp;направление, а&nbsp;не&nbsp;одна страница на&nbsp;всё.</li>
+          <li>Ответ на&nbsp;главный вопрос в&nbsp;первых двух предложениях: его&nbsp;нейросети проще процитировать.</li>
+          <li>Страницы врачей: специализация, образование, стаж, чем&nbsp;занимается.</li>
+          <li>Цены, адреса, часы и&nbsp;телефоны текстом, который видит робот.</li>
+          <li>Медицинская разметка Schema.org: клиника, врач, услуга, вопросы и&nbsp;ответы.</li>
+          <li>Статьи с&nbsp;автором‑врачом и&nbsp;датой проверки.</li>
+        </ul>
+      </div>
+      <div>
+        <h3><em>02</em>Карточки и&nbsp;каталоги</h3>
+        <ul>
+          <li>Яндекс Бизнес заполнен полностью: услуги с&nbsp;ценами, врачи, фото, рубрики.</li>
+          <li>Одинаковые название, адрес и&nbsp;телефон в&nbsp;Яндексе, 2ГИС и&nbsp;медицинских каталогах.</li>
+          <li>Профили врачей там, где&nbsp;пациенты их&nbsp;ищут.</li>
+          <li>Честный сбор отзывов: QR‑код в&nbsp;клинике, сообщение после приёма, ответы на&nbsp;каждый отзыв.</li>
+        </ul>
+      </div>
+      <div>
+        <h3><em>03</em>Упоминания</h3>
+        <ul>
+          <li>Список площадок, которые нейросети уже цитируют по&nbsp;вашему профилю: из&nbsp;замера и&nbsp;отчёта Яндекс Вебмастера о&nbsp;видимости в&nbsp;ответах Алисы.</li>
+          <li>Комментарии ваших врачей для&nbsp;журналистов.</li>
+          <li>Экспертные статьи врачей на&nbsp;площадках, которые читают пациенты.</li>
+        </ul>
+      </div>
+      <div>
+        <h3><em>04</em>Техника</h3>
+        <ul>
+          <li>Текст доступен роботам без&nbsp;JavaScript, у&nbsp;каждой страницы один адрес.</li>
+          <li>Яндекс Вебмастер, Bing Webmaster и&nbsp;быстрая отправка новых страниц на&nbsp;переобход.</li>
+          <li>robots.txt не&nbsp;закрывает сайт от&nbsp;поисковых роботов и&nbsp;роботов нейросетей.</li>
+          <li>Метрика с&nbsp;переходами из&nbsp;нейросетей отдельной строкой.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 опыт -->
+<section class="sec soft">
+  <div class="wrap rv">
+    <div class="rule"><span>06</span><span>Как это выглядит в&nbsp;работе</span></div>
+    <div class="proofgrid">
+      <div>
+        <h2 class="h2">Кейс Liana Gini<span class="dot">.</span></h2>
+        <p class="lede dim">Производство одежды в&nbsp;Китае. Ниша другая, метод тот&nbsp;же, что&nbsp;и&nbsp;для&nbsp;клиники: спрос, выдача, замер нейросетей, страницы, повторный замер.</p>
+        <div class="nums">
+          <div><b>306</b><span>запросов спроса разобрано</span></div>
+          <div><b>34</b><span>вопроса клиентов к&nbsp;Алисе и&nbsp;ChatGPT</span></div>
+          <div><b>0 из&nbsp;34</b><span>ответов советовали Лиану на&nbsp;старте</span></div>
+          <div><b>15</b><span>страниц, каждая под&nbsp;своё намерение</span></div>
+        </div>
+        <p class="small" style="margin-top:10px">Источник: Яндекс Вордстат, выдача Яндекса, ответы Алисы и&nbsp;ChatGPT, 5–6 ноября 2026.</p>
+        <div class="acts" style="margin-top:18px"><a class="link" href="../../cases/liana/#seo">Смотреть кейс →</a></div>
+      </div>
+      <div>
+        <ul class="pairs">
+          <li><span>Нейросети называли фабрики, а&nbsp;не&nbsp;организатора производства</span><span>Единое описание, страница эксперта, ответ в&nbsp;первых строках</span></li>
+          <li><span>Узкие направления нигде не&nbsp;описаны</span><span>Свои страницы под&nbsp;каждое направление</span></li>
+          <li><span>По&nbsp;имени сайта нет в&nbsp;первой десятке Яндекса</span><span>Страница «О&nbsp;Лиане Гини»: опыт, образование, команда</span></li>
+        </ul>
+        <div class="quote">
+          <p>«Кристина каким‑то невероятным образом настроила Гео, Сео, что&nbsp;пошли заявки от&nbsp;сайта, хотя я&nbsp;изначально на&nbsp;это не&nbsp;возлагала никаких надежд».</p>
+          <cite>Анастасия, основательница Enduro Energy. За&nbsp;1–23 сентября 2026 94,7% визитов на&nbsp;её&nbsp;сайт пришли из&nbsp;поиска, без&nbsp;платной рекламы (Яндекс Метрика).</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 отчёт -->
+<section class="sec">
+  <div class="wrap rv">
+    <div class="rule"><span>07</span><span>Отчёт</span></div>
+    <h2 class="h2">Что вы видите<br>каждый месяц<span class="dot">.</span></h2>
+    <ul class="rlist">
+      <li><strong>Таблица замера</strong><p class="small">Те&nbsp;же вопросы: где&nbsp;клиника появилась, где&nbsp;пока нет, кого советуют вместо неё.</p></li>
+      <li><strong>Поиск Яндекса</strong><p class="small">Показы и&nbsp;клики по&nbsp;запросам, в&nbsp;сравнении с&nbsp;точкой отсчёта.</p></li>
+      <li><strong>Переходы из&nbsp;нейросетей</strong><p class="small">Сколько людей пришло на&nbsp;сайт из&nbsp;Алисы и&nbsp;ChatGPT по&nbsp;данным Метрики.</p></li>
+      <li><strong>Что сделано и&nbsp;что дальше</strong><p class="small">Новые страницы, карточки, упоминания и&nbsp;план на&nbsp;следующий месяц.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 08 медицина -->
+<section class="sec soft" id="law">
+  <div class="wrap rv">
+    <div class="rule"><span>08</span><span>Медицина</span></div>
+    <h2 class="h2">Чего<br>не&nbsp;делаю<span class="dot">.</span></h2>
+    <ul class="law">
+      <li><strong>Не&nbsp;обещаю место в&nbsp;Алисе</strong><p>Кнопки «добавить клинику в&nbsp;нейросеть» нет. Показываю замер до&nbsp;и&nbsp;после, а&nbsp;не&nbsp;гарантии.</p></li>
+      <li><strong>Не&nbsp;пишу отзывы и&nbsp;не&nbsp;накручиваю</strong><p>Поддельные отзывы и&nbsp;накрутки опасны для&nbsp;клиники и&nbsp;быстро вскрываются.</p></li>
+      <li><strong>Не&nbsp;обещаю результат лечения</strong><p>Тексты проверяю на&nbsp;требования к&nbsp;медицинской рекламе.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec price" id="price">
+  <div class="wrap rv">
+    <div class="rule"><span>09</span><span>Цены</span></div>
+    <h2 class="h2">Цены<span class="dot">.</span></h2>
+    <div class="prow"><div><strong>Запуск SEO и&nbsp;GEO</strong><p>Замер, правки сайта, карточки и&nbsp;каталоги, план упоминаний, точка отсчёта.</p></div><div class="n"><small>от</small>40&nbsp;000&nbsp;₽</div></div>
+    <div class="prow"><div><strong>Ведение</strong><p>Еженедельный замер, новые страницы и&nbsp;упоминания, отчёт каждый месяц. Минимум 3&nbsp;месяца.</p></div><div class="n"><small>от</small>20&nbsp;000&nbsp;₽/мес</div></div>
+    <div class="prow"><div><strong>Сайт по&nbsp;закону для&nbsp;медицины</strong><p>Проверка и&nbsp;исправление юридической части сайта: <a class="link" href="../../zakon/">подробнее</a>.</p></div><div class="n">15&nbsp;000&nbsp;₽</div></div>
+    <p class="pnote"><span><b>Сайта нет или он&nbsp;устарел?</b></span><span><a class="link" href="../../sajt-dlya-vracha/">Сайт для&nbsp;врача и&nbsp;клиники</a> сразу с&nbsp;базой для&nbsp;поиска и&nbsp;нейросетей.</span></p>
+  </div>
+</section>
+
+<section class="sec soft faq" id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span>10</span><span>Вопросы</span></div>
+      <h2 class="h2">Частые<br>вопросы<span class="dot">.</span></h2>
+    </div>
+    <div class="rv faqlist">
+      <details open><summary><h3>Можно гарантировать, что&nbsp;Алиса будет советовать мою клинику?</h3><i aria-hidden="true">+</i></summary><p class="a">Нет. Кнопки «добавить клинику в&nbsp;Алису» не&nbsp;существует, и&nbsp;честный подрядчик такого не&nbsp;обещает. Я&nbsp;убираю причины, по&nbsp;которым нейросеть вас не&nbsp;называет, и&nbsp;каждую неделю показываю замер: в&nbsp;каких ответах клиника появилась, а&nbsp;в&nbsp;каких пока нет.</p></details>
+      <details><summary><h3>Чем&nbsp;GEO отличается от&nbsp;обычного SEO?</h3><i aria-hidden="true">+</i></summary><p class="a">SEO отвечает за&nbsp;место сайта в&nbsp;поиске Яндекса. GEO за&nbsp;то, назовёт&nbsp;ли клинику нейросеть, когда пациент просит совета. Нейросети опираются на&nbsp;поиск, каталоги и&nbsp;упоминания, поэтому делаю всё вместе.</p></details>
+      <details><summary><h3>Какие нейросети вы&nbsp;проверяете?</h3><i aria-hidden="true">+</i></summary><p class="a">Алису, потому что&nbsp;в&nbsp;России ей&nbsp;пользуются чаще всего, и&nbsp;ChatGPT. По&nbsp;вашему желанию добавляю GigaChat и&nbsp;Perplexity.</p></details>
+      <details><summary><h3>Когда будет видно изменения?</h3><i aria-hidden="true">+</i></summary><p class="a">Сроков не&nbsp;обещаю: новые страницы попадают в&nbsp;индекс от&nbsp;нескольких дней до&nbsp;нескольких недель, а&nbsp;нейросети обновляют источники в&nbsp;своём темпе. Поэтому каждую неделю повторяю один и&nbsp;тот&nbsp;же замер и&nbsp;раз в&nbsp;месяц сравниваю его&nbsp;с&nbsp;точкой отсчёта.</p></details>
+      <details><summary><h3>Нужно&nbsp;ли переделывать сайт клиники?</h3><i aria-hidden="true">+</i></summary><p class="a">Обычно нет. Чаще не&nbsp;хватает отдельных страниц под&nbsp;вопросы пациентов, данных о&nbsp;врачах и&nbsp;цен, которые видит робот. Если сайт устроен так, что&nbsp;робот не&nbsp;видит текст, скажу об&nbsp;этом после проверки.</p></details>
+      <details><summary><h3>Сколько стоит продвижение клиники в&nbsp;нейросетях?</h3><i aria-hidden="true">+</i></summary><p class="a">Запуск SEO и&nbsp;GEO от&nbsp;40&nbsp;000&nbsp;₽, ведение от&nbsp;20&nbsp;000&nbsp;₽ в&nbsp;месяц, минимум 3&nbsp;месяца. Проверка медицинского сайта по&nbsp;закону 15&nbsp;000&nbsp;₽.</p></details>
+      <details><summary><h3>Работаете с&nbsp;клиниками не&nbsp;из&nbsp;Петербурга?</h3><i aria-hidden="true">+</i></summary><p class="a">Да. Работа идёт удалённо, замер делаю по&nbsp;вашему городу.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark end" id="cta">
+  <div class="wrap">
+    <div class="rule"><span>11</span><span>Telegram</span></div>
+    <h2 class="h2">Кого Алиса<br>советует вместо&nbsp;вас<span class="dot">?</span></h2>
+    <p class="lede">Напишите название клиники, город и&nbsp;главные направления. Отвечу сама и&nbsp;скажу, с&nbsp;чего начать.</p>
+    <div class="acts">
+      <a class="btn" href="https://t.me/tina_digital" data-tg target="_blank" rel="noopener">Написать в&nbsp;Telegram <i aria-hidden="true">→</i></a>
+      <a class="link" href="../">Всё про&nbsp;SEO и&nbsp;GEO →</a>
+    </div>
+    <div class="contacts">
+      <div><span>Telegram</span><a href="https://t.me/tina_digital" target="_blank" rel="noopener">@tina_digital</a></div>
+      <div><span>Почта</span><a href="mailto:belovachristina@mail.ru">belovachristina@mail.ru</a></div>
+      <div><span>Сайт</span><a href="../../">tinadigital.ru</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="links"><span>© 2026 TINA DIGITAL</span><a href="../../privacy/">Политика конфиденциальности</a><a href="../../cookies/">Cookie</a><a href="#" data-cookie-settings>Настройки cookie</a></div>
+  <span>Продвижение клиники в нейросетях</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var TG = 'https://t.me/tina_digital';
+  var MSG = "Здравствуйте! Хочу узнать, кого Алиса советует вместо нашей клиники.";
+  document.querySelectorAll('[data-tg]').forEach(function(a){
+    a.href = TG + '?text=' + encodeURIComponent(MSG);
+    a.addEventListener('click', function(){ if (window.tinaGoal) window.tinaGoal('telegram'); });
+  });
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); } }); }, { rootMargin:'0px 0px 20% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('shown'); });
+  var ds = document.querySelectorAll('.faqlist details');
+  ds.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) ds.forEach(function(o){ if (o !== d) o.open = false; }); }); });
+})();
+</script>
+<script src="../../assets/nav/mobile-nav.js"></script>
+<script src="../../assets/legal/legal.js"></script>
+</body>
+</html>
