@@ -86,6 +86,9 @@
 .req dt{font-size:14px;color:var(--mut)}.req dd{margin:0;font:400 var(--f-lead)/1.35 "Literata",Georgia,serif}
 .payn{grid-column:2/12;margin:18px 0 0;color:var(--mut)}.casel{list-style:none;margin:0;padding:0}.casel li{padding:8px 0;border-top:1px solid var(--rule)}
 .grp2[hidden]{display:none}
+.vids .vw{grid-column:2/10;grid-row:2;margin-top:4vh}.vids .vw .slot{aspect-ratio:16/9;align-items:center;justify-content:center;font-size:15px}.vids .qs{grid-column:2/10;grid-row:3;margin-top:3vh}
+.cases .cw{grid-column:2/12;grid-row:2;margin-top:4vh;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.cases .ba{display:grid;grid-template-columns:1fr 1fr;gap:4px}.cases .ba .slot{aspect-ratio:3/4}.cases .ca p{margin:12px 0 0;font-size:15px}.cases .qs{grid-column:2/10;grid-row:3;margin-top:3vh}
+@media(max-width:900px){.vids>*,.cases>*{grid-column:1/13!important}.cases .cw{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:900px){.payn{grid-column:1/13}.pains{grid-template-columns:minmax(0,1fr)}.pains li>*{min-width:0;overflow-wrap:break-word}.runin{overflow-wrap:break-word}.req{grid-template-columns:1fr}.req>div{grid-template-columns:1fr;row-gap:4px}}
 /* статья: один редакционный шаблон */
 .art-h{padding-top:5vh;padding-bottom:5vh}
