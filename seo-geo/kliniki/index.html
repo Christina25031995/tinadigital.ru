@@ -61,7 +61,10 @@
   .pairs li{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:6px 24px; padding:10px 0; border-top:1px solid var(--hair); font-size:15px; line-height:1.45; }
   .pairs li span:first-child{ color:var(--dim); }
   .pairs li span:last-child::before{ content:"→ "; color:var(--red); }
-  .quote{ margin-top:clamp(20px,3vh,32px); border-top:1.5px solid var(--ink); padding-top:14px; }
+  .quote{ border-top:1.5px solid var(--ink); padding-top:14px; }
+  .enduro{ margin-top:clamp(44px,8vh,90px); }
+  .enduro .proofgrid{ margin-top:clamp(16px,2.6vh,28px); }
+  .enduro .nums{ margin-top:0; }
   .quote p{ font-size:var(--fs-l); line-height:1.45; }
   .quote cite{ display:block; margin-top:10px; font-style:normal; font-size:var(--fs-s); color:var(--faint); }
   .rlist{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(24px,4vw,72px); }
@@ -245,7 +248,7 @@
 <!-- 06 опыт -->
 <section class="sec soft">
   <div class="wrap rv">
-    <div class="rule"><span>06</span><span>Как это выглядит в&nbsp;работе</span></div>
+    <div class="rule"><span>06</span><span>Кейсы</span></div>
     <div class="proofgrid">
       <div>
         <h2 class="h2">Кейс Liana Gini<span class="dot">.</span></h2>
@@ -265,9 +268,22 @@
           <li><span>Узкие направления нигде не&nbsp;описаны</span><span>Свои страницы под&nbsp;каждое направление</span></li>
           <li><span>По&nbsp;имени сайта нет в&nbsp;первой десятке Яндекса</span><span>Страница «О&nbsp;Лиане Гини»: опыт, образование, команда</span></li>
         </ul>
+      </div>
+    </div>
+    <div class="enduro">
+      <div class="rule"><span>Enduro Energy</span><span>Отзыв клиента</span></div>
+      <div class="proofgrid">
         <div class="quote">
           <p>«Кристина каким‑то невероятным образом настроила Гео, Сео, что&nbsp;пошли заявки от&nbsp;сайта, хотя я&nbsp;изначально на&nbsp;это не&nbsp;возлагала никаких надежд».</p>
-          <cite>Анастасия, основательница Enduro Energy. За&nbsp;1–23 сентября 2026 94,7% визитов на&nbsp;её&nbsp;сайт пришли из&nbsp;поиска, без&nbsp;платной рекламы (Яндекс Метрика).</cite>
+          <cite>Анастасия, основательница Enduro Energy, прокат эндуро‑мотоциклов</cite>
+        </div>
+        <div>
+          <div class="nums">
+            <div><b>94,7%</b><span>визитов пришли из&nbsp;поиска за&nbsp;1–23 сентября 2026</span></div>
+            <div><b>0&nbsp;₽</b><span>на&nbsp;платную рекламу</span></div>
+          </div>
+          <p class="small" style="margin-top:10px">Источник: Яндекс Метрика.</p>
+          <div class="acts" style="margin-top:18px"><a class="link" href="../../cases/enduro/">Смотреть кейс →</a></div>
         </div>
       </div>
     </div>
