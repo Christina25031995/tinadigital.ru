@@ -1,4 +1,9 @@
 
+/* 20.11 аудит: видимый фокус с клавиатуры, крупная галочка согласия, цели касания на телефоне 44 px */
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+input[type=checkbox]{width:20px;height:20px;vertical-align:-4px;margin-right:6px}
+@media(max-width:900px){main .go a,main li>a,main td a,main dd a,main .dl a,main .acts .tl,main .more a,main .a1 a,main .all a,main .fq-all a,main .side a,main .hA-aside a,main .q a,main summary{display:inline-flex!important;align-items:center;min-height:44px}main input[type=checkbox]{width:24px;height:24px}.flt button,.lnav .mob button{min-height:44px}}
+
 :root{--f-cap:13px;--f-body:16px;--f-lead:20px;--f-h4:clamp(22px,1.8vw,26px);--f-h3:clamp(24px,2.5vw,36px);--f-h2:clamp(32px,3.6vw,52px);--f-h1:clamp(40px,5.4vw,78px)}
 /* v0.9.3 · 24.10: шкала из 7 ступеней + отдельные дисплейные размеры (одна доминанта на экран); подписи обычным регистром, капслок только у маркеров разделов ‹NN› */
 /* МИОТ · Главная v0.9.1 · система «Журнал» (палитра и характер утверждённого прототипа) + механики v0.9. Шрифты и палитра не финальные. Курсива нет. */

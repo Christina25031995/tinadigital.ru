@@ -97,6 +97,7 @@
 .vozr .st{grid-column:2/12;grid-row:3;margin-top:6vh;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;counter-reset:s}.vozr .st div{border-top:2px solid var(--ink,#1a1d29);padding-top:14px;font-size:17px;line-height:1.5}
 .vozr .st div::before{counter-increment:s;content:"Шаг " counter(s);display:block;font-size:13px;color:var(--mut);margin-bottom:6px}.vozr .acts{grid-column:2/12;grid-row:4;margin-top:4vh}
 .ctax{margin-top:3vh}
+.gq{margin:0 0 18px}.gq p{font:400 clamp(20px,1.7vw,24px)/1.45 "Literata",Georgia,serif;margin:0}.gq cite{display:block;margin-top:10px;font-style:normal;font-size:15px;color:var(--mut)}
 .vhod .acts{display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px}
 @media(max-width:900px){.outc .ol>.two{display:block}.outc .ol .two li{font-size:21px}}
 @media(max-width:900px){.vhod>*,.vozr>*{grid-column:1/13!important;grid-row:auto!important}.vozr .vz,.vozr .st{grid-template-columns:minmax(0,1fr)}}
