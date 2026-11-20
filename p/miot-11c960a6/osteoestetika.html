@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.dataset.mode="clean"</script>
-<link rel="stylesheet" href="zhurnal.css?v=2c009398"><link rel="stylesheet" href="zhurnal-program.css?v=2c009398"><link rel="stylesheet" href="zhurnal-pages.css?v=2c009398"></head><body>
+<link rel="stylesheet" href="zhurnal.css?v=04dc2e7c"><link rel="stylesheet" href="zhurnal-program.css?v=04dc2e7c"><link rel="stylesheet" href="zhurnal-pages.css?v=04dc2e7c"></head><body>
 
 <header class="hdr">
 <nav class="nl" aria-label="Основное меню"><details class="pm"><summary>Программы</summary>
@@ -41,9 +41,9 @@
 </section>
 <section class="cases psec g" id="keysy" data-nav="Кейсы">
 <h2 class="hD" data-n="">Кейсы: до и после</h2>
-<div class="cw"><div class="ca"><div class="ba"><div class="slot">до</div><div class="slot">после</div></div><p><b>Лицо и тело, 3 сеанса за 4 недели.</b> Работа с костями и швами черепа, ВНЧС, челюстями и глазницей, лимфодренаж, работа с диафрагмами. Скулы стали выразительнее, овал лица чётче, ушли отёчность, брыли и второй подбородок; уменьшились отёки и прогиб в пояснице.</p></div><div class="ca"><div class="ba"><div class="slot">до</div><div class="slot">после</div></div><p><span class="tbd">уточняется: задача, что делали, срок</span></p></div><div class="ca"><div class="ba"><div class="slot">до</div><div class="slot">после</div></div><p><span class="tbd">уточняется: задача, что делали, срок</span></p></div></div>
+<div class="cw"><div class="ca"><div class="bas"><div class="slot b-after">фото после</div><div class="slot b-before">фото до</div><span class="bh" aria-hidden="true"></span><input type="range" min="0" max="100" value="50" aria-label="Сравнить фото до и после"></div><p><b>Лицо и тело, 3 сеанса за 4 недели.</b> Работа с костями и швами черепа, ВНЧС, челюстями и глазницей, лимфодренаж, работа с диафрагмами. Скулы стали выразительнее, овал лица чётче, ушли отёчность, брыли и второй подбородок; уменьшились отёки и прогиб в пояснице.</p></div><div class="ca"><div class="bas"><div class="slot b-after">фото после</div><div class="slot b-before">фото до</div><span class="bh" aria-hidden="true"></span><input type="range" min="0" max="100" value="50" aria-label="Сравнить фото до и после"></div><p><span class="tbd">уточняется: задача, что делали, срок</span></p></div><div class="ca"><div class="bas"><div class="slot b-after">фото после</div><div class="slot b-before">фото до</div><span class="bh" aria-hidden="true"></span><input type="range" min="0" max="100" value="50" aria-label="Сравнить фото до и после"></div><p><span class="tbd">уточняется: задача, что делали, срок</span></p></div></div>
 <div class="qs"></div>
-</section>
+</section><script>document.querySelectorAll(".bas").forEach(function(w){var i=w.querySelector("input"),d=false;function set(v){v=Math.max(0,Math.min(100,v));w.style.setProperty("--p",v+"%");i.value=v}i.addEventListener("input",function(){set(+i.value)});function at(e){var r=w.getBoundingClientRect();set((e.clientX-r.left)/r.width*100)}w.addEventListener("pointerdown",function(e){d=true;at(e);w.setPointerCapture(e.pointerId);e.preventDefault()});w.addEventListener("pointermove",function(e){if(d)at(e)});w.addEventListener("pointerup",function(){d=false});w.addEventListener("pointercancel",function(){d=false})})</script>
 <section class="outc psec g" id="rezultaty" data-nav="Чему научитесь">
 <h2 class="hD" data-n="">Что выпускник применит в работе</h2>
 <div class="ol">
