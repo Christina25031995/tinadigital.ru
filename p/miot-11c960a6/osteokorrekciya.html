@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.dataset.mode="clean"</script>
-<link rel="stylesheet" href="zhurnal.css?v=6dc2a589"><link rel="stylesheet" href="zhurnal-program.css?v=6dc2a589"><link rel="stylesheet" href="zhurnal-pages.css?v=6dc2a589"></head><body>
+<link rel="stylesheet" href="zhurnal.css?v=c34760e0"><link rel="stylesheet" href="zhurnal-program.css?v=c34760e0"><link rel="stylesheet" href="zhurnal-pages.css?v=c34760e0"></head><body>
 
 <header class="hdr">
 <nav class="nl" aria-label="Основное меню"><details class="pm"><summary>Программы</summary>
@@ -34,7 +34,8 @@
 </section>
 <section class="vids psec g" id="video" data-nav="Видео">
 <h2 class="lbl lb" data-n="">Видео о программе</h2>
-<div class="vw"><div class="slot">видео: Олег Агапэ о программе · 10–⁠15 минут</div></div>
+<div class="vw"><figure class="vp is-wait"><div class="vp-f"><span class="vp-m">Олег Агапэ · видео в подготовке</span><span class="vp-t">Остеокоррекция: профессия и обучение</span><span class="vp-b"><span class="vp-d">10–⁠15 минут</span><span class="vp-p" aria-hidden="true"></span></span><span class="vp-l" aria-hidden="true"></span></div></figure></div>
+
 <div class="qs"></div>
 </section>
 <section class="outc psec g" id="rezultaty" data-nav="Чему научитесь">
@@ -72,7 +73,7 @@
 </section>
 <section class="voice psec g" id="otzyvy-p" data-nav="Отзывы">
 <h2 class="hD" data-n="">Кейсы выпускников</h2>
-<div class="cv"><div class="vv slot">видео выпускника · 9:16</div><span class="nm">Елена</span><span class="lbl">«Остеокоррекция»</span></div>
+<div class="cv"><div class="vv"><figure class="vp is-wait is-v"><div class="vp-f"><span class="vp-m">Выпускник МИОТ</span><span class="vp-t">Видео-отзыв выпускника</span><span class="vp-b"><span class="vp-d"></span><span class="vp-p" aria-hidden="true"></span></span><span class="vp-l" aria-hidden="true"></span></div></figure></div><span class="nm">Елена</span><span class="lbl">«Остеокоррекция»</span></div>
 <div class="cr"><span class="n">1,8&nbsp;млн</span><p>рублей выручки за месяц через год после курса</p></div>
 <div class="cb"><span class="lbl">Другие выпускники</span><ul class="casel"><li>Владимир: 12 000 $ в месяц, клиенты из нескольких стран</li><li>Ольга Федотова: пришла без опыта, ведёт стабильную практику</li><li>Дарья Аникеева: сменила профессию, открыла кабинет</li><li>Ольга Никифорова: повысила стоимость услуг вдвое</li><li>Анастасия Синица: выстроила воронку привлечения через соцсети</li></ul><p class="ctax"><a class="btn" href="#zayavka">Хотите такой же результат? Оставьте заявку</a></p></div>
 <div class="vq"></div>
@@ -94,7 +95,9 @@
 </section>
 <section class="vhod psec band g" id="vhod" data-nav="Бесплатная экскурсия">
 <h2 class="lbl lb" data-n="">Бесплатная экскурсия</h2>
-<div class="vw2"><p>Не готовы записаться? Посмотрите бесплатную экскурсию по программе: что это за курс, фрагменты занятий и ответы Олега.</p><div class="acts"><a class="btn" href="https://bot.agape-course.com/58" target="_blank" rel="noopener">Смотреть экскурсию в Telegram</a><a class="tl" href="#zayavka">или узнать стоимость и даты</a></div></div>
+<div class="vw2 vx"><p>Не готовы записаться? Сначала посмотрите курс изнутри.</p></div>
+<div class="vw2 vxb"><div class="acts"><a class="btn" href="https://bot.agape-course.com/58" target="_blank" rel="noopener">Смотреть экскурсию</a><a class="tl" href="#zayavka">или узнать стоимость и даты</a></div></div>
+<div class="xin vxa"><span class="lb">Что внутри</span><ol><li>Что это за курс и чему на нём учат</li><li>Фрагменты занятий</li><li>Ответы Олега Агапэ</li></ol><p class="wh">Бесплатно · <b>откроется в Telegram</b></p></div>
 </section>
 <section class="tt psec band g" id="cena" data-nav="Формат и даты">
 <h2 class="hC" data-n="">Формат и даты</h2>
@@ -196,4 +199,4 @@
  
 })();
 </script>
-</body></html>
+<script>document.querySelectorAll(".vp[data-yt] .vp-f").forEach(function(b){b.addEventListener("click",function(){var f=b.closest(".vp"),i=document.createElement("iframe");i.src="https://www.youtube-nocookie.com/embed/"+f.dataset.yt+"?autoplay=1&rel=0";i.title=b.getAttribute("aria-label");i.allow="autoplay; encrypted-media; picture-in-picture";i.allowFullscreen=true;b.replaceWith(i);i.focus()})})</script></body></html>

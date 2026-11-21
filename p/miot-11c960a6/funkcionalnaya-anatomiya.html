@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.dataset.mode="clean"</script>
-<link rel="stylesheet" href="zhurnal.css?v=6dc2a589"><link rel="stylesheet" href="zhurnal-program.css?v=6dc2a589"><link rel="stylesheet" href="zhurnal-pages.css?v=6dc2a589"></head><body>
+<link rel="stylesheet" href="zhurnal.css?v=c34760e0"><link rel="stylesheet" href="zhurnal-program.css?v=c34760e0"><link rel="stylesheet" href="zhurnal-pages.css?v=c34760e0"></head><body>
 
 <header class="hdr">
 <nav class="nl" aria-label="Основное меню"><details class="pm"><summary>Программы</summary>
@@ -42,8 +42,9 @@
 </div>
 </section>
 <section class="vids psec g" id="video" data-nav="Видео">
-<h2 class="lbl lb" data-n="">Видео о программе</h2>
-<div class="vw"><div class="slot">видео: Олег Агапэ о том, как учить анатомию · YouTube</div></div>
+<h2 class="lbl lb" data-n="">Олег Агапэ об изучении анатомии</h2>
+<div class="vw"><figure class="vp" data-yt="Ix4ECGiJ9t4"><button class="vp-f" type="button" aria-label="Смотреть видео: Почему 90% людей не могут выучить анатомию"><span class="vp-m">Олег Агапэ · YouTube</span><span class="vp-t">Почему 90% людей не могут выучить анатомию</span><span class="vp-b"><span class="vp-d">12 минут</span><span class="vp-p" aria-hidden="true"></span></span><span class="vp-l" aria-hidden="true"></span></button><figcaption>Ролик загрузится с YouTube, когда вы нажмёте на него</figcaption></figure></div>
+<div class="vas xin"><span class="lb">В ролике</span><ol><li>Почему зубрёжка терминов почти не помогает понять тело</li><li>Как учиться через 3D‑анатомию, пальпацию, диссекции и собственное тело</li><li>Пошаговый порядок изучения анатомии</li></ol></div>
 <div class="qs"></div>
 </section>
 <section class="outc psec g" id="rezultaty" data-nav="Чему научитесь">
@@ -72,7 +73,9 @@
 </section>
 <section class="vhod psec band g" id="vhod" data-nav="Бесплатная экскурсия">
 <h2 class="lbl lb" data-n="">Бесплатная экскурсия</h2>
-<div class="vw2"><p>Не готовы записаться? Посмотрите бесплатную экскурсию по курсу: как устроены занятия и чем функциональная анатомия отличается от академической.</p><div class="acts"><a class="btn" href="https://agape-course.com/fa_enter" target="_blank" rel="noopener">Смотреть экскурсию</a><a class="tl" href="#zayavka">или узнать стоимость и даты</a></div></div>
+<div class="vw2 vx"><p>Не готовы записаться? Сначала посмотрите курс изнутри.</p></div>
+<div class="vw2 vxb"><div class="acts"><a class="btn" href="https://agape-course.com/fa_enter" target="_blank" rel="noopener">Смотреть экскурсию</a><a class="tl" href="#zayavka">или узнать стоимость и даты</a></div></div>
+<div class="xin vxa"><span class="lb">Что внутри</span><ol><li>Как устроены занятия</li><li>Чем функциональная анатомия отличается от академической</li></ol><p class="wh">Бесплатно · <b>откроется на сайте курса</b></p></div>
 </section>
 <section class="tt psec band g" id="cena" data-nav="Формат и даты">
 <h2 class="hC" data-n="">Формат и даты</h2>
@@ -174,4 +177,4 @@
  
 })();
 </script>
-</body></html>
+<script>document.querySelectorAll(".vp[data-yt] .vp-f").forEach(function(b){b.addEventListener("click",function(){var f=b.closest(".vp"),i=document.createElement("iframe");i.src="https://www.youtube-nocookie.com/embed/"+f.dataset.yt+"?autoplay=1&rel=0";i.title=b.getAttribute("aria-label");i.allow="autoplay; encrypted-media; picture-in-picture";i.allowFullscreen=true;b.replaceWith(i);i.focus()})})</script></body></html>
