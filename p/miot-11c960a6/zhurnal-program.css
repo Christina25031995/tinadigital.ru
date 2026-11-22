@@ -60,7 +60,7 @@ html{scroll-padding-top:calc(var(--hh,70px) + 60px)}
 .who .axis.in i{transform:none}
 .who .pw{grid-column:1/13;grid-row:3;margin-top:7vh}.who .yes{grid-column:1/8;grid-row:4;margin-top:9vh}.who .no{grid-column:9/13;grid-row:4;margin-top:15vh}.who .wn{grid-column:2/8;grid-row:5;margin-top:3vh}
 .runin{font:400 var(--f-h3)/1.3 "Literata",Georgia,serif;letter-spacing:-.01em;margin:0}
-.runin b{font-weight:400;color:var(--gold);padding:0 .18em}
+.runin b{font-weight:400;color:var(--gold);padding:0 .04em}
 .who .base{font-size:var(--f-body);color:var(--mut);margin:16px 0 0;max-width:34em}
 .cond{list-style:none;margin:0;padding:0;font-size:var(--f-body);line-height:1.45}.cond li{padding:10px 0;border-top:1px solid var(--rule)}
 .mlab{display:none}
@@ -333,6 +333,9 @@ button.stop{cursor:pointer}button.stop .st{text-decoration:underline;text-decora
 .sh-sec a{grid-template-columns:1fr!important}
 /* общий мобильный порядок */
 @media(max-width:900px){.psec{padding-top:8vh;padding-bottom:8vh}.psec.tt{padding-top:6.5vh;padding-bottom:6.5vh}.psec>*,.p-hero>*{grid-column:1/13!important;grid-row:auto!important}}
+/* 22.11: декоративная линия первого экрана не расширяет страницу на телефоне */
+@media(max-width:900px){.p-hero{overflow-x:clip}}
+@media(max-width:900px){.pains{grid-template-columns:minmax(0,1fr)}.pains li{grid-template-columns:44px minmax(0,1fr)}.pains li>*{min-width:0;overflow-wrap:break-word}}
 
 /* 21.11 · вставки: видео и экскурсии */
 .vp{margin:0}
