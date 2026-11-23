@@ -166,7 +166,7 @@ div.ask{display:block;width:fit-content}
 .media .mdup{display:flex}
 .media .smi{flex:none;display:flex;align-items:center;height:64px;padding:0 clamp(26px,3vw,46px);color:var(--mut);filter:grayscale(1);opacity:.75;transition:opacity .25s,color .25s}
 .media .smi:hover,.media .smi:focus-visible{opacity:1;color:var(--ink)}
-.media .smi img{display:block;width:auto;max-width:170px}
+.media .smi img{display:block;width:auto;max-width:200px}
 .media .smw{font:600 clamp(19px,1.6vw,24px)/1 Onest,system-ui,sans-serif;letter-spacing:-.02em;white-space:nowrap}
 @keyframes miot-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:900px){.media .smi{height:52px;padding:0 22px}.media .mq-t{animation-duration:55s}.media .mq{margin-top:3vh;grid-row:auto}.media .mtext{grid-column:1/13!important;grid-row:auto!important}}
