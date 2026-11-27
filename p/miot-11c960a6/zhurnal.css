@@ -248,6 +248,7 @@ div.ask{display:block;width:fit-content}
 .s11 .more{grid-column:5/9;grid-row:3;margin-top:3vh}/* ‹12› */
 .s12 .t{grid-column:2/8;grid-row:2;font-size:var(--f-h2);line-height:1.05;margin:4vh 0 0;letter-spacing:-.02em}
 .s12 .sb{grid-column:2/7;grid-row:3;margin-top:3vh}.s12 .sb>p{font-size:var(--f-body);margin:0}
+.s12 .sb>p.fnote{margin-top:12px;font-size:var(--f-cap);color:var(--mut)}
 .s12 form{grid-column:8/12;grid-row:2/5;margin-top:12vh;display:grid;gap:18px}
 .s12 input,.s12 select{font:inherit;background:transparent;border:0;border-bottom:1px solid var(--ink);padding:10px 0;color:var(--ink);border-radius:0}
 .s12 label{font-size:var(--f-cap);color:var(--mut)}.s12 label input{width:auto;border:0}
